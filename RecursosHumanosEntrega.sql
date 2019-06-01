@@ -289,19 +289,7 @@ insert into Categoria values (1,'Tecnico'),
                              (3,'Master');
 
 insert into Parentesco (Parentesco) values('Papá'),('Mamà'),('tio/a'), ('Hijo/a');
-
-    Id_datos 
-    Num_documento 
-    Residencia 
-    Lugar_expedicion 
-    Fecha_expedicion 
-    Profesion_oficio 
-    Id_estado_civil 
-    Id_identidad 
-    Fecha_expiracion 
-    Num_ISSS 
-    AFP 
-    NUP    
+        
 
 insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Id_identidad, Fecha_expiracion, Num_ISSS, AFP, NUP)
  values (1,'01618181-4','avenida el colibri casa 61D','san salvador','20-08-2017','empresaria',1,1,'21-08-2022','20A08713','2020159','96374115'),
@@ -395,7 +383,7 @@ CREATE TRIGGER notificacionSalud AFTER INSERT ON Salud
    INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Añadido Registro de Salud', 2);
 
 
-SELECT Sum(A.Sueldo_plaza) FROM Area_laboral as A INNER JOIN Puesto as P ON P.Id_puesto = A.Id_puesto INNER JOIN Area as AR ON AR.Id_area = A.Id_area
+SELECT Sum(A.Sueldo_plaza) FROM Area_laboral as A INNER JOIN Puesto as P ON P.Id_puesto = A.Id_puesto INNER JOIN Area as AR ON AR.Id_area = A.Id_area;
 
 SELECT SUM(A.Sueldo_plaza) FROM Colaborador as C INNER JOIN Area_detalle as AD ON AD.Id_Colaborador = C.Id_Colaborador
 INNER JOIN Area_laboral as A ON A.Id_laboral = AD.Id_laboral WHERE C.Genero = 'M';
@@ -409,7 +397,7 @@ INNER JOIN Area_laboral as A ON A.Id_laboral = AD.Id_laboral WHERE C.Genero = 'M
 SELECT AVG(A.Sueldo_plaza) FROM Colaborador as C INNER JOIN Area_detalle as AD ON AD.Id_Colaborador = C.Id_Colaborador
 INNER JOIN Area_laboral as A ON A.Id_laboral = AD.Id_laboral WHERE C.Genero = 'F';
 
-SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion WHERE R.Id_religion = ?;
+SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion WHERE R.Id_religion = '';
 
 SELECT R.Religion, count(R.Id_religion) FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion Group By R.Id_religion;
 
