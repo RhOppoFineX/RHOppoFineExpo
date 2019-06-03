@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
 
-    <title>Tabla | Datos-identificación </title>
+    <title>Tabla | Datos-Usuarios </title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -129,11 +129,7 @@
 											<li><a href="religion.html" class="">Religión</a></li>
 										</ul>
 									</div>
-								</li>
-								<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
-								<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
-								<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
-								<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>									
+								</li>									
 								<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 								<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 								<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
@@ -150,66 +146,89 @@
 				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos de identifiación</h3>
+							<h3 class="page-title">Datos de los usuarios</h3>
 							<div class="col-md-12">
-								<!-- TABLE STRIPED -->
-							<div class="panel">
+                                <!-- TABLE STRIPED -->
+                                <div class="panel">
 									<div class="panel-heading">
-										<h3 class="panel-title">Datos de identificación</h3>
+										<h3 class="panel-title">Datos de los usuarios</h3>
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped">
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Nombres</th>
-													<th>Documento</th>
-													<th>Residencia</th>
-													<th>Municipio</th>
-													<th>Departamento</th>
-													<th>Profesion</th>
-													<th>E. familiar</th>
+                                                    <th>Nombres</th>
+                                                    <th>Apellidos</th>
+                                                    <th>Correo</th>
+                                                    <th>Tipo usuario</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
 													<td>1</td>
-													<td>Joel Novoa.</td>
-													<td>08760472-0</td>
-													<td>Salvadoreña.</td>	
-													<td>Mejicanos.</td>
-													<td>San Salvador.</td>
-													<td>Maestro.</td>
-													<td>Soltero.</td>										
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+                                                    <td>Miguel</td>
+                                                    <td>Lopéz</td>	
+                                                    <td>ml@gmail.com</td>	
+                                                    <td>Aprendis</td>							
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalUsu">Modificar</button></td>
 													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
-													
 												</tr>
 												<tr>
 													<td>2</td>	
-													<td>Joel Novoa.</td>
-													<td>78954098-0.</td>
-													<td>Salvadoreña.</td>
-													<td>Santa Tecla</td>
-													<td>La libertad.</td>
-													<td>Maestro.</td>
-													<td>Soltero.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+                                                    <td>Sabrina</td>
+                                                    <td>Galdamez</td>
+                                                    <td>sg@gmail.com</td>
+                                                    <td>Trabajador</td>
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalUsu">Modificar</button></td>
 													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
 													<td>3</td>
-													<td>Joel Novoa.</td>
-													<td>31204795-7.</td>
-													<td>Mexicana.</td>
-													<td>El carmen.</td>
-													<td>Cuscatlán.</td>
-													<td>Informatico</td>
-													<td>Casado.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+                                                    <td>Juan</td>
+                                                    <td>Medrano</td>
+                                                    <td>jm@gmail.com</td>
+                                                    <td>Experimentado</td>
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalUsu">Modificar</button></td>
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+                                <div class="panel">
+									<div class="panel-heading">
+										<h3 class="panel-title">Detalles de los usuarios</h3>
+									</div>
+									<div class="panel-body no-padding">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Tipo usuario</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Aprendis</td>									
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalDeta">Modificar</button></td>
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+												</tr>
+												<tr>
+													<td>2</td>	
+													<td>Trabajador</td>
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalDeta">Modificar</button></td>
 													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 													
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Experimentado</td>
+													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModalDeta">Modificar</button></td>
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -222,12 +241,12 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-			<!-- Modal -->
-<div class="modal fade bd-modificar-modal-xl" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<!-- Modal 1-->
+<div class="modal fade bd-modificar-modal-xl" id="ModalUsu" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de identifiación del Colaborador</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de los Usuarios</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -235,99 +254,33 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form>
-							<div class="form-row">
-								<div class="form-group col-md-5"><!--Nombres y Apellidos-->
-									<label for="inputEmail4">Documento de Identidad</label>
-									<label class="fancy-radio">
-										<input name="gender" value="male" type="radio">
-										<span><i></i>Dui</span>
-									</label>
-									<label class="fancy-radio">
-										<input name="gender" value="female" type="radio">
-										<span><i></i>Carnet de Residente</span>
-									</label>
-									<input type="Text" class="form-control" id="inputEmail4" placeholder="Documento">									
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputPassword4">Nombres</label>
-									<input type="Text" class="form-control" id="inputPassword4" placeholder="Nombres">
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputPassword4">Apellidos</label>
-									<input type="Text" class="form-control" id="inputPassword4" placeholder="Apellidos">
-								</div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputPassword4">Nombres</label>
+                                <input type="Text" class="form-control" id="nombre" placeholder="Nombres">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputPassword4">Apellidos</label>
+                                <input type="Text" class="form-control" id="apellido" placeholder="Apellidos">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleInputEmail1">Correo electonico</label>
+                                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Correo Institucional">
+                                <small id="emailHelp" class="form-text text-muted"></small>
+                            </div>
+                        </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputTipo">Tipo usuario</label>
+                                <select id="Tipos" class="form-control">
+                                        <option>Aprendis</option>
+                                        <option>Trabajador</option>
+                                        <option>Experimentado</option>
+                                        <option>Prueba</option>
+                                        <option>Ingresado</option>
+                                </select>									
+                                
+                            </div>
 							</div>
-							<div class="form-group col-md-4"><!--Genero-->
-									<label for="inputGenero">Departamento</label>
-									<select id="inputGenero" class="form-control">											
-										<option>San Salvador</option>
-										<option>Chalatenango</option>
-									</select>
-							</div>
-
-							<div class="form-group col-md-4"><!--Genero-->
-								<label for="inputFecha">Municipio</label>
-								<select id="inputFecha" class="form-control">											
-									<option>Mejicanos</option>
-									<option>San Salvador</option>
-								</select>
-							</div>
-
-							<div class="form-group col-md-4">
-								<label for="inputAddress2">Profesión u Oficio</label>
-								<input type="text" class="form-control" id="inputAddress2" placeholder="Profesion">
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-											<label for="inputNacionalidad">Nacionalidad</label>
-									<select id="inputNacionalidad" class="form-control">											
-										<option>Salvadoreño/a</option>
-										<option>Guatmalteco/a</option>
-									</select>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputCivil">Estado Civil</label>
-									<select id="inputCivil" class="form-control">
-										<option>Soltero/a</option>
-										<option>Casado/a</option>
-										<option>Divorciado/a</option>
-									</select>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputReligion">Religión</label>
-									<select id="inputReligion" class="form-control">
-											<option>Catolico/a</option>
-											<option>Evangelico/a</option>
-											<option>Mormon/a</option>
-											<option>Testigo de Jehova</option>
-											<option>Amnostico</option>
-									</select>									
-									
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="inputCelular">Telefono Celular</label>
-										<input type="Text" class="form-control" id="inputCelular" placeholder="Celular">
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="inputTelefono-Casa">Telefono de Casa</label>
-										<input type="Text" class="form-control" id="inputTelefono-Casa" placeholder="Tel. Casa">
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="inputDui">DUI</label>
-										<input type="Text" class="form-control" id="inputDui" placeholder="DUI">
-								</div>
-							</div>
-
-							<div class="form-group col-md-12">
-									<label for="exampleInputEmail1">Correo Institucional</label>
-									<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Institucional">
-									<small id="emailHelp" class="form-text text-muted"></small>
-							</div>
-							</div>
-
 							<!-- <div class="form-group">
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" id="gridCheck">
@@ -345,7 +298,47 @@
 			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
-	</div>  <!--Fin del modal-->
+    </div>  <!--Fin del modal 1-->
+    
+    <!-- Modal 2-->
+    <div class="modal fade bd-modificar-modal-xl" id="ModalDeta" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalElmo">Detalle de Tipo Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="exampleInputTipo1">Tipo usuario</label>
+                                    <input type="text" class="form-control" id="Tipo1" aria-describedby="tipoHelp" placeholder="Tipo usuario">
+                                    <small id="tipoHelp" class="form-text text-muted"></small>
+                                </div>
+                            </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                        <label class="form-check-label" for="gridCheck">
+                                            Check me out
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button> -->
+                            </form>
+                </div>			  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+            </div>
+            </div>
+        </div>
 	
 	
 		<!--Modal Deshabilitar-->
@@ -364,7 +357,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				 <h2>¿Desea Deshabilitar al Colaborador?</h2>
+				 <h2>¿Desea Deshabilitar?</h2>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
