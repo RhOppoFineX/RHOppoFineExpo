@@ -28,6 +28,7 @@
 
 	<div id="wrapper">
 		
+<<<<<<< HEAD:Frontend/colaboradores.php
 		<!-- NAVBAR -->
 			<nav class="navbar navbar-default navbar-fixed-top">
 					<div class="brand">
@@ -127,6 +128,12 @@
 					</div>
 				</div>
 				<!-- END LEFT SIDEBAR -->
+=======
+		<?php
+		require_once '../backend/core/helpers/menu.php';
+		?>
+
+>>>>>>> 7f3581f59b800e5b608beb7b5aa994a572938aac:Frontend/colaboradores.php
 				<!--Incio de la Table-->
 				<div class="main">
 					<div class="main-content">

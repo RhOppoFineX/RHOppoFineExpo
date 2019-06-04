@@ -27,9 +27,17 @@
 <body>
 
 	<div id="wrapper">
+<<<<<<< HEAD:Frontend/datos-colaborador.php
 			<?php
 				require_once '../backend/core/helpers/menu.php';	
 			?>
+=======
+
+		<?php
+		require_once '../backend/core/helpers/menu.php';
+		?>
+	
+>>>>>>> 7f3581f59b800e5b608beb7b5aa994a572938aac:Frontend/datos-colaborador.php
 				<!--Incio de la Table-->
 				<div class="main">
 					<div class="main-content">
