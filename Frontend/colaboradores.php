@@ -27,7 +27,7 @@
 <body>
 
 	<div id="wrapper">
-
+		
 		<!-- NAVBAR -->
 			<nav class="navbar navbar-default navbar-fixed-top">
 					<div class="brand">
@@ -103,23 +103,7 @@
 						<nav><!--Principal-->
 							<ul class="nav">
 								<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Principal</span></a></li>
-							<!--Cruds-->
-							<li>
-									<a href="#subPagesCruds" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Datos Colaborador</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-									<div id="subPagesCruds" class="collapse ">
-										<ul class="nav"><!--Colaborador-->
-											<li><a href="datos-colaborador.html" class=""><i class="lnr lnr-dice"></i> <span>Datos Personales</span></a></li>
-											<li><a href="datos-identificacion.html" class=""><i class="lnr lnr-dice"></i> <span>Identificación</span></a></li>
-											<li><a href="datos-familiares.html" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
-											<li><a href="datos-educacion.html" class=""><i class="lnr lnr-dice"></i> <span>Educación</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Horarios</span></a></li>										
-											</ul><!--Colaborador-->
-										</div>
-								</li><!--/Cruds-->													
+							<li><a href="datos-colaborador.php" class=""><i class="lnr lnr-file-empty"></i> <span>Colaboradores</span></a></li>													
 								<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 								<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 								<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
@@ -358,7 +342,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-warning" data-dismiss="modal">Ver</button>
+					<a type="button" class="btn btn-warning" href="datos-colaborador.php">Ver</a>
 				</div>
 			</div>
 		</div>
