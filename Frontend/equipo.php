@@ -178,18 +178,18 @@
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalPuesto">Datos equipo</h5>
+			<h5 class="modal-title" id="ModalTipoEquipo">Datos tipo equipo</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="registro-tipoequipo" >
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputPuesto1">Equipo</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="Equipo...">
+											<label for="exampleInputTipoEquipo">Tipo equipo</label>
+											<input type="text" class="form-control" id="TipoEquipo" aria-describedby="puestoHelp" placeholder="Tipo equipo...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
@@ -202,25 +202,26 @@
 			<button type="button" class="btn btn-primary" data-dismiss="modal">Modificar</button>
 		</div>
 		</div>
-	</div>  <!--Fin del modal 1-->
+	</div>  
+	<!--Fin del modal 1-->
 
 	<!-- Modal 2-->
 <div class="modal fade bd-modificar-modal-xl" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-scrollable" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="ModalArea">Datos tipo equipo</h5>
+				<h5 class="modal-title" id="ModalEquipo">Datos equipo</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form>		
+						<form method="POST" id="registro-equipo">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
-												<label for="exampleInputArea1">Tipo equipo</label>
-												<input type="text" class="form-control" id="Area1" aria-describedby="areaHelp" placeholder="Tipo equipo...">
+												<label for="exampleInputEquipo">Equipo</label>
+												<input type="text" class="form-control" id="Equipo" aria-describedby="areaHelp" placeholder="Equipo...">
 												<small id="areaHelp" class="form-text text-muted"></small>
 										</div>
 								</div>
@@ -243,26 +244,26 @@
 				<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 			</div>
 			</div>
-		</div>  <!--Fin del modal 2-->
+		</div> 
+		 <!--Fin del modal 2-->
 
         <!--Inicio del modal 3-->
-
         <div class="modal fade bd-modificar-modal-xl" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalPuesto">Datos total equipo</h5>
+                    <h5 class="modal-title" id="ModalTotalEquipo">Datos total equipo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                            <form>
+                            <form method="POST" id="registro-totalequipo">
                                     <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                    <label for="exampleInputPuesto1">Total equipo</label>
-                                                    <input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="total equipo...">
+                                                    <label for="exampleInputTotalequipo">Total equipo</label>
+                                                    <input type="text" class="form-control" id="Totalequipo" aria-describedby="puestoHelp" placeholder="total equipo...">
                                                     <small id="puestoHelp" class="form-text text-muted"></small>
                                             </div>
                                     </div>
@@ -276,7 +277,6 @@
                 </div>
                 </div>
             </div> 
-
         <!--Fin del modal 3-->
 
 		<!--Modal Deshabilitar-->
@@ -284,7 +284,7 @@
 	<!-- Button trigger modal -->
 
 	
-	<!-- Modal -->
+	<!-- Inicio Modal deshabilitar -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

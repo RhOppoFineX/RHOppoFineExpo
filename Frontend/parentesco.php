@@ -94,11 +94,11 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="registro-parentesco">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputPuesto1">Parentesco</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="categoria...">
+											<label for="exampleInputParentesco">Parentesco</label>
+											<input type="text" class="form-control" id="Parentesco" aria-describedby="puestoHelp" placeholder="parentesco...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>

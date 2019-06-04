@@ -94,11 +94,11 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="registro-estadocivil">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputPuesto1">Estado civil</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="estado civil...">
+											<label for="exampleInputEstadoCivil">Estado civil</label>
+											<input type="text" class="form-control" id="EstadoCivil" aria-describedby="puestoHelp" placeholder="estado civil...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
