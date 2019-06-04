@@ -94,11 +94,11 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form><!--Inicio del formilario pongan metohd="POST" y un id="Elnombre"  todo esto en los atributos de form-->
 							<div class="form-row">
 									<div class="form-group col-md-12">
 											<label for="exampleInputPuesto1">Estado civil</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="categoria...">
+											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="categoria..."><!--Cambiarle el Id a cada input de modo que sea unico y no se repita-->
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
