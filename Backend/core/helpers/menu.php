@@ -90,6 +90,21 @@
                             </ul><!--Colaborador-->
                         </div>
                 </li><!--/Cruds-->
+                <li>
+						<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Mantenimientos</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+						<div id="subPages" class="collapse ">
+						<ul class="nav">
+						<li><a href="usuarios.html" class="">Usuarios</a></li>
+						<li><a href="puesto.html" class="">Puesto</a></li>
+                        <li><a href="religion.html" class="">Religión</a></li>
+                        <li><a href="equipo.html" class="">Equipo</a></li>
+                        <li><a href="estado-civil" class="">Estado civil</a></li>
+                        <li><a href="categoria-educacion.html" class="">Categoria educación</a></li>
+                        <li><a href="parentesco.html" class="">Parentesco</a></li>
+                        <li><a href="educacion.html" class="">Educacion</a></li>
+						</ul>
+						</div>
+				</li>
                 <li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
                 <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
