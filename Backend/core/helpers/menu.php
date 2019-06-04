@@ -82,11 +82,11 @@
 											<li><a href="datos-identificacion.php" class=""><i class="lnr lnr-dice"></i> <span>Identificación</span></a></li>
 											<li><a href="datos-familiares.php" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
 											<li><a href="datos-educacion.php" class=""><i class="lnr lnr-dice"></i> <span>Educación</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
-											<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Horarios</span></a></li>										
+											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
+											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
+											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
+											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
+											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Horarios</span></a></li>										
 											</ul><!--Colaborador-->
 										</div>
 								</li><!--/Cruds-->
@@ -98,20 +98,22 @@
 											<li><a href="puesto.php" class="">Puesto</a></li>
                                             <li><a href="religion.php" class="">Religión</a></li>
                                             <li><a href="equipo.php" class="">Equipo</a></li>
-                                            <li><a href="estado-civil" class="">Estado civil</a></li>
+                                            <li><a href="estado-civil.php" class="">Estado civil</a></li>
                                             <li><a href="categoria-educacion.php" class="">Categoria educación</a></li>
+											<li><a href="educacion.php" class="">Información Educación</a></li>
                                             <li><a href="parentesco.php" class="">Parentesco</a></li>
-                                            <li><a href="educacion.php" class="">Educacion</a></li>
+                                            <li><a href="idioma.php" class="">Idioma</a></li>
+											<li><a href="nacionalidad.php" class="">Nacionalidad</a></li>
 										</ul>
 									</div>
 								</li>									
-								<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
-								<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
-								<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
-								<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>					
-								<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-								<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-								<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+								<li><a href="elements.php" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+								<li><a href="charts.php" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+								<li><a href="panels.php" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
+								<li><a href="notifications.php" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>					
+								<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+								<li><a href="typography.php" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+								<li><a href="icons.php" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 							</ul>
 						</nav>
 					</div>
