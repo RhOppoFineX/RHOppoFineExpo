@@ -72,7 +72,7 @@
 					<div class="sidebar-scroll">
 						<nav><!--Principal-->
 							<ul class="nav">
-								<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Principal</span></a></li>
+								<li><a href="index.php" class="active"><i class="lnr lnr-home"></i> <span>Principal</span></a></li>
 							<!--Cruds-->
 							<li>
 									<a href="#subPagesCruds" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Datos Colaborador</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
