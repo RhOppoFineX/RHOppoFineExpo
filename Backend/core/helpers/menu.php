@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
 					<div class="brand">
-						<a href="index.html"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" class="img-responsive logo" width="100px" height="100px"></a>
+						<a href="index.php"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" class="img-responsive logo" width="100px" height="100px"></a>
 					</div>
 					<div class="container-fluid">
 						<div class="navbar-btn">
