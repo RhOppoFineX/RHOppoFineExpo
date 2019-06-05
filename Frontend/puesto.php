@@ -42,7 +42,7 @@
 										<h3 class="panel-title">Datos del Puesto</h3>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="TablaPuesto">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -79,7 +79,7 @@
 										<h3 class="panel-title">Datos del Área</h3>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="TablaArea">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -116,7 +116,7 @@
 										<h3 class="panel-title">Detalle de las Áreas</h3>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="TablaDetArea">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -170,11 +170,11 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form metohd="post" id="DatosPuesto">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 											<label for="exampleInputPuesto1">Puesto</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="Puesto">
+											<input type="text" class="form-control" id="PuestoID" aria-describedby="puestoHelp" placeholder="Puesto">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
@@ -183,8 +183,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal 1-->
@@ -201,11 +201,11 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form>		
+						<form metohd="post" id="DatosArea">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="exampleInputArea1">Área</label>
-												<input type="text" class="form-control" id="Area1" aria-describedby="areaHelp" placeholder="Área">
+												<input type="text" class="form-control" id="AreaID" aria-describedby="areaHelp" placeholder="Área">
 												<small id="areaHelp" class="form-text text-muted"></small>
 										</div>
 								</div>
@@ -224,8 +224,8 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 			</div>
 			</div>
 		</div>  <!--Fin del modal 2-->
@@ -242,12 +242,11 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form>
-		
+						<form metohd="post" id="DetalleArea">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="exampleInputExpe1">Experiencia laboral</label>
-												<input type="text" class="form-control" id="Expe1" aria-describedby="expeHelp" placeholder="Experiencia laboral">
+												<input type="text" class="form-control" id="DetAreaID" aria-describedby="expeHelp" placeholder="Experiencia laboral">
 												<small id="expeHelp" class="form-text text-muted"></small>
 										</div>
 										<div class="form-group col-md-12">
@@ -271,8 +270,8 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 			</div>
 			</div>
 		</div>  <!--Fin del modal 3-->
@@ -296,8 +295,8 @@
 				 <h2>¿Desea Deshabilitar?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>

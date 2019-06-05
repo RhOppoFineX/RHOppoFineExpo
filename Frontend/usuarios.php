@@ -42,7 +42,7 @@
 										<h3 class="panel-title">Datos de los usuarios</h3>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="TablaUsuario">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -91,7 +91,7 @@
 										<h3 class="panel-title">Detalles de los usuarios</h3>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="TablaDetUsuario">
 											<thead>
 												<tr>
 													<th>#</th>
@@ -141,7 +141,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="post" id="DatosUsuarios">
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputPassword4">Nombres</label>
@@ -182,8 +182,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
     </div>  <!--Fin del modal 1-->
@@ -200,11 +200,11 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                        <form>
+                        <form method="post" id="DetalleUsuarios">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="exampleInputTipo1">Tipo usuario</label>
-                                    <input type="text" class="form-control" id="Tipo1" aria-describedby="tipoHelp" placeholder="Tipo usuario">
+                                    <input type="text" class="form-control" id="DetUsuarioID" aria-describedby="tipoHelp" placeholder="Tipo usuario">
                                     <small id="tipoHelp" class="form-text text-muted"></small>
                                 </div>
                             </div>
@@ -222,8 +222,8 @@
                 </div>			  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
             </div>
             </div>
         </div>
@@ -248,8 +248,8 @@
 				 <h2>¿Desea Deshabilitar?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>
