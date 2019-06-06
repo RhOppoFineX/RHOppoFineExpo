@@ -92,10 +92,10 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="post" id="DatosReligion">
 							<div class="form-group col-md-12">
 									<label for="exampleInputReligion1">Religión</label>
-									<input type="text" class="form-control" id="exampleInputReligion1" aria-describedby="religionHelp" placeholder="Religión">
+									<input type="text" class="form-control" id="ReligionID" aria-describedby="religionHelp" placeholder="Religión">
 									<small id="religionHelp" class="form-text text-muted"></small>
 							</div>
 						</form>

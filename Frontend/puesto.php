@@ -170,7 +170,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form metohd="post" id="DatosPuesto">
+					<form method="post" id="DatosPuesto">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 											<label for="exampleInputPuesto1">Puesto</label>
@@ -201,7 +201,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form metohd="post" id="DatosArea">		
+						<form method="post" id="DatosArea">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="exampleInputArea1">Área</label>
@@ -242,7 +242,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form metohd="post" id="DetalleArea">		
+						<form method="post" id="DetalleArea">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="exampleInputExpe1">Experiencia laboral</label>
