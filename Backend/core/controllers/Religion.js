@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-
+    showTable();//al instante para cargar la tabla con la información
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
@@ -23,8 +23,8 @@ function fillTable(filas)
         `;
 
    });
-
-   $('#tabla-religion').html(contenido);
+   //id del tbody en la tabla correspondiente
+   $('#tabla-religion').html(contenido); 
       
 }
 
@@ -47,6 +47,8 @@ function showTable()
                 sweetAlert(4, resultado.exception, null);
             }                
             fillTable(resultado.dataset);
+            //dataset es el resultado de la consulta que devuelve la API
+            //Este resultado es un array con los datos  
 
         }else{
             console.log(reponse);
@@ -66,7 +68,7 @@ function modalCreate()
     $('#modal-create').modal('open');
 }
 
-/*este meetodo se ejecuta al darle click al boton modificar
+/*este metodo se ejecuta al darle click al boton modificar
 y lo que hace es extraer el Id del registro y con este consultar a la base de datos a traves de los modelos, la informacion del registro que queremos modificar*/
 function actualizarModal(Id)
 {   //Id_religion es el parametro para la consulta
@@ -87,9 +89,11 @@ function actualizarModal(Id)
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
 
             if(resultado.status)
-            {
-                $('#Religion').val(resultado.dataset.Religion);
-                $('#actualizarReligion').modal('show');
+            {   //dataset es el resultado de la consulta que devuelve la API
+                //Este resultado es un array con los datos           
+                $('#Religion').val(resultado.dataset.Religion);//id de cada input
+                //en caso de que alla más input ponen sus respectivos id
+                $('#religionModificar').modal('show');//id del modal modificar
             }else{
                 sweetAlert(2, resultado.exception, null);
             }
@@ -105,6 +109,103 @@ function actualizarModal(Id)
     });
 }
 
+//Función para modificar un registro seleccionado previamente
+$('#actualizarReligion').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: api + 'update',
+        type: 'post',
+        data: $('#actualizarReligion').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                $('#modal-update').modal('close');
+                showTable();
+                sweetAlert(1, result.message, null);
+            } else {
+                sweetAlert(2, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+//ESTO LO COMENZAREMOS EL VIERNES EN LA TARDE
+
+// Función para crear un nuevo registro
+$('#form-create').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: api + 'create',
+        type: 'post',
+        data: $('#form-create').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                $('#form-create')[0].reset();
+                $('#modal-create').modal('close');
+                showTable();
+                sweetAlert(1, result.message, null);
+            } else {
+                sweetAlert(2, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+// Función para mostrar los resultados de una búsqueda
+$('#form-search').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: api + 'search',
+        type: 'post',
+        data: $('#form-search').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                fillTable(result.dataset);
+                sweetAlert(1, result.message, null);
+            } else {
+                sweetAlert(3, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
 
 
 
