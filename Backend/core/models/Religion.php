@@ -73,7 +73,12 @@ class Religion extends Validator
             return Database::getRows($sql, $parametros);
         }
 
-                        
+        public function getReligionModal()
+        {
+            $sql = "SELECT * FROM Religion WHERE Id_religion = ?";
+            $parametros = array($this->Id);
+            return Database::getRow($sql, $parametros);
+        }                       
 
 }
 ?>

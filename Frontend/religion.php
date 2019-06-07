@@ -49,25 +49,25 @@
 													<th>Religion</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="tabla-religion">
 												<tr>
 													<td>1</td>
 													<td>Catolico</td>									
 													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
 												</tr>
 												<tr>
 													<td>2</td>	
 													<td>Protestante</td>
 													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>Testigo de Jehova</td>
 													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -92,28 +92,19 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="DatosReligion">
+					<form method="post" id="actualizarReligion">
 							<div class="form-group col-md-12">
-									<label for="exampleInputReligion1">Religión</label>
-									<input type="text" class="form-control" id="ReligionID" aria-describedby="religionHelp" placeholder="Religión">
+									<label for="Religion">Religión</label>
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión">
 									<small id="religionHelp" class="form-text text-muted"></small>
 							</div>
 						</form>
-					</div>
-							<!-- <div class="form-group">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="gridCheck">
-									<label class="form-check-label" for="gridCheck">
-										Check me out
-									</label>
-								</div>
-							</div>
-							<button type="submit" class="btn btn-primary">Sign in</button> -->					
+					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal-->
@@ -125,7 +116,7 @@
 
 	
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -138,17 +129,14 @@
 				 <h2>¿Desea Deshabilitar?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!--Fin del modal Deshabilitar-->	
-
-
-
+	<!--Fin del modal Deshabilitar-->
 
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -157,6 +145,7 @@
 	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
+	
 	<script>
 	// $(function() {
 	// 	var data, options;
