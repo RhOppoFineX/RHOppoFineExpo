@@ -135,7 +135,7 @@
 
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/"></script>	
+	<script src="../Backend/core/controllers/Religion.js"></script>	
 
 </body>
 </html>
