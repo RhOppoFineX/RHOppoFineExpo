@@ -66,8 +66,8 @@
 													<td>San Salvador.</td>
 													<td>Maestro.</td>
 													<td>Soltero.</td>										
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
@@ -79,8 +79,8 @@
 													<td>La libertad.</td>
 													<td>Maestro.</td>
 													<td>Soltero.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
@@ -92,8 +92,8 @@
 													<td>Cuscatlán.</td>
 													<td>Informatico</td>
 													<td>Casado.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
 													
 												</tr>
 											</tbody>
@@ -113,13 +113,13 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de identifiación del Colaborador</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="registro-datos-identificacion"> 
 							<div class="form-row">
 								<div class="form-group col-md-5"><!--Nombres y Apellidos-->
 									<label for="inputEmail4">Documento de Identidad</label>
@@ -226,8 +226,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal-->
@@ -244,7 +244,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -252,8 +252,8 @@
 				 <h2>¿Desea Deshabilitar al Colaborador?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>

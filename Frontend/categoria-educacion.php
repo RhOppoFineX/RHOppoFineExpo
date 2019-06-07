@@ -55,20 +55,20 @@
 												<tr>
 													<td>1</td>
 													<td>---</td>									
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 												</tr>
 												<tr>
 													<td>2</td>	
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -88,16 +88,16 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="ModalPuesto">Datos categoria</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="registro-categoria"><!--Inicio del formulario pongan metohd="POST" y un id="Elnombre"  todo esto en los atributos de form-->
+					<form method="POST" id="modificar-categoria">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputCategoria">Categoria educacion</label>
+											<label for="Categoria">Categoria educacion</label>
 											<input type="text" class="form-control" id="Categoria" aria-describedby="puestoHelp" placeholder="categoria..."><!--Cambiarle el Id a cada input de modo que sea unico y no se repita-->
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
@@ -107,8 +107,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modificar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modificar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal 1-->
@@ -118,13 +118,13 @@
 	<!-- Button trigger modal -->
 
 	
-	<!-- Modal -->
+	<!-- Modal deshabilitar-->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -132,8 +132,8 @@
 				 <h2>¿Desea Deshabilitarlo?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>

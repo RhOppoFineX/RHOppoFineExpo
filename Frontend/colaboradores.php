@@ -36,12 +36,12 @@
 					</div>
 					<div class="container-fluid">
 						<div class="navbar-btn">
-							<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+							<button type="submit" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 						</div>
 						<form class="navbar-form navbar-left">
 							<div class="input-group">
 								<input type="text" value="" class="form-control" placeholder="Buscar Colaborador">
-								<span class="input-group-btn"><button type="button" class="btn btn-warning">Go</button></span>
+								<span class="input-group-btn"><button type="submit" class="btn btn-warning">Go</button></span>
 							</div>
 						</form>
 						<!-- <div class="navbar-btn navbar-btn-right">
@@ -211,17 +211,17 @@
 		  <div class="modal-content">
 			<div class="modal-header">
 			  <h5 class="modal-title" id="exampleModalScrollableTitle">Datos Personales del Colaborador</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form>
+						<form method="POST" id="modificar-colaborador">
 								<div class="form-row">
 									<div class="form-group col-md-6"><!--Nombres y Apellidos-->
-										<label for="inputEmail4">Nombres</label>
-										<input type="Text" class="form-control" id="inputEmail4" placeholder="Nombres">
+										<label for="nombres-colaborador">Nombres</label>
+										<input type="Text" class="form-control" id="nombres-colaborador" placeholder="Nombres">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="inputPassword4">Apellidos</label>
@@ -229,44 +229,44 @@
 									</div>
 								</div>
 								<div class="form-group col-md-4"><!--Genero-->
-										<label for="inputGenero">Genero</label>
-										<select id="inputGenero" class="form-control">											
+										<label for="genero-colaborador">Genero</label>
+										<select id="genero-colaborador" class="form-control">											
 											<option>Masculino</option>
 											<option>Femenino</option>
 										</select>
 								</div>
 
 								<div class="form-group col-md-4"><!--Genero-->
-									<label for="inputFecha">Fecha de Nacimiento</label>
-									<select id="inputFecha" class="form-control">											
+									<label for="fecha-colaborador">Fecha de Nacimiento</label>
+									<select id="fecha-colaborador" class="form-control">											
 										<option>26-08-2002</option>
 										<option>30-10-2000</option>
 									</select>
 								</div>
 
 								<div class="form-group col-md-4">
-									<label for="inputAddress2">Edad</label>
-									<input type="text" class="form-control" id="inputAddress2" placeholder="16" disabled>
+									<label for="edad-colaborador">Edad</label>
+									<input type="text" class="form-control" id="edad-colaborador" placeholder="16" disabled>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
-												<label for="inputNacionalidad">Nacionalidad</label>
-										<select id="inputNacionalidad" class="form-control">											
+												<label for="nacionalidad-colaborador">Nacionalidad</label>
+										<select id="nacionalidad-colaborador" class="form-control">											
 											<option>Salvadoreño/a</option>
 											<option>Guatmalteco/a</option>
 										</select>
 									</div>
 									<div class="form-group col-md-4">
-										<label for="inputCivil">Estado Civil</label>
-										<select id="inputCivil" class="form-control">
+										<label for="estadoCivil-colaborador">Estado Civil</label>
+										<select id="estadoCivil-colaborador" class="form-control">
 											<option>Soltero/a</option>
 											<option>Casado/a</option>
 											<option>Divorciado/a</option>
 										</select>
 									</div>
 									<div class="form-group col-md-4">
-										<label for="inputReligion">Religión</label>
-										<select id="inputReligion" class="form-control">
+										<label for="religion-colaborador">Religión</label>
+										<select id="religion-colaborador" class="form-control">
 												<option>Catolico/a</option>
 												<option>Evangelico/a</option>
 												<option>Mormon/a</option>
@@ -277,24 +277,24 @@
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputCelular">Telefono Celular</label>
-											<input type="Text" class="form-control" id="inputCelular" placeholder="Celular">
+											<label for="celular-colaborador">Celular</label>
+											<input type="Text" class="form-control" id="celular-colaborador" placeholder="Número celular">
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputTelefono-Casa">Telefono de Casa</label>
-											<input type="Text" class="form-control" id="inputTelefono-Casa" placeholder="Tel. Casa">
+											<label for="telefono-colaborador">Telefono de Casa</label>
+											<input type="Text" class="form-control" id="telefono-colaborador" placeholder="Número Tel. Casa">
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputDui">DUI</label>
-											<input type="Text" class="form-control" id="inputDui" placeholder="DUI">
+											<label for="dui-colaborador">DUI</label>
+											<input type="Text" class="form-control" id="dui-colaborador" placeholder="DUI">
 									</div>
 								</div>
 
 								<div class="form-group col-md-12">
-										<label for="exampleInputEmail1">Correo Institucional</label>
-    								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Institucional">
+										<label for="correo-colaborador">Correo Institucional</label>
+    								<input type="email" class="form-control" id="correo-colaborador" aria-describedby="emailHelp" placeholder="Correo Institucional">
     								<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 								</div>
@@ -312,8 +312,8 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			  <button type="button" class="btn btn-primary" data-dismiss="modal">Modificar</button>
+			  <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			  <button type="submit" class="btn btn-primary" data-dismiss="modal">Modificar</button>
 			</div>
 		  </div>
 		</div>
@@ -340,7 +340,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -348,7 +348,7 @@
 				 <h2>¿Ver más datos de este Colaborador?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
 					<a type="button" class="btn btn-warning" href="datos-colaborador.php">Ver</a>
 				</div>
 			</div>
