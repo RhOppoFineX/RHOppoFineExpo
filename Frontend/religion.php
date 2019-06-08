@@ -21,22 +21,18 @@
 			?>
 								
 				<!--Incio de la Table-->
-				<div class="main">
-					<div class="container"><!--Boton Agregar--->
-						<div class="row">
-							<div class="col-sm-6 offset-sm-2">
-								<a type="button" class="btn btn-primary btn-lg btn-block" onclick="modalCreate()">Agregar nuevo registro</a>
-							</div>
-						</div>
-					</div>
+				<div class="main">					
 					<div class="main-content">
 						<div class="container-fluid">
 							<h3 class="page-title">Datos de Religión</h3>
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
 							<div class="panel">
-									<div class="panel-heading">
-										<h3 class="panel-title">Datos religiosos</h3>
+									<div class="panel-heading"><!--Acabo de modificar el boton y quitar el titulo-->
+										<!-- <h3 class="panel-title">Datos religiosos</h3> -->										
+										<!--Boton Agregar--->												
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>												
+											
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped">
