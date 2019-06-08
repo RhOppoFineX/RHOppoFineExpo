@@ -244,8 +244,8 @@ insert into Puesto (Puesto) values ('Coordinadora'),
                           ('Enfermera'),
                           ('colaborador');
 
-insert into Identidad values (1,'Dui'),
-                             (2,'Carnet de residente');
+-- insert into Identidad values (1,'Dui'),
+--                              (2,'Carnet de residente');
 
 insert into Nacionalidad (Nacionalidad) values ('Salvadoreña'),
                                 ('Estadounidense'),
@@ -290,10 +290,10 @@ insert into Categoria values (1,'Tecnico'),
 insert into Parentesco (Parentesco) values('Papá'),('Mamà'),('tio/a'), ('Hijo/a');
         
 
-insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Id_identidad, Fecha_expiracion, Num_ISSS, AFP, NUP)
- values (1,'01618181-4','avenida el colibri casa 61D','san salvador','20-08-2017','empresaria',1,1,'21-08-2022','20A08713','2020159','96374115'),
- (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,2,'20-10-2021','4681351','168151','35431u'),
- (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,2,'08-08-2018','15021521','316541351','646541');
+insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP)
+ values (1,'01618181-4','avenida el colibri casa 61D','san salvador','20-08-2017','empresaria',1,'21-08-2022','20A08713','2020159','96374115'),
+ (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u'),
+ (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541');
 
 insert into Colaborador values (1,'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017'),
                              (2,'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017'),

@@ -19,8 +19,16 @@
 			<?php
 				require_once '../backend/core/helpers/menu.php';	
 			?>
+								
 				<!--Incio de la Table-->
 				<div class="main">
+					<div class="container"><!--Boton Agregar--->
+						<div class="row">
+							<div class="col-sm-6 offset-sm-2">
+								<a type="button" class="btn btn-primary btn-lg btn-block" onclick="modalCreate()">Agregar nuevo registro</a>
+							</div>
+						</div>
+					</div>
 					<div class="main-content">
 						<div class="container-fluid">
 							<h3 class="page-title">Datos de Religión</h3>
@@ -42,8 +50,8 @@
 												<tr>
 													<td>1</td>
 													<td>Catolico</td>									
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
+													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="modalUpdate()">Modificar</a></td>
+													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
 												</tr>
 												<tr>
 													<td>2</td>	
@@ -126,6 +134,35 @@
 	</div>
 
 	<!--Fin del modal Deshabilitar-->
+
+	<!-- Modal Insertar-->
+<div class="modal fade bd-modificar-modal-xl" id="religionInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de la Religión</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+					<form method="post" id="insertarReligion">
+							<div class="form-group col-md-12">
+									<label for="Religion">Religión</label>
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión">
+									<small id="religionHelp" class="form-text text-muted"></small>
+							</div>
+						</form>
+					</div>											
+			</div>			  
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+		</div>
+		</div>
+	</div>  <!--Fin del modal Insertar-->
 
 	<!--Scripts necesarios siempre-->
 	<?php

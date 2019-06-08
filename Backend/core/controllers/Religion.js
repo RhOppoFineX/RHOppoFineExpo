@@ -12,15 +12,15 @@ function fillTable(filas)
     let contenido = '';
 
    filas.forEach(fila => {
-        
+        //son comillas invertidas no simple ni dobles
         contenido+= `
             <tr>
                 <td>${fila.Id_religion}</td>
                 <td>${fila.Religion}</td>							
-                <td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-                <td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_religion})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete(${api}, ${row.Id_religion}, null)">Deshabilitar</a></td>
             </tr>       
-        `;
+        `;//invertidas
 
    });
    //id del tbody en la tabla correspondiente
@@ -64,8 +64,8 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#form-create')[0].reset();
-    $('#modal-create').modal('open');
+    $('#insertarReligion')[0].reset();//Id del formulario
+    $('#religionInsertar').modal('show');//Id del modal
 }
 
 /*este metodo se ejecuta al darle click al boton modificar
@@ -110,6 +110,7 @@ function actualizarModal(Id)
 }
 
 //Función para modificar un registro seleccionado previamente
+//Id del formulario que esta dentro del modal modificar
 $('#actualizarReligion').submit(function()
 {
     event.preventDefault();
@@ -125,7 +126,7 @@ $('#actualizarReligion').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-update').modal('close');
+                $('#religionModificar').modal('hide');//Id del modal modificar
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
@@ -144,13 +145,14 @@ $('#actualizarReligion').submit(function()
 //ESTO LO COMENZAREMOS EL VIERNES EN LA TARDE
 
 // Función para crear un nuevo registro
-$('#form-create').submit(function()
+//Id del del formulario insertar
+$('#insertarReligion').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#form-create').serialize(),
+        data: $('#insertarReligion').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -159,8 +161,8 @@ $('#form-create').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#form-create')[0].reset();
-                $('#modal-create').modal('close');
+                $('#insertarReligion')[0].reset();//Id del formulario insertar
+                $('#religionInsertar').modal('hide');//Id del modal insertar
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
