@@ -48,20 +48,7 @@
 													<td>Catolico</td>									
 													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
 													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr>
-												<tr>
-													<td>2</td>	
-													<td>Protestante</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>
-													
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Testigo de Jehova</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#religionModificar">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">Deshabilitar</button></td>	
-												</tr>
+												</tr><!--Los registros solo son de prueba recuerden pueden borrarlos si quieren en este caso solo deje uno-->						
 											</tbody>
 										</table>
 									</div>
@@ -86,18 +73,20 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form method="post" id="actualizarReligion">
-							<div class="form-group col-md-12">
+							<div class="form-group col-md-12">	
 									<label for="Religion">Religión</label>
 									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión">
 									<small id="religionHelp" class="form-text text-muted"></small>
+									<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion"/>
 							</div>
-						</form>
+						
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-primary">Modficar</button><!--Quitarle el data-dismiss-->
+			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>
 		</div>
 	</div>  <!--Fin del modal-->
@@ -144,18 +133,19 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form method="post" id="insertarReligion">
-							<div class="form-group col-md-12">
+							<div class="form-group col-md-12">							
 									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión">
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion">
 									<small id="religionHelp" class="form-text text-muted"></small>
 							</div>
-						</form>
+						
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
+			</form><!--Bajar el etiqueta form hasta aca-->
 		</div>
 		</div>
 	</div>  <!--Fin del modal Insertar-->

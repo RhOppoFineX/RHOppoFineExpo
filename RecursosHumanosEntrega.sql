@@ -61,31 +61,31 @@ Create Table Equipo (
 ); 
 --Joel
 create table Departamento(
-    Id_departamento Integer Unsigned PRIMARY KEY NOT NULL,
+    Id_departamento Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Departamento varchar(30) NOT NULL,
     Id_nacionalidad Integer Unsigned NOT NULL,
     FOREIGN KEY (Id_nacionalidad) REFERENCES Nacionalidad(Id_nacionalidad)
 );
 --Joel
 create table Municipio(
-    Id_municipio Integer Unsigned PRIMARY KEY NOT NULL,
+    Id_municipio Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Municipio varchar(30) NOT NULL,
     Id_departamento Integer Unsigned NOT NULL,
     FOREIGN KEY (Id_departamento) REFERENCES Departamento(Id_departamento)
 );
 --Cristian
 Create Table Estado_civil(
-    Id_estado_civil Integer Unsigned PRIMARY KEY NOT NULL,
+    Id_estado_civil Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Estado_civil VARCHAR(20) NOT NULL
 );
 --Topo
 Create Table Religion (
-    Id_religion Integer Unsigned PRIMARY KEY NOT NULL,
+    Id_religion Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Religion varchar(25) NOT NULL
 );
 --Cristian esta tabla es categoria de educación
 Create Table Categoria (
-    Id_categoria Integer Unsigned PRIMARY KEY NOT NULL,
+    Id_categoria Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Categoria varchar(25) NOT NULL
 );
 --Cristian

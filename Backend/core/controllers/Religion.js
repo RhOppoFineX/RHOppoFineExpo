@@ -22,13 +22,14 @@ function fillTable(filas)
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
+        //si su tabla tiene mas campos agregarlos aqui un <tr> es una fila acurdense y los <td> son las columnas de es fila
 
    });
    //id del tbody en la tabla correspondiente
    $('#tabla-religion').html(contenido); 
       
 }
-
+//funcion para mostrar la tabla
 function showTable()
 {
     $.ajax({
@@ -46,6 +47,7 @@ function showTable()
             if(!resultado.status)
             {
                 sweetAlert(4, resultado.exception, null);
+                console.log(response);
             }                
             fillTable(resultado.dataset);
             //dataset es el resultado de la consulta que devuelve la API
@@ -91,12 +93,14 @@ function actualizarModal(Id)
 
             if(resultado.status)
             {   //dataset es el resultado de la consulta que devuelve la API
-                //Este resultado es un array con los datos           
+                //Este resultado es un array con los datos
+                $('#Id_religion').val(resultado.dataset.Id_religion);                       
                 $('#Religion').val(resultado.dataset.Religion);//id de cada input
                 //en caso de que alla más input ponen sus respectivos id
                 $('#religionModificar').modal('show');//id del modal modificar
             }else{
                 sweetAlert(2, resultado.exception, null);
+                console.log(response);
             }
 
         }else{
@@ -132,6 +136,7 @@ $('#actualizarReligion').submit(function()
                 sweetAlert(1, result.message, null);
             } else {
                 sweetAlert(2, result.exception, null);
+                console.log(response);
             }
         } else {
             console.log(response);
@@ -148,7 +153,7 @@ $('#actualizarReligion').submit(function()
 // Función para crear un nuevo registro
 //Id del del formulario insertar
 $('#insertarReligion').submit(function()
-{
+{   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
@@ -159,15 +164,16 @@ $('#insertarReligion').submit(function()
     .done(function(response){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
-            const result = JSON.parse(response);
+            const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
+            if (resultado.status) {
                 $('#insertarReligion')[0].reset();//Id del formulario insertar
                 $('#religionInsertar').modal('hide');//Id del modal insertar
                 showTable();
-                sweetAlert(1, result.message, null);
+                sweetAlert(1, resultado.message, null);
             } else {
-                sweetAlert(2, result.exception, null);
+                sweetAlert(2, resultado.exception, null);
+                console.log(response);
             }
         } else {
             console.log(response);

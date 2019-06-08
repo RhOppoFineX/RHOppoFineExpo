@@ -1,6 +1,7 @@
 <?php
 class Religion extends Validator    
-{
+{       
+        //Campos segun la base de datos siempre con sus metodos set() y get()
         private $Id = null;
         private $Religion = null;
 
@@ -23,7 +24,7 @@ class Religion extends Validator
 
         public function setReligion($Religion)
         {
-            if($this->validateAlphanumeric($Religion, 1, 50)){
+            if($this->validateAlphanumeric($Religion, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->Religion = $Religion;
                 return true;
             }else{
@@ -73,6 +74,7 @@ class Religion extends Validator
             return Database::getRows($sql, $parametros);
         }
 
+        //Extrare los datos de la base hacia el actualizarModal esta es su mision
         public function getReligionModal()
         {
             $sql = "SELECT * FROM Religion WHERE Id_religion = ?";
