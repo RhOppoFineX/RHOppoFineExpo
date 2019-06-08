@@ -65,9 +65,9 @@
 											<td>.</td>
 											<td>.</td>
 											<td>Especialidad diseño grafico.</td>
-											<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+											<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal"
 													data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 											
 										</tr>
 										<tr>
@@ -77,9 +77,9 @@
 											<td>.</td>
 											<td>.</td>
 											<td>Informatico</td>
-											<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+											<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal"
 													data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 											
 										</tr>
 										<tr>
@@ -89,9 +89,9 @@
 											<td>.</td>
 											<td>.</td>
 											<td>Contaduria.</td>
-											<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+											<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal"
 													data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 											
 										</tr>
 									</tbody>
@@ -113,62 +113,62 @@
 	  <div class="modal-content">
 		<div class="modal-header">
 		  <h5 class="modal-title" id="exampleModalScrollableTitle">Datos Personales del Colaborador</h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="modificar-datosEducacion">
 							<div class="form-row">
 								<div class="form-group col-md-6"><!--Nombres y Apellidos-->
-									<label for="inputEmail4">Nombres</label>
-									<input type="Text" class="form-control" id="inputEmail4" placeholder="Nombres">
+									<label for="nombres">Nombres</label>
+									<input type="Text" class="form-control" id="nombres" placeholder="Nombres">
 								</div>
 								<div class="form-group col-md-6">
-									<label for="inputPassword4">Apellidos</label>
-									<input type="Text" class="form-control" id="inputPassword4" placeholder="Apellidos">
+									<label for="apellidos">Apellidos</label>
+									<input type="Text" class="form-control" id="apellidos" placeholder="Apellidos">
 								</div>
 							</div>
 							<div class="form-group col-md-4"><!--Genero-->
-									<label for="inputGenero">Genero</label>
-									<select id="inputGenero" class="form-control">											
+									<label for="genero">Genero</label>
+									<select id="genero" class="form-control">											
 										<option>Masculino</option>
 										<option>Femenino</option>
 									</select>
 							</div>
 
-							<div class="form-group col-md-4"><!--Genero-->
-								<label for="inputFecha">Fecha de Nacimiento</label>
-								<select id="inputFecha" class="form-control">											
+							<div class="form-group col-md-4"><!--Fecha -->
+								<label for="fecha">Fecha de Nacimiento</label>
+								<select id="fecha" class="form-control">											
 									<option>26-08-2002</option>
 									<option>30-10-2000</option>
 								</select>
 							</div>
 
 							<div class="form-group col-md-4">
-								<label for="inputAddress2">Edad</label>
-								<input type="text" class="form-control" id="inputAddress2" placeholder="16" disabled>
+								<label for="edad">Edad</label>
+								<input type="text" class="form-control" id="edad" placeholder="16" disabled>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-											<label for="inputNacionalidad">Nacionalidad</label>
-									<select id="inputNacionalidad" class="form-control">											
+											<label for="nacionalidad">Nacionalidad</label>
+									<select id="nacionalidad" class="form-control">											
 										<option>Salvadoreño/a</option>
 										<option>Guatmalteco/a</option>
 									</select>
 								</div>
 								<div class="form-group col-md-4">
-									<label for="inputCivil">Estado Civil</label>
-									<select id="inputCivil" class="form-control">
+									<label for="estado-civil">Estado Civil</label>
+									<select id="estado-civil" class="form-control">
 										<option>Soltero/a</option>
 										<option>Casado/a</option>
 										<option>Divorciado/a</option>
 									</select>
 								</div>
 								<div class="form-group col-md-4">
-									<label for="inputReligion">Religión</label>
-									<select id="inputReligion" class="form-control">
+									<label for="religion">Religión</label>
+									<select id="religion" class="form-control">
 											<option>Catolico/a</option>
 											<option>Evangelico/a</option>
 											<option>Mormon/a</option>
@@ -179,24 +179,24 @@
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputCelular">Telefono Celular</label>
-										<input type="Text" class="form-control" id="inputCelular" placeholder="Celular">
+										<label for="celular">Telefono Celular</label>
+										<input type="Text" class="form-control" id="celular" placeholder="Celular">
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputTelefono-Casa">Telefono de Casa</label>
-										<input type="Text" class="form-control" id="inputTelefono-Casa" placeholder="Tel. Casa">
+										<label for="telefono-Casa">Telefono de Casa</label>
+										<input type="Text" class="form-control" id="telefono-Casa" placeholder="Tel. Casa">
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputDui">DUI</label>
-										<input type="Text" class="form-control" id="inputDui" placeholder="DUI">
+										<label for="dui">DUI</label>
+										<input type="Text" class="form-control" id="dui" placeholder="DUI">
 								</div>
 							</div>
 
 							<div class="form-group col-md-12">
-									<label for="exampleInputEmail1">Correo Institucional</label>
-								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Institucional">
+									<label for="correo-institucional">Correo Institucional</label>
+								<input type="email" class="form-control" id="correo-institucional" aria-describedby="emailHelp" placeholder="Correo Institucional">
 								<small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 							</div>
@@ -214,8 +214,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+		  <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+		  <button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 	  </div>
 	</div>
@@ -242,7 +242,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -250,8 +250,8 @@
 			 <h2>¿Desea Deshabilitar al Colaborador?</h2>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+				<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 			</div>
 		</div>
 	</div>

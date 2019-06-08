@@ -55,20 +55,20 @@
 												<tr>
 													<td>1</td>
 													<td>---</td>									
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 												</tr>
 												<tr>
 													<td>2</td>	
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -88,16 +88,16 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="ModalPuesto">Datos parentesco</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="registro-parentesco">
+					<form method="POST" id="modificar-parentesco">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputParentesco">Parentesco</label>
+											<label for="Parentesco">Parentesco</label>
 											<input type="text" class="form-control" id="Parentesco" aria-describedby="puestoHelp" placeholder="parentesco...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
@@ -118,13 +118,13 @@
 	<!-- Button trigger modal -->
 
 	
-	<!-- Modal -->
+	<!-- Modal deshabilitar-->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>

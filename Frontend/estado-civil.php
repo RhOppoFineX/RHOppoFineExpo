@@ -55,20 +55,20 @@
 												<tr>
 													<td>1</td>
 													<td>---</td>									
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 												</tr>
 												<tr>
 													<td>2</td>	
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -88,7 +88,7 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="ModalPuesto">Datos estado civil</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
@@ -97,7 +97,7 @@
 					<form method="POST" id="registro-estadocivil">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputEstadoCivil">Estado civil</label>
+											<label for="EstadoCivil">Estado civil</label>
 											<input type="text" class="form-control" id="EstadoCivil" aria-describedby="puestoHelp" placeholder="estado civil...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
@@ -124,7 +124,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>

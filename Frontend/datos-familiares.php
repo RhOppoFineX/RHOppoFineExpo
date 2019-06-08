@@ -65,8 +65,8 @@
 													<td>Claudia María Peréz Hernandez</td>
 													<td>No.</td>		
 													<td>2.</td>										
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
@@ -77,8 +77,8 @@
 													<td>Hector Javier Ayala Aguilares</td>
 													<td>No.</td>
 													<td>0.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 													
 												</tr>
 												<tr>
@@ -89,8 +89,8 @@
 													<td>No.</td>
 													<td>No.</td>
 													<td>0.</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 													
 												</tr>
 											</tbody>
@@ -110,62 +110,62 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos Personales del Colaborador</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="modificar-datosFamiliares">
 							<div class="form-row">
 								<div class="form-group col-md-6"><!--Nombres y Apellidos-->
-									<label for="inputEmail4">Nombres</label>
-									<input type="Text" class="form-control" id="inputEmail4" placeholder="Nombres">
+									<label for="nombres-datosFamiliares">Nombres</label>
+									<input type="Text" class="form-control" id="nombres-datosFamiliares" placeholder="Nombres">
 								</div>
 								<div class="form-group col-md-6">
-									<label for="inputPassword4">Apellidos</label>
-									<input type="Text" class="form-control" id="inputPassword4" placeholder="Apellidos">
+									<label for="apellidos-datosFamiliares">Apellidos</label>
+									<input type="Text" class="form-control" id="apellidos-datosFamiliares" placeholder="Apellidos">
 								</div>
 							</div>
 							<div class="form-group col-md-4"><!--Genero-->
-									<label for="inputGenero">Genero</label>
-									<select id="inputGenero" class="form-control">											
+									<label for="genero-datosFamiliares">Genero</label>
+									<select id="genero-datosFamiliares" class="form-control">											
 										<option>Masculino</option>
 										<option>Femenino</option>
 									</select>
 							</div>
 
-							<div class="form-group col-md-4"><!--Genero-->
-								<label for="inputFecha">Fecha de Nacimiento</label>
-								<select id="inputFecha" class="form-control">											
+							<div class="form-group col-md-4"><!--Fecha-->
+								<label for="fecha-datosFamiliares">Fecha de Nacimiento</label>
+								<select id="fecha-datosFamiliares" class="form-control">											
 									<option>26-08-2002</option>
 									<option>30-10-2000</option>
 								</select>
 							</div>
 
 							<div class="form-group col-md-4">
-								<label for="inputAddress2">Edad</label>
-								<input type="text" class="form-control" id="inputAddress2" placeholder="16" disabled>
+								<label for="edad-datosFamiliares">Edad</label>
+								<input type="text" class="form-control" id="edad-datosFamiliares" placeholder="16" disabled>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-											<label for="inputNacionalidad">Nacionalidad</label>
-									<select id="inputNacionalidad" class="form-control">											
+											<label for="nacionalidad-datosFamiliares">Nacionalidad</label>
+									<select id="nacionalidad-datosFamiliares" class="form-control">											
 										<option>Salvadoreño/a</option>
 										<option>Guatmalteco/a</option>
 									</select>
 								</div>
 								<div class="form-group col-md-4">
-									<label for="inputCivil">Estado Civil</label>
-									<select id="inputCivil" class="form-control">
+									<label for="estadoCivil-datosFamiliares">Estado Civil</label>
+									<select id="estadoCivil-datosFamiliares" class="form-control">
 										<option>Soltero/a</option>
 										<option>Casado/a</option>
 										<option>Divorciado/a</option>
 									</select>
 								</div>
 								<div class="form-group col-md-4">
-									<label for="inputReligion">Religión</label>
-									<select id="inputReligion" class="form-control">
+									<label for="religion-datosFamiliares">Religión</label>
+									<select id="religion-datosFamiliares" class="form-control">
 											<option>Catolico/a</option>
 											<option>Evangelico/a</option>
 											<option>Mormon/a</option>
@@ -176,24 +176,24 @@
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputCelular">Telefono Celular</label>
-										<input type="Text" class="form-control" id="inputCelular" placeholder="Celular">
+										<label for="celular-datosFamiliares">Celular</label>
+										<input type="Text" class="form-control" id="celular-datosFamiliares" placeholder="Número celular">
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputTelefono-Casa">Telefono de Casa</label>
-										<input type="Text" class="form-control" id="inputTelefono-Casa" placeholder="Tel. Casa">
+										<label for="telefono-datosFamiliares">Teléfono de Casa</label>
+										<input type="Text" class="form-control" id="telefono-datosFamiliares" placeholder="Número Tel. Casa">
 								</div>
 
 								<div class="form-group col-md-4">
-										<label for="inputDui">DUI</label>
-										<input type="Text" class="form-control" id="inputDui" placeholder="DUI">
+										<label for="dui-datosFamiliares">DUI</label>
+										<input type="Text" class="form-control" id="dui-datosFamiliares" placeholder="DUI">
 								</div>
 							</div>
 
 							<div class="form-group col-md-12">
-									<label for="exampleInputEmail1">Correo Institucional</label>
-									<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Institucional">
+									<label for="correo-datosFamiliares">Correo Institucional</label>
+									<input type="email" class="form-control" id="correo-datosFamiliares" aria-describedby="emailHelp" placeholder="Correo Institucional">
 									<small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 							</div>
@@ -211,8 +211,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal-->
@@ -229,7 +229,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -237,8 +237,8 @@
 				 <h2>¿Desea Deshabilitar al Colaborador?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>

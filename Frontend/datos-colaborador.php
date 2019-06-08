@@ -115,62 +115,62 @@
 		  <div class="modal-content">
 			<div class="modal-header">
 			  <h5 class="modal-title" id="exampleModalScrollableTitle">Datos Personales del Colaborador</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form>
+						<form method="POST" id="modificar-datosColaborador">
 								<div class="form-row">
 									<div class="form-group col-md-6"><!--Nombres y Apellidos-->
-										<label for="inputEmail4">Nombres</label>
-										<input type="Text" class="form-control" id="inputEmail4" placeholder="Nombres">
+										<label for="nombres-datosColaborador">Nombres</label>
+										<input type="Text" class="form-control" id="nombres-datosColaborador" placeholder="Nombres">
 									</div>
 									<div class="form-group col-md-6">
-										<label for="inputPassword4">Apellidos</label>
-										<input type="Text" class="form-control" id="inputPassword4" placeholder="Apellidos">
+										<label for="apellidos-datosColaborador">Apellidos</label>
+										<input type="Text" class="form-control" id="apellidos-datosColaborador" placeholder="Apellidos">
 									</div>
 								</div>
 								<div class="form-group col-md-4"><!--Genero-->
-										<label for="inputGenero">Genero</label>
-										<select id="inputGenero" class="form-control">											
+										<label for="genero-datosColaborador">Genero</label>
+										<select id="genero-datosColaborador" class="form-control">											
 											<option>Masculino</option>
 											<option>Femenino</option>
 										</select>
 								</div>
 
 								<div class="form-group col-md-4"><!--Genero-->
-									<label for="inputFecha">Fecha de Nacimiento</label>
-									<select id="inputFecha" class="form-control">											
+									<label for="fecha-datosColaborador">Fecha de Nacimiento</label>
+									<select id="fecha-datosColaborador" class="form-control">											
 										<option>26-08-2002</option>
 										<option>30-10-2000</option>
 									</select>
 								</div>
 
 								<div class="form-group col-md-4">
-									<label for="inputAddress2">Edad</label>
-									<input type="text" class="form-control" id="inputAddress2" placeholder="16" disabled>
+									<label for="edad-datosColaborador">Edad</label>
+									<input type="text" class="form-control" id="edad-datosColaborador" placeholder="16" disabled>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
-												<label for="inputNacionalidad">Nacionalidad</label>
-										<select id="inputNacionalidad" class="form-control">											
+												<label for="nacionalidad-datosColaborador">Nacionalidad</label>
+										<select id="nacionalidad-datosColaborador" class="form-control">											
 											<option>Salvadoreño/a</option>
 											<option>Guatmalteco/a</option>
 										</select>
 									</div>
 									<div class="form-group col-md-4">
-										<label for="inputCivil">Estado Civil</label>
-										<select id="inputCivil" class="form-control">
+										<label for="estadoCivil-datosColaborador">Estado Civil</label>
+										<select id="estadoCivil-datosColaborador" class="form-control">
 											<option>Soltero/a</option>
 											<option>Casado/a</option>
 											<option>Divorciado/a</option>
 										</select>
 									</div>
 									<div class="form-group col-md-4">
-										<label for="inputReligion">Religión</label>
-										<select id="inputReligion" class="form-control">
+										<label for="religion-datosColaborador">Religión</label>
+										<select id="religion-datosColaborador" class="form-control">
 												<option>Catolico/a</option>
 												<option>Evangelico/a</option>
 												<option>Mormon/a</option>
@@ -181,24 +181,24 @@
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputCelular">Telefono Celular</label>
-											<input type="Text" class="form-control" id="inputCelular" placeholder="Celular">
+											<label for="celular-datosColaborador">Celular</label>
+											<input type="Text" class="form-control" id="celular-datosColaborador" placeholder="Número celular">
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputTelefono-Casa">Telefono de Casa</label>
-											<input type="Text" class="form-control" id="inputTelefono-Casa" placeholder="Tel. Casa">
+											<label for="telefono-datosColaborador">Telefono de Casa</label>
+											<input type="Text" class="form-control" id="telefono-datosColaborador" placeholder="Número Tel. Casa">
 									</div>
 
 									<div class="form-group col-md-4">
-											<label for="inputDui">DUI</label>
-											<input type="Text" class="form-control" id="inputDui" placeholder="DUI">
+											<label for="dui-datosColaborador">DUI</label>
+											<input type="Text" class="form-control" id="dui-datosColaborador" placeholder="DUI">
 									</div>
 								</div>
 
 								<div class="form-group col-md-12">
-										<label for="exampleInputEmail1">Correo Institucional</label>
-    								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Institucional">
+										<label for="correo-datosColaborador">Correo Institucional</label>
+    								<input type="email" class="form-control" id="correo-datosColaborador" aria-describedby="emailHelp" placeholder="Correo Institucional">
     								<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 								</div>
@@ -216,8 +216,8 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			  <button type="button" class="btn btn-primary" data-dismiss="modal">Modificar</button>
+			  <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			  <button type="submit" class="btn btn-primary" data-dismiss="modal">Modificar</button>
 			</div>
 		  </div>
 		</div>
@@ -244,7 +244,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -252,8 +252,8 @@
 				 <h2>¿Ver más datos de este Colaborador?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-warning" data-dismiss="modal">Ver</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-warning" data-dismiss="modal">Ver</button>
 				</div>
 			</div>
 		</div>

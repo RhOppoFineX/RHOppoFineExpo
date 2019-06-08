@@ -62,8 +62,8 @@
                                                     <td>---</td>
                                                     <td>---</td>
                                                     <td>---</td>								
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
 												</tr>
 												<tr>
 													<td>2</td>	
@@ -71,8 +71,8 @@
                                                     <td>---</td>
                                                     <td>---</td>
                                                     <td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>							
 												</tr>
 												<tr>
 													<td>3</td>
@@ -80,8 +80,8 @@
                                                     <td>---</td>
                                                     <td>---</td>
                                                     <td>---</td>
-													<td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
-													<td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
+													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Modal1">Modificar</button></td>
+													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>	
 												</tr>
 											</tbody>
 										</table>
@@ -101,17 +101,17 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="ModalPuesto">Datos educación</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form>
+					<form method="POST" id="modificar-educacion">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-											<label for="exampleInputPuesto1">Educación</label>
-											<input type="text" class="form-control" id="Puesto1" aria-describedby="puestoHelp" placeholder="educación...">
+											<label for="Educacion">Educación</label>
+											<input type="text" class="form-control" id="Educacion" aria-describedby="puestoHelp" placeholder="educación...">
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
@@ -120,8 +120,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Modificar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modificar</button>
 		</div>
 		</div>
 	</div>  <!--Fin del modal 1-->
@@ -137,7 +137,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -145,8 +145,8 @@
 				 <h2>¿Desea Deshabilitarlo?</h2>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
+					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
 				</div>
 			</div>
 		</div>
