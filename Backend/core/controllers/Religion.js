@@ -18,7 +18,7 @@ function fillTable(filas)
                 <td>${fila.Id_religion}</td>
                 <td>${fila.Religion}</td>							
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_religion})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete(${api}, ${fila.Id_religion}, null)">Deshabilitar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_religion}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -96,7 +96,7 @@ function actualizarModal(Id)
                 //Este resultado es un array con los datos
                 $('#Id_religion').val(resultado.dataset.Id_religion);                       
                 $('#Religion').val(resultado.dataset.Religion);//id de cada input
-                //en caso de que alla más input ponen sus respectivos id
+                //en caso de que alla más input ponen sus respectivos id            
                 $('#religionModificar').modal('show');//id del modal modificar
             }else{
                 sweetAlert(2, resultado.exception, null);
@@ -128,14 +128,14 @@ $('#actualizarReligion').submit(function()
     .done(function(response){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
-            const result = JSON.parse(response);
+            const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
+            if (resultado.status) {
                 $('#religionModificar').modal('hide');//Id del modal modificar
                 showTable();
-                sweetAlert(1, result.message, null);
+                sweetAlert(1, resultado.message, null);
             } else {
-                sweetAlert(2, result.exception, null);
+                sweetAlert(2, resultado.exception, null);
                 console.log(response);
             }
         } else {

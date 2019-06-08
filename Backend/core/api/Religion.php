@@ -55,7 +55,7 @@ if(isset($_GET['action']))
 
          break;
          
-         case 'update':
+         case 'update':            
             $_POST = $religion->validateForm($_POST);
             
             if($religion->setId($_POST['Id_religion'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
@@ -76,7 +76,24 @@ if(isset($_GET['action']))
             }else{
                 $resultado['exception'] = 'Id Inexistente';
             }
-         break;         
+         break;
+         
+         case 'delete':
+            if($religion->setId($_POST['identifier'])){
+                if($religion->getReligionModal()){
+                    if($religion->deleteReligion()){
+                        $resultado['status'] = true;
+                        $resultado['message'] = 'Religion eliminada';
+                    }else{
+                        $resultado['exception'] = 'Registro no eliminado';
+                    }
+                }else{
+                    $resultado['exception'] = 'Religion inexistente';
+                }
+            }else{
+                $resultado['exception'] = 'Religion Incorrecta';
+            }
+         break;
 
          default:
             exit('Acción no disponible');

@@ -13,7 +13,11 @@
 	?>
 	
 </head>
-<body>
+<body> <!--Indicaiones:
+		1) al formularios de actiualizar a los input tambien llevan name="Valor Del Id" 
+		2) Mover la etiqueta </form> hacia donde se indica en todos los modales con formualrio (Eliminar No)
+		3) Quitar el data-dismiss de loa botones de modificar, insertar y eliminar
+		4) Agregar el input invisible a los formularios de Modificar-->
 
 	<div id="wrapper">
 			<?php
@@ -73,11 +77,12 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form method="post" id="actualizarReligion">
-							<div class="form-group col-md-12">	
+							<div class="form-group col-md-12">
+								<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion" name="Id_religion">	
 									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión">
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion"><!--Agreguen los name="" mismo que el id-->
 									<small id="religionHelp" class="form-text text-muted"></small>
-									<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion"/>
+									
 							</div>
 						
 					</div>											
@@ -160,6 +165,7 @@
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
 	<script src="../Backend/core/controllers/Religion.js"></script>
+	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 		
 
 </body>
