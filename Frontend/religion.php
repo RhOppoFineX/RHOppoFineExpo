@@ -46,7 +46,7 @@
 												<tr>
 													<td>1</td>
 													<td>Catolico</td>									
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="modalUpdate()">Modificar</a></td>
+													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
 													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
 												</tr>
 												<tr>
@@ -155,7 +155,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
 		</div>
 		</div>
 	</div>  <!--Fin del modal Insertar-->
@@ -166,9 +166,11 @@
 	?>
 	<!--Scripts para los cruds-->
 
+	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/Religion.js"></script>	
+	<script src="../Backend/core/controllers/Religion.js"></script>
+		
 
 </body>
 </html>

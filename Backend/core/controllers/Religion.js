@@ -4,7 +4,7 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../api/Religion.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/Religion.php?action=';
 
 function fillTable(filas)
 {
@@ -17,10 +17,11 @@ function fillTable(filas)
             <tr>
                 <td>${fila.Id_religion}</td>
                 <td>${fila.Religion}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_religion})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete(${api}, ${row.Id_religion}, null)">Deshabilitar</a></td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_religion})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete(${api}, ${fila.Id_religion}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
+        //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
 
    });
    //id del tbody en la tabla correspondiente

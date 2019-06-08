@@ -63,7 +63,7 @@ class Religion extends Validator
             $sql = "SELECT Id_religion, Religion FROM Religion 
             ORDER BY Religion";
             $parametros = array(null);
-            return Databse::getRows($parametros);
+            return Database::getRows($sql, $parametros);
         }
 
         public function buscarReligion($valor)
