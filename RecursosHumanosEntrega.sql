@@ -8,10 +8,12 @@ create table Tipo_usuario(
 --Topo
 Create Table Usuario(
     Id_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nombres varchar(40) NOT NULL,
-    Apellidos varchar(40) NOT NULL,
-    Correo varchar(50) UNIQUE NOT NULL,
-    Id_tipo_usuario Integer Unsigned NOT NULL,
+    Nombres_usuario varchar(40) NOT NULL,
+    Apellidos_usuario varchar(40) NOT NULL,
+    Correo_usuario varchar(50) UNIQUE NOT NULL,
+    Id_tipo_usuario Integer Unsigned NULL,
+    Alias_usuario VARCHAR(25) NOT NULL,
+    Clave_usuario VARCHAR(250) NOT NULL,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 --Topo
