@@ -29,7 +29,7 @@ if(isset($_GET['action']))
             case 'create':
             $_POST = $tipoUsuario->validateForm($_POST);
 
-            if($tipoUsuario->setTipo($_POST['tipo-usuario'])){  
+            if($tipoUsuario->setTipo($_POST['tipo-usuario-a'])){  
                 if($tipoUsuario->insertTipoUsuario()){
                     $resultado['status'] = true;
                     $resultado['message'] = 'Tipo usuario insertado';
@@ -44,7 +44,7 @@ if(isset($_GET['action']))
 
          case 'get':
             if($tipoUsuario->setId($_POST['Id_tipo_usuario'])){
-                if($resultado['dataset'] = $tipoUsuario->getTipo()){
+                if($resultado['dataset'] = $tipoUsuario->getTipoUsuarioModal()){
                     $resultado['status'] = true; 
                 }else{                      
                     $resultado['exception'] = 'Id inexistente';
@@ -58,7 +58,7 @@ if(isset($_GET['action']))
          case 'update':            
             $_POST = $tipoUsuario->validateForm($_POST);
             
-            if($tipoUsuario->setId($_POST['Id_tipo_usuario'])){
+            if($tipoUsuario->setId($_POST['Id-tipo-usuario'])){
                 if($tipoUsuario->getTipoUsuarioModal()){
                     if($tipoUsuario->setTipo($_POST['tipo-usuario'])){
                         if($tipoUsuario->updateTipoUsuario()){

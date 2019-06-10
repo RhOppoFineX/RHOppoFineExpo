@@ -27,7 +27,7 @@
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
 									<div class="panel-heading">
-										<h3 class="panel-title">Datos de los usuarios</h3>
+										<h3 class="panel-title">Datos de los usuarios</h3>										
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped" id="TablaUsuario">
@@ -48,8 +48,9 @@
 								</div>
 
                                 <div class="panel">
-									<div class="panel-heading">
-										<h3 class="panel-title">Detalles de los usuarios</h3>
+									<div class="panel-heading">										
+										<!--Boton Agregar--->												
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped" id="TablaDetUsuario">
