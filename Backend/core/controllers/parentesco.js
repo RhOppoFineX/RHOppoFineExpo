@@ -4,21 +4,21 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/Religion.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/Parentesco.php?action=';
 
 function fillTable(filas)
 {
-    // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para interpolar las varibles con el string
+    // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para interpolar las variables con el string
     let contenido = '';
 
    filas.forEach(fila => {
         //son comillas invertidas no simple ni dobles
         contenido+= `
             <tr>
-                <td>${fila.Id_religion}</td>
-                <td>${fila.Religion}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_religion})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_religion}, null)">Deshabilitar</a></td>
+                <td>${fila.Id_parentesco}</td>
+                <td>${fila.Parentesco}</td>							
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_parentesco})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_parentesco}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -26,7 +26,7 @@ function fillTable(filas)
 
    });
    //id del tbody en la tabla correspondiente
-   $('#tabla-religion').html(contenido); 
+   $('#tabla-parentesco').html(contenido); 
       
 }
 //funcion para mostrar la tabla
@@ -50,8 +50,7 @@ function showTable()
                 console.log(response);
             }                
             fillTable(resultado.dataset);
-            //dataset es el resultado de la consulta que devuelve la API
-            //Este resultado es un array con los datos  
+             
 
         }else{
             console.log(reponse);
@@ -67,8 +66,8 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#insertarReligion')[0].reset();//Id del formulario
-    $('#religionInsertar').modal('show');//Id del modal
+    $('#insertarParentesco')[0].reset();//Id del formulario
+    $('#parentescoInsertar').modal('show');//Id del modal
 }
 
 /*este metodo se ejecuta al darle click al boton modificar
@@ -79,7 +78,7 @@ function actualizarModal(Id)
         url: api + 'get',
         type: 'post',
         data:{
-            Id_religion: Id
+            Id_parentesco: Id
         },
         datatype: 'json'
     })
@@ -94,10 +93,11 @@ function actualizarModal(Id)
             if(resultado.status)
             {   //dataset es el resultado de la consulta que devuelve la API
                 //Este resultado es un array con los datos
-                $('#Id_religion').val(resultado.dataset.Id_religion);                       
-                $('#Religion').val(resultado.dataset.Religion);//id de cada input
+                $('#Id_parentesco').val(resultado.dataset.Id_parentesco);                       
+                $('#Parentesco').val(resultado.dataset.Parentesco);//id de cada input
                 //en caso de que alla más input ponen sus respectivos id            
-                $('#religionModificar').modal('show');//id del modal modificar
+                $('#parentescoModificar').modal('show');//id del modal modificar
+                console.log(response);
             }else{
                 sweetAlert(2, resultado.exception, null);
                 console.log(response);
@@ -116,13 +116,13 @@ function actualizarModal(Id)
 
 //Función para modificar un registro seleccionado previamente
 //Id del formulario que esta dentro del modal modificar
-$('#actualizarReligion').submit(function()
+$('#modificar-parentesco').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'update',
         type: 'post',
-        data: $('#actualizarReligion').serialize(),
+        data: $('#modificar-parentesco').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -131,7 +131,7 @@ $('#actualizarReligion').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#religionModificar').modal('hide');//Id del modal modificar
+                $('#Parentesco-modificar').modal('hide');//Id del modal modificar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
@@ -152,13 +152,13 @@ $('#actualizarReligion').submit(function()
 
 // Función para crear un nuevo registro
 //Id del del formulario insertar
-$('#insertarReligion').submit(function()
+$('#insertarParentesco').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarReligion').serialize(),
+        data: $('#insertarParentesco').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -167,8 +167,8 @@ $('#insertarReligion').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#insertarReligion')[0].reset();//Id del formulario insertar
-                $('#religionInsertar').modal('hide');//Id del modal insertar
+                $('#insertarParentesco')[0].reset();//Id del formulario insertar
+                $('#parentescoInsertar').modal('hide');//Id del modal insertar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {

@@ -64,7 +64,7 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-			<!-- Modal -->
+			<!-- Modal Modificar-->
 <div class="modal fade bd-modificar-modal-xl" id="religionModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
@@ -94,10 +94,7 @@
 			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>
 		</div>
-	</div>  <!--Fin del modal-->
-	
-	
-		<!--Modal Deshabilitar-->
+	</div>  <!--Fin del modal modificar-->
 
 	<!-- Button trigger modal -->
 
@@ -125,7 +122,7 @@
 
 	<!--Fin del modal Deshabilitar-->
 
-	<!-- Modal Insertar-->
+	<!--Inicio Modal Insertar-->
 <div class="modal fade bd-modificar-modal-xl" id="religionInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
