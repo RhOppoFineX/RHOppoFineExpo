@@ -69,7 +69,7 @@
 							<div class="form-group col-md-12">
 									<!--nuevo input es invisible-->	<input type="hidden" id="Id_puesto" name="Id_puesto">	
 									<label for="Puesto">Puesto</label>
-									<input type="text" class="form-control" id="PuestoID" aria-describedby="puestoHelp" placeholder="Puesto" name="PuestoID">
+									<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto">
 									<small id="puestoHelp" class="form-text text-muted"></small>
 							</div>
 					</div>
