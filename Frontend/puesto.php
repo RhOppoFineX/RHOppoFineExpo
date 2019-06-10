@@ -46,50 +46,6 @@
 									</div>
 								</div>
 
-                                <div class="panel">
-									<div class="panel-heading">
-									<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
-									</div>
-									<div class="panel-body no-padding">
-										<table class="table table-striped" id="TablaArea">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>Área</th>
-												</tr>
-											</thead>
-											<tbody id="tabla-area">
-												<tr>							
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-
-								<div class="panel">
-									<div class="panel-heading">
-									<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
-									</div>
-									<div class="panel-body no-padding">
-										<table class="table table-striped" id="TablaDetArea">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>Experiencia laboral</th>
-													<th>Colaborador</th>
-												</tr>
-											</thead>
-											<tbody id="tabla-detalleA">
-												<tr>								
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
 								<!-- END TABLE STRIPED -->
 							</div>														
 						</div>
