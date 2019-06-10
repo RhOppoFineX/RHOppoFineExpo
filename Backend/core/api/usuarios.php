@@ -1,13 +1,14 @@
 <?php
-require_once('../../helpers/database.php');
-require_once('../../helpers/validator.php');
-require_once('../../models/usuarios.php');
+require_once '../helpers/database.php';
+require_once '../helpers/validator.php';
+require_once '../models/usuarios.php';
 
 //Se comprueba si existe una acción a realizar, de lo contrario se muestra un mensaje de error
 if (isset($_GET['action'])) {
     session_start();
     $usuario = new Usuarios;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
+    $_SESSION['Id_usuario'] = 'Jopen';
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['id_usuario'])) {
         switch ($_GET['action']) {

@@ -157,39 +157,39 @@
 						<form method="post" id="agregarUsuario">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-									<label for="Nombres">Nombres</label>
-									<input type="Text" class="form-control" id="Nombre" placeholder="Nombres" name="Nombres">
+									<label for="Nombres-A">Nombres-A</label>
+									<input type="Text" class="form-control" id="Nombres-A" placeholder="Nombres-A" name="Nombres-A">
 								</div>
 								<div class="form-group col-md-6">
-									<label for="Apellidos">Apellidos</label>
-									<input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos">
+									<label for="Apellidos-A">Apellidos-A</label>
+									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A">
 								</div>
 								<div class="form-group col-md-8">
-									<label for="Correo">Correo electonico</label>
-									<input type="email" class="form-control" id="Correo" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo">
+									<label for="Correo-A">Correo electonico</label>
+									<input type="email" class="form-control" id="Correo-A" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo-A">
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
-									<label for="Correo">User Name</label>
-									<input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName">
+									<label for="userName-A">User Name</label>
+									<input type="text" class="form-control" id="userName-A" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName-A">
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
-									<label for="Correo">Contraseña</label>
-									<input type="password" class="form-control" id="Contraseña" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña">
+									<label for="Contraseña-A">Contraseña</label>
+									<input type="password" class="form-control" id="Contraseña-A" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña-A">
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
-									<label for="Correo">Repetir Contraseña</label>
-									<input type="password" class="form-control" id="ContraseñaDos" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos">
+									<label for="ContraseñaDos-A">Repetir Contraseña</label>
+									<input type="password" class="form-control" id="ContraseñaDos-A" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos-A">
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-4">
-									<label for="Tipos">Tipo usuario</label>
-									<select id="Tipos" class="form-control">
+									<label for="Tipos-A">Tipo usuario</label>
+									<select id="Tipos-A" class="form-control">
 											<option>Aprendis</option>
 											<option>Trabajador</option>
 											<option>Experimentado</option>
@@ -288,6 +288,7 @@
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
 	<script src="../Backend/core/controllers/tipoUsuario.js"></script>
+	<script src="../Backend/core/controllers/usuarios.js"></script>
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 
 	
