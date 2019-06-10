@@ -46,50 +46,6 @@
 									</div>
 								</div>
 
-                                <div class="panel">
-									<div class="panel-heading">
-									<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
-									</div>
-									<div class="panel-body no-padding">
-										<table class="table table-striped" id="TablaArea">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>Área</th>
-												</tr>
-											</thead>
-											<tbody id="tabla-area">
-												<tr>							
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-
-								<div class="panel">
-									<div class="panel-heading">
-									<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
-									</div>
-									<div class="panel-body no-padding">
-										<table class="table table-striped" id="TablaDetArea">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>Experiencia laboral</th>
-													<th>Colaborador</th>
-												</tr>
-											</thead>
-											<tbody id="tabla-detalleA">
-												<tr>								
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
 								<!-- END TABLE STRIPED -->
 							</div>														
 						</div>
@@ -113,7 +69,7 @@
 							<div class="form-group col-md-12">
 									<!--nuevo input es invisible-->	<input type="hidden" id="Id_puesto" name="Id_puesto">	
 									<label for="Puesto">Puesto</label>
-									<input type="text" class="form-control" id="PuestoID" aria-describedby="puestoHelp" placeholder="Puesto" name="PuestoID">
+									<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto">
 									<small id="puestoHelp" class="form-text text-muted"></small>
 							</div>
 					</div>

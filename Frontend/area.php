@@ -71,7 +71,7 @@
 										<div class="form-group col-md-12">
 											<!--nuevo input es invisible-->	<input type="hidden" id="Id_area" name="Id_area">
 												<label for="Area">Área</label>
-												<input type="text" class="form-control" id="AreaID" aria-describedby="areaHelp" placeholder="Área" name="AreaID">
+												<input type="text" class="form-control" id="Area" aria-describedby="areaHelp" placeholder="Área" name="Area">
 												<small id="areaHelp" class="form-text text-muted"></small>
 										</div>
 								</div>

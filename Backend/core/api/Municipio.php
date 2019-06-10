@@ -29,7 +29,7 @@ if(isset($_GET['action']))
          case 'create':
             $_POST = $municipio->validateForm($_POST);
 
-            if($municipio->setMunicipio($_POST['MunicipioID'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
+            if($municipio->setMunicipio($_POST['MunicipioID2'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
                 if($municipio->setId_Departamento($_POST['Departamento'])){            
                     if($municipio->insertMunicipio()){  //operación insertar del modelo
                         $resultado['status'] = true;
@@ -65,7 +65,7 @@ if(isset($_GET['action']))
             if($municipio->setId($_POST['Id_municipio'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
                 if($municipio->getMunicipioModal()){
                     if($municipio->setMunicipio($_POST['MunicipioID"'])){
-                        if($municipio->setIdDepartamento($_POST['Departamento'])){                     
+                        if($municipio->setIdDepartamento($_POST['Departamento2'])){                     
                             if($municipio->updateMunicipio()){
                                 $resultado['status'] = true;
                                 $resultado['message'] = 'Municipio modificado';
