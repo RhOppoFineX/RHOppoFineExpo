@@ -8,10 +8,12 @@ create table Tipo_usuario(
 --Topo
 Create Table Usuario(
     Id_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nombres varchar(40) NOT NULL,
-    Apellidos varchar(40) NOT NULL,
-    Correo varchar(50) UNIQUE NOT NULL,
-    Id_tipo_usuario Integer Unsigned NOT NULL,
+    Nombres_usuario varchar(40) NOT NULL,
+    Apellidos_usuario varchar(40) NOT NULL,
+    Correo_usuario varchar(50) UNIQUE NOT NULL,
+    Id_tipo_usuario Integer Unsigned NULL,
+    Alias_usuario VARCHAR(25) NOT NULL,
+    Clave_usuario VARCHAR(250) NOT NULL,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 --Topo
@@ -231,9 +233,9 @@ insert into Tipo_usuario (Id_tipo_usuario, Tipo_usuario) values (1, 'Admin'),
                                                                 (3, 'Colaborador');
 
 
-insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2),
-                           (2,'Diego','Arias', 'd.arias@gmail.com', 1),
-                           (3,'Cristian','topo', 'NoobMaster69', 3);--Excelente--
+insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
+                           (2,'Diego','Arias', 'd.arias@gmail.com', 1, 'el Resio', 'Puto Crack'),
+                           (3,'Cristian','topo', 'NoobMaster69', 3, 'Jopen Five', 'Cerote de Cardif');--Excelente--
 
 -- insert into Usuario (Id_usuario, Nombres, Apellidos, Correo, Id_tipo_usuario) values
 --                                  (4, 'Crack', 'Champions', 'd.@gmail.com', (Select Id_tipo_usuario from Usuario where Tipo_usuario = 'Admin'));                           
