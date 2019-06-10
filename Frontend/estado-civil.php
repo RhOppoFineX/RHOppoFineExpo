@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="e
+s">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,14 +53,12 @@
 										</table>
 									</div>
 								</div>
-
 								<!-- END TABLE STRIPED -->
 							</div>														
 						</div>
 					</div><!-- END MAIN CONTENT -->
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
-
 			<!-- Inicio Modal Modificar-->
 <div class="modal fade bd-modificar-modal-xl" id="modificar-estadoCivil" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -89,32 +88,9 @@
 			</form>
 		</div>
 		</div>
-	</div>  <!--Fin del modal modificar-->
-
-	<!-- Button trigger modal -->
-	
-	<!-- Inicio Modal Deshabilitar -->
-	<div class="modal fade" id="eliminar-estado-civil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				 <h2>¿Desea Deshabilitarlo?</h2>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
-				</div>
-			</div>
-		</div>
 	</div>
-
-	<!--Fin del modal Deshabilitar-->	
+</div>	  <!--Fin del modal modificar-->	
+	
 
 	<!--Inicio modal insertar -->
 
@@ -134,8 +110,7 @@
 									<label for="EstadoCivil">Estado Civil</label>
 									<input type="text" class="form-control" id="EstadoCivil" aria-describedby="estadoHelp" placeholder="Estado Civil" name="EstadoCivil">
 									<small id="estadoHelp" class="form-text text-muted"></small>
-							</div>
-						
+							</div>						
 					</div>											
 			</div>			  
 		</div>

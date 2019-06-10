@@ -67,7 +67,7 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#estadoCivil-insertar')[0].reset();//Id del formulario
+    $('#estadoCivil-Insertar')[0].reset();//Id del formulario
     $('#Insertar-estadoCivil').modal('show');//Id del modal el primero
 }
 
@@ -150,13 +150,13 @@ $('#actualizar-estado').submit(function()
 
 // Función para crear un nuevo registro
 //Id del formulario insertar
-$('#Insertar-estadoCivil').submit(function()
+$('#estadoCivil-Insertar').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#Insertar-estadoCivil').serialize(),
+        data: $('#estadoCivil-Insertar').serialize(),//Id formulario insertar 
         datatype: 'json'
     })
 
@@ -166,7 +166,7 @@ $('#Insertar-estadoCivil').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#estadoCivil-insertar')[0].reset();//Id del formulario insertar
+                $('#estadoCivil-Insertar')[0].reset();//Id del formulario insertar
                 $('#Insertar-estadoCivil').modal('hide');//Id del modal insertar, el primer id que se coloca xd
                 showTable();
                 sweetAlert(1, resultado.message, null);

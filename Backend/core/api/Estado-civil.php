@@ -29,7 +29,7 @@ if(isset($_GET['action']))
          case 'create':
          $_POST = $Estado_civil->validateForm($_POST);
 
-         if($Estado_civil->setEstado($_POST['Id_estado-civil'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
+         if($Estado_civil->setEstado($_POST['EstadoCivil'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
              if($Estado_civil->insertEstado()){  //operación insertar del modelo
                  $resultado['status'] = true;
                  $resultado['message'] = 'Estado civil insertado';

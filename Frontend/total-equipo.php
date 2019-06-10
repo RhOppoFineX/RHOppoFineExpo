@@ -6,7 +6,7 @@
     	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <title>Tabla | Datos-Parentesco </title>
+    <title>Tabla | Datos-Total equipo </title>
 	
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
@@ -25,7 +25,7 @@
 				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos parentesco</h3>
+							<h3 class="page-title">Datos total equipo</h3>
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
@@ -38,13 +38,15 @@
 											<thead>
 												<tr>
 													<th>#</th>
-                                                    <th>Parentesco</th>
+                                                    <th>Nombre equipo</th>
+                                                    <th>Colaborador</th>
 												</tr>
 											</thead>
 											<tbody id="tabla-parentesco">
 												<tr>
 													<td>1</td>
-													<td>Papá</td>									
+													<td>Cierra</td>	
+                                                    <td>Jefferson Joel</td>								
 													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</button></td>
 													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</button></td>
 	
