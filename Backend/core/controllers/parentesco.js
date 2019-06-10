@@ -96,7 +96,7 @@ function actualizarModal(Id)
                 $('#Id_parentesco').val(resultado.dataset.Id_parentesco);                       
                 $('#Parentesco').val(resultado.dataset.Parentesco);//id de cada input
                 //en caso de que alla más input ponen sus respectivos id            
-                $('#parentescoModificar').modal('show');//id del modal modificar
+                $('#Parentesco-modificar').modal('show');//id del modal modificar
                 console.log(response);
             }else{
                 sweetAlert(2, resultado.exception, null);

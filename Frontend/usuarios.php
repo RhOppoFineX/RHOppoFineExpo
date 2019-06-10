@@ -114,7 +114,7 @@
 
 							<div class="form-group col-md-4">
                                 <label for="Correo">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="Contraseña" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña">
+                                <input type="password" class="form-control" id="ContraseñaDos" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos">
                                 <small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 							<div class="form-group col-md-4">
@@ -183,7 +183,7 @@
 	
 								<div class="form-group col-md-4">
 									<label for="Correo">Repetir Contraseña</label>
-									<input type="password" class="form-control" id="Contraseña" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña">
+									<input type="password" class="form-control" id="ContraseñaDos" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos">
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-4">
@@ -203,7 +203,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Modficar</button>
+			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>			
 		</div>	
 	</div>
@@ -235,7 +235,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+                <button type="submit" class="btn btn-primary">Modficar</button>
 				</form>
             </div>
         </div>
@@ -268,7 +268,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
 				</form>
             </div>
         </div>
