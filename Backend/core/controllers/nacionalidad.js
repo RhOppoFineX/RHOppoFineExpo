@@ -4,7 +4,7 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/nivel-idioma.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/nacionalidad.php?action=';
 
 function fillTable(filas)
 {
@@ -15,10 +15,10 @@ function fillTable(filas)
         //son comillas invertidas no simple ni dobles
         contenido+= `
             <tr>
-                <td>${fila.Id_nivel_idioma}</td>
-                <td>${fila.Nivel}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_nivel_idioma})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_nivel_idioma}, null)">Deshabilitar</a></td>
+                <td>${fila.Id_nacionalidad}</td>
+                <td>${fila.Nacionalidad}</td>							
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_nacionalidad})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_nacionalidad}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_idioma o idioma sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -26,7 +26,7 @@ function fillTable(filas)
 
    });
    //id del tbody en la tabla correspondiente
-   $('#tabla-nivelidioma').html(contenido); 
+   $('#tabla-nacionalidad').html(contenido); 
       
 }
 //funcion para mostrar la tabla
@@ -67,8 +67,8 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#insertarnivelidioma')[0].reset();//Id del formulario
-    $('#nivelidiomaInsertar').modal('show');//Id del modal
+    $('#insertarnacionalidad')[0].reset();//Id del formulario
+    $('#nacionalidadInsertar').modal('show');//Id del modal
 }
 
 /*este metodo se ejecuta al darle click al boton modificar
@@ -79,7 +79,7 @@ function actualizarModal(Id)
         url: api + 'get',
         type: 'post',
         data:{
-            id_nivel_idioma: Id
+            Id_nacionalidad: Id
         },
         datatype: 'json'
     })
@@ -94,10 +94,11 @@ function actualizarModal(Id)
             if(resultado.status)
             {   //dataset es el resultado de la consulta que devuelve la API
                 //Este resultado es un array con los datos8
-                $('#id_nivel_idioma').val(resultado.dataset.Id_nivel_idioma);                       
-                $('#nivelIdioma').val(resultado.dataset.Nivel);//id de cada input
+                $('#id_nacionalidad').val(resultado.dataset.Id_nacionalidad);                       
+                $('#nacionalidad').val(resultado.dataset.Nacionalidad);//id de cada input
                 //en caso de que alla más input ponen sus respectivos id            
-                $('#nivelidiomaModificar').modal('show');//id del modal modificar
+                $('#nacionalidadModificar').modal('show');//id del modal modificar
+                
             }else{
                 sweetAlert(2, resultado.exception, null);
                 console.log(response);
@@ -116,13 +117,13 @@ function actualizarModal(Id)
 
 //Función para modificar un registro seleccionado previamente
 //Id del formulario que esta dentro del modal modificar
-$('#actualizarnivelidioma').submit(function()
+$('#actualizarnacionalidad').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'update',
         type: 'post',
-        data: $('#actualizarnivelidioma').serialize(),
+        data: $('#actualizarnacionalidad').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -131,7 +132,7 @@ $('#actualizarnivelidioma').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#nivelidiomaModificar').modal('hide');//Id del modal modificar
+                $('#nacionalidadModificar').modal('hide');//Id del modal modificar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
@@ -152,13 +153,13 @@ $('#actualizarnivelidioma').submit(function()
 
 // Función para crear un nuevo registro
 //Id del del formulario insertar
-$('#insertarnivelidioma').submit(function()
+$('#insertarnacionalidad').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarnivelidioma').serialize(),
+        data: $('#insertarnacionalidad').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -167,8 +168,8 @@ $('#insertarnivelidioma').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#insertarnivelidioma')[0].reset();//Id del formulario insertar
-                $('#nivelidiomaInsertar').modal('hide');//Id del modal insertar
+                $('#insertarnacionalidad')[0].reset();//Id del formulario insertar
+                $('#nacionalidadInsertar').modal('hide');//Id del modal insertar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {

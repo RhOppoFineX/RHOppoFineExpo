@@ -4,7 +4,7 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/nivel-idioma.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/Municipio.php?action=';
 
 function fillTable(filas)
 {
@@ -15,18 +15,19 @@ function fillTable(filas)
         //son comillas invertidas no simple ni dobles
         contenido+= `
             <tr>
-                <td>${fila.Id_nivel_idioma}</td>
-                <td>${fila.Nivel}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_nivel_idioma})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_nivel_idioma}, null)">Deshabilitar</a></td>
+                <td>${fila.Id_municipio}</td>
+                <td>${fila.Municipio}</td>
+                <td>${fila.Id_departamento}</td>							
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_municipio})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_municipio}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
-        //Los nombres de Id_idioma o idioma sin excatamente iguales a los campos de la base de datos en esa tabla
+        //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
         //si su tabla tiene mas campos agregarlos aqui un <tr> es una fila acurdense y los <td> son las columnas de es fila
 
    });
    //id del tbody en la tabla correspondiente
-   $('#tabla-nivelidioma').html(contenido); 
+   $('#tabla-municipio').html(contenido); 
       
 }
 //funcion para mostrar la tabla
@@ -42,7 +43,7 @@ function showTable()
     .done(function(reponse){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
         if(isJSONString(reponse)){
-            const resultado = JSON.parse(reponse); 
+            const resultado = JSON.parse(reponse);
              // Se comprueba si el resultado ha fallado si es asi se mostrara una IOException ksk
             if(!resultado.status)
             {
@@ -67,19 +68,19 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#insertarnivelidioma')[0].reset();//Id del formulario
-    $('#nivelidiomaInsertar').modal('show');//Id del modal
+    $('#insertarMunicipio')[0].reset();//Id del formulario
+    $('#municipioInsertar').modal('show');//Id del modal
 }
 
 /*este metodo se ejecuta al darle click al boton modificar
 y lo que hace es extraer el Id del registro y con este consultar a la base de datos a traves de los modelos, la informacion del registro que queremos modificar*/
 function actualizarModal(Id)
-{   //Id_idioma es el parametro para la consulta
+{   //Id_religion es el parametro para la consulta
     $.ajax({
         url: api + 'get',
         type: 'post',
         data:{
-            id_nivel_idioma: Id
+            Id_municipio: Id
         },
         datatype: 'json'
     })
@@ -93,11 +94,12 @@ function actualizarModal(Id)
 
             if(resultado.status)
             {   //dataset es el resultado de la consulta que devuelve la API
-                //Este resultado es un array con los datos8
-                $('#id_nivel_idioma').val(resultado.dataset.Id_nivel_idioma);                       
-                $('#nivelIdioma').val(resultado.dataset.Nivel);//id de cada input
+                //Este resultado es un array con los datos
+                $('#Id_municipio').val(resultado.dataset.Id_municipio);                       
+                $('#Municipio').val(resultado.dataset.Municipio);//id de cada input
+                $('#Id_departamento').val(resultado.dataset.Id_departamento);
                 //en caso de que alla más input ponen sus respectivos id            
-                $('#nivelidiomaModificar').modal('show');//id del modal modificar
+                $('#municipioModificar').modal('show');//id del modal modificar
             }else{
                 sweetAlert(2, resultado.exception, null);
                 console.log(response);
@@ -116,13 +118,13 @@ function actualizarModal(Id)
 
 //Función para modificar un registro seleccionado previamente
 //Id del formulario que esta dentro del modal modificar
-$('#actualizarnivelidioma').submit(function()
+$('#actualizarMunicipio').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'update',
         type: 'post',
-        data: $('#actualizarnivelidioma').serialize(),
+        data: $('#actualizarMunicipio').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -131,7 +133,7 @@ $('#actualizarnivelidioma').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#nivelidiomaModificar').modal('hide');//Id del modal modificar
+                $('#municipioModificar').modal('hide');//Id del modal modificar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
@@ -152,13 +154,13 @@ $('#actualizarnivelidioma').submit(function()
 
 // Función para crear un nuevo registro
 //Id del del formulario insertar
-$('#insertarnivelidioma').submit(function()
+$('#insertarMunicipio').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarnivelidioma').serialize(),
+        data: $('#insertarMunicipio').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -167,8 +169,8 @@ $('#insertarnivelidioma').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#insertarnivelidioma')[0].reset();//Id del formulario insertar
-                $('#nivelidiomaInsertar').modal('hide');//Id del modal insertar
+                $('#insertarMunicipio')[0].reset();//Id del formulario insertar
+                $('#municipioInsertar').modal('hide');//Id del modal insertar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {

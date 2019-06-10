@@ -2,14 +2,14 @@
 //Llamamos a todos los archivos que ocuparemos  
 require_once '../helpers/database.php';
 require_once '../helpers/validator.php';
-require_once '../models/nivel-idioma.php';
+require_once '../models/nacionalidad.php';
 //IMPORTANTE para los insert, update y delete no es necesario el dataset
 if(isset($_GET['action']))
 {
     //Esta funcion siempre se pone para porder hacer uso de la variable $_SESSION y controlar el inicio de sesiones
     session_start();
     $_SESSION['Id_usuario'] = 'Jopen';//Esta linea es momentanea para que podamos ocupar la API sin haber iniciado sesión
-    $nivelidioma = new nivelIdioma();//Según sea la tabla que esten ocupando, creamos un objeto del modelo que corresponde
+    $nacionalidad = new nacionalidad();//Según sea la tabla que esten ocupando, creamos un objeto del modelo que corresponde
     $resultado = array('status' => 0, 'message'=> null, 'exception' => null);
 
     //Se verifica si existe una sesión iniciada antes de proceder
@@ -18,7 +18,7 @@ if(isset($_GET['action']))
      switch ($_GET['action']){           
 
          case 'read':                          //metodo del modelo 
-            if($resultado['dataset'] = $nivelidioma->selectnivelIdioma()){
+            if($resultado['dataset'] = $nacionalidad->selectnacionalidad()){
                 $resultado['status'] = true;                
             } else {
                 $resultado['exception'] = 'No se han registrado Idiomas';
@@ -27,12 +27,12 @@ if(isset($_GET['action']))
 
 
          case 'create':
-            $_POST = $nivelidioma->validateForm($_POST);
+            $_POST = $nacionalidad->validateForm($_POST);
 
-            if($nivelidioma->setnivelIdioma($_POST['nivelidioma'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
-                if($nivelidioma->insertnivelidioma()){  //operación insertar del modelo
+            if($nacionalidad->setnacionalidad($_POST['nacionalidad'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
+                if($nacionalidad->insertnacionalidad()){  //operación insertar del modelo
                     $resultado['status'] = true;
-                    $resultado['message'] = 'nivel idioma insertada';
+                    $resultado['message'] = 'nivel nacionalidad insertada';
                 }else{
                     $resultado['exception'] = 'Hubo un error';
                 }
@@ -43,8 +43,8 @@ if(isset($_GET['action']))
          break;
             //el get es primero despues el update para no confundirse 
          case 'get':
-            if($nivelidioma->setId($_POST['id_nivel_idioma'])){
-                if($resultado['dataset'] = $nivelidioma->getnivelIdiomaModal()){
+            if($nacionalidad->setId($_POST['Id_nacionalidad'])){
+                if($resultado['dataset'] = $nacionalidad->getnacionalidadModal()){
                     $resultado['status'] = true;                
                 }else{
                     $resultado['exception'] = 'Id inexistente';
@@ -56,14 +56,14 @@ if(isset($_GET['action']))
          break;
          
          case 'update':            
-            $_POST = $nivelidioma->validateForm($_POST);
+            $_POST = $nacionalidad->validateForm($_POST);
             
-            if($nivelidioma->setId($_POST['id_nivel_idioma'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
-                if($nivelidioma->getnivelidiomaModal()){
-                    if($nivelidioma->setnivelidioma($_POST['nivelidioma'])){
-                        if($nivelidioma->updatenivelidioma()){
+            if($nacionalidad->setId($_POST['id_nacionalidad'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
+                if($nacionalidad->getnacionalidadModal()){
+                    if($nacionalidad->setnacionalidad($_POST['nacionalidad'])){
+                        if($nacionalidad->updatenacionalidad()){
                             $resultado['status'] = true;
-                            $resultado['message'] = 'nivel Idioma modificada';
+                            $resultado['message'] = 'nivel nacionalidad modificada';
                         }else{
                             $resultado['exception'] = 'Operación fallida';
                         }                                                
@@ -79,19 +79,19 @@ if(isset($_GET['action']))
          break;
          
          case 'delete':
-            if($nivelidioma->setId($_POST['identifier'])){
-                if($nivelidioma->getnivelidiomaModal()){
-                    if($nivelidioma->deletenivelIdioma()){
+            if($nacionalidad->setId($_POST['identifier'])){
+                if($nacionalidad->getnacionalidadModal()){
+                    if($nacionalidad->deletenacionalidad()){
                         $resultado['status'] = true;
-                        $resultado['message'] = 'idioma eliminada';
+                        $resultado['message'] = 'nacionalidad eliminada';
                     }else{
                         $resultado['exception'] = 'Registro no eliminado';
                     }
                 }else{
-                    $resultado['exception'] = 'idioma inexistente';
+                    $resultado['exception'] = 'nacionalidad inexistente';
                 }
             }else{
-                $resultado['exception'] = 'idioma Incorrecta';
+                $resultado['exception'] = 'nacionalidad Incorrecta';
             }
          break;
 
