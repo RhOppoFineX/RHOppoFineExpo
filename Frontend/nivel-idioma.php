@@ -28,7 +28,7 @@
 				<div class="main">					
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos idioma</h3>
+							<h3 class="page-title">Datos nivel idioma</h3>
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
 							<div class="panel">
@@ -43,10 +43,10 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>idioma</th>
+													<th>nivel idioma</th>
 												</tr>
 											</thead>
-											<tbody id="tabla-idioma">
+											<tbody id="tabla-nivelidioma">
 												<tr>
 													<td>1</td>
 													<td>Español</td>									
@@ -65,23 +65,23 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!-- Modal Modificar-->
-<div class="modal fade bd-modificar-modal-xl" id="idiomaModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="nivelidiomaModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos idioma</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos nivel idioma</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="actualizaridioma">
+					<form method="post" id="actualizarnivelidioma">
 							<div class="form-group col-md-12">
-								<!--nuevo input es invisible-->	<input type="hidden" id="Id_idioma" name="Id_idioma">	
-									<label for="idioma">idioma</label>
-									<input type="text" class="form-control" id="Idioma" aria-describedby="idiomaHelp" placeholder="Religión" name="idioma"><!--Agreguen los name="" mismo que el id-->
-									<small id="idiomaHelp" class="form-text text-muted"></small>
+								<!--nuevo input es invisible-->	<input type="hidden" id="Id_nivel_idioma" name="Id_nivel_idioma">	
+									<label for="nivelidioma">idioma</label>
+									<input type="text" class="form-control" id="nivelIdioma" aria-describedby="nivelidiomaHelp" placeholder="Religión" name="nivelidioma"><!--Agreguen los name="" mismo que el id-->
+									<small id="nivelidiomaHelp" class="form-text text-muted"></small>
 									
 							</div>
 						
@@ -123,22 +123,22 @@
 	<!--Fin del modal Deshabilitar-->
 
 	<!--Inicio Modal Insertar-->
-<div class="modal fade bd-modificar-modal-xl" id="idiomaInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="nivelidiomaInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de idioma</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de nivel idioma</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertaridioma">
+					<form method="post" id="insertarnivelidioma">
 							<div class="form-group col-md-12">							
-									<label for="idioma">Idioma</label>
-									<input type="text" class="form-control" id="Idioma" aria-describedby="idiomaHelp" placeholder="Religión" name="idioma">
-									<small id="idiomaHelp" class="form-text text-muted"></small>
+									<label for="nivelidioma">Idioma</label>
+									<input type="text" class="form-control" id="nivelIdioma" aria-describedby="nivelidiomaHelp" placeholder="Religión" name="nivelidioma">
+									<small id="nivelidiomaHelp" class="form-text text-muted"></small>
 							</div>
 						
 					</div>											
@@ -161,7 +161,7 @@
 	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/idioma.js"></script>
+	<script src="../Backend/core/controllers/nivel-idioma.js"></script>
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 		
 
