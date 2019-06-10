@@ -45,7 +45,7 @@ if(isset($_GET['action']))
          case 'get':
             if($religion->setId($_POST['Id_religion'])){
                 if($resultado['dataset'] = $religion->getReligionModal()){
-                    $resultado['status'] = true;
+                    $resultado['status'] = true;                
                 }else{
                     $resultado['exception'] = 'Id inexistente';
                 }
