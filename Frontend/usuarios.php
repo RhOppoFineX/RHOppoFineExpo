@@ -128,6 +128,7 @@
                                 </select>									
                                 
                             </div>
+				<!--Input invisible-->		<input type="hidden" id="Id_religion" name="Id_religion">
                         </div>                            
 				</div>					
 			</div>			  
@@ -224,7 +225,8 @@
                         <form method="post" id="modificar-tipoUsuario">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="exampleInputTipo1">Tipo usuario</label>
+									<!--Invisible--><input type="hidden" id="Id-tipo-usuario" name="Id-tipo-usuario">	
+                                    <label for="tipo-usuario">Tipo usuario</label>
                                     <input type="text" class="form-control" id="tipo-usuario" aria-describedby="tipoHelp" placeholder="Tipo usuario" name="tipo-usuario">
                                     <small id="tipoHelp" class="form-text text-muted"></small>
                                 </div>
@@ -258,7 +260,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="exampleInputTipo1">Tipo usuario</label>
-                                    <input type="text" class="form-control" id="tipo-usuario" aria-describedby="tipoHelp" placeholder="Tipo usuario" name="tipo-usuario">
+                                    <input type="text" class="form-control" id="tipo-usuario-a" aria-describedby="tipoHelp" placeholder="Tipo usuario" name="tipo-usuario-a">
                                     <small id="tipoHelp" class="form-text text-muted"></small>
                                 </div>
                             </div>
