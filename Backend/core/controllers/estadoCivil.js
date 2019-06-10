@@ -149,14 +149,14 @@ $('#actualizar-estado').submit(function()
 })
 
 // Función para crear un nuevo registro
-//Id del del formulario insertar
+//Id del formulario insertar
 $('#Insertar-estadoCivil').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarEstado').serialize(),
+        data: $('#Insertar-estadoCivil').serialize(),
         datatype: 'json'
     })
 

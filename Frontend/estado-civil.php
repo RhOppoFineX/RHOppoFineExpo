@@ -132,7 +132,7 @@
 					<form method="post" id="estadoCivil-Insertar">
 							<div class="form-group col-md-12">							
 									<label for="EstadoCivil">Estado Civil</label>
-									<input type="text" class="form-control" id="EstadoCivil" aria-describedby="estadoHelp" placeholder="Estado Civil" name="Estado Civil">
+									<input type="text" class="form-control" id="EstadoCivil" aria-describedby="estadoHelp" placeholder="Estado Civil" name="EstadoCivil">
 									<small id="estadoHelp" class="form-text text-muted"></small>
 							</div>
 						

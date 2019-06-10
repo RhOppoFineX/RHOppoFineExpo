@@ -60,7 +60,7 @@ if(isset($_GET['action']))
    
    if($Estado_civil->setId($_POST['Id_estado-civil'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
        if($Estado_civil->getEstadoModal()){
-           if($Estado_civil->setEstado($_POST['Estado_civil'])){
+           if($Estado_civil->setEstado($_POST['EstadoCivil'])){
                if($Estado_civil->updateEstado()){
                    $resultado['status'] = true;
                    $resultado['message'] = 'Estado civil modificado';
