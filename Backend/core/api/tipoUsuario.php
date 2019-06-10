@@ -25,8 +25,77 @@ if(isset($_GET['action']))
                     $resultado['exception'] = 'No se han registrado tipos de usuarios';
                 }
             break;
-        }
 
+            case 'create':
+            $_POST = $tipoUsuario->validateForm($_POST);
+
+            if($tipoUsuario->setTipo($_POST['tipo-usuario'])){  
+                if($tipoUsuario->insertTipoUsuario()){
+                    $resultado['status'] = true;
+                    $resultado['message'] = 'Tipo usuario insertado';
+                }else{
+                    $resultado['exception'] = 'Ocurrio un error';
+                }
+            }else{
+                $resultado['exception'] = 'Longitud de caracteres invalida';
+            }
+
+         break;
+
+         case 'get':
+            if($tipoUsuario->setId($_POST['Id_tipo_usuario'])){
+                if($resultado['dataset'] = $tipoUsuario->getTipo()){
+                    $resultado['status'] = true; 
+                }else{                      
+                    $resultado['exception'] = 'Id inexistente';
+                }
+            }else{
+                $resultado['exception'] = 'Id incorrecto';
+            }            
+
+         break;
+
+         case 'update':            
+            $_POST = $tipoUsuario->validateForm($_POST);
+            
+            if($tipoUsuario->setId($_POST['Id_tipo_usuario'])){
+                if($tipoUsuario->getTipoUsuarioModal()){
+                    if($tipoUsuario->setTipo($_POST['tipo-usuario'])){
+                        if($tipoUsuario->updateTipoUsuario()){
+                            $resultado['status'] = true;
+                            $resultado['message'] = 'Tipo usuario modificado';
+                        }else{
+                            $resultado['exception'] = 'Operación fallida';
+                        }                                                
+                    }else{
+                        $resultado['exception'] = 'Longitud de caracteres invalida';                        
+                    }
+                }else{
+                    $resultado['exception'] = 'No existe este registro';
+                }
+            }else{
+                $resultado['exception'] = 'Id Inexistente';
+            }
+         break;
+
+        case 'delete':
+            if($tipoUsuario->setId($_POST['identifier'])){
+                if($tipoUsuario->getTipoUsuarioModal()){
+                    if($tipoUsuario->deleteTipoUsuario()){
+                    $resultado['status'] = true;
+                    $resultado['message'] = 'Tipo usuario eliminado';
+                }else{
+                    $resultado['exception'] = 'Registro no eliminado';
+                }
+            }else{
+                $resultado['exception'] = 'Tipo usuario inexistente';
+            }
+        }else{
+            $resultado['exception'] = 'Tipo usuario Incorrecto';
+        }
+     break;
+
+        }
 
         print(json_encode($resultado));
 
