@@ -95,15 +95,21 @@
 									<div id="subPages" class="collapse ">
 										<ul class="nav">
 											<li><a href="usuarios.php" class="">Usuarios</a></li>
+											<li><a href="tipoUsuarios.php" class=""> Tipos de Usuarios</a></li>
 											<li><a href="puesto.php" class="">Puesto</a></li>
+											<li><a href="area.php" class="">Area</a></li>
                                             <li><a href="religion.php" class="">Religión</a></li>
+                                            <li><a href="tipo-equipo.php" class="">Tipo Equipo</a></li>
                                             <li><a href="equipo.php" class="">Equipo</a></li>
                                             <li><a href="estado-civil.php" class="">Estado civil</a></li>
                                             <li><a href="categoria-educacion.php" class="">Categoria educación</a></li>
 											<li><a href="educacion.php" class="">Información Educación</a></li>
                                             <li><a href="parentesco.php" class="">Parentesco</a></li>
                                             <li><a href="idioma.php" class="">Idioma</a></li>
+                                            <li><a href="nivel-idioma.php" class=""> Nivel Idioma</a></li>
 											<li><a href="nacionalidad.php" class="">Nacionalidad</a></li>
+											<li><a href="departamento.php" class="">Departamento</a></li>
+											<li><a href="municipio.php" class="">Municipio</a></li>
 										</ul>
 									</div>
 								</li>									

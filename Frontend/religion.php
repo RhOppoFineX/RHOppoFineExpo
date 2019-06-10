@@ -34,7 +34,7 @@
 							<div class="panel">
 									<div class="panel-heading"><!--Acabo de modificar el boton y quitar el titulo-->
 										<!-- <h3 class="panel-title">Datos religiosos</h3> -->										
-										<!--Boton Agregar--->												
+										<!--Boton Agregar-->												
 										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>												
 											
 									</div>
