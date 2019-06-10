@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
     session_start();
     $usuario = new Usuarios;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
-    $_SESSION['Id_usuario'] = 'Jopen';
+    $_SESSION['id_usuario'] = 'Jopen';
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['id_usuario'])) {
         switch ($_GET['action']) {
