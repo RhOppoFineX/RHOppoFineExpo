@@ -78,9 +78,9 @@
 			<div class="container-fluid">
 					<form method="post" id="actualizarnivelidioma">
 							<div class="form-group col-md-12">
-								<!--nuevo input es invisible-->	<input type="hidden" id="Id_nivel_idioma" name="Id_nivel_idioma">	
+								<!--nuevo input es invisible-->	<input type="hidden" id="id_nivel_idioma" name="id_nivel_idioma">	
 									<label for="nivelidioma">idioma</label>
-									<input type="text" class="form-control" id="nivelIdioma" aria-describedby="nivelidiomaHelp" placeholder="Religión" name="nivelidioma"><!--Agreguen los name="" mismo que el id-->
+									<input type="text" class="form-control" id="nivelIdioma" aria-describedby="nivelidiomaHelp" placeholder="Nivel idioma" name="nivelidioma"><!--Agreguen los name="" mismo que el id-->
 									<small id="nivelidiomaHelp" class="form-text text-muted"></small>
 									
 							</div>

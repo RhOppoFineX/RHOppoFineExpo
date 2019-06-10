@@ -1,9 +1,9 @@
 <?php
-class nivelIdioma extends Validator    
+class nacionalidad extends Validator    
 {       
         //Campos segun la base de datos siempre con sus metodos set() y get()
         private $Id = null;
-        private $idioma = null;
+        private $nacionalidad = null;
         private $id_nivel = null;
 
         public function setId($Id)
@@ -23,19 +23,19 @@ class nivelIdioma extends Validator
             return $this->Id;
         }
 
-        public function setnivelIdioma($idioma)
+        public function setnacionalidad($nacionalidad)
         {
-            if($this->validateAlphanumeric($idioma, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
-                $this->idioma = $idioma;
+            if($this->validateAlphanumeric($nacionalidad, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+                $this->nacionalidad = $nacionalidad;
                 return true;
             }else{
                 return false;
             }
         }
 
-        public function getIdioma()
+        public function getnacionalidad()
         {
-            return $this->idioma;
+            return $this->nacionalidad;
         }
 
         public function setId_nivel($Id)
@@ -55,47 +55,47 @@ class nivelIdioma extends Validator
             return $this->id_nivel;
         }
 
-        public function insertnivelidioma()
+        public function insertnacionalidad()
         {
-            $sql = "INSERT INTO nivel_idioma (Nivel)
+            $sql = "INSERT INTO nacionalidad (nacionalidad)
             VALUES (?)";            
-            $parametros = array($this->idioma);
+            $parametros = array($this->nacionalidad);
             return Database::executeRow($sql, $parametros);
         }
 
-        public function updatenivelidioma()
+        public function updatenacionalidad()
         {
-            $sql = "UPDATE nivel_idioma SET Nivel = ? WHERE Id_nivel_idioma = ?";
-            $parametros = array($this->idioma, $this->Id);
+            $sql = "UPDATE nacionalidad SET Nacionalidad = ? WHERE Id_nacionalidad = ?";
+            $parametros = array($this->nacionalidad, $this->Id);
             return Database::executeRow($sql, $parametros);
         }
 
-        public function deletenivelIdioma()
+        public function deletenacionalidad()
         {
-            $sql = "DELETE FROM nivel_idioma WHERE Id_nivel_idioma = ?";
+            $sql = "DELETE FROM nacionalidad WHERE Id_nacionalidad = ?";
             $parametros = array($this->Id);
             return Database::executeRow($sql, $parametros);
         }
 
-        public function selectnivelIdioma()
+        public function selectnacionalidad()
         {
-            $sql = "SELECT Id_nivel_idioma, Nivel FROM nivel_idioma 
-            ORDER BY nivel";
+            $sql = "SELECT Id_nacionalidad, Nacionalidad FROM nacionalidad 
+            ORDER BY Nacionalidad";
             $parametros = array(null);
             return Database::getRows($sql, $parametros);
         }
 
-        public function buscarnivelIdioma($valor)
+        public function buscarnacionalidad($valor)
         {
-            $sql = "SELECT * FROM idioma WHERE idioma LIKE ? ORDER BY idioma";
+            $sql = "SELECT * FROM Nacionalidad WHERE Nacionalidad LIKE ? ORDER BY Nacionalidad";
             $parametros = array("%$valor%");
             return Database::getRows($sql, $parametros);
         }
 
         //Extrare los datos de la base hacia el actualizarModal esta es su mision
-        public function getnivelIdiomaModal()
+        public function getnacionalidadModal()
         {
-            $sql = "SELECT * FROM nivel_idioma WHERE Id_nivel_idioma = ?";
+            $sql = "SELECT * FROM Nacionalidad WHERE Id_nacionalidad = ?";
             $parametros = array($this->Id);
             return Database::getRow($sql, $parametros);
         }                       
