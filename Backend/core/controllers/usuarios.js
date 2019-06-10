@@ -3,8 +3,8 @@ $(document).ready(function()
     showTable();
 })
 
-// Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../core/api/dashboard/usuarios.php?action=';
+// Constante para establecer la ruta y parámetros de comunicación con la apiUsuario
+const apiUsuario = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
 
 // Función para llenar tabla con los datos de los registros
 function fillTable(rows)
@@ -14,32 +14,32 @@ function fillTable(rows)
     rows.forEach(function(row){
         content += `
             <tr>
+                <td>${row.id_usuario}<td>
                 <td>${row.apellidos_usuario}</td>
                 <td>${row.nombres_usuario}</td>
                 <td>${row.correo_usuario}</td>
                 <td>${row.alias_usuario}</td>
                 <td>
                     <a href="#" onclick="modalUpdate(${row.id_usuario})" class="blue-text tooltipped" data-tooltip="Modificar"><i class="material-icons">mode_edit</i></a>
-                    <a href="#" onclick="confirmDelete('${api}', ${row.id_usuario}, null)" class="red-text tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+                    <a href="#" onclick="confirmDelete('${apiUsuario}', ${row.id_usuario}, null)" class="red-text tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
                 </td>
             </tr>
         `;
     });
-    $('#tbody-read').html(content);
-    $('.tooltipped').tooltip();
+    $('#tabla-usuario').html(content);   
 }
 
 // Función para obtener y mostrar los registros disponibles
 function showTable()
 {
     $.ajax({
-        url: api + 'read',
+        url: apiUsuario + 'read',
         type: 'post',
         data: null,
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
@@ -62,13 +62,13 @@ $('#form-search').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: api + 'search',
+        url: apiUsuario + 'search',
         type: 'post',
         data: $('#form-search').serialize(),
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
@@ -92,7 +92,7 @@ $('#form-search').submit(function()
 function modalCreate()
 {
     $('#form-create')[0].reset();
-    $('#modal-create').modal('open');
+    $('#modal-create').modal('show');
 }
 
 // Función para crear un nuevo registro
@@ -100,19 +100,19 @@ $('#form-create').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: api + 'create',
+        url: apiUsuario + 'create',
         type: 'post',
         data: $('#form-create').serialize(),
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#form-create')[0].reset();
-                $('#modal-create').modal('close');
+                $('#modal-create').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
@@ -132,7 +132,7 @@ $('#form-create').submit(function()
 function modalUpdate(id)
 {
     $.ajax({
-        url: api + 'get',
+        url: apiUsuario + 'get',
         type: 'post',
         data:{
             id_usuario: id
@@ -140,7 +140,7 @@ function modalUpdate(id)
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
@@ -151,7 +151,7 @@ function modalUpdate(id)
                 $('#update_correo').val(result.dataset.correo_usuario);
                 $('#update_alias').val(result.dataset.alias_usuario);
                 M.updateTextFields();
-                $('#modal-update').modal('open');   
+                $('#modal-update').modal('hide');   
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -170,18 +170,18 @@ $('#form-update').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: api + 'update',
+        url: apiUsuario + 'update',
         type: 'post',
         data: $('#form-update').serialize(),
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-update').modal('close');
+                $('#modal-update').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
