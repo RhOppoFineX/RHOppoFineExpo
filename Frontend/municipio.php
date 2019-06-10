@@ -84,7 +84,7 @@
 							</div>
                             <div class="form-group col-md-4">
 										<label for="genero-datosDepartamento">Departamento</label>
-										<select id="genero-datosDepartamento" class="form-control">											
+										<select id="Departamento2" class="form-control">											
 											<option>San Salvador</option>
 											<option>Sonsonate</option>
 										</select>
@@ -145,7 +145,7 @@
 					<form method="post" id="insertarMunicipio">
 							<div class="form-group col-md-12">
 									<label for="Municipio">Municipio</label>
-									<input type="text" class="form-control" id="MunicipioID" aria-describedby="municipioHelp" placeholder="Religión" name="MunicipioID"><!--Agreguen los name="" mismo que el id-->
+									<input type="text" class="form-control" id="MunicipioID2" aria-describedby="municipioHelp" placeholder="Municipio" name="MunicipioID2"><!--Agreguen los name="" mismo que el id-->
 									<small id="municipioHelp" class="form-text text-muted"></small>			
 							</div>
                             <div class="form-group col-md-4">
