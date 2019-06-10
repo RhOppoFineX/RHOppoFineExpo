@@ -4,7 +4,7 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/Parentesco.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/Categoria.php?action=';
 
 function fillTable(filas)
 {
@@ -15,10 +15,10 @@ function fillTable(filas)
         //son comillas invertidas no simple ni dobles
         contenido+= `
             <tr>
-                <td>${fila.Id_parentesco}</td>
-                <td>${fila.Parentesco}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_parentesco})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_parentesco}, null)">Deshabilitar</a></td>
+                <td>${fila.Id_categoria}</td>
+                <td>${fila.Categoria}</td>							
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_Categoria})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_categoria}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -26,7 +26,7 @@ function fillTable(filas)
 
    });
    //id del tbody en la tabla correspondiente
-   $('#tabla-parentesco').html(contenido); 
+   $('#tabla-categoria').html(contenido); 
       
 }
 //funcion para mostrar la tabla
@@ -66,8 +66,8 @@ function showTable()
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
-    $('#insertarParentesco')[0].reset();//Id del formulario
-    $('#parentescoInsertar').modal('show');//Id del modal
+    $('#insertarCategoria')[0].reset();//Id del formulario
+    $('#categoriaInsertar').modal('show');//Id del modal
 }
 
 /*este metodo se ejecuta al darle click al boton modificar
@@ -78,7 +78,7 @@ function actualizarModal(Id)
         url: api + 'get',
         type: 'post',
         data:{
-            Id_parentesco: Id
+            Id_categoria: Id
         },
         datatype: 'json'
     })
@@ -93,10 +93,10 @@ function actualizarModal(Id)
             if(resultado.status)
             {   //dataset es el resultado de la consulta que devuelve la API
                 //Este resultado es un array con los datos
-                $('#Id_parentesco').val(resultado.dataset.Id_parentesco);                       
-                $('#Parentesco').val(resultado.dataset.Parentesco);//id de cada input
+                $('#Id_categoria').val(resultado.dataset.Id_categoria);                       
+                $('#Categoria').val(resultado.dataset.Categoria);//id de cada input
                 //en caso de que alla más input ponen sus respectivos id            
-                $('#Parentesco-modificar').modal('show');//id del modal modificar el primer id que se coloca jajaja
+                $('#Categoria-modificar').modal('show');//id del modal modificar el primer id que se coloca jajaja
                 console.log(response);
             }else{
                 sweetAlert(2, resultado.exception, null);
@@ -116,13 +116,13 @@ function actualizarModal(Id)
 
 //Función para modificar un registro seleccionado previamente
 //Id del formulario que esta dentro del modal modificar
-$('#modificar-parentesco').submit(function()
+$('#modificar-categoria').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'update',
         type: 'post',
-        data: $('#modificar-parentesco').serialize(),
+        data: $('#modificar-categoria').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -131,7 +131,7 @@ $('#modificar-parentesco').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#Parentesco-modificar').modal('hide');//Id del modal modificar
+                $('#Categoria-modificar').modal('hide');//Id del modal modificar, el primer id que se coloca en ese modal
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
@@ -152,13 +152,13 @@ $('#modificar-parentesco').submit(function()
 
 // Función para crear un nuevo registro
 //Id del del formulario insertar
-$('#insertarParentesco').submit(function()
+$('#insertarCategoria').submit(function()
 {   
     event.preventDefault();
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarParentesco').serialize(),
+        data: $('#insertarCategoria').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -167,8 +167,8 @@ $('#insertarParentesco').submit(function()
             const resultado = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (resultado.status) {
-                $('#insertarParentesco')[0].reset();//Id del formulario insertar
-                $('#parentescoInsertar').modal('hide');//Id del modal insertar
+                $('#insertarCategoria')[0].reset();//Id del formulario insertar
+                $('#categoriaInsertar').modal('hide');//Id del modal insertar
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
