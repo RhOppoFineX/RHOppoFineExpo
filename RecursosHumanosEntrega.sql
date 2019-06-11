@@ -1,5 +1,5 @@
-Create Database RecursosHumanos;
-use RecursosHumanos;
+Create Database RecursosHumanos2;
+use RecursosHumanos2;
 --Topo
 create table Tipo_usuario(
     Id_tipo_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -287,9 +287,9 @@ insert into Nacionalidad (Nacionalidad) values ('Salvadoreña'),
 
 insert into Nivel_idioma (Nivel) values ('basico'),
                                 ('intermedio'),
-                                ('avanzado'),
+                                ('avanzado');
 
-insert into Idioma (Idioma, Id_nivel_idioma) values ('Español',3),
+insert into Idioma (Idioma, Id_nivel_idioma) values ('Espanol',3),
                           ('Ingles',2),
                           ('Frances',1),
                           ('Italiano',3),
@@ -372,16 +372,7 @@ insert into Categoria values (1,'Tecnico'),
                              (9,'Consejeria'),
                              (10,'Vendedores');
 
-insert into Parentesco (Parentesco) values('Papá'),
-                                        ('Mamá'),
-                                        ('Tio/a'),
-                                        ('Hijo/a'),
-                                        ('Abuelo/a'),
-                                        ('Cuñado/a'),
-                                        ('Primo/a'),
-                                        ('Novio/a'),
-                                        ('Bisabuelo/a'),
-                                        ('Tatara Abuelo/a');
+insert into Parentesco (Parentesco) values('Papá'),('Mamá'),('Tio/a'),('Hijo/a'),('Abuelo/a'),('Cuñado/a',('Primo/a'),('Novio/a');
         
 
 insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP)

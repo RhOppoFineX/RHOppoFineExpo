@@ -34,20 +34,15 @@
 								<!--Boton insertar--><a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="tabla-equipo">
 											<thead>
 												<tr>
                                                     <th>Nombre equipo</th>
                                                     <th>Tipo equipo</th>
 												</tr>
 											</thead>
-											<tbody id="tabla-equipo">
+											<tbody id="tbody-read">
 												<tr>
-													<td>1</td>
-													<td>Cierra</td>
-                                                    <td>1</td>									
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</button></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</button></td>	
 											</tr>
  											</tbody>
 										</table>
@@ -62,18 +57,18 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!--Inicio Modal Modificar-->
-			<div class="modal fade bd-modificar-modal-xl" id="usuarioModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<div class="modal fade bd-modificar-modal-xl" id="equipoModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Usuarios</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de Tipo equipo</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarUsuario">
+					<form method="post" id="modificarEquipo">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Nombres">Nombre equipo</label>
@@ -124,18 +119,18 @@
 	<!--Fin del modal Deshabilitar-->	
 
 		<!--Inicio Modal Insertar-->
-		<div class="modal fade bd-modificar-modal-xl" id="usuarioAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<div class="modal fade bd-modificar-modal-xl" id="equipoAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Usuarios</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de Tipo equipo</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregarUsuario">
+						<form method="post" id="agregarEquipo">
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="Nombre-equipo">Nombre equipo</label>
@@ -143,8 +138,8 @@
 								</div>
 								
 								<div class="form-group col-md-4">
-									<label for="Tipo-equipoA">Tipo equipo/label>
-									<select id="Tipo-equipoA" name="Tipo-equipoA" class="form-control">
+									<label for="tipo-equipoA">Tipo equipo</label>
+									<select id="tipo-equipoA" name="tipo-equipoA" class="form-control">
 									<option value="siuu" selected>${text}</option>
 									</select>									
 									
@@ -154,7 +149,7 @@
 				</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>			
 		</div>	
