@@ -6,7 +6,7 @@
     	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <title>Tabla | Datos-parentesco </title>
+    <title>Tabla | Datos-Tipo equipo </title>
 	
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
@@ -38,7 +38,7 @@
 											<thead>
 												<tr>
 													<th>#</th>
-                                                    <th>Parentesco</th>
+                                                    <th>Tipo equipo</th>
 												</tr>
 											</thead>
 											<tbody id="tabla-tipo-equipo">
@@ -61,7 +61,7 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!--Inicio Modal Modificar-->
-<div class="modal fade bd-modificar-modal-xl" id="tipoEquipo-modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="tipo-modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -72,12 +72,12 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-tipoEquipo">
+					<form method="POST" id="modificar-tipo">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 					<!--Input invisible-->	<input type="hidden" id="Id_tipo_equipo" name="Id_tipo_equipo">	
 											<label for="TipoEquipo">Tipo equipo</label>
-											<input type="text" class="form-control" id="Tipo_equipo" aria-describedby="tipo-equipoHelp" placeholder="Tipo equipo" name="Tipo equipo">
+											<input type="text" class="form-control" id="Tipo_equipo" aria-describedby="tipo-equipoHelp" placeholder="Tipo equipo" name="Tipo_equipo">
 											<small id="tipo-equipoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
@@ -122,7 +122,7 @@
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de parentesco</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de Tipo equipo</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -156,7 +156,7 @@
 	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/tipo_equipo.js"></script>
+	<script src="../Backend/core/controllers/Tipo-equipo.js"></script>
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 		
 	</body>
