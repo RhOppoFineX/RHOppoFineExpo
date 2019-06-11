@@ -6,57 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
 
-    <title>Tabla | Datos-Religión </title>
-
+    <title>Tabla | Datos-idioma </title>
+	
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
 	?>
-	
 </head>
-<body> <!--Indicaiones:
-		1) al formularios de actiualizar a los input tambien llevan name="Valor Del Id" 
-		2) Mover la etiqueta </form> hacia donde se indica en todos los modales con formualrio (Eliminar No)
-		3) Quitar el data-dismiss de loa botones de modificar, insertar y eliminar
-		4) Agregar el input invisible a los formularios de Modificar-->
+<body>
 
 	<div id="wrapper">
 			<?php
 				require_once '../backend/core/helpers/menu.php';	
 			?>
-								
 				<!--Incio de la Table-->
-				<div class="main">					
+				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos idioma</h3>
+							<h3 class="page-title">Datos de idioma</h3>
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
-							<div class="panel">
-									<div class="panel-heading"><!--Acabo de modificar el boton y quitar el titulo-->
-										<!-- <h3 class="panel-title">Datos religiosos</h3> -->										
-										<!--Boton Agregar--->												
-										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>												
-											
+                                <div class="panel">
+									<div class="panel-heading">
+										<!--Boton Agregar-->												
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>										
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="Tablaidioma">
 											<thead>
-												<tr>
-													<th>#</th>
-													<th>idioma</th>
+												<tr>													
+                                                    <th>idioma</th>
+                                                    <th>Nivel</th>
 												</tr>
 											</thead>
 											<tbody id="tabla-idioma">
-												<tr>
-													<td>1</td>
-													<td>Español</td>									
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr><!--Los registros solo son de prueba recuerden pueden borrarlos si quieren en este caso solo deje uno-->						
+												
 											</tbody>
 										</table>
 									</div>
-                                </div>
+								</div>                            
 								<!-- END TABLE STRIPED -->
 							</div>														
 						</div>
@@ -64,95 +51,87 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-			<!-- Modal Modificar-->
+<!-- Modal Modificar idioma-->
 <div class="modal fade bd-modificar-modal-xl" id="idiomaModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos idioma</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de idioma</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="actualizaridioma">
-							<div class="form-group col-md-12">
-								<!--nuevo input es invisible-->	<input type="hidden" id="Id_idioma" name="Id_idioma">	
-									<label for="idioma">idioma</label>
-									<input type="text" class="form-control" id="Idioma" aria-describedby="idiomaHelp" placeholder="Religión" name="idioma"><!--Agreguen los name="" mismo que el id-->
-									<small id="idiomaHelp" class="form-text text-muted"></small>
-									
-							</div>
-						
-					</div>											
-			</div>			  
-		</div>
-		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Modficar</button><!--Quitarle el data-dismiss-->
-			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
-		</div>
-		</div>
-	</div>  <!--Fin del modal modificar-->
-
-	<!-- Button trigger modal -->
-
-	
-	<!-- Modal Elimiar-->
-	<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				 <h2>¿Desea Deshabilitar?</h2>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--Fin del modal Deshabilitar-->
-
-	<!--Inicio Modal Insertar-->
-<div class="modal fade bd-modificar-modal-xl" id="idiomaInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-scrollable" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de idioma</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-					<form method="post" id="insertaridioma">
-							<div class="form-group col-md-12">							
-									<label for="idioma">Idioma</label>
-									<input type="text" class="form-control" id="Idioma" aria-describedby="idiomaHelp" placeholder="Religión" name="idioma">
-									<small id="idiomaHelp" class="form-text text-muted"></small>
-							</div>
-						
-					</div>											
+					<form method="post" id="modificaridioma">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="idioma">idioma</label>
+                                <input type="Text" class="form-control" id="idioma" placeholder="idioma" name="idioma">
+                            </div>
+							<div class="form-group col-md-4">
+                                <label for="nivel">Tipo idioma</label>
+                                <select id="nivel" class="form-control" name="nivel">
+                                        <option>Aprendis</option>
+                                        <option>Trabajador</option>
+                                        <option>Experimentado</option>
+                                        <option>Prueba</option>
+                                        <option>Ingresado</option>
+                                </select>									
+                                
+                            </div>
+				<!--Input invisible-->		<input type="hidden" id="Id_idioma" name="Id_idioma">
+                        </div>                            
+				</div>					
 			</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
-			</form><!--Bajar el etiqueta form hasta aca-->
+			<button type="submit" class="btn btn-primary">Modficar</button>
+			</form>	
 		</div>
 		</div>
-	</div>  <!--Fin del modal Insertar-->
+    </div>  <!--Fin del modal modificar idioma-->
 
-	<!--Scripts necesarios siempre-->
+
+	<!-- Modal agregar idioma-->
+<div class="modal fade bd-modificar-modal-xl" id="idiomaAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ModalTitulo">Datos de los idioma</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+			<div class="modal-body">
+					<div class="container-fluid">
+						<form method="post" id="agregaridioma">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="Idioma-A">Idioma</label>
+									<input type="Text" class="form-control" id="Idioma-A" placeholder="Idioma" name="Idioma-A">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="Nivel-A">Tipo de Nivel</label>
+									<select id="Nivel-A" name="Nivel-A" class="form-control">
+									</select>									
+									
+								</div>						
+							</div>
+						</div>                            					
+				</div>			  
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>			
+		</div>	
+	</div>
+</div>  <!--Fin del modal agregar idioma-->
+
+
+<!--Scripts necesarios siempre-->
 	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
@@ -161,9 +140,10 @@
 	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/idioma.js"></script>
+	<script src="../Backend/core/controllers/idioma.js"></script>	
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
-		
 
+	
 </body>
 </html>
+
