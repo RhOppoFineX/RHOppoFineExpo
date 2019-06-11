@@ -230,66 +230,145 @@ CREATE TABLE Notificaciones(
 --Inserts--
 insert into Tipo_usuario (Id_tipo_usuario, Tipo_usuario) values (1, 'Admin'),
                                                                 (2, 'Enfermeria'),
-                                                                (3, 'Colaborador');
+                                                                (3, 'Colaborador'),
+                                                                (4, 'Profesor'),
+                                                                (5, 'Asistente'),
+                                                                (6, 'Admin'),
+                                                                (7, 'Profesor'),
+                                                                (8, 'Colaborador'),
+                                                                (9, 'Asistente'),
+                                                                (10, 'Enfermeria');
 
 
 insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
                            (2,'Diego','Arias', 'd.arias@gmail.com', 1, 'el Resio', 'Puto Crack'),
-                           (3,'Cristian','topo', 'NoobMaster69', 3, 'Jopen Five', 'Cerote de Cardif');--Excelente--
+                           (3,'Cristian','Ayala', 'ca@gmail.com', 3, 'Jopen Five', 'Cerote de Cardif'),
+                           (4,'Rodrigo','Barillas', 'rb@gmail.com', 4, 'Rodri', 'Dificil123'),
+                           (5,'Jennifer','Santos', 'js@gmail.com', 5, 'Jenni', 'Jenn89'),
+                           (6,'Mariela','Cordova', 'mc@gmail.com', 1, 'Mar Cor', 'I like music'),
+                           (7,'Roberto','Sanchez', 'rs@gmail.com', 2, 'Robert', 'LoveItRH'),
+                           (8,'Marcos','Lopez', 'ml@gmail.com', 3, 'Lopez', 'I want ya'),
+                           (9,'Nancy','Aguilar', 'na@gmail.com', 4, 'Nancy A', 'NancAgui'),
+                           (10,'Gabriel','Reyes', 'gr@gmail.com', 5, 'G Reyes', '17Reyes');--Excelente--
 
 -- insert into Usuario (Id_usuario, Nombres, Apellidos, Correo, Id_tipo_usuario) values
 --                                  (4, 'Crack', 'Champions', 'd.@gmail.com', (Select Id_tipo_usuario from Usuario where Tipo_usuario = 'Admin'));                           
 
-insert into Area (Area) values ('Coordinación'), ('Enfermeria'), ('Oficinas');
+insert into Area (Area) values ('Coordinación'), ('Enfermeria'), ('Oficinas'), ('Deportiva'), ('Academico'), ('Tecnico'), ('Disiplina'), ('Pedagogia'), ('Psicologia'), ('Libreia');
 
 insert into Puesto (Puesto) values ('Coordinadora'),
                           ('Enfermera'),
-                          ('colaborador');
+                          ('colaborador'),
+                          ('Profesor'),
+                          ('Director');
 
 -- insert into Identidad values (1,'Dui'),
 --                              (2,'Carnet de residente');
 
 insert into Nacionalidad (Nacionalidad) values ('Salvadoreña'),
                                 ('Estadounidense'),
-                                ('Mexicana');
+                                ('Mexicana'),
+                                ('Canadiense'),
+                                ('Brasileño'),
+                                ('Argentino'),
+                                ('Chileno'),
+                                ('Peruano'),
+                                ('Español'),
+                                ('Colombiano');
 
 insert into Nivel_idioma (Nivel) values ('basico'),
                                 ('intermedio'),
-                                ('avanzado');
+                                ('avanzado'),
 
 insert into Idioma (Idioma, Id_nivel_idioma)values ('Español',3),
                           ('Ingles',2),
-                          ('Frances',1);           
+                          ('Frances',1),
+                          ('Italiano',3),
+                          ('Suajili',1),
+                          ('Koreano',2),
+                          ('Aleman',1),
+                          ('Portugues',3),
+                          ('Arabe',2),
+                          ('Islandes',1);           
 
 insert into Tipo_equipo (Tipo_equipo) values ('Mecanicos'),
                                ('Salon de clases'),                                                   
-                               ('Electricos');
+                               ('Electricos'),
+                               ('Laboratorios'),
+                               ('Comedores'),
+                               ('Talleres'),
+                               ('Bodega'),
+                               ('IT'),
+                               ('Oficinas'),
+                               ('SUM');
 
 insert into Equipo (Nombre_equipo, Id_tipo_equipo) values ('cierra',1),
                           ('cañon',2),
-                          ('soplete',3);
+                          ('soplete',3),
+                          ('computadora',4),
+                          ('platos',5),
+                          ('mesas',6),
+                          ('escoba',7),
+                          ('cables de red',8),
+                          ('escritorio',9),
+                          ('sillas',10);
 
 insert into Departamento VALUES (1,'San salvador',1),                         
                          (2,'Santa Ana',1), 
-                         (3,'La Libertad',2);
+                         (3,'La Libertad',1),
+                         (4,'Ahuachapan',1),
+                         (5,'San Vicente',1),
+                         (6,'La Union',1),
+                         (7,'La Paz',1),
+                         (8,'Usulutan',1),
+                         (9,'Sonsonate',1),
+                         (10,'San Miguel',1);
 
 insert into Municipio VALUES (1,'mejicanos',1),                                                         
                       (2,'Chalchuapa',2),
-                      (3,'Santa Tecla',3);
+                      (3,'Santa Tecla',3),
+                      (4,'Apaneca',4),
+                      (5,'Apastepeque',5),
+                      (6,'Santa Rosa de Lima',6),
+                      (7,'Olocuilta',7),
+                      (8,'Berlin',8),
+                      (9,'Izalco',9),
+                      (10,'El Transito',10);
 
 insert into Estado_civil values (1,'Casado'),
                                 (2,'Divorsiado'),
-                                (3,'Soltero');
+                                (3,'Soltero'),
+                                (4,'Viuda'),
+                                (5,'Comprometido'),
+                                (6,'Soltero'),
+                                (7,'Viuda'),
+                                (8,'Casado'),
+                                (9,'Divorsiado'),
+                                (10,'Comprometido');
 
 insert into Religion values (1,'Catolico'),
                             (2,'Evangelico'),
-                            (3,'Testigo de Jehova');
+                            (3,'Testigo de Jehova'),
+                            (4,'Protestante'),
+                            (5,'Judio'),
+                            (6,'Hindu'),
+                            (7,'Budista'),
+                            (8,'Ateo'),
+                            (9,'Politeista'),
+                            (10,'Bautista');
 
 insert into Categoria values (1,'Tecnico'),
                              (2,'Ingeniero'),
-                             (3,'Master');
+                             (3,'Master'),
+                             (4,'Lincenciado'),
+                             (5,'Psicologo'),
+                             (6,'Pedagogo'),
+                             (7,'Profesorado'),
+                             (8,'Arquitecto'),
+                             (9,'Consejeria'),
+                             (10,'Vendedores');
 
-insert into Parentesco (Parentesco) values('Papá'),('Mamà'),('tio/a'), ('Hijo/a');
+insert into Parentesco (Parentesco) values('Papá'),('Mamá'),('Tio/a'),('Hijo/a'),('Abuelo/a'),('Cuñado/a',('Primo/a'),('Novio/a'),('Bisabuelo/a'),('Tatara Abuelo/a');
         
 
 insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP)
@@ -305,32 +384,74 @@ insert into Detalle_idioma (Id_idioma, Id_Colaborador) values (1,1),(2,2),(3,3);
 
 insert into Educacion (Id_categoria, Especialidad, Descripcion, Id_Colaborador) values (1,'informatica','muy buenas notas',1),
                             (2,'Electricidad','Buena persona',2),
-                            (3,'Mecanico','buenas referencias',3);
+                            (3,'Mecanico','buenas referencias',3),
+                            (4,'Profesor','excelente trabajador',1),
+                            (5,'Arquitecto','alto desempeño',2),
+                            (6,'Lincenciado','colabora demasiado',3),
+                            (7,'Ingeniero','titulos con honores',1),
+                            (8,'Diseñador','buen trabajo en equipo',2),
+                            (9,'Psicologo','permanece siempre centrado en su trabajo',3),
+                            (10,'Pedagogo','bueno en conducta',1);
 
 insert into datosFamiliares values (1,'Maria','gonzales','10-05-1980',0,2,1,0),
-                                   (2,'Josue','reyes','13-10-1975',0,3,2,1),
-                                   (3,'Alejandro','perez','03-04-2000',1,2,3,0); 
+                                   (2,'Josue','reyes','13-10-1975',1,3,2,1),
+                                   (3,'Alejandro','perez','03-04-2000',0,2,3,0),
+                                   (4,'Luis','castro','04-04-2000',1,2,3,1),
+                                   (5,'Marcos','flores','05-04-2000',0,2,3,0),
+                                   (6,'Karla','hernandez','06-04-2000',1,2,3,1),
+                                   (7,'Fabiola','pacheco','07-04-2000',0,2,3,0),
+                                   (8,'Wanda','paramo','08-04-2000',1,2,3,1),
+                                   (9,'Nicki','enriquez','09-04-2000',0,2,3,0),
+                                   (10,'Fernando','luna','10-04-2000',1,2,3,1); 
 
 insert into equipoTotal (Id_equipo, Id_Colaborador) values (1,1),(2,2),(3,3);
 
 insert into Experiencia_laboral (Empresa, Fecha_ingreso, Fecha_retiro, Puesto, Id_Colaborador)
  values ('claro','15-05-2017','30-10-2018','recursos humanos',1),                                
  ('tigo','04-05-2017','14-05-2017','programacion',2),
- ('sykes','20-05-2017','30-12-2018','marketing',3);
+ ('sykes','20-05-2017','30-12-2018','marketing',3),
+ ('anda','21-05-2017','30-12-2018','gerente',4),
+ ('ministerio de hacienda','22-05-2017','30-12-2018','contador',5),
+ ('cuscatlan','23-05-2017','30-12-2018','cajero',1),
+ ('embajada americana','24-05-2017','30-12-2018','jefe',2),
+ ('print sv','25-05-2017','30-12-2018','diseñador',3),
+ ('el diario de hoy','26-05-2017','30-12-2018','empresario',4),
+ ('movistar','27-05-2017','30-12-2018','mantenimiento de computadoras',5);
 
 insert into Salud values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene',0, 'No Perro',1),
                          (2,0,' tratamiento',0,' comunes',0,'no tiene',1, 'No maje' ,2),
-                         (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No topo',3);
+                         (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No necesita',3),
+                         (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario',1),
+                         (5,1,'bajo medicamento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal',2),
+                         (6,0,'en control',0,'son comunes',0,'no tiene',1,'Medicamento diario',3),
+                         (7,1,'tratamiento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal',1),
+                         (8,0,'bajo medicamento',0,'son comunes',0,'no tiene',1,'Aspirina',2),
+                         (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita',3),
+                         (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',1);
 
 insert into Area_laboral values (1,1,1,800.90,'20-10-2017','25-10-2017','25-10-2018',8),
                                 (2,2,2,1800.90,'10-10-2017','15-10-2017','25-10-2018',10),
-                                (3,3,1,750.90,'20-10-2016','25-10-2017','25-10-2018',8);
+                                (3,3,3,750.90,'20-10-2016','25-10-2017','25-10-2018',8),
+                                (4,4,4,950.90,'21-10-2016','26-10-2017','25-10-2018',10),
+                                (5,5,5,600.90,'22-10-2016','27-10-2017','25-10-2018',8),
+                                (6,6,1,990.90,'23-10-2016','28-10-2017','25-10-2018',10,
+                                (7,7,2,1175.90,'24-10-2016','29-10-2017','25-10-2018',8),
+                                (8,8,3,725.90,'25-10-2016','30-10-2017','25-10-2018',10),
+                                (9,9,4,850.90,'26-10-2016','31-10-2017','25-10-2018',8),
+                                (10,10,5,1900.90,'27-10-2016','01-11-2017','25-10-2018',10);
 
 insert into Area_detalle (Id_laboral, Id_Colaborador) values (1,1), (2,2), (3,3);
 
 insert into Notificaciones(Descripcion, Id_Colaborador) values('necesita renovar el DUI',1),
                                 ('Pidio permiso una semana',2),
-                                ('En maternidad',3);
+                                ('En maternidad',3),
+                                ('Permiso para aunsentarme una clase',4),
+                                ('Consula por todo un dia',5),
+                                ('Prestamo de proyector',1),
+                                ('Pedir prestado el salon Don Bosco',2),
+                                ('Renovar papeles de trabajador',3),
+                                ('Aunsentarme una mañana',4),
+                                ('Tramite de renovar papeleos',5);
 
 
 Select U.Nombres, U.Apellidos FROM Usuario as u INNER JOIN Tipo_usuario as t ON u.Id_tipo_usuario = t.Id_tipo_usuario WHERE t.Tipo_usuario = ''; 
