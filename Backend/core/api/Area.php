@@ -60,7 +60,7 @@ if(isset($_GET['action']))
             
             if($area->setId($_POST['Id_area'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
                 if($area->getAreaModal()){
-                    if($area->setArea($_POST['AreaID'])){
+                    if($area->setArea($_POST['Area'])){
                         if($area->updateArea()){
                             $resultado['status'] = true;
                             $resultado['message'] = 'Area modificada';

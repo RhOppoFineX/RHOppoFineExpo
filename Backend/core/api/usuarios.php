@@ -14,9 +14,9 @@ if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'logout':
                 if (session_destroy()) {
-                    header('location: ../../../views/dashboard/');
+                    header('location: ../../../Frontend/');
                 } else {
-                    header('location: ../../../views/dashboard/main.php');
+                    header('location: ../../../Frontend/main.php');
                 }
                 break;
             case 'readProfile':
@@ -124,24 +124,29 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $usuario->validateForm($_POST);
-                if ($usuario->setNombres($_POST['create_nombres'])) {
-                    if ($usuario->setApellidos($_POST['create_apellidos'])) {
-                        if ($usuario->setCorreo($_POST['create_correo'])) {
-                            if ($usuario->setAlias($_POST['create_alias'])) {
-                                if ($_POST['create_clave1'] == $_POST['create_clave2']) {
-                                    if ($usuario->setClave($_POST['create_clave1'])) {
-                                        if ($usuario->createUsuario()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Usuario creado correctamente';
+                
+                if ($usuario->setNombres($_POST['Nombres-A'])) {
+                    if ($usuario->setApellidos($_POST['Apellidos-A'])) {
+                        if ($usuario->setCorreo($_POST['Correo-A'])) {
+                            if ($usuario->setAlias($_POST['userName-A'])) {
+                                if($usuario->setId_tipo_usuario($_POST['Tipos-A'])){                                
+                                    if ($_POST['Contraseña-A'] == $_POST['ContraseñaDos-A']) {
+                                        if ($usuario->setClave($_POST['Contraseña-A'])) {
+                                            if ($usuario->createUsuario()) {
+                                                $result['status'] = 1;
+                                                $result['message'] = 'Usuario creado correctamente';
+                                            } else {
+                                                $result['exception'] = 'Operación fallida';
+                                            }
+                                            } else {
+                                                $result['exception'] = 'Clave menor a 6 caracteres';
+                                            }
                                         } else {
-                                            $result['exception'] = 'Operación fallida';
+                                            $result['exception'] = 'Claves diferentes';
                                         }
-                                    } else {
-                                        $result['exception'] = 'Clave menor a 6 caracteres';
-                                    }
-                                } else {
-                                    $result['exception'] = 'Claves diferentes';
-                                }
+                                }else{
+                                    $result['Selecione una opcion valida'];
+                                } 
                             } else {
                                 $result['exception'] = 'Alias incorrecto';
                             }
@@ -156,7 +161,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'get':
-                if ($usuario->setId($_POST['id_usuario'])) {
+                if ($usuario->setId($_POST['Id_usuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
                         $result['status'] = 1;
                     } else {
@@ -168,17 +173,22 @@ if (isset($_GET['action'])) {
                 break;
             case 'update':
                 $_POST = $usuario->validateForm($_POST);
-                if ($usuario->setId($_POST['id_usuario'])) {
+                
+                if ($usuario->setId($_POST['Id_usuario'])) {
                     if ($usuario->getUsuario()) {
-                        if ($usuario->setNombres($_POST['update_nombres'])) {
-                            if ($usuario->setApellidos($_POST['update_apellidos'])) {
-                                if ($usuario->setCorreo($_POST['update_correo'])) {
-                                    if ($usuario->setAlias($_POST['update_alias'])) {
-                                        if ($usuario->updateUsuario()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Usuario modificado correctamente';
-                                        } else {
-                                            $result['exception'] = 'Operación fallida';
+                        if ($usuario->setNombres($_POST['Nombres'])) {
+                            if ($usuario->setApellidos($_POST['Apellidos'])) {
+                                if ($usuario->setCorreo($_POST['Correo'])) {
+                                    if ($usuario->setAlias($_POST['userName'])) {
+                                        if($usuario->setId_tipo_usuario($_POST['Tipos'])){
+                                            if ($usuario->updateUsuario()) {
+                                                $result['status'] = true;
+                                                $result['message'] = 'Usuario modificado correctamente';
+                                            } else {
+                                                $result['exception'] = 'Operación fallida';
+                                            }
+                                        }else{
+                                            $result['exception'] = 'Opción Invalida';
                                         }
                                     } else {
                                         $result['exception'] = 'Alias incorrecto';

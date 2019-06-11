@@ -6,6 +6,8 @@ $(document).ready(function()
 // Constante para establecer la ruta y parámetros de comunicación con la apiUsuario
 const apiUsuario = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
 
+const tablaPadre = '../../RHOppoFineExpo/Backend/core/api/tipoUsuario.php?action=read';
+
 // Función para llenar tabla con los datos de los registros
 function fillTable(rows)
 {
@@ -13,16 +15,14 @@ function fillTable(rows)
     // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para escapar los caracteres especiales
     rows.forEach(function(row){
         content += `
-            <tr>
-                <td>${row.id_usuario}<td>
-                <td>${row.apellidos_usuario}</td>
-                <td>${row.nombres_usuario}</td>
-                <td>${row.correo_usuario}</td>
-                <td>${row.alias_usuario}</td>
-                <td>
-                    <a href="#" onclick="modalUpdate(${row.id_usuario})" class="blue-text tooltipped" data-tooltip="Modificar"><i class="material-icons">mode_edit</i></a>
-                    <a href="#" onclick="confirmDelete('${apiUsuario}', ${row.id_usuario}, null)" class="red-text tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
-                </td>
+            <tr>                
+                <td>${row.Nombres_usuario}</td>
+                <td>${row.Apellidos_usuario}</td>
+                <td>${row.Correo_usuario}</td>               
+                <td>${row.Tipo_usuario}</td>
+                <td>${row.Alias_usuario}</td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_usuario})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiUsuario}', ${row.Id_usuario}, null)">Deshabilitar</a></td> 
             </tr>
         `;
     });
@@ -88,31 +88,35 @@ $('#form-search').submit(function()
     });
 })
 
-// Función para mostrar formulario en blanco
+// Función para mostrar formulario insertar en blanco
 function modalCreate()
 {
-    $('#form-create')[0].reset();
-    $('#modal-create').modal('show');
+    $('#agregarUsuario')[0].reset();//Id del formulario
+    fillSelect(tablaPadre, 'Tipos-A', null);//llenar el combo
+    //Tipos-A es el Id del combobox
+    $('#usuarioAgregar').modal('show');//Id del modal
 }
 
 // Función para crear un nuevo registro
-$('#form-create').submit(function()
+$('#agregarUsuario').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: apiUsuario + 'create',
         type: 'post',
-        data: $('#form-create').serialize(),
-        datatype: 'json'
+        data: new FormData($('#agregarUsuario')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
     })
     .done(function(response){
         // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
-                $('#form-create')[0].reset();
-                $('#modal-create').modal('hide');
+            if (result.status) {               
+                $('#usuarioAgregar').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
@@ -129,13 +133,13 @@ $('#form-create').submit(function()
 })
 
 // Función para mostrar formulario con registro a modificar
-function modalUpdate(id)
+function actualizarModal(id)
 {
     $.ajax({
         url: apiUsuario + 'get',
         type: 'post',
         data:{
-            id_usuario: id
+            Id_usuario: id
         },
         datatype: 'json'
     })
@@ -145,13 +149,13 @@ function modalUpdate(id)
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#id_usuario').val(result.dataset.id_usuario);
-                $('#update_nombres').val(result.dataset.nombres_usuario);
-                $('#update_apellidos').val(result.dataset.apellidos_usuario);
-                $('#update_correo').val(result.dataset.correo_usuario);
-                $('#update_alias').val(result.dataset.alias_usuario);
-                M.updateTextFields();
-                $('#modal-update').modal('hide');   
+                $('#Id_usuario').val(result.dataset.Id_usuario);
+                $('#Nombres').val(result.dataset.Nombres_usuario);
+                $('#Apellidos').val(result.dataset.Apellidos_usuario);
+                $('#Correo').val(result.dataset.Correo_usuario);
+                $('#userName').val(result.dataset.Alias_usuario);
+                fillSelect(tablaPadre, 'Tipos', result.dataset.Id_tipo_usuario);           
+                $('#usuarioModificar').modal('show');   
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -166,14 +170,18 @@ function modalUpdate(id)
 }
 
 // Función para modificar un registro seleccionado previamente
-$('#form-update').submit(function()
+//Id del formulario
+$('#modificarUsuario').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: apiUsuario + 'update',
         type: 'post',
-        data: $('#form-update').serialize(),
-        datatype: 'json'
+        data: new FormData($('#modificarUsuario')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
     })
     .done(function(response){
         // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
@@ -181,9 +189,10 @@ $('#form-update').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-update').modal('hide');
+                $('#usuarioModificar').modal('hide');
                 showTable();
-                sweetAlert(1, result.message, null);
+                sweetAlert(1, result.message, null);         
+                
             } else {
                 sweetAlert(2, result.exception, null);
             }

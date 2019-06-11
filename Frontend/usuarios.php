@@ -27,18 +27,18 @@
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
 									<div class="panel-heading">
-										<h3 class="panel-title">Datos de los usuarios</h3>										
+										<!--Boton Agregar-->												
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>										
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped" id="TablaUsuario">
 											<thead>
-												<tr>
-													<th>#</th>
+												<tr>													
                                                     <th>Nombres</th>
                                                     <th>Apellidos</th>
                                                     <th>Correo</th>
 													<th>Tipo usuario</th>
-													<th> User Name</th>
+													<th>User Name</th>
 												</tr>
 											</thead>
 											<tbody id="tabla-usuario">
@@ -70,11 +70,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Nombres">Nombres</label>
-                                <input type="Text" class="form-control" id="Nombre" placeholder="Nombres" name="Nombres">
+                                <input type="Text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Apellidos">Apellidos</label>
-                                <input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos">
+                                <input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="Correo">Correo electonico</label>
@@ -83,25 +83,14 @@
 							</div>
 
 							<div class="form-group col-md-4">
-                                <label for="Correo">User Name</label>
+                                <label for="userName">User Name</label>
                                 <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName">
                                 <small id="emailHelp" class="form-text text-muted"></small>
 							</div>
-
-							<div class="form-group col-md-4">
-                                <label for="Correo">Contraseña</label>
-                                <input type="password" class="form-control" id="Contraseña" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-							</div>
-
-							<div class="form-group col-md-4">
-                                <label for="Correo">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="ContraseñaDos" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-							</div>
+							
 							<div class="form-group col-md-4">
                                 <label for="Tipos">Tipo usuario</label>
-                                <select id="Tipos" class="form-control">
+                                <select id="Tipos" class="form-control" name="Tipos">
                                         <option>Aprendis</option>
                                         <option>Trabajador</option>
                                         <option>Experimentado</option>
@@ -110,7 +99,7 @@
                                 </select>									
                                 
                             </div>
-				<!--Input invisible-->		<input type="hidden" id="Id_religion" name="Id_religion">
+				<!--Input invisible-->		<input type="hidden" id="Id_usuario" name="Id_usuario">
                         </div>                            
 				</div>					
 			</div>			  
@@ -144,7 +133,7 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label for="Apellidos-A">Apellidos-A</label>
-									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A">
+									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A" name="Apellidos-A">
 								</div>
 								<div class="form-group col-md-8">
 									<label for="Correo-A">Correo electonico</label>
@@ -171,12 +160,8 @@
 								</div>
 								<div class="form-group col-md-4">
 									<label for="Tipos-A">Tipo usuario</label>
-									<select id="Tipos-A" class="form-control">
-											<option>Aprendis</option>
-											<option>Trabajador</option>
-											<option>Experimentado</option>
-											<option>Prueba</option>
-											<option>Ingresado</option>
+									<select id="Tipos-A" name="Tipos-A" class="form-control">
+									<option value="siuu" selected>${text}</option>
 									</select>									
 									
 								</div>						
@@ -202,7 +187,7 @@
 	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/tipoUsuario.js"></script>	
+	<script src="../Backend/core/controllers/usuarios.js"></script>	
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 
 	

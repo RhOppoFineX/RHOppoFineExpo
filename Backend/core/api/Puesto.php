@@ -29,7 +29,7 @@ if(isset($_GET['action']))
          case 'create':
             $_POST = $puesto->validateForm($_POST);
 
-            if($puesto->setPuesto($_POST['PuestoID'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
+            if($puesto->setPuesto($_POST['Puesto'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
                 if($puesto->insertPuesto()){  //operación insertar del modelo
                     $resultado['status'] = true;
                     $resultado['message'] = 'Puesto insertado';
@@ -60,7 +60,7 @@ if(isset($_GET['action']))
             
             if($puesto->setId($_POST['Id_puesto'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
                 if($puesto->getPuestoModal()){
-                    if($puesto->setPuesto($_POST['PuestoID'])){
+                    if($puesto->setPuesto($_POST['Puesto'])){
                         if($puesto->updatePuesto()){
                             $resultado['status'] = true;
                             $resultado['message'] = 'Puesto modificado';
