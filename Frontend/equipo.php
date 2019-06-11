@@ -78,7 +78,7 @@
 							<div class="form-row">
 									<div class="form-group col-md-12">
 					<!--Input invisible-->	<input type="hidden" id="Id_equipo" name="Id_equipo">	
-											<label for="Parentesco">Parentesco</label>
+											<label for="Equipo">Equipo</label>
 											<input type="text" class="form-control" id="Equipo" aria-describedby="equipoHelp" placeholder="Equipo" name="Equipo">
 											<small id="equipoHelp" class="form-text text-muted"></small>
 									</div>
