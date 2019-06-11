@@ -1,0 +1,93 @@
+<?php
+class Equipo extends Validator
+{
+	// Declaración de propiedades
+	private $Id_equipo = null;
+	private $Nombre_equipo = null;
+    private $Id_tipo_equipo = null; //llave foranea
+    
+	//Metodos set y get de llave foranea
+	public function setId_tipo_equipo($value)
+	{
+		if($this->validateId($value)){
+			$this->id_tipo_equipo = $value;
+			return true;
+		}else{
+			return false;
+		}
+    }
+    
+    public function getId_tipo_equipo()
+	{
+		return $this->id_tipo_equipo;
+    }
+    
+    // Métodos para sobrecarga de propiedades
+	public function setId($value)
+	{
+		if ($this->validateId($value)) {
+			$this->id = $value;
+			return true;
+		} else {
+			return false;
+		}
+    }
+    
+    public function getId()
+	{
+		return $this->id;
+    }
+    
+    public function setNombre_equipo($value)
+	{
+		if ($this->validateAlphabetic($value, 1, 50)) {
+			$this->nombres = $value;
+			return true;
+		} else {
+			return false;
+		}
+    }
+    
+    public function getNombre_equipo()
+	{
+		return $this->Nombre_equipo;
+    }
+    
+    // Metodos para manejar el SCRUD
+	public function readEquipo()
+	{
+		$sql = 'SELECT Id_equipo, Nombre_equipo T.Id_tipo_equipo FROM Equipo as E INNER JOIN Tipo_equipo as T ON E.Id_tipo_equipo = T.Id_tipo_equipo ORDER BY Nombre_equipo';
+		$params = array(null);	
+		return Database::getRows($sql, $params);
+    }
+    
+    public function createEquipo()
+	{
+		$sql = 'INSERT INTO Equipo(Nombre_equipo, Id_tipo_equipo) VALUES(?, ?)';
+		$params = array($this->Nombre_equipo, $this->id_tipo_equipo);
+		return Database::executeRow($sql, $params);
+	}
+
+    //para el modal modificar recuerden
+	public function getEquipo()
+	{
+		$sql = 'SELECT Id_Equipo, Equipo,Id_tipo_equipo FROM Equipo WHERE Id_equipo = ?';
+		$params = array($this->id);
+		return Database::getRow($sql, $params);
+    }
+    
+    public function updateEquipo()
+	{
+		$sql = 'UPDATE Equipo SET Nombre_equipo = ?, Id_tipo_equipo = ? WHERE Id_equipo = ?';
+		$params = array($this->Nombre_equipo, $this->Id_tipo_equipo, $this->Id_equipo);
+		return Database::executeRow($sql, $params);
+    }
+    
+    public function deleteEquipo()
+	{
+		$sql = 'DELETE FROM Equipo WHERE Id_equipo = ?';
+		$params = array($this->id);
+		return Database::executeRow($sql, $params);
+	}
+}
+?>
