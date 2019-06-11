@@ -287,7 +287,7 @@ insert into Nacionalidad (Nacionalidad) values ('Salvadoreña'),
 
 insert into Nivel_idioma (Nivel) values ('basico'),
                                 ('intermedio'),
-                                ('avanzado'),
+                                ('avanzado');
 
 insert into Idioma (Idioma, Id_nivel_idioma) values ('Español',3),
                           ('Ingles',2),
