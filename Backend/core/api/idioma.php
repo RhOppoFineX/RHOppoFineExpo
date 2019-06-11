@@ -43,7 +43,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'get':
                 if ($idioma->setId($_POST['Id_idioma'])) {
-                    if ($result['dataset'] = $idioma->getidioma()) {
+                    if ($result['dataset'] = $idioma->getidiomaModal()) {
                         $result['status'] = 1;
                     } else {
                         $result['exception'] = 'idioma inexistente';
@@ -56,8 +56,8 @@ if (isset($_GET['action'])) {
                 case 'update':
                 $_POST = $idioma->validateForm($_POST);
 
-                if($idioma->setidioma($_POST['Idioma-A'])){
-                    if($idioma->setnivel($_POST['Nivel-A'])){
+                if($idioma->setidioma($_POST['idioma'])){
+                    if($idioma->setnivel($_POST['nivel'])){
                         if ($idioma->updateidioma()) {
                             $result['status'] = 1;
                             $result['message'] = 'creado correctamente';
