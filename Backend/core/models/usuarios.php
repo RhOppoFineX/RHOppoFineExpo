@@ -119,6 +119,7 @@ class Usuarios extends Validator
 	}
 
 	// Métodos para manejar la sesión del usuario
+	//este metodo no
 	public function checkAlias()
 	{
 		$sql = 'SELECT Id_usuario FROM Usuario WHERE Alias_usuario = ?';
@@ -131,7 +132,7 @@ class Usuarios extends Validator
 			return false;
 		}
 	}
-
+	//este metodo no
 	public function checkPassword()
 	{
 		$sql = 'SELECT Clave_usuario FROM Usuario WHERE Id_usuario = ?';
@@ -143,7 +144,7 @@ class Usuarios extends Validator
 			return false;
 		}
 	}
-
+	//este metodo no
 	public function changePassword()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
@@ -169,7 +170,7 @@ class Usuarios extends Validator
 
 	public function createUsuario()
 	{
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
+		$hash = password_hash($this->clave, PASSWORD_DEFAULT);//No poner esta linea
 		$sql = 'INSERT INTO Usuario(Nombres_usuario, Apellidos_usuario, Correo_usuario, Alias_usuario, Clave_usuario, Id_tipo_usuario) VALUES(?, ?, ?, ?, ?, ?)';
 		$params = array($this->nombres, $this->apellidos, $this->correo, $this->alias, $hash, $this->id_tipo_usuario);
 		return Database::executeRow($sql, $params);
