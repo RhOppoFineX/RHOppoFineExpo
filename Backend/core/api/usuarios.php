@@ -243,14 +243,14 @@ if (isset($_GET['action'])) {
                 break;
             case 'register':
                 $_POST = $usuario->validateForm($_POST);
-                if ($usuario->setNombres($_POST['nombres'])) {
-                    if ($usuario->setApellidos($_POST['apellidos'])) {
-                        if ($usuario->setCorreo($_POST['correo'])) {
-                            if ($usuario->setAlias($_POST['alias'])) {
-                                if ($_POST['clave1'] == $_POST['clave2']) {
-                                    if ($usuario->setClave($_POST['clave1'])) {
+                if ($usuario->setNombres($_POST['Nombres'])) {
+                    if ($usuario->setApellidos($_POST['Apellidos'])) {
+                        if ($usuario->setCorreo($_POST['Correo'])) {
+                            if ($usuario->setAlias($_POST['userName'])) {
+                                if ($_POST['Contraseña'] == $_POST['ContraseñaDos']) {
+                                    if ($usuario->setClave($_POST['Contraseña'])) {
                                         if ($usuario->createUsuario()) {
-                                            $result['status'] = 1;
+                                            $result['status'] = true;
                                             $result['message'] = 'Usuario registrado correctamente';
                                         } else {
                                             $result['exception'] = 'Operación fallida';
@@ -291,10 +291,10 @@ if (isset($_GET['action'])) {
                             $result['exception'] = 'Clave menor a 6 caracteres';
                         }
                     } else {
-                        $result['exception'] = 'Alias inexistente';
+                        $result['exception'] = 'Correo inexistente';
                     }
                 } else {
-                    $result['exception'] = 'Alias incorrecto';
+                    $result['exception'] = 'Correo incorrecto';
                 }
                 break;
             default:
