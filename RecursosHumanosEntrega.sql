@@ -147,9 +147,9 @@ Create Table Educacion (
     Id_educacion Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_categoria Integer Unsigned NOT NULL,
     Especialidad varchar (40) NOT NULL,
-    Descripcion Text NULL,        
+    Descripcion Text NULL,
+    Id_Colaborador Integer Unsigned NOT NULL,    
     FOREIGN KEY (Id_categoria) REFERENCES Categoria (Id_categoria),
-    Id_Colaborador Integer Unsigned NOT NULL,
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador (Id_Colaborador)      
 );
 --Cr7
@@ -289,7 +289,7 @@ insert into Nivel_idioma (Nivel) values ('basico'),
                                 ('intermedio'),
                                 ('avanzado'),
 
-insert into Idioma (Idioma, Id_nivel_idioma)values ('Español',3),
+insert into Idioma (Idioma, Id_nivel_idioma) values ('Español',3),
                           ('Ingles',2),
                           ('Frances',1),
                           ('Italiano',3),
