@@ -21,14 +21,14 @@
 								<div class="logo text-center"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" width="210" height="90" class="img-responsive"></div>
 								<p class="lead">Ingresa tu cuenta</p>
 							</div>
-							<form class="form-auth-small"> <!---action="index.php"--->
+							<form class="" method="post" id="form-login"> <!---action="index.php"--->
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" class="form-control" id="signin-email" placeholder="Email">
+									<input type="email" class="form-control" id="signin-email" placeholder="Email" name="signin-email">
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" placeholder="Password">
+									<input type="password" class="form-control" id="signin-password" placeholder="Password" name="signin-password">
 								</div>
 								<div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
@@ -37,7 +37,7 @@
 									</label>
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">Inciar Sesión</button>
-								<div class="bottom">
+								<div class="submit">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">¿Olvidastes tu Contraseña?</a></span>
 								</div>
 							</form>
@@ -63,7 +63,7 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->
-
+	<script src="../Backend/libraries/sweetalert.min.js"></script>
 	<script src="../Backend/core/helpers/validator.js"></script>
 	<script src="../Backend/core/helpers/components.js"></script>
 	<script src="../Backend/core/controllers/Index.js"></script>	

@@ -6,21 +6,20 @@ require_once '../models/usuarios.php';
 //Se comprueba si existe una acción a realizar, de lo contrario se muestra un mensaje de error
 if (isset($_GET['action'])) {
     session_start();
-    $usuario = new Usuarios;
-    $result = array('status' => 0, 'message' => null, 'exception' => null);
-    $_SESSION['id_usuario'] = 'Jopen';
+    $usuario = new Usuarios;    
+    $result = array('status' => 0, 'message' => null, 'exception' => null);    
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
-    if (isset($_SESSION['id_usuario'])) {
+    if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
             case 'logout':
                 if (session_destroy()) {
                     header('location: ../../../Frontend/');
                 } else {
-                    header('location: ../../../Frontend/main.php');
+                    header('location: ../../../Frontend/');
                 }
                 break;
             case 'readProfile':
-                if ($usuario->setId($_SESSION['id_usuario'])) {
+                if ($usuario->setId($_SESSION['Id_usuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
                         $result['status'] = 1;
                     } else {
@@ -31,7 +30,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'editProfile':
-                if ($usuario->setId($_SESSION['id_usuario'])) {
+                if ($usuario->setId($_SESSION['Id_usuario'])) {
                     if ($usuario->getUsuario()) {
                         $_POST = $usuario->validateForm($_POST);
                         if ($usuario->setNombres($_POST['profile_nombres'])) {
@@ -230,7 +229,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             default:
-                exit('Acción no disponible log');
+                exit('Acción no disponible login joder macho');
         }
     } else {
         switch ($_GET['action']) {
@@ -277,12 +276,12 @@ if (isset($_GET['action'])) {
                 break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
-                if ($usuario->setAlias($_POST['alias'])) {
-                    if ($usuario->checkAlias()) {
-                        if ($usuario->setClave($_POST['clave'])) {
+                if ($usuario->setCorreo($_POST['signin-email'])) {
+                    if ($usuario->checkEmail()) {
+                        if ($usuario->setClave($_POST['signin-password'])) {
                             if ($usuario->checkPassword()) {
-                                $_SESSION['id_usuario'] = $usuario->getId();
-                                $_SESSION['alias_usuario'] = $usuario->getAlias();
+                                $_SESSION['Id_usuario'] = $usuario->getId();
+                                $_SESSION['Correo_usuario'] = $usuario->getCorreo();
                                 $result['status'] = 1;
                                 $result['message'] = 'Autenticación correcta';
                             } else {

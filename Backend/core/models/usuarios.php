@@ -120,10 +120,10 @@ class Usuarios extends Validator
 
 	// Métodos para manejar la sesión del usuario
 	//este metodo no
-	public function checkAlias()
+	public function checkEmail()
 	{
-		$sql = 'SELECT Id_usuario FROM Usuario WHERE Alias_usuario = ?';
-		$params = array($this->alias);
+		$sql = 'SELECT Id_usuario FROM Usuario WHERE Correo_usuario = ?';
+		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if ($data) {
 			$this->id = $data['Id_usuario'];

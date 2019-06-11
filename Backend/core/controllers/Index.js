@@ -4,7 +4,7 @@ $(document).ready(function()
 })
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/Religion.php?action=';
+const api = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
 
 // Función para verificar si existen usuarios en el sitio privado
 function checkUsuarios()
@@ -21,11 +21,11 @@ function checkUsuarios()
             const dataset = JSON.parse(response);
             // Se comprueba que no hay usuarios registrados para redireccionar al registro del primer usuario
             if (!dataset.status) {
-                sweetAlert(3, dataset.message, 'register.php');  
+                sweetAlert(3, dataset.message, '');  
             }
         } else {
             console.log(response);
-        }
+        }        
     })
     .fail(function(jqXHR){
         // Se muestran en consola los posibles errores de la solicitud AJAX
@@ -34,13 +34,13 @@ function checkUsuarios()
 }
 
 // Función para validar el usuario al momento de iniciar sesión
-$('#form-sesion').submit(function()
+$('#form-login').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: api + 'login',
         type: 'post',
-        data: $('#form-sesion').serialize(),
+        data: $('#form-login').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -49,13 +49,13 @@ $('#form-sesion').submit(function()
             const dataset = JSON.parse(response);
             // Se comprueba si la respuesta es satisfactoria, sino se muestra la excepción
             if (dataset.status) {
-                sweetAlert(1, dataset.message, 'main.php');  
+                sweetAlert(1, dataset.message, 'datos-colaborador.php');  
             } else {
                 sweetAlert(2, dataset.exception, null);
             }
         } else {
             console.log(response);
-        }
+        }        
     })
     .fail(function(jqXHR){
         // Se muestran en consola los posibles errores de la solicitud AJAX
