@@ -132,15 +132,15 @@ class idioma extends Validator
 	//para el modal modificar recuerden
 	public function getidiomaModal()
 	{
-		$sql = 'SELECT Id_idioma, Idioma, N.Nivel FROM idioma as I INNER JOIN Id_nivel_idioma as N ON I.Id_Id_nivel_idioma = N.Id_nivel_idioma WHERE Id_idioma = ?';
+		$sql = 'SELECT Id_idioma, Idioma, N.Nivel as Nivel FROM idioma as I INNER JOIN nivel_idioma as N ON I.Id_nivel_idioma = N.Id_nivel_idioma WHERE Id_idioma = ?';
 		$params = array($this->id);
 		return Database::getRow($sql, $params);
 	}
 
-	public function updateUsuario()
+	public function updateidioma()
 	{
 		$sql = 'UPDATE idioma SET Idioma = ?, Id_nivel_idioma = ? WHERE Id_idioma = ?';
-		$params = array($this->idioma, $this->id_nivel_idioma,$this->id);
+		$params = array($this->idioma, $this->Id_nivel_idioma,$this->id);
 		return Database::executeRow($sql, $params);
 	}
 
