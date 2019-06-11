@@ -4,15 +4,16 @@ class Municipio extends Validator
         //Campos segun la base de datos siempre con sus metodos set() y get()
         private $Id = null;
         private $Municipio = null;
+        
         private $Id_departamento = null;
 
         public function setId($Id)
         {
-            if($this->validateId($Id))
-            {
+            if($this->validateId($Id)){
                 $this->Id = $Id;
                 return true;
-            }else{
+            }
+            else{
                 return false;
             }
 
@@ -40,7 +41,7 @@ class Municipio extends Validator
 
         public function setIdDepartamento($Id_departamento)
         {
-            if($this->validateId($Id_departamento){ 
+            if($this->validateId($Id_departamento)){ 
                 $this->Id_departamento = $Id_departamento;
                 return true;
             }else{
@@ -55,21 +56,21 @@ class Municipio extends Validator
 
         public function insertMunicipio()
         {
-            $sql = "INSERT INTO Municipio (Municipio, Id_departamento) VALUES (?, ?)";            
+            $sql = 'INSERT INTO Municipio (Municipio, Id_departamento) VALUES (?, ?)';            
             $parametros = array($this->Municipio, $this->$Id_departamento);
             return Database::executeRow($sql, $parametros);
         }
 
         public function updateMunicipio()
         {
-            $sql = "UPDATE Municipio SET Municipio = ? WHERE Id_municipio = ?";
-            $parametros = array($this->Municipio, $this->Id);
+            $sql = 'UPDATE Municipio SET Municipio = ?, Id_departamento = ? WHERE Id_municipio = ?';
+            $parametros = array($this->Municipio, $this->Id_departamento, $this->Id);
             return Database::executeRow($sql, $parametros);
         }
 
         public function deleteMunicipio()
         {
-            $sql = "DELETE FROM Municipio WHERE Id_municipio = ?";
+            $sql = 'DELETE FROM Municipio WHERE Id_municipio = ?';
             $parametros = array($this->Id);
             return Database::executeRow($sql, $parametros);
         }
@@ -92,28 +93,28 @@ class Municipio extends Validator
         //Extrare los datos de la base hacia el actualizarModal esta es su mision
         public function getMunicipioModal()
         {
-            $sql = "SELECT Id_municipio, Municipio, Id_departamento FROM Municipio WHERE Id_municipio = ?";
+            $sql = 'SELECT Id_municipio, Municipio, Id_departamento FROM Municipio WHERE Id_municipio = ?';
             $parametros = array($this->Id);
             return Database::getRow($sql, $parametros);
         }   
         
         public function readMunipioDepartamento()
         {
-            $sql = 'SELECT id_municipio, Municipio, Id_departamento FROM Municipio INNER JOIN Departamento ON Municipio.Id_departamento = Departamento.Id_departamento WHERE id_departamento = ? ORDER BY Municipio';
+            $sql = 'SELECT Departamento, Id_municipio, Municipio FROM Municipio INNER JOIN Departamento ON Municipio.Id_departamento = Departamento.Id_departamento WHERE Id_departamento = ? ORDER BY Municipio';
             $params = array($this->Id_departamento);
             return Database::getRows($sql, $params);
         }
 
         public function readMunicipios()
         {
-            $sql = 'SELECT id_municipio, Municipio, Id_departamento FROM Municipio INNER JOIN Departamento ON Municipio.Id_departamento = Departamento.Id_departamento ORDER BY Municipio';
+            $sql = 'SELECT id_municipio, Municipio, D.Departamento FROM Municipio INNER JOIN Departamento ON Municipio.Id_departamento = Departamento.Id_departamento ORDER BY Municipio';
             $params = array(null);
             return Database::getRows($sql, $params);
         }
 
         public function readDepartamento()
 	{
-		$sql = 'SELECT id_departamento, Departamento, Id_nacionalidad FROM Departamento';
+		$sql = 'SELECT Id_departamento, Departamento, Id_nacionalidad FROM Departamento';
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
