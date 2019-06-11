@@ -4,22 +4,22 @@ $(document).ready(function()
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const api = '../../RHOppoFineExpo/Backend/core/api/Municipio.php?action=';
+const apiMunicipio = '../../RHOppoFineExpo/Backend/core/api/Municipio.php?action=';
 
-function fillTable(filas)
+const tablaPadre = '../../RHOppoFineExpo/Backend/core/api/Departamento.php?action=read';
+
+function fillTable(rows)
 {
     // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para interpolar las varibles con el string
-    let contenido = '';
+    let content = '';
 
-   filas.forEach(fila => {
+    rows.forEach(function(row){
         //son comillas invertidas no simple ni dobles
-        contenido+= `
+        content+= `
             <tr>
-                <td>${fila.Id_municipio}</td>
-                <td>${fila.Municipio}</td>
-                <td>${fila.Id_departamento}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_municipio})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_municipio}, null)">Deshabilitar</a></td>
+                <td>${row.Municipio}</td>						
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_municipio})">Modificar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiMunicipio}', ${row.Id_municipio}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -27,35 +27,34 @@ function fillTable(filas)
 
    });
    //id del tbody en la tabla correspondiente
-   $('#tabla-municipio').html(contenido); 
+   $('#tabla-municipio').html(content); 
       
 }
 //funcion para mostrar la tabla
 function showTable()
 {
     $.ajax({
-        url: api + 'read',
+        url: apiMunicipio + 'read',
         type: 'post',
         data: null,
         datatype: 'json'            
     })
 
-    .done(function(reponse){
+    .done(function(response){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
-        if(isJSONString(reponse)){
-            const resultado = JSON.parse(reponse);
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
              // Se comprueba si el resultado ha fallado si es asi se mostrara una IOException ksk
-            if(!resultado.status)
+            if(!result.status)
             {
-                sweetAlert(4, resultado.exception, null);
-                console.log(response);
+                sweetAlert(4, result.exception, null);
             }                
-            fillTable(resultado.dataset);
+            fillTable(result.dataset);
             //dataset es el resultado de la consulta que devuelve la API
             //Este resultado es un array con los datos  
 
         }else{
-            console.log(reponse);
+            console.log(response);
         }
     })
 
@@ -65,10 +64,51 @@ function showTable()
     });
 }
 
+function showSelectDepartamento(idSelect, value)
+{
+    $.ajax({
+        url: apiMunicipio + 'readDepartamento',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        //Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                let content = '';
+                if (!value) {
+                    content += '<option value="" disabled selected>Seleccione una opción</option>';
+                }
+                result.dataset.forEach(function(row){
+                    if (row.Id_departamento != value) {
+                        content += `<option value="${row.Id_departamento}">${row.Departamento}</option>`;
+                    } else {
+                        content += `<option value="${row.Id_departamento}" selected>${row.Departamento}</option>`;
+                    }
+                });
+                $('#' + idSelect).html(content);
+            } else {
+                $('#' + idSelect).html('<option value="">No hay opciones</option>');
+            }
+            $('select').formSelect();
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        //Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
+
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
     $('#insertarMunicipio')[0].reset();//Id del formulario
+    fillSelect(tablaPadre, 'Departamento2', null);
     $('#municipioInsertar').modal('show');//Id del modal
 }
 
@@ -77,7 +117,7 @@ y lo que hace es extraer el Id del registro y con este consultar a la base de da
 function actualizarModal(Id)
 {   //Id_religion es el parametro para la consulta
     $.ajax({
-        url: api + 'get',
+        url: apiMunicipio + 'get',
         type: 'post',
         data:{
             Id_municipio: Id
@@ -89,22 +129,19 @@ function actualizarModal(Id)
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado consola
         if (isJSONString(response))
         {
-            const resultado = JSON.parse(response);
+            const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
 
-            if(resultado.status)
+            if(result.status)
             {   //dataset es el resultado de la consulta que devuelve la API
                 //Este resultado es un array con los datos
-                $('#Id_municipio').val(resultado.dataset.Id_municipio);                       
-                $('#Municipio').val(resultado.dataset.Municipio);//id de cada input
-                $('#Id_departamento').val(resultado.dataset.Id_departamento);
-                //en caso de que alla más input ponen sus respectivos id            
+                $('#Id_municipio').val(result.dataset.Id_municipio);                       
+                $('#MunicipioID2').val(result.dataset.Municipio);//id de cada input            
+                fillSelect(tablaPadre, 'Departamento2', result.dataset.Id_departamento);
                 $('#municipioModificar').modal('show');//id del modal modificar
             }else{
-                sweetAlert(2, resultado.exception, null);
-                console.log(response);
+                sweetAlert(2, result.exception, null);
             }
-
         }else{
             console.log(response);
         } 
@@ -122,23 +159,25 @@ $('#actualizarMunicipio').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: api + 'update',
+        url: apiMunicipio + 'update',
         type: 'post',
-        data: $('#actualizarMunicipio').serialize(),
-        datatype: 'json'
+        data: new FormData($('#actualizarMunicipio')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
     })
     .done(function(response){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
-            const resultado = JSON.parse(response);
+            const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (resultado.status) {
+            if (result.status) {
                 $('#municipioModificar').modal('hide');//Id del modal modificar
                 showTable();
-                sweetAlert(1, resultado.message, null);
+                sweetAlert(1, result.message, null);
             } else {
-                sweetAlert(2, resultado.exception, null);
-                console.log(response);
+                sweetAlert(2, result.exception, null);
             }
         } else {
             console.log(response);
@@ -158,24 +197,25 @@ $('#insertarMunicipio').submit(function()
 {   
     event.preventDefault();
     $.ajax({
-        url: api + 'create',
+        url: apiMunicipio + 'create',
         type: 'post',
-        data: $('#insertarMunicipio').serialize(),
-        datatype: 'json'
+        data: new FormData($('#insertarMunicipio')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
     })
     .done(function(response){
         // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
-            const resultado = JSON.parse(response);
+            const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (resultado.status) {
-                $('#insertarMunicipio')[0].reset();//Id del formulario insertar
+            if (result.status) {
                 $('#municipioInsertar').modal('hide');//Id del modal insertar
                 showTable();
-                sweetAlert(1, resultado.message, null);
+                sweetAlert(1, result.message, null);
             } else {
-                sweetAlert(2, resultado.exception, null);
-                console.log(response);
+                sweetAlert(2, result.exception, null);
             }
         } else {
             console.log(response);
@@ -192,7 +232,7 @@ $('#form-search').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: api + 'search',
+        url: apiMunicipio + 'search',
         type: 'post',
         data: $('#form-search').serialize(),
         datatype: 'json'

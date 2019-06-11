@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,10 +48,7 @@
 												</tr>
 											</thead>
 											<tbody id="tabla-municipio">
-												<tr>									
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</a></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</a></td>
-												</tr><!--Los registros solo son de prueba recuerden pueden borrarlos si quieren en este caso solo deje uno-->						
+
 											</tbody>
 										</table>
 									</div>
@@ -68,7 +65,7 @@
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos del municipio</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos del municipio</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -82,13 +79,11 @@
 									<input type="text" class="form-control" id="MunicipioID" aria-describedby="municipioHelp" placeholder="Religión" name="MunicipioID"><!--Agreguen los name="" mismo que el id-->
 									<small id="municipioHelp" class="form-text text-muted"></small>			
 							</div>
-                            <div class="form-group col-md-4">
-										<label for="genero-datosDepartamento">Departamento</label>
-										<select id="Departamento2" class="form-control">											
-											<option>San Salvador</option>
-											<option>Sonsonate</option>
-										</select>
-								</div>
+							<div class="input-field col s12 m6">
+								<label for="Departamento">Departamento</label>
+                    			<select id="Departamento" name="Departamento">
+                    			</select>
+                			</div>
 						
 					</div>											
 			</div>			  
@@ -148,13 +143,11 @@
 									<input type="text" class="form-control" id="MunicipioID2" aria-describedby="municipioHelp" placeholder="Municipio" name="MunicipioID2"><!--Agreguen los name="" mismo que el id-->
 									<small id="municipioHelp" class="form-text text-muted"></small>			
 							</div>
-                            <div class="form-group col-md-4">
-										<label for="genero-datosDepartamento">Departamento</label>
-										<select id="Departamento" class="form-control">											
-											<option>San Salvador</option>
-											<option>Sonsonate</option>
-										</select>
-								</div>
+                            <div class="input-field col s12 m6">
+								<label for="Departamento2">Departamento</label>
+                    			<select id="Departamento2" name="Departamento2">
+                    			</select>
+                			</div>
 						
 					</div>											
 			</div>			  

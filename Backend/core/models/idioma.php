@@ -1,104 +1,154 @@
 <?php
-class Idioma extends Validator    
-{       
-        //Campos segun la base de datos siempre con sus metodos set() y get()
-        private $Id = null;
-        private $idioma = null;
-        private $id_nivel = null;
+class idioma extends Validator
+{
+	// Declaración de propiedades
+	private $id = null;
+    private $idioma = null;
+    private $nivel = null;
+	//LLAVE FORANEA
+	private $Id_nivel_idioma = null;
 
-        public function setId($Id)
-        {
-            if($this->validateId($Id))
-            {
-                $this->Id = $Id;
-                return true;
-            }else{
-                return false;
-            }
+	//Metodos set y get de llave foranea
+	public function setId_nivel_idioma($value)
+	{
+		if($this->validateId($value)){
+			$this->id_nivel_idioma = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
 
-        }
+	public function getId_nivel_idioma()
+	{
+		return $this->id_nivel_idioma;
+	}
 
-        public function getId()
-        {
-            return $this->Id;
-        }
+	// Métodos para sobrecarga de propiedades
+	public function setId($value)
+	{
+		if ($this->validateId($value)) {
+			$this->id = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        public function setIdioma($idioma)
-        {
-            if($this->validateAlphanumeric($idioma, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
-                $this->idioma = $idioma;
-                return true;
-            }else{
-                return false;
-            }
-        }
+	public function getId()
+	{
+		return $this->id;
+	}
 
-        public function getIdioma()
-        {
-            return $this->idioma;
-        }
+	public function setidioma($value)
+	{
+		if ($this->validateAlphabetic($value, 1, 50)) {
+			$this->idioma = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        public function setId_nivel($Id)
-        {
-            if($this->validateId($id_nivel))
-            {
-                $this->id_nivel = $id_nivel;
-                return true;
-            }else{
-                return false;
-            }
+	public function getidioma()
+	{
+		return $this->idioma;
+	}
 
-        }
+	public function setnivel($value)
+	{
+		if ($this->validateId($value)) {
+			$this->nivel = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        public function getId_nivel()
-        {
-            return $this->id_nivel;
-        }
+	public function getnivel()
+	{
+		return $this->nivel;
+	}
 
-        public function insertIdioma()
-        {
-            $sql = "INSERT INTO idioma (Idioma)
-            VALUES (?)";            
-            $parametros = array($this->idioma);
-            return Database::executeRow($sql, $parametros);
-        }
+	public function setCorreo($value)
+	{
+		if ($this->validateEmail($value)) {
+			$this->correo = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        public function updateidioma()
-        {
-            $sql = "UPDATE idioma SET idioma = ? WHERE Id_idioma = ?";
-            $parametros = array($this->idioma, $this->Id);
-            return Database::executeRow($sql, $parametros);
-        }
+	public function getCorreo()
+	{
+		return $this->correo;
+	}
 
-        public function deleteIdioma()
-        {
-            $sql = "DELETE FROM idioma WHERE Id_idioma = ?";
-            $parametros = array($this->Id);
-            return Database::executeRow($sql, $parametros);
-        }
+	public function setAlias($value)
+	{
+		if ($this->validateAlphanumeric($value, 1, 50)) {
+			$this->alias = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        public function selectIdioma()
-        {
-            $sql = "SELECT Id_idioma, Idioma FROM idioma 
-            ORDER BY idioma";
-            $parametros = array(null);
-            return Database::getRows($sql, $parametros);
-        }
+	public function getAlias()
+	{
+		return $this->alias;
+	}
 
-        public function buscarIdioma($valor)
-        {
-            $sql = "SELECT * FROM idioma WHERE idioma LIKE ? ORDER BY idioma";
-            $parametros = array("%$valor%");
-            return Database::getRows($sql, $parametros);
-        }
+	public function setClave($value)
+	{
+		if ($this->validatePassword($value)) {
+			$this->clave = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        //Extrare los datos de la base hacia el actualizarModal esta es su mision
-        public function getIdiomaModal()
-        {
-            $sql = "SELECT * FROM idioma WHERE Id_idioma = ?";
-            $parametros = array($this->Id);
-            return Database::getRow($sql, $parametros);
-        }                       
+	public function getClave()
+	{
+		return $this->clave;
+	}
 
+	// Metodos para manejar el SCRUD
+	public function readidioma()
+	{
+		$sql = 'SELECT Id_idioma, Idioma, N.Nivel as Nivel FROM idioma as I INNER JOIN nivel_idioma as N ON I.Id_nivel_idioma = N.Id_nivel_idioma ORDER BY Id_idioma';
+		$params = array(null);	
+		return Database::getRows($sql, $params);
+	}
+
+    public function createidioma()
+	{
+		$sql = 'INSERT INTO idioma(Idioma,id_nivel_idioma) VALUES(?, ?)';
+		$params = array($this->idioma, $this->nivel);
+		return Database::executeRow($sql, $params);
+	}
+	//para el modal modificar recuerden
+	public function getidiomaModal()
+	{
+		$sql = 'SELECT Id_idioma, Idioma, N.Nivel FROM idioma as I INNER JOIN Id_nivel_idioma as N ON I.Id_Id_nivel_idioma = N.Id_nivel_idioma WHERE Id_idioma = ?';
+		$params = array($this->id);
+		return Database::getRow($sql, $params);
+	}
+
+	public function updateUsuario()
+	{
+		$sql = 'UPDATE idioma SET Idioma = ?, Id_nivel_idioma = ? WHERE Id_idioma = ?';
+		$params = array($this->idioma, $this->id_nivel_idioma,$this->id);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function deleteUsuario()
+	{
+		$sql = 'DELETE FROM Idioma WHERE Id_idioma = ?';
+		$params = array($this->id);
+		return Database::executeRow($sql, $params);
+	}
 }
 ?>

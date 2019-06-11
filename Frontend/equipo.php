@@ -34,21 +34,15 @@
 								<!--Boton insertar--><a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped">
+										<table class="table table-striped" id="tabla-equipo">
 											<thead>
 												<tr>
-													<th>#</th>
                                                     <th>Nombre equipo</th>
                                                     <th>Tipo equipo</th>
 												</tr>
 											</thead>
-											<tbody id="tabla-parentesco">
+											<tbody id="tbody-read">
 												<tr>
-													<td>1</td>
-													<td>Cierra</td>
-                                                    <td>Mecanico</td>									
-													<td><a class="btn btn-warning btn-sm" data-toggle="modal" onclick="actualizarModal()">Modificar</button></td>
-													<td><a class="btn btn-danger btn-sm" data-toggle="modal" onclick="confirmDelete()">Deshabilitar</button></td>	
 											</tr>
  											</tbody>
 										</table>
@@ -63,36 +57,42 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!--Inicio Modal Modificar-->
-<div class="modal fade bd-modificar-modal-xl" id="equipo-modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<div class="modal fade bd-modificar-modal-xl" id="equipoModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalPuesto">Datos equipo</h5>
-			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+			<h5 class="modal-title" id="ModalTitulo">Datos de Tipo equipo</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-equipo">
-							<div class="form-row">
-									<div class="form-group col-md-12">
-					<!--Input invisible-->	<input type="hidden" id="Id_equipo" name="Id_equipo">	
-											<label for="Equipo">Equipo</label>
-											<input type="text" class="form-control" id="Equipo" aria-describedby="equipoHelp" placeholder="Equipo" name="Equipo">
-											<small id="equipoHelp" class="form-text text-muted"></small>
-									</div>
-							</div>
-							</div>
+					<form method="post" id="modificarEquipo">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Nombres">Nombre equipo</label>
+                                <input type="Text" class="form-control" id="Nombre-equipo" placeholder="Nombres" name="Nombre-equipo">
+                            </div>
+							
+							<div class="form-group col-md-4">
+                                <label for="Tipo-equipo">Tipo equipo</label>
+                                <select id="Tipo-equipo" class="form-control" name="Tipo-equipo">
+                                </select>									 
+                            </div>
+				<!--Input invisible--><input type="hidden" id="Id_equipo" name="Id_equipo">
+                        </div>                            
+				</div>					
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary" >Modificar</button>
-			</form>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary">Modficar</button>
+			</form>	
 		</div>
 		</div>
-	</div>  <!--Fin del modal modificar-->
+    </div>		
+ <!--Fin del modal modificar-->
 
 	<!-- Button trigger modal -->
 	
@@ -116,38 +116,46 @@
 			</div>
 		</div>
 	</div>
-
 	<!--Fin del modal Deshabilitar-->	
 
-<!--Inicio Modal Insertar-->
-<div class="modal fade bd-modificar-modal-xl" id="equipoInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<!--Inicio Modal Insertar-->
+		<div class="modal fade bd-modificar-modal-xl" id="equipoAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de parentesco</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de Tipo equipo</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-					<form method="post" id="insertarEquipo">
-							<div class="form-group col-md-12">							
-									<label for="Equipo">Equipo</label>
-									<input type="text" class="form-control" id="Equipo" aria-describedby="equipoHelp" placeholder="Equipo" name="Equipo">
-									<small id="parentescoHelp" class="form-text text-muted"></small>
+			<div class="modal-body">
+					<div class="container-fluid">
+						<form method="post" id="agregarEquipo">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="Nombre-equipo">Nombre equipo</label>
+									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombres-equipoA" name="Nombres-equipoA">
+								</div>
+								
+								<div class="form-group col-md-4">
+									<label for="tipo-equipoA">Tipo equipo</label>
+									<select id="tipo-equipoA" name="tipo-equipoA" class="form-control">
+									<option value="siuu" selected>${text}</option>
+									</select>									
+									
+								</div>						
 							</div>
-						
-					</div>											
-			</div>			  
+						</div>                            					
+				</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
-			</form><!--Bajar el etiqueta form hasta aca-->
-		</div>
-		</div>
-	</div>  <!--Fin del modal Insertar-->
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>			
+		</div>	
+	</div>
+</div> 
+ 	 	<!--Fin del modal Insertar-->
 
 <!--Scripts necesarios siempre-->
 <?php
