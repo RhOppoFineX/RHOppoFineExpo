@@ -23,7 +23,7 @@ function fillTable(rows)
             </tr>
         `;
     });
-    $('#tabla-idioma').html(content);   
+    $('#tabla-idioma').html(content);       
 }
 
 // Función para obtener y mostrar los registros disponibles
@@ -188,7 +188,7 @@ $('#modificaridioma').submit(function()
                 sweetAlert(1, result.message, null);         
                 
             } else {
-                sweetAlert(2, result.exception, null);
+                sweetAlert(2, result.exception, null);                
             }
         } else {
             console.log(response);

@@ -12,7 +12,7 @@ class idioma extends Validator
 	public function setId_nivel_idioma($value)
 	{
 		if($this->validateId($value)){
-			$this->id_nivel_idioma = $value;
+			$this->Id_nivel_idioma = $value;
 			return true;
 		}else{
 			return false;
@@ -55,65 +55,9 @@ class idioma extends Validator
 		return $this->idioma;
 	}
 
-	public function setnivel($value)
-	{
-		if ($this->validateId($value)) {
-			$this->nivel = $value;
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function getnivel()
-	{
-		return $this->nivel;
-	}
-
-	public function setCorreo($value)
-	{
-		if ($this->validateEmail($value)) {
-			$this->correo = $value;
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function getCorreo()
-	{
-		return $this->correo;
-	}
-
-	public function setAlias($value)
-	{
-		if ($this->validateAlphanumeric($value, 1, 50)) {
-			$this->alias = $value;
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function getAlias()
-	{
-		return $this->alias;
-	}
-
-	public function setClave($value)
-	{
-		if ($this->validatePassword($value)) {
-			$this->clave = $value;
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function getClave()
-	{
-		return $this->clave;
-	}
+	
+	
+	
 
 	// Metodos para manejar el SCRUD
 	public function readidioma()
@@ -126,25 +70,25 @@ class idioma extends Validator
     public function createidioma()
 	{
 		$sql = 'INSERT INTO idioma(Idioma,id_nivel_idioma) VALUES(?, ?)';
-		$params = array($this->idioma, $this->nivel);
+		$params = array($this->idioma, $this->Id_nivel_idioma);
 		return Database::executeRow($sql, $params);
 	}
 	//para el modal modificar recuerden
 	public function getidiomaModal()
 	{
-		$sql = 'SELECT Id_idioma, Idioma, N.Nivel as Nivel FROM idioma as I INNER JOIN nivel_idioma as N ON I.Id_nivel_idioma = N.Id_nivel_idioma WHERE Id_idioma = ?';
+		$sql = 'SELECT Id_idioma, Idioma, Id_nivel_idioma FROM idioma WHERE Id_idioma = ?';
 		$params = array($this->id);
 		return Database::getRow($sql, $params);
 	}
 
 	public function updateidioma()
 	{
-		$sql = 'UPDATE idioma SET Idioma = ?, Id_nivel_idioma = ? WHERE Id_idioma = ?';
-		$params = array($this->idioma, $this->Id_nivel_idioma,$this->id);
+		$sql = 'UPDATE Idioma SET Idioma = ?, Id_nivel_idioma = ? WHERE Id_idioma = ?';
+		$params = array($this->idioma, $this->Id_nivel_idioma, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 
-	public function deleteUsuario()
+	public function deleteidioma()
 	{
 		$sql = 'DELETE FROM Idioma WHERE Id_idioma = ?';
 		$params = array($this->id);

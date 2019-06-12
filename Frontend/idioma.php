@@ -72,13 +72,8 @@
 							<div class="form-group col-md-4">
                                 <label for="nivel">Tipo idioma</label>
                                 <select id="nivel" class="form-control" name="nivel">
-                                        <option>Aprendis</option>
-                                        <option>Trabajador</option>
-                                        <option>Experimentado</option>
-                                        <option>Prueba</option>
-                                        <option>Ingresado</option>
-                                </select>									
-                                
+                                        
+                                </select>                               
                             </div>
 				<!--Input invisible-->		<input type="hidden" id="Id_idioma" name="Id_idioma">
                         </div>                            
