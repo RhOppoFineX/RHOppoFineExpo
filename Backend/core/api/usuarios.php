@@ -144,7 +144,7 @@ if (isset($_GET['action'])) {
                                             $result['exception'] = 'Claves diferentes';
                                         }
                                 }else{
-                                    $result['Selecione una opcion valida'];
+                                    $result['exception'] = 'Selecione una opcion valida';
                                 } 
                             } else {
                                 $result['exception'] = 'Alias incorrecto';
