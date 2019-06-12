@@ -27,17 +27,9 @@
 <body>
 
 	<div id="wrapper">
-<<<<<<< HEAD:Frontend/datos-colaborador.php
 			<?php
 				require_once '../backend/core/helpers/menu.php';	
 			?>
-=======
-
-		<?php
-		require_once '../backend/core/helpers/menu.php';
-		?>
-	
->>>>>>> 7f3581f59b800e5b608beb7b5aa994a572938aac:Frontend/datos-colaborador.php
 				<!--Incio de la Table-->
 				<div class="main">
 					<div class="main-content">
@@ -264,7 +256,7 @@
 
 
 
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>

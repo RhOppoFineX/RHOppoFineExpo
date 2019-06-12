@@ -158,7 +158,7 @@ $('#insertarArea').submit(function()
     $.ajax({
         url: api + 'create',
         type: 'post',
-        data: $('#insertarArea').serialize(),
+        data: $('#insertarArea').serialize(),//concatena los datos del formulario
         datatype: 'json'
     })
     .done(function(response){

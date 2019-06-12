@@ -13,7 +13,8 @@ function fillTable(filas)
 
    filas.forEach(fila => {
         //son comillas invertidas no simple ni dobles
-        contenido+= `
+                                                    //Onclick es una atributo - actualizarModal es la funcion
+        contenido+= `                                       
             <tr>
                 <td>${fila.Id_nivel_idioma}</td>
                 <td>${fila.Nivel}</td>							

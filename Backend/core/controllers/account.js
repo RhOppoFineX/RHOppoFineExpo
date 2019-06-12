@@ -14,7 +14,7 @@ function signOff()
     })
     .then(function(value){
         if (value) {
-            location.href = apiAccount + 'logout';
+            location.href = '../../../../../RecursosHumanos/RHOppoFineExpo/Frontend/cerrar.php';
         }
     });
 }
@@ -34,12 +34,11 @@ function modalProfile()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#profile_nombres').val(result.dataset.nombres_usuario);
-                $('#profile_apellidos').val(result.dataset.apellidos_usuario);
-                $('#profile_correo').val(result.dataset.correo_usuario);
-                $('#profile_alias').val(result.dataset.alias_usuario);
-                M.updateTextFields();
-                $('#modal-profile').modal('open');
+                $('#profile_nombres').val(result.dataset.Nombres_usuario);
+                $('#profile_apellidos').val(result.dataset.Apellidos_usuario);
+                $('#profile_correo').val(result.dataset.Correo_usuario);
+                $('#profile_alias').val(result.dataset.alias_usuario);                
+                $('#modal-profile').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
             }

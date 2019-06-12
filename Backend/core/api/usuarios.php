@@ -11,13 +11,7 @@ if (isset($_GET['action'])) {
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
-            case 'logout':
-                if (session_destroy()) {
-                    header('location: ../../../Frontend/');
-                } else {
-                    header('location: ../../../Frontend/');
-                }
-                break;
+           
             case 'readProfile':
                 if ($usuario->setId($_SESSION['Id_usuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
@@ -209,7 +203,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'delete':
-                if ($_POST['identifier'] != $_SESSION['id_usuario']) {
+                if ($_POST['identifier'] != $_SESSION['Id_usuario']) {
                     if ($usuario->setId($_POST['identifier'])) {
                         if ($usuario->getUsuario()) {
                             if ($usuario->deleteUsuario()) {
