@@ -134,7 +134,7 @@
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="Nombre-equipo">Nombre equipo</label>
-									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombres-equipoA" name="Nombres-equipoA">
+									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombre-equipoA" name="Nombre-equipoA">
 								</div>
 								
 								<div class="form-group col-md-4">
