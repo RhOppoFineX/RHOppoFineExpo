@@ -20,7 +20,7 @@ class Database
         $server = 'localhost';
         $database = 'RecursosHumanos';
         $username = 'root';
-        $password = '';
+        $password = 'root123';
         try {
             @self::$connection = new PDO('mysql:host='.$server.'; dbname='.$database.'; charset=utf8', $username, $password);
         } catch(PDOException $error) {

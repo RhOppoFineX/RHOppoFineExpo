@@ -1,5 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API
-const apiAccount = '../../core/api/dashboard/usuarios.php?action=';
+const apiAccount = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
 
 // Función para cerrar la sesión del usuario
 function signOff()

@@ -52,10 +52,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-license"></i> <span>Insafort</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-license"></i> <span>Tu Perfil</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 										<ul class="dropdown-menu">
-											<li><a href="#"><i class="lnr"></i> <span>Contratación Permanente en Proyectos</span></a></li>										
+											<li><a href="#" onclick="modalProfile()"><i class="lnr"></i> <span>Editar perfil</span></a></li>
 											
+											<li><a href="#"><i class="lnr"></i> <span>Cambiar clave</span></a></li>
+
+											<li><a href="#" onclick="signOff()"><i class="lnr"></i> <span>Salir</span></a></li>
 										</ul>
 								</li>
 								<!-- <li>
