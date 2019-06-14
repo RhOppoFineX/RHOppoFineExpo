@@ -9,8 +9,7 @@ if(isset($_GET['action']))
     //Esta funcion siempre se pone para porder hacer uso de la variable $_SESSION y controlar el inicio de sesiones
     session_start();
     $municipio = new Municipio();
-    $result = array('status' => 0, 'message'=> null, 'exception' => null);
-    $_SESSION['Id_usuario'] = 'Jopen';
+    $result = array('status' => 0, 'message'=> null, 'exception' => null);    
 
     //Se verifica si existe una sesión iniciada antes de proceder
     //El switch case evalua que opcion del crud va a ejecutar

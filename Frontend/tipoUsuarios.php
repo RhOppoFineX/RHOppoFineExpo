@@ -128,7 +128,8 @@
 
 	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
 	<script src="../Backend/core/helpers/validator.js"></script>
-	<script src="../Backend/core/helpers/components.js"></script>
+    <script src="../Backend/core/helpers/components.js"></script>
+	<script src="../Backend/core/controllers/account.js"></script>    
 	<script src="../Backend/core/controllers/tipoUsuario.js"></script>	
 	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
 

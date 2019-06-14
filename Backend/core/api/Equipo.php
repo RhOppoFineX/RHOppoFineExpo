@@ -7,7 +7,7 @@ require_once '../models/Equipo.php';
 if (isset($_GET['action'])) {
     session_start();
     $Equipo = new Equipo;
-    $_SESSION['Id_usuario'] = 'Open';    
+     //$_SESSION['Id_usuario'] = 'Open';    
     $result = array('status' => 0, 'message' => null, 'exception' => null);    
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {

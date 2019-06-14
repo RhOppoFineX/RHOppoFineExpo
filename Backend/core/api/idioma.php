@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
     session_start();
     $idioma = new idioma;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
-    $_SESSION['Id_usuario'] = 'Jopen';
+    //$_SESSION['Id_usuario'] = 'Jopen';
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {

@@ -8,7 +8,7 @@ if(isset($_GET['action']))
 {
  
     session_start();
-    $_SESSION['Id_usuario'] = 'Jopen';//Esta linea es momentanea para que podamos ocupar la API sin haber iniciado sesión
+    //$_SESSION['Id_usuario'] = 'Jopen';Esta linea es momentanea para que podamos ocupar la API sin haber iniciado sesión
     $Tipo_equipo = new TipoEquipo();//Según sea la tabla que esten ocupando, creamos un objeto del modelo que corresponde
     $resultado = array('status' => 0, 'message'=> null, 'exception' => null);
 

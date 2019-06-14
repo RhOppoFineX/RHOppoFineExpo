@@ -8,7 +8,7 @@ if(isset($_GET['action']))
 {
     //Esta funcion siempre se pone para porder hacer uso de la variable $_SESSION y controlar el inicio de sesiones
     session_start();
-    $_SESSION['Id_usuario'] = 'Jopen';//Esta linea es momentanea para que podamos ocupar la API sin haber iniciado sesión
+    //$_SESSION['Id_usuario'] = 'Jopen';Esta linea es momentanea para que podamos ocupar la API sin haber iniciado sesión
     $parentesco = new Parentesco();//Según sea la tabla que esten ocupando, creamos un objeto del modelo que corresponde
     $resultado = array('status' => 0, 'message'=> null, 'exception' => null);
 
