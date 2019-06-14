@@ -76,13 +76,13 @@
                                 <label for="Apellidos">Apellidos</label>
                                 <input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos">
                             </div>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-5">
                                 <label for="Correo">Correo electonico</label>
                                 <input type="email" class="form-control" id="Correo" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo">
                                 <small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-3">
                                 <label for="userName">User Name</label>
                                 <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName">
                                 <small id="emailHelp" class="form-text text-muted"></small>
@@ -91,11 +91,7 @@
 							<div class="form-group col-md-4">
                                 <label for="Tipos">Tipo usuario</label>
                                 <select id="Tipos" class="form-control" name="Tipos">
-                                        <option>Aprendis</option>
-                                        <option>Trabajador</option>
-                                        <option>Experimentado</option>
-                                        <option>Prueba</option>
-                                        <option>Ingresado</option>
+                                        
                                 </select>									
                                 
                             </div>
