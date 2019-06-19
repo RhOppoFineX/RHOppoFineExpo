@@ -190,6 +190,13 @@ class Usuarios extends Validator
 		return Database::executeRow($sql, $params);
 	}
 
+	public function updateUsuarioPropio()
+	{
+		$sql = 'UPDATE Usuario SET Nombres_usuario = ?, Apellidos_usuario = ?, Correo_usuario = ?, Alias_usuario = ? WHERE Id_usuario = ?';
+		$params = array($this->nombres, $this->apellidos, $this->correo, $this->alias, $this->id);
+		return Database::executeRow($sql, $params);
+	}
+
 	public function deleteUsuario()
 	{
 		$sql = 'DELETE FROM Usuario WHERE Id_usuario = ?';

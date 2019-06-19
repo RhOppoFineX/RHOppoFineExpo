@@ -372,7 +372,7 @@ insert into Categoria values (1,'Tecnico'),
                              (9,'Consejeria'),
                              (10,'Vendedores');
 
-insert into Parentesco (Parentesco) values('Papá'),('Mamá'),('Tio/a'),('Hijo/a'),('Abuelo/a'),('Cuñado/a',('Primo/a'),('Novio/a');
+insert into Parentesco (Parentesco) values('Papá'),('Mamá'),('Tio/a'),('Hijo/a'),('Abuelo/a'),('Cuñado/a'),('Primo/a'),('Novio/a');
         
 
 insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP)
@@ -405,10 +405,10 @@ insert into datosFamiliares values (1,'Maria','gonzales','10-05-1980',0,1,1,0),
                                    (6,'Karla','hernandez','06-04-2000',1,6,3,1),
                                    (7,'Fabiola','pacheco','07-04-2000',0,7,3,0),
                                    (8,'Wanda','paramo','08-04-2000',1,8,3,1),
-                                   (9,'Nicki','enriquez','09-04-2000',0,9,3,0),
-                                   (10,'Fernando','luna','10-04-2000',1,10,3,1); 
+                                   (9,'Nicki','enriquez','09-04-2000',0,8,3,0),
+                                   (10,'Fernando','luna','10-04-2000',1,8,3,1); 
 
-insert into equipoTotal (Id_equipo, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8.2),(9.3),(10,1);
+insert into equipoTotal (Id_equipo, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);
 
 insert into Experiencia_laboral (Empresa, Fecha_ingreso, Fecha_retiro, Puesto, Id_Colaborador)
  values ('claro','15-05-2017','30-10-2018','recursos humanos',1),                                
@@ -422,7 +422,7 @@ insert into Experiencia_laboral (Empresa, Fecha_ingreso, Fecha_retiro, Puesto, I
  ('el diario de hoy','26-05-2017','30-12-2018','empresario',3),
  ('movistar','27-05-2017','30-12-2018','mantenimiento de computadoras',1);
 
-insert into Salud values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene',0, 'No Perro',1),
+insert into Salud values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene', 0, 'No Perro', 1),
                          (2,0,' tratamiento',0,' comunes',0,'no tiene',1, 'No maje' ,2),
                          (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No necesita',3),
                          (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario',1),

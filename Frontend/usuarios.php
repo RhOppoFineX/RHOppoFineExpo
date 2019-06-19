@@ -95,7 +95,7 @@
                                 </select>									
                                 
                             </div>
-				<!--Input invisible-->		<input type="hidden" id="Id_usuario" name="Id_usuario">
+				<!--Input invisible--><input type="hidden" id="Id_usuario" name="Id_usuario">
                         </div>                            
 				</div>					
 			</div>			  
@@ -157,7 +157,7 @@
 								<div class="form-group col-md-4">
 									<label for="Tipos-A">Tipo usuario</label>
 									<select id="Tipos-A" name="Tipos-A" class="form-control">
-									<option value="siuu" selected>${text}</option>
+									
 									</select>									
 									
 								</div>						
@@ -173,20 +173,18 @@
 	</div>
 </div>  <!--Fin del modal agregar usuarios-->
 
+<!--Modals para editar perfil-->
+<?php
+	require_once '../Backend/core/helpers/perfil.php';
+?>
 
 <!--Scripts necesarios siempre-->
 	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
-	<!--Scripts para los cruds-->
-
-	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
-	<script src="../Backend/core/helpers/validator.js"></script>
-	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/account.js"></script>
-	<script src="../Backend/core/controllers/usuarios.js"></script>	
-	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
-
+	<!--Scripts para los cruds-->	
+	<script src="../Backend/core/controllers/usuarios.js"></script>	<!--Solo dejar el script del controlador-->
+	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 	
 </body>
 </html>

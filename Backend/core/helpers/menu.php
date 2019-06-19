@@ -56,7 +56,7 @@
 										<ul class="dropdown-menu">
 											<li><a href="#" onclick="modalProfile()"><i class="lnr"></i> <span>Editar perfil</span></a></li>
 											
-											<li><a href="#"><i class="lnr"></i> <span>Cambiar clave</span></a></li>
+											<li><a href="#"data-toggle="modal" data-target="#perfil-pass"><i class="lnr"></i> <span>Cambiar clave</span></a></li>
 
 											<li><a href="#" onclick="signOff()"><i class="lnr"></i> <span>Salir</span></a></li>
 										</ul>

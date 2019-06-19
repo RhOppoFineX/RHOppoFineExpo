@@ -7,7 +7,7 @@ require_once '../models/usuarios.php';
 if (isset($_GET['action'])) {
     session_start();
     $usuario = new Usuarios;    
-    $result = array('status' => 0, 'message' => null, 'exception' => null);    
+    $result = array('status' => false, 'message' => null, 'exception' => null);    
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
             case 'readProfile':
                 if ($usuario->setId($_SESSION['Id_usuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
-                        $result['status'] = 1;
+                        $result['status'] = true;
                     } else {
                         $result['exception'] = 'Usuario inexistente';
                     }
@@ -27,19 +27,19 @@ if (isset($_GET['action'])) {
                 if ($usuario->setId($_SESSION['Id_usuario'])) {
                     if ($usuario->getUsuario()) {
                         $_POST = $usuario->validateForm($_POST);
-                        if ($usuario->setNombres($_POST['profile_nombres'])) {
-                            if ($usuario->setApellidos($_POST['profile_apellidos'])) {
-                                if ($usuario->setCorreo($_POST['profile_correo'])) {
-                                    if ($usuario->setAlias($_POST['profile_alias'])) {
-                                        if ($usuario->updateUsuario()) {
-                                            $_SESSION['alias_usuario'] = $usuario->getAlias();
-                                            $result['status'] = 1;
+                        if ($usuario->setNombres($_POST['Nombres-P'])) {
+                            if ($usuario->setApellidos($_POST['Apellidos-P'])) {
+                                if ($usuario->setCorreo($_POST['Correo-P'])) {
+                                    if ($usuario->setAlias($_POST['userName-P'])) {
+                                        if ($usuario->updateUsuarioPropio()) {
+                                            $_SESSION['Correo_usuario'] = $usuario->getCorreo();//preguntar al profe que es esta linea
+                                            $result['status'] = true;
                                             $result['message'] = 'Perfil modificado correctamente';
                                         } else {
                                             $result['exception'] = 'Operación fallida';
                                         }
                                     } else {
-                                        $result['exception'] = 'Alias incorrecto';
+                                        $result['exception'] = 'Nombre de usuario incorrecto';
                                     }
                                 } else {
                                     $result['exception'] = 'Correo incorrecto';
@@ -66,7 +66,7 @@ if (isset($_GET['action'])) {
                                 if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
                                     if ($usuario->setClave($_POST['clave_nueva_1'])) {
                                         if ($usuario->changePassword()) {
-                                            $result['status'] = 1;
+                                            $result['status'] = true;
                                             $result['message'] = 'Contraseña cambiada correctamente';
                                         } else {
                                             $result['exception'] = 'Operación fallida';
@@ -92,7 +92,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'read':
                 if ($result['dataset'] = $usuario->readUsuarios()) {
-                    $result['status'] = 1;
+                    $result['status'] = true;
                 } else {
                     $result['exception'] = 'No hay usuarios registrados';
                 }
@@ -101,7 +101,7 @@ if (isset($_GET['action'])) {
                 $_POST = $usuario->validateForm($_POST);
                 if ($_POST['search'] != '') {
                     if ($result['dataset'] = $usuario->searchUsuarios($_POST['search'])) {
-                        $result['status'] = 1;
+                        $result['status'] = true;
                         $rows = count($result['dataset']);
 						if ($rows > 1) {
 							$result['message'] = 'Se encontraron '.$rows.' coincidencias';
@@ -126,7 +126,7 @@ if (isset($_GET['action'])) {
                                     if ($_POST['Contraseña-A'] == $_POST['ContraseñaDos-A']) {
                                         if ($usuario->setClave($_POST['Contraseña-A'])) {
                                             if ($usuario->createUsuario()) {
-                                                $result['status'] = 1;
+                                                $result['status'] = true;
                                                 $result['message'] = 'Usuario creado correctamente';
                                             } else {
                                                 $result['exception'] = 'Operación fallida';
@@ -156,7 +156,7 @@ if (isset($_GET['action'])) {
             case 'get':
                 if ($usuario->setId($_POST['Id_usuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
-                        $result['status'] = 1;
+                        $result['status'] = true;
                     } else {
                         $result['exception'] = 'Usuario inexistente';
                     }
@@ -207,7 +207,7 @@ if (isset($_GET['action'])) {
                     if ($usuario->setId($_POST['identifier'])) {
                         if ($usuario->getUsuario()) {
                             if ($usuario->deleteUsuario()) {
-                                $result['status'] = 1;
+                                $result['status'] = true;
                                 $result['message'] = 'Usuario eliminado correctamente';
                             } else {
                                 $result['exception'] = 'Operación fallida';
@@ -229,7 +229,7 @@ if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'read':
                 if ($usuario->readUsuarios()) {
-                    $result['status'] = 1;
+                    $result['status'] = true;
                     $result['message'] = 'Existe al menos un usuario registrado';
                 } else {
                     $result['message'] = 'No existen usuarios registrados';
@@ -276,7 +276,7 @@ if (isset($_GET['action'])) {
                             if ($usuario->checkPassword()) {
                                 $_SESSION['Id_usuario'] = $usuario->getId();
                                 $_SESSION['Correo_usuario'] = $usuario->getCorreo();
-                                $result['status'] = 1;
+                                $result['status'] = true;
                                 $result['message'] = 'Autenticación correcta';
                             } else {
                                 $result['exception'] = 'Clave inexistente';

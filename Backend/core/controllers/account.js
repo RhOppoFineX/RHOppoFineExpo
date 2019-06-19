@@ -34,11 +34,11 @@ function modalProfile()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#profile_nombres').val(result.dataset.Nombres_usuario);
-                $('#profile_apellidos').val(result.dataset.Apellidos_usuario);
-                $('#profile_correo').val(result.dataset.Correo_usuario);
-                $('#profile_alias').val(result.dataset.alias_usuario);                
-                $('#modal-profile').modal('show');
+                $('#Nombres-P').val(result.dataset.Nombres_usuario);
+                $('#Apellidos-P').val(result.dataset.Apellidos_usuario);
+                $('#Correo-P').val(result.dataset.Correo_usuario);
+                $('#userName-P').val(result.dataset.Alias_usuario);                
+                $('#perfil').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -53,13 +53,13 @@ function modalProfile()
 }
 
 // Función para editar el perfil del usuario que ha iniciado sesión
-$('#form-profile').submit(function()
+$('#perfil-update').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: apiAccount + 'editProfile',
         type: 'post',
-        data: $('#form-profile').serialize(),
+        data: $('#perfil-update').serialize(),
         datatype: 'json'
     })
     .done(function(response){
@@ -68,8 +68,8 @@ $('#form-profile').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-profile').modal('close');
-                sweetAlert(1, result.message, 'main.php');
+                $('#perfil').modal('hide');
+                sweetAlert(1, result.message, 'cerrar.php');//ver coffeeshop    
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -99,7 +99,7 @@ $('#form-password').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-password').modal('close');
+                $('#modal-password').modal('hide');
                 sweetAlert(1, result.message, 'main.php');
             } else {
                 sweetAlert(2, result.exception, null);

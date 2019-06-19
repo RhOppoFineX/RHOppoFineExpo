@@ -49,7 +49,7 @@ $('#form-login').submit(function()
             const dataset = JSON.parse(response);
             // Se comprueba si la respuesta es satisfactoria, sino se muestra la excepción
             if (dataset.status) {
-                sweetAlert(1, dataset.message, 'datos-colaborador.php');  
+                sweetAlert(1, dataset.message, 'usuarios.php');  
             } else {
                 sweetAlert(2, dataset.exception, null);
             }
