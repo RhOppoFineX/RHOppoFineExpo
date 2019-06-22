@@ -62,26 +62,26 @@
 					<form method="post" id="pass-update">
                         <div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="Contraseña-P">Contraseña</label>
-								<input type="password" class="form-control" id="Contraseña-P" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña-P">
+								<label for="clave_actual_1">Contraseña</label>
+								<input type="password" class="form-control" id="clave_actual_1" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="clave_actual_1">
 								<small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 
 							<div class="form-group col-md-6">
-								<label for="ContraseñaDos-P">Repetir Contraseña</label>
-								<input type="password" class="form-control" id="ContraseñaDos-P" aria-describedby="emailHelp" placeholder="Repetir" name="ContraseñaDos-P">
+								<label for="clave_actual_2">Repetir Contraseña</label>
+								<input type="password" class="form-control" id="clave_actual_2" aria-describedby="emailHelp" placeholder="Repetir" name="clave_actual_2">
 								<small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 
 							<div class="form-group col-md-6">
-								<label for="Nueva-Contraseña-P">Nueva Contraseña</label>
-								<input type="password" class="form-control" id="Nueva-Contraseña-P" aria-describedby="emailHelp" placeholder="Nueva Contraseña Institucional" name="Nueva-Contraseña-P">
+								<label for="clave_nueva_1">Nueva Contraseña</label>
+								<input type="password" class="form-control" id="clave_nueva_1" aria-describedby="emailHelp" placeholder="Nueva Contraseña Institucional" name="clave_nueva_1">
 								<small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 
 							<div class="form-group col-md-6">
-								<label for="Confirmar-P">Confirmar Contraseña</label>
-								<input type="password" class="form-control" id="Confirmar-P" aria-describedby="emailHelp" placeholder="Confirmar Institucional" name="Confirmar-P">
+								<label for="clave_nueva_2">Confirmar Contraseña</label>
+								<input type="password" class="form-control" id="clave_nueva_2" aria-describedby="emailHelp" placeholder="Confirmar Institucional" name="clave_nueva_2">
 								<small id="emailHelp" class="form-text text-muted"></small>
 							</div>								
                         </div>                            

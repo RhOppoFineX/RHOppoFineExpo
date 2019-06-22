@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'password':
-                if ($usuario->setId($_SESSION['id_usuario'])) {
+                if ($usuario->setId($_SESSION['Id_usuario'])) {
                     $_POST = $usuario->validateForm($_POST);
                     if ($_POST['clave_actual_1'] == $_POST['clave_actual_2']) {
                         if ($usuario->setClave($_POST['clave_actual_1'])) {
@@ -241,19 +241,23 @@ if (isset($_GET['action'])) {
                     if ($usuario->setApellidos($_POST['Apellidos'])) {
                         if ($usuario->setCorreo($_POST['Correo'])) {
                             if ($usuario->setAlias($_POST['userName'])) {
-                                if ($_POST['Contraseña'] == $_POST['ContraseñaDos']) {
-                                    if ($usuario->setClave($_POST['Contraseña'])) {
-                                        if ($usuario->createUsuario()) {
-                                            $result['status'] = true;
-                                            $result['message'] = 'Usuario registrado correctamente';
+                                if($usuario->setId_tipo_usuario(1)){
+                                    if ($_POST['Contraseña'] == $_POST['ContraseñaDos']) {
+                                        if ($usuario->setClave($_POST['Contraseña'])) {
+                                            if ($usuario->createUsuario()) {
+                                                $result['status'] = true;
+                                                $result['message'] = 'Usuario registrado correctamente';
+                                            } else {
+                                                $result['exception'] = 'Operación fallida';
+                                            }
                                         } else {
-                                            $result['exception'] = 'Operación fallida';
+                                            $result['exception'] = 'Clave menor a 6 caracteres';
                                         }
                                     } else {
-                                        $result['exception'] = 'Clave menor a 6 caracteres';
+                                        $result['exception'] = 'Claves diferentes';
                                     }
-                                } else {
-                                    $result['exception'] = 'Claves diferentes';
+                                }else{
+                                    $result['exception'] = 'tipo de usuario incorrecto';
                                 }
                             } else {
                                 $result['exception'] = 'Alias incorrecto';
