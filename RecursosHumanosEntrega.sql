@@ -1,6 +1,6 @@
 --Create Database RecursosHumanos2;
 
-CREATE DATABASE IF NOT EXISTS `RecursosHumanos` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
+CREATE DATABASE IF NOT EXISTS `RecursosHumanos` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 use RecursosHumanos;
 --Topo
 create table Tipo_usuario(

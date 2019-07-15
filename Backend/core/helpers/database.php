@@ -18,7 +18,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'recursoshumanos2';
+        $database = 'recursoshumanos';
         $username = 'root';
         $password = 'root123';
         try {

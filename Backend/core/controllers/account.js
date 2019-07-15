@@ -14,7 +14,7 @@ function signOff()
     })
     .then(function(value){
         if (value) {
-            location.href = '../../../../../RecursosHumanos/RHOppoFineExpo/Frontend/cerrar.php';
+            location.href = '../../../../RHOppoFineExpo/Frontend/cerrar.php';
         }
     });
 }
