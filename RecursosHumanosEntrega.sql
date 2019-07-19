@@ -5,7 +5,7 @@ use RecursosHumanos;
 --Topo
 create table Tipo_usuario(
     Id_tipo_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Tipo_usuario varchar(20) NOT NULL
+    Tipo_usuario varchar(20) UNIQUE NOT NULL
 );
 --Topo
 Create Table Usuario(
@@ -21,12 +21,12 @@ Create Table Usuario(
 --Topo
 Create Table Area(
     Id_area Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Area varchar(25) NOT NULL
+    Area varchar(25) UNIQUE NOT NULL
 );
 --Topo
 Create Table Puesto(
     Id_puesto Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Puesto varchar(25) NOT NULL
+    Puesto varchar(25) UNIQUE NOT NULL
 );
 
 -- create table Identidad(
@@ -37,24 +37,24 @@ Create Table Puesto(
 --Joel
 Create Table Nacionalidad (
     Id_nacionalidad Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nacionalidad varchar (25) NOT NULL
+    Nacionalidad varchar (25) UNIQUE NOT NULL
 );
 --Joel
 Create Table Nivel_idioma(
     Id_nivel_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nivel varchar (15) NOT NULL
+    Nivel varchar (25) UNIQUE NOT NULL
 );
 --Joel
 Create Table Idioma(
     Id_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Idioma varchar(15) NOT NULL,
+    Idioma varchar(25) NOT NULL,
     Id_nivel_idioma Integer Unsigned NOT NULL,
     FOREIGN KEY (Id_nivel_idioma) REFERENCES Nivel_idioma(Id_nivel_idioma) 
 );
 --Cristian
 Create Table Tipo_equipo (
     Id_tipo_equipo Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Tipo_equipo varchar(50) NOT NULL
+    Tipo_equipo varchar(50) UNIQUE NOT NULL
 );
 --Cristian
 Create Table Equipo (

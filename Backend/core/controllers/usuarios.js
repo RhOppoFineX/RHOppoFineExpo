@@ -123,7 +123,7 @@ $('#agregarUsuario').submit(function()
                 sweetAlert(2, result.exception, null);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, response, null);
         }
     })
     .fail(function(jqXHR){
@@ -197,7 +197,7 @@ $('#modificarUsuario').submit(function()
                 sweetAlert(2, result.exception, null);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, response, null);
         }
     })
     .fail(function(jqXHR){
