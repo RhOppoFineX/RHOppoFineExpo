@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="e
-s">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,6 +58,7 @@ s">
 					</div><!-- END MAIN CONTENT -->
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
+
 			<!-- Inicio Modal Modificar-->
 <div class="modal fade bd-modificar-modal-xl" id="modificar-estadoCivil" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -76,7 +76,7 @@ s">
 									<div class="form-group col-md-12">
 			<!--nuevo inpunt es invisible--><input type="hidden" id="Id_estado-civil" name="Id_estado-civil">
 											<label for="EstadoCivil">Estado civil</label>
-											<input type="text" class="form-control" id="EstadoCivil" aria-describedby="puestoHelp" placeholder="Estado civil" name="EstadoCivil">
+											<input type="text" class="form-control" id="EstadoCivil" aria-describedby="puestoHelp" placeholder="Estado civil" name="EstadoCivil" required>
 											<small id="puestoHelp" class="form-text text-muted"></small>
 								</div>
 							</div>
@@ -116,23 +116,22 @@ s">
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
+			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>
 		</div>
 		</div>
 	</div>  <!--Fin del modal Insertar-->
 
-<!--Scripts necesarios siempre-->
-<?php
+	<!--Modals para editar perfil-->
+	<?php
+	require_once '../Backend/core/helpers/perfil.php';
+	?>
+
+	<!--Scripts necesarios siempre-->
+	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
-	<!--Scripts para los cruds-->
-
-	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
-	<script src="../Backend/core/helpers/validator.js"></script>
-	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/account.js"></script>
-	<script src="../Backend/core/controllers/estadoCivil.js"></script>
-	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
+	<!--Scripts para los cruds-->	
+	<script src="../Backend/core/controllers/estadoCivil.js"></script>	
 </body>
 </html>

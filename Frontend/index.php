@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="fullscreen-bg">
+<html lang="es" class="fullscreen-bg">
 
 <head>
 	<title>Login | Recursos Humanos ITR</title>
@@ -36,7 +36,7 @@
 										<span>Recordar Contraseña</span>
 									</label>
 								</div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">Inciar Sesión</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">Inciar sesión</button>
 								<div class="submit">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">¿Olvidastes tu Contraseña?</a></span>
 								</div>
@@ -46,7 +46,7 @@
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Insituto Tecnico Ricaldone</h1>
+							<h1 class="heading">Instituto Tecnico Ricaldone</h1>
 							<p>Recursos Humanos</p>
 						</div>
 					</div>

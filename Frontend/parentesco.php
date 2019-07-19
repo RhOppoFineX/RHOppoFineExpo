@@ -77,9 +77,9 @@
 					<form method="POST" id="modificar-parentesco">
 							<div class="form-row">
 									<div class="form-group col-md-12">
-					<!--Input invisible-->	<input type="hidden" id="Id_parentesco" name="Id_parentesco">	
+											<input type="hidden" id="Id_parentesco" name="Id_parentesco">	
 											<label for="Parentesco">Parentesco</label>
-											<input type="text" class="form-control" id="Parentesco" aria-describedby="parentescoHelp" placeholder="Parentesco" name="Parentesco">
+											<input type="text" class="form-control" id="Parentesco" aria-describedby="parentescoHelp" placeholder="Parentesco" name="Parentesco" required>
 											<small id="parentescoHelp" class="form-text text-muted"></small>
 									</div>
 							</div>
@@ -93,31 +93,6 @@
 		</div>
 		</div>
 	</div>  <!--Fin del modal modificar-->
-
-	<!-- Button trigger modal -->
-	
-	<!-- Inicio Modal deshabilitar-->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				 <h2>¿Desea Deshabilitarlo?</h2>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--Fin del modal Deshabilitar-->	
 
 <!--Inicio Modal Insertar-->
 <div class="modal fade bd-modificar-modal-xl" id="parentescoInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -134,7 +109,7 @@
 					<form method="post" id="insertarParentesco">
 							<div class="form-group col-md-12">							
 									<label for="Parentesco">Parentesco</label>
-									<input type="text" class="form-control" id="Parentesco" aria-describedby="parentescoHelp" placeholder="Parentesco" name="Parentesco">
+									<input type="text" class="form-control" id="Parentesco" aria-describedby="parentescoHelp" placeholder="Parentesco" name="Parentesco" required> 
 									<small id="parentescoHelp" class="form-text text-muted"></small>
 							</div>
 						
@@ -143,24 +118,23 @@
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
-			</form><!--Bajar el etiqueta form hasta aca-->
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>
 		</div>
 		</div>
 	</div>  <!--Fin del modal Insertar-->
+	
+	<!--Modals para editar perfil-->
+	<?php
+	require_once '../Backend/core/helpers/perfil.php';
+	?>
 
-<!--Scripts necesarios siempre-->
-<?php
+	<!--Scripts necesarios siempre-->
+	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
-	<!--Scripts para los cruds-->
-
-	<script src="../Backend/libraries/sweetalert.min.js"></script><!--Libreria para los mensajes de confirmacion-->
-	<script src="../Backend/core/helpers/validator.js"></script>
-	<script src="../Backend/core/helpers/components.js"></script>
-	<script src="../Backend/core/controllers/account.js"></script>
-	<script src="../Backend/core/controllers/parentesco.js"></script>
-	<!--Los primeros Tres scripts siempre son los mismos el que cambia son los controladores-->
+	<!--Scripts para los cruds-->	
+	<script src="../Backend/core/controllers/parentesco.js"></script>	
 		
 	</body>
 </html>
