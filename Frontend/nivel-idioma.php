@@ -163,7 +163,7 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/usuarios.js"></script>	<!--Solo dejar el script del controlador-->
+	<script src="../Backend/core/controllers/nivel-idioma.js"></script>	<!--Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 		
 

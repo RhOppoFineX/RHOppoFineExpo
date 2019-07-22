@@ -257,8 +257,8 @@
 	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
-	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/nacionalidad.js"></script>	<!--Solo dejar el script del controlador-->
+	<!--Scripts para los cruds	
+	<script src="../Backend/core/controllers/nacionalidad.js"></script>	<Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 	<script>
 	// $(function() {
