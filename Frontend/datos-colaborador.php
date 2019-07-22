@@ -251,14 +251,17 @@
 		</div>
 	</div>
 
-	<!--Fin del modal Deshabilitar-->	
+<!--Modals para editar perfil-->
+<?php
+	require_once '../Backend/core/helpers/perfil.php';
+?>
 
-
-
-
-  	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>	
+<!--Scripts necesarios siempre-->
+	<?php
+		require_once '../Backend/core/helpers/scripts.php';
+	?>
+	<!--Scripts para los cruds-->	
+	<script src="../Backend/core/controllers/nacionalidad.js"></script>	<!--Solo dejar el script del controlador-->
+	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 </body>
 </html>
