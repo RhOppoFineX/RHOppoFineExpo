@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
 
-    <title>Tabla | Datos-Religión </title>
+    <title>Tabla | Datos-Municipio </title>
 
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
@@ -42,7 +42,6 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>#</th>
 													<th>Municipio</th>
                                                     <th>Departamento</th>
 												</tr>
@@ -73,24 +72,25 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form method="post" id="actualizarMunicipio">
+						<div class="form-row">
 							<div class="form-group col-md-12">
-								<!--nuevo input es invisible-->	<input type="hidden" id="Id_municipio" name="Id_municipio">	
-									<label for="Municipio">Municipio</label>
-									<input type="text" class="form-control" id="MunicipioID" aria-describedby="municipioHelp" placeholder="Religión" name="MunicipioID"><!--Agreguen los name="" mismo que el id-->
-									<small id="municipioHelp" class="form-text text-muted"></small>			
+								<!--nuevo input es invisible-->		
+									<label for="Municipio-B">Municipio</label>
+									<input type="text" class="form-control" id="Municipio-B" placeholder="Municipio" name="Municipio-B" required>		
 							</div>
 							<div class="input-field col s12 m6">
-								<label for="Departamento">Departamento</label>
-                    			<select id="Departamento" name="Departamento">
+								<label for="Departamento-B">Departamento</label>
+                    			<select id="Departamento-B" name="Departamento-B" class="form-control">
                     			</select>
                 			</div>
-						
+							<input type="hidden" id="Id_municipio" name="Id_municipio">
+						</div>
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Modficar</button><!--Quitarle el data-dismiss-->
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>
 		</div>
@@ -138,22 +138,23 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 					<form method="post" id="insertarMunicipio">
+						<div class="form-row">
 							<div class="form-group col-md-12">
-									<label for="Municipio">Municipio</label>
-									<input type="text" class="form-control" id="MunicipioID2" aria-describedby="municipioHelp" placeholder="Municipio" name="MunicipioID2"><!--Agreguen los name="" mismo que el id-->
-									<small id="municipioHelp" class="form-text text-muted"></small>			
+									<label for="Municipio-A">Municipio</label>
+									<input type="text" class="form-control" id="Municipio-A" placeholder="Municipio" name="Municipio-A">
+									<small id="municipioHelp" class="form-text text-muted"></small>
 							</div>
                             <div class="input-field col s12 m6">
-								<label for="Departamento2">Departamento</label>
-                    			<select id="Departamento2" name="Departamento2">
+								<label for="Departamento-A">Departamento</label>
+                    			<select id="Departamento-A" name="Departamento-A" class="form-control">
                     			</select>
                 			</div>
-						
+						</div>
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>

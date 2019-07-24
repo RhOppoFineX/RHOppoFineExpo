@@ -8,7 +8,7 @@ if(isset($_GET['action']))
 {
     //Esta funcion siempre se pone para porder hacer uso de la variable $_SESSION y controlar el inicio de sesiones
     session_start();
-    $municipio = new Municipio();
+    $municipio = new Municipio;
     $result = array('status' => 0, 'message'=> null, 'exception' => null);    
 
     //Se verifica si existe una sesión iniciada antes de proceder
@@ -17,7 +17,7 @@ if(isset($_GET['action']))
      switch ($_GET['action']){           
 
         case 'read':
-            if ($result['dataset'] = $municipio->readMunicipios()) {
+            if ($result['dataset'] = $municipio->readmunicipio()) {
                 $result['status'] = 1;
             } else {
                 $result['exception'] = 'No hay municipios registrados';
@@ -27,16 +27,16 @@ if(isset($_GET['action']))
          case 'create':
             $_POST = $municipio->validateForm($_POST);
 
-            if($municipio->setMunicipio($_POST['MunicipioID2'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
-                if($municipio->setIdDepartamento($_POST['Departamento2'])){            
-                    if($municipio->insertMunicipio()){  //operación insertar del modelo
+            if($municipio->setmunicipio($_POST['Municipio-A'])){  //es el id del input en el formulario que correponde, si hay mas campos mas if
+                if($municipio->setId_departamento($_POST['Departamento-A'])){            
+                    if($municipio->createmunicipio()){  //operación insertar del modelo
                         $result['status'] = 1;
                         $result['message'] = 'Municipio insertado';
                     }else{
                         $result['exception'] = 'Hubo un error';
                     }
                 }else{
-                    $result['exception'] = 'Departamento no encontrado';
+                    $result['exception'] = 'Municipio no encontrado';
                 }
             }else{
                 $result['exception'] = 'Longitud de caracteres invalida';
@@ -46,7 +46,7 @@ if(isset($_GET['action']))
             //el get es primero despues el update para no confundirse 
          case 'get':
             if($municipio->setId($_POST['Id_municipio'])){
-                if($result['dataset'] = $municipio->getMunicipioModal()){
+                if($result['dataset'] = $municipio->getmunicipioModal()){
                     $result['status'] = 1;
                 }else{
                     $result['exception'] = 'Id inexistente';
@@ -61,17 +61,17 @@ if(isset($_GET['action']))
             $_POST = $municipio->validateForm($_POST);
             
             if($municipio->setId($_POST['Id_municipio'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
-                if($municipio->getMunicipioModal()){
-                    if($municipio->setMunicipio($_POST['MunicipioID'])){
-                        if($municipio->setIdDepartamento($_POST['Departamento'])){                     
-                            if($municipio->updateMunicipio()){
+                if($municipio->getmunicipioModal()){
+                    if($municipio->setmunicipio($_POST['Municipio-B'])){
+                        if($municipio->setId_departamento($_POST['Departamento-B'])){                     
+                            if($municipio->updatemunicipio()){
                                 $result['status'] = 1;
                                 $result['message'] = 'Municipio modificado';
                             }else{
                                 $result['exception'] = 'Operación fallida';
                             }
                         }else{
-                            $result['exception'] = 'No se actualizo el departamento';
+                            $result['exception'] = 'No se actualizo el municipio';
                         }
                     }else{
                         $result['exception'] = 'Longitud de caracteres invalida';                        
@@ -85,34 +85,31 @@ if(isset($_GET['action']))
          break;
          
          case 'delete':
-                if ($_POST['identifier'] != $_SESSION['id_municipio']) {
-                    if ($usuario->setId($_POST['identifier'])) {
-                        if ($usuario->getMunicipioModal()) {
-                            if ($usuario->deleteMunicipio()) {
-                                $result['status'] = 1;
-                                $result['message'] = 'Usuario eliminado correctamente';
+                    if ($municipio->setId($_POST['identifier'])) {
+                        if ($municipio->getmunicipioModal()) {
+                            if ($municipio->deletemunicipio()) {
+                                $result['status'] = true;
+                                $result['message'] = 'Municipio eliminado correctamente';
                             } else {
                                 $result['exception'] = 'Operación fallida';
                             }
                         } else {
-                            $result['exception'] = 'Usuario inexistente';
+                            $result['exception'] = 'Municipio inexistente';
                         }
                     } else {
-                        $result['exception'] = 'Usuario incorrecto';
+                        $result['exception'] = 'Municipio incorrecto';
                     }
-                } else {
-                    $result['exception'] = 'No se puede eliminar a sí mismo';
-                }
+                
                 break;
             default:
                 exit('Acción no disponible log');
         }
-
+        print(json_encode($result));
+    }else{
+        exit('Debes Iniciar Sesión antes');
     } 
-    
-    print(json_encode($result));  
+	
 } else {
-    exit('Recurso denegado');
+	exit('Recurso denegado');
 }
-
 ?>

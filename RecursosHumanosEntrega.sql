@@ -234,12 +234,7 @@ insert into Tipo_usuario (Id_tipo_usuario, Tipo_usuario) values (1, 'Admin'),
                                                                 (2, 'Enfermeria'),
                                                                 (3, 'Colaborador'),
                                                                 (4, 'Profesor'),
-                                                                (5, 'Asistente'),
-                                                                (6, 'Admin'),
-                                                                (7, 'Profesor'),
-                                                                (8, 'Colaborador'),
-                                                                (9, 'Asistente'),
-                                                                (10, 'Enfermeria');
+                                                                (5, 'Asistente');
 
 
 insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
@@ -460,7 +455,7 @@ insert into Notificaciones(Descripcion, Id_Colaborador) values('necesita renovar
                                 ('Tramite de renovar papeleos',1);
 
 
-Select U.Nombres, U.Apellidos FROM Usuario as u INNER JOIN Tipo_usuario as t ON u.Id_tipo_usuario = t.Id_tipo_usuario WHERE t.Tipo_usuario = ''; 
+Select U.Nombres_usuario, U.Apellidos_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario WHERE T.Tipo_usuario = ''; 
 
 --El Colaborador quizás pueda negociar su Salario
 --Hijos(número) de los Colaboradores--

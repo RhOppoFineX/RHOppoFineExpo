@@ -1,5 +1,5 @@
 <?php
-class Area extends Validator    
+class Area extends Validator
 {       
         //Campos segun la base de datos siempre con sus metodos set() y get()
         private $Id = null;
@@ -24,7 +24,7 @@ class Area extends Validator
 
         public function setArea($Area)
         {
-            if($this->validateAlphanumeric($Area, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($Area, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->Area = $Area;
                 return true;
             }else{

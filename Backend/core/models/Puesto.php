@@ -24,7 +24,7 @@ class Puesto extends Validator
 
         public function setPuesto($Puesto)
         {
-            if($this->validateAlphanumeric($Puesto, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($Puesto, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->Puesto = $Puesto;
                 return true;
             }else{

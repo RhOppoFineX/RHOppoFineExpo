@@ -17,7 +17,8 @@ function fillTable(rows)
         //son comillas invertidas no simple ni dobles
         content+= `
             <tr>
-                <td>${row.Municipio}</td>						
+                <td>${row.Municipio}</td>	
+                <td>${row.Departamento}</td>					
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_municipio})">Modificar</a></td>
 				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiMunicipio}', ${row.Id_municipio}, null)">Deshabilitar</a></td>
             </tr>       
@@ -64,51 +65,11 @@ function showTable()
     });
 }
 
-function showSelectDepartamento(idSelect, value)
-{
-    $.ajax({
-        url: apiMunicipio + 'readDepartamento',
-        type: 'post',
-        data: null,
-        datatype: 'json'
-    })
-    .done(function(response){
-        //Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
-        if (isJSONString(response)) {
-            const result = JSON.parse(response);
-            //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
-                let content = '';
-                if (!value) {
-                    content += '<option value="" disabled selected>Seleccione una opción</option>';
-                }
-                result.dataset.forEach(function(row){
-                    if (row.Id_departamento != value) {
-                        content += `<option value="${row.Id_departamento}">${row.Departamento}</option>`;
-                    } else {
-                        content += `<option value="${row.Id_departamento}" selected>${row.Departamento}</option>`;
-                    }
-                });
-                $('#' + idSelect).html(content);
-            } else {
-                $('#' + idSelect).html('<option value="">No hay opciones</option>');
-            }
-            $('select').formSelect();
-        } else {
-            console.log(response);
-        }
-    })
-    .fail(function(jqXHR){
-        //Se muestran en consola los posibles errores de la solicitud AJAX
-        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-    });
-}
-
 // Función para mostrar formulario en blanco
 function modalCreate()
 {
     $('#insertarMunicipio')[0].reset();//Id del formulario
-    fillSelect(tablaPadre, 'Departamento2', null);
+    fillSelect(tablaPadre, 'Departamento-A', null);
     $('#municipioInsertar').modal('show');//Id del modal
 }
 
@@ -136,8 +97,8 @@ function actualizarModal(Id)
             {   //dataset es el resultado de la consulta que devuelve la API
                 //Este resultado es un array con los datos
                 $('#Id_municipio').val(result.dataset.Id_municipio);                       
-                $('#MunicipioID2').val(result.dataset.Municipio);//id de cada input            
-                fillSelect(tablaPadre, 'Departamento2', result.dataset.Id_departamento);
+                $('#Municipio-B').val(result.dataset.Municipio);//id de cada input            
+                fillSelect(tablaPadre, 'Departamento-B', result.dataset.Id_departamento);
                 $('#municipioModificar').modal('show');//id del modal modificar
             }else{
                 sweetAlert(2, result.exception, null);
@@ -216,37 +177,6 @@ $('#insertarMunicipio').submit(function()
                 sweetAlert(1, result.message, null);
             } else {
                 sweetAlert(2, result.exception, null);
-            }
-        } else {
-            console.log(response);
-        }
-    })
-    .fail(function(jqXHR){
-        // Se muestran en consola los posibles errores de la solicitud AJAX
-        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-    });
-})
-
-// Función para mostrar los resultados de una búsqueda
-$('#form-search').submit(function()
-{
-    event.preventDefault();
-    $.ajax({
-        url: apiMunicipio + 'search',
-        type: 'post',
-        data: $('#form-search').serialize(),
-        datatype: 'json'
-    })
-    .done(function(response){
-        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
-        if (isJSONString(response)) {
-            const result = JSON.parse(response);
-            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
-                fillTable(result.dataset);
-                sweetAlert(1, result.message, null);
-            } else {
-                sweetAlert(3, result.exception, null);
             }
         } else {
             console.log(response);

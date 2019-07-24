@@ -24,7 +24,7 @@ class Religion extends Validator
 
             public function setReligion($Religion)
             {
-                if($this->validateAlphanumeric($Religion, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+                if($this->validateAlphabetic($Religion, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                     $this->Religion = $Religion;
                     return true;
                 }else{

@@ -28,7 +28,7 @@
 				<div class="main">					
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos de Religión</h3>
+							<h3 class="page-title">Datos del Departamento</h3>
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
 							<div class="panel">
@@ -42,11 +42,11 @@
 										<table class="table table-striped">
 											<thead>
 												<tr>
-													<th>#</th>
-													<th>Religion</th>
+													<th>Departamento</th>
+													<th>Nacionalidad</th>
 												</tr>
 											</thead>
-											<tbody id="tabla-religion">
+											<tbody id="tabla-departamento">
 												
 													
 												<!--Los registros solo son de prueba recuerden pueden borrarlos si quieren en este caso solo deje uno-->						
@@ -62,32 +62,37 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!-- Modal Modificar-->
-<div class="modal fade bd-modificar-modal-xl" id="religionModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="departamentoModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de la Religión</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos del Departamento</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="actualizarReligion">
+					<form method="post" id="modificarDepartamento">
+						<div class="form-row">
 							<div class="form-group col-md-12">
-								<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion" name="Id_religion">	
-									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion"><!--Agreguen los name="" mismo que el id-->
-									<small id="religionHelp" class="form-text text-muted"></small>
-									
+								<!--nuevo input es invisible-->		
+									<label for="Departamento-B">Departamento</label>
+									<input type="text" class="form-control" id="Departamento-B" placeholder="Departamento" name="Departamento-B" required>		
 							</div>
-						
+							<div class="form-group col-md-4">
+									<label for="Nacionalidad-B">Nacionalidad</label>
+									<select id="Nacionalidad-B" name="Nacionalidad-B" class="form-control">
+									</select>									
+							</div>
+							<input type="hidden" id="Id_departamento" name="Id_departamento">
+						</div>
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Modficar</button><!--Quitarle el data-dismiss-->
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>
 		</div>
@@ -120,29 +125,35 @@
 	<!--Fin del modal Deshabilitar-->
 
 	<!--Inicio Modal Insertar-->
-<div class="modal fade bd-modificar-modal-xl" id="religionInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="departamentoInsertar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos de la Religión</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos los Departamentos</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertarReligion">
+					<form method="post" id="insertarDepartamento">
+						<div class="form-row">
 							<div class="form-group col-md-12">							
-									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion">
-									<small id="religionHelp" class="form-text text-muted"></small>
+									<label for="Departamento-A">Departamento</label>
+									<input type="text" class="form-control" id="Departamento-A" aria-describedby="departamentoHelp" placeholder="Departamento" name="Departamento-A" required>
+									<small id="departamentoHelp" class="form-text text-muted"></small>
 							</div>
-						
+							<div class="form-group col-md-4">
+									<label for="Nacionalidad-A">Nacionalidad</label>
+									<select id="Nacionalidad-A" name="Nacionalidad-A" class="form-control">
+									</select>									
+							</div>
+						</div>
 					</div>											
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar el etiqueta form hasta aca-->
 		</div>
@@ -151,10 +162,14 @@
 
 	<!--Scripts necesarios siempre-->
 	<?php
+	require_once '../Backend/core/helpers/perfil.php';
+	?>
+	
+	<?php
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->
-	<script src="../Backend/core/controllers/Religion.js"></script>	<!--Solo dejar el script del controlador-->
+	<script src="../Backend/core/controllers/Departamento.js"></script>	<!--Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 		
 
