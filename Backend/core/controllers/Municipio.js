@@ -6,7 +6,7 @@ $(document).ready(function()
 // Constante para establecer la ruta y parámetros de comunicación con la API
 const apiMunicipio = '../../RHOppoFineExpo/Backend/core/api/Municipio.php?action=';
 
-const tablaPadre = '../../RHOppoFineExpo/Backend/core/api/Departamento.php?action=read';
+const tablaPadre = '../../RHOppoFineExpo/Backend/core/api/Departamento.php?action=read'; 
 
 function fillTable(rows)
 {

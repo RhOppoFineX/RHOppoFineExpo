@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
                 if ($result['dataset'] = $departamento->readdepartamento()) {
                     $result['status'] = true;
                 } else {
-                    $result['exception'] = 'No hay idiomas registrados';
+                    $result['exception'] = 'No hay idiomas registrados'; 
                 }
                 break;
 

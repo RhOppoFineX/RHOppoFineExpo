@@ -9,7 +9,7 @@
     <title>Tabla | Datos-Municipio </title>
 
 	<?php
-		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
+		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS 
 	?>
 	
 </head>

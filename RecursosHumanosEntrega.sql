@@ -134,7 +134,7 @@ Create Table Colaborador(
     Fecha_ingreso date NOT NULL,
     FOREIGN KEY (Id_religion) REFERENCES Religion(Id_religion),
     FOREIGN KEY (Id_datos) REFERENCES Datos_identificacion(Id_datos),
-    FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)      
+    FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
 );
 --Joel
 Create Table Detalle_idioma (

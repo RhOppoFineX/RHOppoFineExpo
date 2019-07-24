@@ -95,7 +95,7 @@ function modalCreate()
 }
 
 // Función para crear un nuevo registro
-$('#insertarDepartamento').submit(function()
+$('#insertarDepartamento').submit(function() 
 {
     event.preventDefault();
     $.ajax({

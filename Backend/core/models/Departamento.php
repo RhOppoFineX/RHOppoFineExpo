@@ -41,7 +41,7 @@ class Departamento extends Validator
 
 	public function setdepartamento($value)
 	{
-		if ($this->validateAlphabetic($value, 1, 50)) {
+		if ($this->validateAlphabetic($value, 1, 50)) {  
 			$this->departamento = $value;
 			return true;
 		} else {

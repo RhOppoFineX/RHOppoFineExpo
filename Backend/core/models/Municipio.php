@@ -41,7 +41,7 @@ class Municipio extends Validator
 
 	public function setmunicipio($value)
 	{
-		if ($this->validateAlphabetic($value, 1, 50)) {
+		if ($this->validateAlphabetic($value, 1, 50)) { 
 			$this->municipio = $value;
 			return true;
 		} else {
