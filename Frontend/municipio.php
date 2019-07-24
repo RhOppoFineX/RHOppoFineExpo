@@ -10,7 +10,7 @@
 
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS 
-	?>
+	?>                      
 	
 </head>
 <body> <!--Indicaiones:

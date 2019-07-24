@@ -14,7 +14,7 @@ function fillTable(rows)
     let content = '';
 
     rows.forEach(function(row){
-        //son comillas invertidas no simple ni dobles
+        //son comillas invertidas no simple ni dobles                 
         content+= `
             <tr>
                 <td>${row.Municipio}</td>	

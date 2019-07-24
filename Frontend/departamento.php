@@ -16,7 +16,7 @@
 <body> <!--Indicaiones:
 		1) al formularios de actiualizar a los input tambien llevan name="Valor Del Id" 
 		2) Mover la etiqueta </form> hacia donde se indica en todos los modales con formualrio (Eliminar No)
-		3) Quitar el data-dismiss de loa botones de modificar, insertar y eliminar
+		3) Quitar el data-dismiss de loa botones de modificar, insertar y eliminar               
 		4) Agregar el input invisible a los formularios de Modificar-->
 
 	<div id="wrapper">

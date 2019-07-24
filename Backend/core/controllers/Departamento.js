@@ -98,7 +98,7 @@ function modalCreate()
 $('#insertarDepartamento').submit(function() 
 {
     event.preventDefault();
-    $.ajax({
+    $.ajax({                     
         url: apidepartamento + 'create',
         type: 'post',
         data: new FormData($('#insertarDepartamento')[0]),

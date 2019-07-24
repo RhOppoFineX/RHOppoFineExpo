@@ -36,7 +36,7 @@ if(isset($_GET['action']))
                         $result['exception'] = 'Hubo un error';
                     }
                 }else{
-                    $result['exception'] = 'Municipio no encontrado';
+                    $result['exception'] = 'Municipio no encontrado';       
                 }
             }else{
                 $result['exception'] = 'Longitud de caracteres invalida'; 

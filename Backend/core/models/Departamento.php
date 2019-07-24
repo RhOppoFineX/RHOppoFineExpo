@@ -49,7 +49,7 @@ class Departamento extends Validator
 		}
 	}
 
-	public function getdepartamento()
+	public function getdepartamento()             
 	{
 		return $this->departamento;
 	}

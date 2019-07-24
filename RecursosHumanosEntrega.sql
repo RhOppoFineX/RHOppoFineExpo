@@ -5,7 +5,7 @@ use RecursosHumanos;
 --Topo
 create table Tipo_usuario(
     Id_tipo_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Tipo_usuario varchar(20) UNIQUE NOT NULL
+    Tipo_usuario varchar(20) UNIQUE NOT NULL         
 );
 --Topo
 Create Table Usuario(
