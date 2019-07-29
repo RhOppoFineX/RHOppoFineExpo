@@ -54,11 +54,19 @@ class Area_detalle extends Validator
 		return $this->getId_colaborador;
 	}
 
+    public function insertarea_detalle()
+    {
+        $sql = "INSERT INTO Area_detalle (Id_area_laboral, Id_laboral, Id_Colaborador)
+        VALUES (?)";            
+        $parametros = array($this->Area);
+        return Database::executeRow($sql, $parametros);
+    }
+
 	// Metodos para manejar el SCRUD
 	public function readarea_detalle()
 	{
-		$sql = 'SELECT Id_area_detalle, A.Sueldo_plaza, A.Fecha_ingreso, A.Inicio_contrato, A.Fin_contrato, A.Horas_al_dia, 
-        C.Codigo_colaborador, C.Nombres, C.Apellidos
+		$sql = 'SELECT Id_area_detalle, A.Sueldo_plaza AS sueldo, A.Fecha_ingreso AS fechaingreso, A.Inicio_contrato AS inicio, A.Fin_contrato AS fin, A.Horas_al_dia AS hora, 
+        C.Codigo_colaborador AS codigo, C.Nombres AS nombres, C.Apellidos AS apellidos 
         FROM Area_detalle AS Ar
         INNER JOIN Area_laboral AS A ON Ar.Id_laboral = A.Id_laboral 
         INNER JOIN Colaborador AS C ON Ar.Id_colaborador = C.Id_colaborador
