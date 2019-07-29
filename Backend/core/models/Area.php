@@ -4,6 +4,7 @@ class Area extends Validator
         //Campos segun la base de datos siempre con sus metodos set() y get()
         private $Id = null;
         private $Area = null;
+        private $Estado = null;
 
         public function setId($Id)
         {
@@ -37,6 +38,21 @@ class Area extends Validator
             return $this->Area;
         }
 
+        public function setEstado($Estado)
+        {
+            if($Estado === 0 || $Estado === 1){
+                $this->Estado = $Estado;
+                return true;
+            }else{
+                return false;
+            }            
+        }
+
+        public function getEstado()
+        {
+            return $this->Estado;
+        }
+
         public function insertArea()
         {
             $sql = "INSERT INTO Area (Area)
@@ -59,6 +75,13 @@ class Area extends Validator
             return Database::executeRow($sql, $parametros);
         }
 
+        public function disableArea()
+        {
+            $sql = "UPDATE Area SET Estado = ? WHERE Id_area = ?";
+            $parametros = array($this->Estado, $this->Id);
+            return Database::executeRow($sql, $parametros);
+        }
+
         public function selectArea()
         {
             $sql = "SELECT Id_area, Area FROM Area 
@@ -77,7 +100,7 @@ class Area extends Validator
         //Extrare los datos de la base hacia el actualizarModal esta es su mision
         public function getAreaModal()
         {
-            $sql = "SELECT * FROM Area WHERE Id_area = ?";
+            $sql = "SELECT Id_area, Area FROM Area WHERE Id_area = ?";
             $parametros = array($this->Id);
             return Database::getRow($sql, $parametros);
         }                       

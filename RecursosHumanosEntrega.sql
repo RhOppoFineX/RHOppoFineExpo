@@ -2,10 +2,25 @@
 
 CREATE DATABASE IF NOT EXISTS `RecursosHumanos` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 use RecursosHumanos;
+
+--Topo
+Create Table Area(
+    Id_area Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Area varchar(25) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
+);
+--Topo
+Create Table Puesto(
+    Id_puesto Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Puesto varchar(25) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
+);
+
 --Topo
 create table Tipo_usuario(
     Id_tipo_usuario Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Tipo_usuario varchar(20) UNIQUE NOT NULL         
+    Tipo_usuario varchar(20) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1         
 );
 --Topo
 Create Table Usuario(
@@ -16,17 +31,21 @@ Create Table Usuario(
     Id_tipo_usuario Integer Unsigned NULL,
     Alias_usuario VARCHAR(25) NOT NULL,
     Clave_usuario VARCHAR(250) NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
---Topo
-Create Table Area(
-    Id_area Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Area varchar(25) UNIQUE NOT NULL
-);
---Topo
-Create Table Puesto(
-    Id_puesto Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Puesto varchar(25) UNIQUE NOT NULL
+--Petardo
+Create Table Permisos(
+    Id_permiso Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Titulo varchar(25) NOT NULL;
+    Descripcion varchar(150) NOT NULL,
+    Hora_inicio TIME NOT NULL,
+    Hora_fin TIME NOT NULL,
+    Fecha DATE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
+    Id_usuario Integer NOT NULL,
+    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario),
+    Id_colaborador Integer NOT NULL
 );
 
 -- create table Identidad(
@@ -37,30 +56,35 @@ Create Table Puesto(
 --Joel
 Create Table Nacionalidad (
     Id_nacionalidad Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nacionalidad varchar (25) UNIQUE NOT NULL
+    Nacionalidad varchar (25) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Joel
 Create Table Nivel_idioma(
     Id_nivel_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nivel varchar (25) UNIQUE NOT NULL
+    Nivel varchar (25) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Joel
 Create Table Idioma(
     Id_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Idioma varchar(25) NOT NULL,
     Id_nivel_idioma Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_nivel_idioma) REFERENCES Nivel_idioma(Id_nivel_idioma) 
 );
 --Cristian
 Create Table Tipo_equipo (
     Id_tipo_equipo Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Tipo_equipo varchar(50) UNIQUE NOT NULL
+    Tipo_equipo varchar(50) UNIQUE NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Cristian
 Create Table Equipo (
     Id_equipo Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Nombre_equipo varchar(50) NOT NULL,
     Id_tipo_equipo Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_tipo_equipo) REFERENCES Tipo_equipo(Id_tipo_equipo)
 ); 
 --Joel
@@ -68,6 +92,7 @@ create table Departamento(
     Id_departamento Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Departamento varchar(30) NOT NULL,
     Id_nacionalidad Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_nacionalidad) REFERENCES Nacionalidad(Id_nacionalidad)
 );
 --Joel
@@ -75,27 +100,32 @@ create table Municipio(
     Id_municipio Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Municipio varchar(30) NOT NULL,
     Id_departamento Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_departamento) REFERENCES Departamento(Id_departamento)
 );
 --Cristian
 Create Table Estado_civil(
     Id_estado_civil Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Estado_civil VARCHAR(20) NOT NULL
+    Estado_civil VARCHAR(20) NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
 );
 --Topo
 Create Table Religion (
     Id_religion Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Religion varchar(25) NOT NULL
+    Religion varchar(25) NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Cristian esta tabla es categoria de educación
 Create Table Categoria (
     Id_categoria Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Categoria varchar(25) NOT NULL
+    Categoria varchar(25) NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Cristian
 Create Table Parentesco(
     Id_parentesco Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Parentesco varchar(50) NOT NULL
+    Parentesco varchar(50) NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Cr7
 create table Datos_identificacion(
@@ -116,6 +146,7 @@ create table Datos_identificacion(
 --Cr7
 Create Table Colaborador(
     Id_Colaborador Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Codigo_colaborador varchar(5) UNIQUE NOT NULL,
     Nombres varchar(50) NOT NULL,
     Apellidos varchar(50) NOT NULL,
     Genero ENUM('M', 'F') NOT NULL,
@@ -131,7 +162,7 @@ Create Table Colaborador(
     NIP varchar(15) NULL,
     Nivel TINYINT(1) NULL,
     Estudiando TINYINT(1) NULL,
-    Fecha_ingreso date NOT NULL,
+    Fecha_ingreso date NOT NULL,    
     FOREIGN KEY (Id_religion) REFERENCES Religion(Id_religion),
     FOREIGN KEY (Id_datos) REFERENCES Datos_identificacion(Id_datos),
     FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
@@ -237,16 +268,16 @@ insert into Tipo_usuario (Id_tipo_usuario, Tipo_usuario) values (1, 'Admin'),
                                                                 (5, 'Asistente');
 
 
-insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
-                           (2,'Diego','Arias', 'd.arias@gmail.com', 1, 'el Resio', 'Puto Crack'),
-                           (3,'Cristian','Ayala', 'ca@gmail.com', 3, 'Jopen Five', 'Cerote de Cardif'),
-                           (4,'Rodrigo','Barillas', 'rb@gmail.com', 4, 'Rodri', 'Dificil123'),
-                           (5,'Jennifer','Santos', 'js@gmail.com', 5, 'Jenni', 'Jenn89'),
-                           (6,'Mariela','Cordova', 'mc@gmail.com', 1, 'Mar Cor', 'I like music'),
-                           (7,'Roberto','Sanchez', 'rs@gmail.com', 2, 'Robert', 'LoveItRH'),
-                           (8,'Marcos','Lopez', 'ml@gmail.com', 3, 'Lopez', 'I want ya'),
-                           (9,'Nancy','Aguilar', 'na@gmail.com', 4, 'Nancy A', 'NancAgui'),
-                           (10,'Gabriel','Reyes', 'gr@gmail.com', 5, 'G Reyes', '17Reyes');--Excelente--
+-- insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
+--                            (2,'Diego','Arias', 'd.arias@gmail.com', 1, 'el Resio', 'Puto Crack'),
+--                            (3,'Cristian','Ayala', 'ca@gmail.com', 3, 'Jopen Five', 'Cerote de Cardif'),
+--                            (4,'Rodrigo','Barillas', 'rb@gmail.com', 4, 'Rodri', 'Dificil123'),
+--                            (5,'Jennifer','Santos', 'js@gmail.com', 5, 'Jenni', 'Jenn89'),
+--                            (6,'Mariela','Cordova', 'mc@gmail.com', 1, 'Mar Cor', 'I like music'),
+--                            (7,'Roberto','Sanchez', 'rs@gmail.com', 2, 'Robert', 'LoveItRH'),
+--                            (8,'Marcos','Lopez', 'ml@gmail.com', 3, 'Lopez', 'I want ya'),
+--                            (9,'Nancy','Aguilar', 'na@gmail.com', 4, 'Nancy A', 'NancAgui'),
+--                            (10,'Gabriel','Reyes', 'gr@gmail.com', 5, 'G Reyes', '17Reyes');--Excelente--
 
 -- insert into Usuario (Id_usuario, Nombres, Apellidos, Correo, Id_tipo_usuario) values
 --                                  (4, 'Crack', 'Champions', 'd.@gmail.com', (Select Id_tipo_usuario from Usuario where Tipo_usuario = 'Admin'));                           
@@ -319,7 +350,7 @@ insert into Equipo (Nombre_equipo, Id_tipo_equipo) values ('cierra',1),
                           ('escritorio',9),
                           ('sillas',10);
 
-insert into Departamento VALUES (1,'San salvador',1),                         
+insert into Departamento (Id_departamento, Departamento, Id_nacionalidad) VALUES (1,'San salvador',1),                         
                          (2,'Santa Ana',1), 
                          (3,'La Libertad',1),
                          (4,'Ahuachapan',1),
@@ -330,7 +361,7 @@ insert into Departamento VALUES (1,'San salvador',1),
                          (9,'Sonsonate',1),
                          (10,'San Miguel',1);
 
-insert into Municipio VALUES (1,'mejicanos',1),                                                         
+insert into Municipio (Id_municipio, Municipio, Id_departamento) VALUES (1,'mejicanos',1),                                                         
                       (2,'Chalchuapa',2),
                       (3,'Santa Tecla',3),
                       (4,'Apaneca',4),
@@ -341,13 +372,13 @@ insert into Municipio VALUES (1,'mejicanos',1),
                       (9,'Izalco',9),
                       (10,'El Transito',10);
 
-insert into Estado_civil values (1,'Casado'),
+insert into Estado_civil (Id_estado_civil, Estado_civil) values (1,'Casado'),
                                 (2,'Divorsiado'),
                                 (3,'Soltero'),
                                 (4,'Viuda'),
                                 (5,'Comprometido');
 
-insert into Religion values (1,'Catolico'),
+insert into Religion (Id_religion, Religion) values (1,'Catolico'),
                             (2,'Evangelico'),
                             (3,'Testigo de Jehova'),
                             (4,'Protestante'),
@@ -358,7 +389,7 @@ insert into Religion values (1,'Catolico'),
                             (9,'Politeista'),
                             (10,'Bautista');
 
-insert into Categoria values (1,'Tecnico'),
+insert into Categoria (Id_categoria, Categoria) values (1,'Tecnico'),
                              (2,'Ingeniero'),
                              (3,'Master'),
                              (4,'Lincenciado'),
@@ -377,9 +408,9 @@ insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_exp
  (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u'),
  (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541');
 
-insert into Colaborador values (1,'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017'),
-                             (2,'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017'),
-                             (3, 'pedro Joel','Novoa Campos','M','05-04-2001','18',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'15-07-2015');
+insert into Colaborador values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017'),
+                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017'),
+                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','05-04-2001','18',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'15-07-2015');
 
 insert into Detalle_idioma (Id_idioma, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);    --Agregada
 
@@ -525,7 +556,7 @@ SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religio
 SELECT R.Religion, count(R.Id_religion) FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion Group By R.Id_religion;
 
 
-insert into Colaborador values (10,'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017');
+insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017');
 
 
 
