@@ -36,15 +36,14 @@ Create Table Usuario(
 --Petardo
 Create Table Permisos(
     Id_permiso Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Titulo varchar(25) NOT NULL;
+    Titulo varchar(25) NOT NULL,
     Descripcion varchar(150) NOT NULL,
     Hora_inicio TIME NOT NULL,
     Hora_fin TIME NOT NULL,
     Fecha DATE NOT NULL,
     Estado TINYINT(1) NOT NULL DEFAULT 1,
-    Id_usuario Integer NOT NULL,
-    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario),
-    Id_colaborador Integer NOT NULL
+    Id_usuario Integer Unsigned NOT NULL,
+    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario)    
 );
 
 -- create table Identidad(
@@ -106,7 +105,7 @@ create table Municipio(
 Create Table Estado_civil(
     Id_estado_civil Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Estado_civil VARCHAR(20) NOT NULL,
-    Estado TINYINT(1) NOT NULL DEFAULT 1,
+    Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Topo
 Create Table Religion (
