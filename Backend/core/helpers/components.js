@@ -76,7 +76,7 @@ function fillSelect(api, id, selected)
                 result.dataset.forEach(function(row){
                     value = Object.values(row)[0];
                     text = Object.values(row)[1];
-                    if (row.id_categoria != selected) {
+                    if (value != selected) {
                         content += `<option value="${value}">${text}</option>`;
                     } else {
                         content += `<option value="${value}" selected>${text}</option>`;

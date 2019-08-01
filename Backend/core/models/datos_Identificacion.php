@@ -15,6 +15,33 @@ class datosIdentificacion extends Validator
     private $NUP = null;
     private $TipoDocumento = null;
     private $EstadoCivil = null;
+    
+    public function setId($Id)
+    {
+        if($this->validateId($Id))
+        {
+            $this->Id = $Id;
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    public function setDocumento($Documento)
+    {
+        if($this->validateAlphabetic($Documento, 10, 10)){
+
+        }
+
+    }
+
+
 }
 
 ?>

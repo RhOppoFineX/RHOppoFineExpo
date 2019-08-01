@@ -17,14 +17,12 @@ function fillTable(rows)
             <tr>                
                 <td>${row.Nombre_equipo}</td>            
                 <td>${row.Tipo_equipo}</td>
-                <td><a class="btn btn-warnin g btn-sm" onclick="actualizarModal(${row.Id_equipo})">Modificar<a><td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_equipo})">Modificar<a><td>
 				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipo}', ${row.Id_equipo}, null)">Deshabilitar</a></td> 
             </tr>
         `;
     });
-    $('#tbody-read').html(content);
-    table('#tabla-equipo');
-
+    $('#tbody-read').html(content);    
 }
 
 // Función para obtener y mostrar los registros disponibles
@@ -91,7 +89,7 @@ $('#form-search').submit(function()
 function modalCreate()
 {
     $('#agregarEquipo')[0].reset();//Id del formulario
-    fillSelect(tablaPadre, 'Tipo-equipoA', null);//llenar el combo
+    fillSelect(tablaPadre, 'Tipo-equipo-A', null);//llenar el combo
     //Tipos-A es el Id del combobox
     $('#equipoAgregar').modal('show');//Id del modal
 }

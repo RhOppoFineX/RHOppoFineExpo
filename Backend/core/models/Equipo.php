@@ -56,7 +56,7 @@ class Equipo extends Validator
     // Metodos para manejar el SCRUD
 	public function readEquipo()
 	{
-		$sql = 'SELECT Id_equipo, Nombre_equipo T.Id_tipo_equipo FROM Equipo as E INNER JOIN Tipo_equipo as T ON E.Id_tipo_equipo = T.Id_tipo_equipo ORDER BY Nombre_equipo';
+		$sql = 'SELECT Id_equipo, Nombre_equipo, T.Tipo_equipo FROM Equipo as E INNER JOIN Tipo_equipo as T ON E.Id_tipo_equipo = T.Id_tipo_equipo ORDER BY Nombre_equipo';
 		$params = array(null);	
 		return Database::getRows($sql, $params);
     }

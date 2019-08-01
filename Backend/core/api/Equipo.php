@@ -15,11 +15,11 @@ if (isset($_GET['action'])) {
 
             case 'read':
                 if ($result['dataset'] = $Equipo->readEquipo()) {
-                    $result['status'] = 1;
+                    $result['status'] = true;
                 } else {
                     $result['exception'] = 'No hay equipo registrado';
                 }
-                break;
+            break;
 
                 case 'create':
                 $_POST = $Equipo->validateForm($_POST);

@@ -42,8 +42,7 @@
 												</tr>
 											</thead>
 											<tbody id="tbody-read">
-												<tr>
-											</tr>
+											
  											</tbody>
 										</table>
 									</div>
@@ -110,13 +109,13 @@
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="Nombre-equipo">Nombre equipo</label>
-									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombre-equipoA" name="Nombre-equipoA" required>
+									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombre-equipo" name="Nombre-equipoA" required>
 								</div>
 								
 								<div class="form-group col-md-4">
-									<label for="tipo-equipoA">Tipo equipo</label>
-									<select id="tipo-equipoA" name="tipo-equipoA" class="form-control">
-									<option value="siuu" selected>${text}</option>
+									<label for="Tipo-equipo-A">Tipo equipo</label>
+									<select id="Tipo-equipo-A" name="Tipo-equipo-A" class="form-control">
+									
 									</select>									
 									
 								</div>						
