@@ -30,8 +30,7 @@ Create Table Usuario(
     Correo_usuario varchar(50) UNIQUE NOT NULL,
     Id_tipo_usuario Integer Unsigned NULL,
     Alias_usuario VARCHAR(25) NOT NULL,
-    Clave_usuario VARCHAR(250) NOT NULL,
-    Estado TINYINT(1) NOT NULL DEFAULT 1,
+    Clave_usuario VARCHAR(250) NOT NULL,               
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 --Petardo
