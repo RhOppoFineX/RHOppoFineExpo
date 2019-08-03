@@ -10,7 +10,7 @@ class Equipo extends Validator
 	public function setId_tipo_equipo($value)
 	{
 		if($this->validateId($value)){
-			$this->id_tipo_equipo = $value;
+			$this->Id_tipo_equipo = $value;
 			return true;
 		}else{
 			return false;
@@ -19,14 +19,14 @@ class Equipo extends Validator
     
     public function getId_tipo_equipo()
 	{
-		return $this->id_tipo_equipo;
+		return $this->Id_tipo_equipo;
     }
     
     // Métodos para sobrecarga de propiedades
 	public function setId($value)
 	{
 		if ($this->validateId($value)) {
-			$this->id = $value;
+			$this->Id_equipo = $value;
 			return true;
 		} else {
 			return false;
@@ -35,13 +35,13 @@ class Equipo extends Validator
     
     public function getId()
 	{
-		return $this->id;
+		return $this->Id_equipo;
     }
     
     public function setNombre_equipo($value)
 	{
 		if ($this->validateAlphabetic($value, 1, 50)) {
-			$this->nombres = $value;
+			$this->Nombre_equipo = $value;
 			return true;
 		} else {
 			return false;
@@ -64,15 +64,15 @@ class Equipo extends Validator
     public function createEquipo()
 	{
 		$sql = 'INSERT INTO Equipo(Nombre_equipo, Id_tipo_equipo) VALUES(?, ?)';
-		$params = array($this->Nombre_equipo, $this->id_tipo_equipo);
+		$params = array($this->Nombre_equipo, $this->Id_tipo_equipo);
 		return Database::executeRow($sql, $params);
 	}
 
     //para el modal modificar recuerden
 	public function getEquipo()
 	{
-		$sql = 'SELECT Id_Equipo, Equipo,Id_tipo_equipo FROM Equipo WHERE Id_equipo = ?';
-		$params = array($this->id);
+		$sql = 'SELECT Id_equipo, Nombre_equipo, Id_tipo_equipo FROM Equipo WHERE Id_equipo = ?';
+		$params = array($this->Id_equipo);
 		return Database::getRow($sql, $params);
     }
     
@@ -86,7 +86,7 @@ class Equipo extends Validator
     public function deleteEquipo()
 	{
 		$sql = 'DELETE FROM Equipo WHERE Id_equipo = ?';
-		$params = array($this->id);
+		$params = array($this->Id_equipo);
 		return Database::executeRow($sql, $params);
 	}
 }

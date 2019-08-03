@@ -21,13 +21,13 @@ if (isset($_GET['action'])) {
                 }
             break;
 
-                case 'create':
+            case 'create':
                 $_POST = $Equipo->validateForm($_POST);
                 
-                if ($Equipo->set($_POST['Nombre-equipoA'])) {
-                    if ($Equipo->setApellidos($_POST['tipo-equipoA'])) {
+                if ($Equipo->setNombre_equipo($_POST['Nombre-equipo-A'])) {
+                    if ($Equipo->setId_tipo_equipo($_POST['Tipo-equipo-A'])) {
                         if ($Equipo->createEquipo()) {
-                            $result['status'] = 1;
+                            $result['status'] = true;
                             $result['message'] = 'Equipo agregado correctamente';
                         }else{
                             $result['exception'] = 'Operacion fallida';
@@ -38,27 +38,27 @@ if (isset($_GET['action'])) {
                 }else{
                     $result['exception'] = 'Nombre equipo incorrecto';
                 }
-                break;
+            break;
 
-                case 'get':
+            case 'get':
                 if ($Equipo->setId($_POST['Id_equipo'])) {
-                    if ($result['dataset'] = $Equipo->geEquipo()) {
-                        $result['status'] = 1;
+                    if ($result['dataset'] = $Equipo->getEquipo()) {
+                        $result['status'] = true;
                     } else {
                         $result['exception'] = 'Equipo inexistente';
                     }
                 } else {
                     $result['exception'] = 'Equipo incorrecto';
                 }
-                break;
+            break;
 
-                case 'update':
-                    $_POST = $Equipo->validateForm($_POST);
+            case 'update':
+                $_POST = $Equipo->validateForm($_POST);
 
                 if ($Equipo->setId($_POST['Id_equipo'])){
                     if ($Equipo->getEquipo()){
-                        if ($Equipo->setNombre_equipo($_POST['Nombre-equipoA'])) {
-                            if ($Equipo->setId_tipo_equipo($_POST['tipo-equipoA'])){
+                        if ($Equipo->setNombre_equipo($_POST['Nombre-equipo'])) {
+                            if ($Equipo->setId_tipo_equipo($_POST['Tipo-equipo'])){
                                 if ($Equipo->updateEquipo()) {
                                 $result['status'] = true;
                                 $result['message'] = 'Equipo modificado correctamente';
@@ -77,33 +77,31 @@ if (isset($_GET['action'])) {
                 }else{
                     $result['exception'] = 'Equipo incorrecto';
                 }    
-                        break;
+            break;
                     
                 case 'delete':
-                    if ($_POST['identifier'] != $_SESSION['Id_equipo']) {
-                        if ($Equipo->setId($_POST['identifier'])) {
-                            if($Equipo->getEquipo()){
-                                if($Equipo->deleteEquipo()){
-                                    $result['status'] = 1;
-                                    $result['message'] = 'Equipo eliminado correctamente';
-                                }else{
-                                    $result['exception'] = 'Operacion fallida';
-                                }    
-                            }else{
-                                $result['exception'] = 'Equipo inexistente';
-                            }    
-                        }else{
-                            $result['exception'] = 'Equipo incorrecto';
-                        }    
-                    }else{
-                        $result['exception'] = 'No se puede eliminar a si mismo';
-                    }    
-                    break;
+                    if ($Equipo->setId($_POST['identifier'])) {
+                        if ($Equipo->getEquipo()) {
+                            if ($Equipo->deleteEquipo()) {
+                                $result['status'] = true;
+                                $result['message'] = 'Equipo eliminado correctamente';
+                            } else {
+                                $result['exception'] = 'Operación fallida';
+                            }
+                        } else {
+                            $result['exception'] = 'Equipo inexistente';
+                        }
+                    } else {
+                        $result['exception'] = 'Equipo incorrecto';
+                    }
+                                            
+                break;
                 
-                }
-            }
 
-print(json_encode($result));
+        }
+        print(json_encode($result));
+    }
+
 } else {
     exit('Recurso denegado');
 }

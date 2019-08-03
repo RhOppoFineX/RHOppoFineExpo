@@ -150,9 +150,10 @@ function actualizarModal(id)
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
                 $('#Id_equipo').val(result.dataset.Id_equipo);
-                $('#Equipo').val(result.dataset.Nombre_equipo);
-                fillSelect(tablaPadre, 'Tipos', result.dataset.Id_tipo_equipo);           
-                $('#equipoModificar').modal('show');   
+                $('#Nombre-equipo').val(result.dataset.Nombre_equipo);
+                fillSelect(tablaPadre, 'Tipo-equipo', result.dataset.Id_tipo_equipo);           
+                $('#equipoModificar').modal('show');
+                console.log();   
             } else {
                 sweetAlert(2, result.exception, null);
             }

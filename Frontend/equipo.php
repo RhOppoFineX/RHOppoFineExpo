@@ -70,11 +70,11 @@
 					<form method="post" id="modificarEquipo">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="Nombres">Nombre equipo</label>
+                                <label for="Nombre-equipo">Nombre equipo</label>
                                 <input type="Text" class="form-control" id="Nombre-equipo" placeholder="Nombres" name="Nombre-equipo">
                             </div>
 							
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
                                 <label for="Tipo-equipo">Tipo equipo</label>
                                 <select id="Tipo-equipo" class="form-control" name="Tipo-equipo">
                                 </select>									 
@@ -108,11 +108,11 @@
 						<form method="post" id="agregarEquipo">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-									<label for="Nombre-equipo">Nombre equipo</label>
-									<input type="Text" class="form-control" id="Nombre-equipoA" placeholder="Nombre-equipo" name="Nombre-equipoA" required>
+									<label for="Nombre-equipo-A">Nombre equipo</label>
+									<input type="Text" class="form-control" id="Nombre-equipo-A" placeholder="Nombre-equipo" name="Nombre-equipo-A" required>
 								</div>
 								
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-6">
 									<label for="Tipo-equipo-A">Tipo equipo</label>
 									<select id="Tipo-equipo-A" name="Tipo-equipo-A" class="form-control">
 									
