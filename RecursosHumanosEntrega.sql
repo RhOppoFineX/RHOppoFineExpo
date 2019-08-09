@@ -459,7 +459,7 @@ insert into Salud values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene
                          (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita',3),
                          (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',1);
 
-insert into Area_laboral values (1,1,1,800.90,'20-10-2017','25-10-2017','25-10-2018',8),
+insert into Area_laboral values (1,1,1,800.90,'2017-10-20','2017-10-25','2018-10-25',8),
                                 (2,2,2,1800.90,'10-10-2017','15-10-2017','25-10-2018',10),
                                 (3,3,3,750.90,'20-10-2016','25-10-2017','25-10-2018',8),
                                 (4,4,4,950.90,'21-10-2016','26-10-2017','25-10-2018',10),

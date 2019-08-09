@@ -33,7 +33,7 @@ if (isset($_GET['action'])) {
                 }else{
                     $resultado['exception'] = 'Longitud de caracteres invalida';
                 }
-                break;
+            break;
 
                 default:
                 exit('Acción no disponible log');

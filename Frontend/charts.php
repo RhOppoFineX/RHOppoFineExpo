@@ -26,6 +26,21 @@
 						<div class="container-fluid">
 							<h3 class="page-title">Graficas</h3>
 							
+							<div class="row">
+								
+								<div class="col-md-6"> <!--Inicio de grafica--> 
+									<div class="panel">
+										<div class="panel-heading">
+											<h3 class="panel-title"> vale vergasino </h3><!--Titulo de grafica-->
+										</div>
+										<div class="panel-body">
+											<canvas id='grafico1'></canvas> <!--Id de la grafica-->
+										</div>
+									</div>
+								</div><!--Fin de grafica-->
+
+
+							</div>
 							
 						</div>
 					</div><!-- END MAIN CONTENT -->
@@ -37,9 +52,8 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<script src="../Backend/libraries/Chart.min.js"></script>
-	<!--Scripts para los cruds-->
-	<script src="../Backend/core/controllers/charts.js"></script>	<!--Solo dejar el script del controlador-->
-	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
+	<!--Script de charts js-->
+	<script src="../Backend/core/controllers/charts.js"></script>
 		
 
 </body>
