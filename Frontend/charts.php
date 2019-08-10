@@ -31,7 +31,7 @@
 								<div class="col-md-6"> <!--Inicio de grafica--> 
 									<div class="panel">
 										<div class="panel-heading">
-											<h3 class="panel-title"> vale vergasino </h3><!--Titulo de grafica-->
+											<h3 class="panel-title"> Tipos de Usuario </h3><!--Titulo de grafica-->
 										</div>
 										<div class="panel-body">
 											<canvas id='grafico1'></canvas> <!--Id de la grafica-->
