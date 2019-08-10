@@ -2,7 +2,7 @@ $(document).ready(function(){
     graficoEjemplo();
 })
 
-const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
+const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
 
 
 function graficoEjemplo()
@@ -29,7 +29,7 @@ function graficoEjemplo()
                     cantidad.push(rows.nombre);
                 });
             //grafico1 es el ID de la etiqueta canvas en html
-            graficoBarra('grafico1', cantidad, id, 'Cantidad de producto', 'Grafico');
+            graficoBarra('grafico1', cantidad, id, 'Cantidad de producto', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para circular
             
         } else {
             console.log(response);

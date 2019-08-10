@@ -154,7 +154,7 @@ function confirmDelete(api, id, file)
 *
 *   Returns: ninguno.
 */
-function barGraph(canvas, xAxis, yAxis, legend, title)
+function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
 {
     let colors = [];
     for (i = 0; i < xAxis.length; i++) {
@@ -162,7 +162,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title)
     }
     const context = $('#' + canvas);
     const chart = new Chart(context, {
-        type: 'bar',
+        type: tipo,
         data: {
             labels: xAxis,
             datasets: [{

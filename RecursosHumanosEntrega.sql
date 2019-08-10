@@ -160,7 +160,8 @@ Create Table Colaborador(
     NIP varchar(15) NULL,
     Nivel TINYINT(1) NULL,
     Estudiando TINYINT(1) NULL,
-    Fecha_ingreso date NOT NULL,    
+    Fecha_ingreso date NOT NULL,
+    Estado_colaborador TINYINT(1) NOT NULL DEFAULT 1,    
     FOREIGN KEY (Id_religion) REFERENCES Religion(Id_religion),
     FOREIGN KEY (Id_datos) REFERENCES Datos_identificacion(Id_datos),
     FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
@@ -406,9 +407,9 @@ insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_exp
  (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u'),
  (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541');
 
-insert into Colaborador values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017'),
-                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017'),
-                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','05-04-2001','18',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'15-07-2015');
+insert into Colaborador values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1),
+                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017',1),
+                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','05-04-2001','18',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'15-07-2015', 1);
 
 insert into Detalle_idioma (Id_idioma, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);    --Agregada
 
@@ -554,7 +555,7 @@ SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religio
 SELECT R.Religion, count(R.Id_religion) FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion Group By R.Id_religion;
 
 
-insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017');
+insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1);
 
 
 
