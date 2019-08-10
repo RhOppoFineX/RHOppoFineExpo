@@ -8,7 +8,7 @@ const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action='
 function graficoEjemplo()
 {
     $.ajax({
-        url: apiGraficos + 'read',
+        url: apiGraficos + 'ejemplo',
         type: 'post',
         data: null,
         datatype: 'json'
