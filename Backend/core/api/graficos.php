@@ -15,11 +15,19 @@ if(isset($_GET['action']))
     {
         switch ($_GET['action']){
 
-            case 'ejemplo':
-                if($resultado['dataset'] = $graficos->ejemplo()){
+            case 'usuarios':
+                if($resultado['dataset'] = $graficos->usuarios()){
                     $resultado['status'] = true;
                 } else {
-                    $resultado['exception'] = 'Uhhhhh';
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
+
+            case 'genero':
+                if($resultado['dataset'] = $graficos->genero()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
                 }
             break;
                 

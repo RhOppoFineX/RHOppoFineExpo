@@ -39,6 +39,17 @@
 									</div>
 								</div><!--Fin de grafica-->
 
+								<div class="col-md-6"> <!--Inicio de grafica--> 
+									<div class="panel">
+										<div class="panel-heading">
+											<h3 class="panel-title"> Colaboradores por genero </h3><!--Titulo de grafica-->
+										</div>
+										<div class="panel-body">
+											<canvas id='genero-colaboradores'></canvas> <!--Id de la grafica-->
+										</div>
+									</div>
+								</div><!--Fin de grafica-->
+
 
 							</div>
 							
