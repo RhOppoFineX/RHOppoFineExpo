@@ -1,5 +1,6 @@
 $(document).ready(function(){
     graficoUsuarios();
+    graficoGenero();
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
@@ -31,7 +32,7 @@ function graficoUsuarios()
                 });
 
             //grafico1 es el ID de la etiqueta canvas en html
-            barGraph('grafico1', Cantidad, Usuario, 'Cantidad de producto', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+            barGraph('grafico1', Cantidad, Usuario, 'Cantidad de usuarios', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
             
         } else {
             console.log(response);
@@ -61,16 +62,17 @@ function graficoGenero()
                 sweetAlert(4, result.exception, null);
             }
 
-                let Usuario = [];
-                let Cantidad = [];
+                let Colaborador = [];
+                let Genero = [];
                 
                 result.dataset.forEach(fila => {
-                    Usuario.push(fila.Usuario);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
-                    Cantidad.push(fila.Cantidad);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                    var porcentaje = (fila.Colaborador * 100) / fila.Total;//esta fi;a no la usen para otros
+                    Colaborador.push(fila.Colaborador);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                    Genero.push(fila.Genero);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
                 });
 
             //grafico1 es el ID de la etiqueta canvas en html
-            barGraph('grafico1', Cantidad, Usuario, 'Cantidad de producto', 'Grafico', 'doughnut');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+            barGraph('genero-colaboradores', Genero, Colaborador, 'Cantidad de Colaboradores', 'Grafico', 'doughnut');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
             
         } else {
             console.log(response);

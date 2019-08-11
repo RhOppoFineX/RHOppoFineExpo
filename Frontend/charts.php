@@ -24,17 +24,18 @@
 				<div class="main">					
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Graficas</h3>
+							<h3 class="page-title">Graficas y Rerportes</h3>
 							
 							<div class="row">
 								
 								<div class="col-md-6"> <!--Inicio de grafica--> 
 									<div class="panel">
 										<div class="panel-heading">
-											<h3 class="panel-title"> Tipos de Usuario </h3><!--Titulo de grafica-->
+											<h3 class="panel-title"> Tipos de Usuario </h3><!--Titulo de grafica-->									
 										</div>
 										<div class="panel-body">
 											<canvas id='grafico1'></canvas> <!--Id de la grafica-->
+											<a href="" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->
@@ -46,6 +47,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='genero-colaboradores'></canvas> <!--Id de la grafica-->
+											<a href="" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->

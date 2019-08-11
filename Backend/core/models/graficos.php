@@ -13,9 +13,8 @@ class graficos extends Validator
     
     public function genero()
     {
-        $sql = 'SELECT FROM Colaborador';
+        $sql = 'SELECT count(Id_colaborador) as Colaborador, Genero, sum(Id_colaborador) as Total FROM Colaborador GROUP BY Genero';
 		$params = array(null);
-		return Database::getRows($sql, $params);        
-
+		return Database::getRows($sql, $params);
     }
 } 
