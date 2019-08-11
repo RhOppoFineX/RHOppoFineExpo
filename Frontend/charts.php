@@ -35,7 +35,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='grafico1'></canvas> <!--Id de la grafica-->
-											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reportetipousuario.php" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->

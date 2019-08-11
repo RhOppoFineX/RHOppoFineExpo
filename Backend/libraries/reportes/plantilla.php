@@ -14,7 +14,7 @@ class PDF extends FPDF
 // Cabecera de página
 function Header()
 {
-    $this->Image('../../resources/img/MedicalDriverLogo.png',15, 10, 30);
+    $this->Image('../../../Frontend/assets/img/logo-ricaldone.png',15, 10, 30);
     $this->Cell(65, 13);
     $this->SetFont('Arial','B',15);
     $this->SetTextColor(255,255,255);
@@ -33,7 +33,7 @@ function date()
     $this->SetFillColor(255,255,255);
     $this->Cell(50,5, utf8_decode('Fecha de Creación:'.date(' j/n/Y') ),0,0,'R', false);
     $this->Cell(50,5, utf8_decode('Hora de Creación:'.date('G:i:s') ),0,0,'R', false);
-    $this->Cell(55,5, utf8_decode('Creado por: '.$_SESSION['alias_usuario'] ),0,0,'R', false);
+    $this->Cell(55,5, utf8_decode('Creado por: '.$_SESSION['Id_usuario'] ),0,0,'R', false);
     $this->Ln(10);
 
 }
