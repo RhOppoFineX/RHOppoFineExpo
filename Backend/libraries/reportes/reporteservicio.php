@@ -16,7 +16,8 @@ $pdf ->SetTextColor(255,255,255);
 $pdf->Cell(40);
 
 $pdf->Cell(37,10,utf8_decode('Servicio'),1,0,'C',true);
-$pdf->Cell(27,10,utf8_decode('Cantidad'),1,0,'C',true);
+$pdf->Cell(31,10,utf8_decode('Cantidad'),1,0,'C',true);
+$pdf->Cell(31,10,utf8_decode('Porcentaje %'),1,0,'C',true);
 
 $pdf->LN(10);
 
@@ -27,7 +28,9 @@ $pdf->LN(10);
     $pdf->SetTextColor(0,0,0);
     $pdf->Cell(40);
     $pdf->Cell(37,30,utf8_decode($prueba['Area']),1,0,'C', true);
-    $pdf->Cell(27,30,utf8_decode($prueba['Colaborador']),1,0,'C', true);
+    $pdf->Cell(31,30,utf8_decode($prueba['Colaborador']),1,0,'C', true);
+    $pdf->Cell(31,30,utf8_decode($prueba['Porcentaje']),1,0,'C', true);
+
     $pdf->Ln();
 
 }

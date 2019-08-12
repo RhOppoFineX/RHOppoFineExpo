@@ -128,6 +128,45 @@ function graficoReligion()
 
 }
 
+function graficoAcademico()
+{
+    $.ajax({
+        url: apiGraficos + 'academico',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiGraficos es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (!result.status) {
+                sweetAlert(4, result.exception, null);
+            }
+
+                let Colaboradores = [];
+                let Nivel_academico = [];
+                
+                result.dataset.forEach(fila => {
+                    Colaboradores.push(fila.Colaborador);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                    Nivel_academico.push(fila.Categoria);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                });
+
+            //grafico1 es el ID de la etiqueta canvas en html
+            barGraph('academico-colaboradores', Nivel_academico, Colaboradores, 'Cantidad de titulos', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+            
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });       
+
+}
+
 function graficoServicio()
 {
     $.ajax({
@@ -206,42 +245,3 @@ function graficoDepartamento()
 
 }
 
-
-function graficoAcademico()
-{
-    $.ajax({
-        url: apiGraficos + 'academico',
-        type: 'post',
-        data: null,
-        datatype: 'json'
-    })
-    .done(function(response){
-        // Se verifica si la respuesta de la apiGraficos es una cadena JSON, sino se muestra el resultado en consola
-        if (isJSONString(response)) {
-            const result = JSON.parse(response);
-            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (!result.status) {
-                sweetAlert(4, result.exception, null);
-            }
-
-                let Colaboradores = [];
-                let Nivel_academico = [];
-                
-                result.dataset.forEach(fila => {
-                    Colaboradores.push(fila.Colaborador);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
-                    Nivel_academico.push(fila.Categoria);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
-                });
-
-            //grafico1 es el ID de la etiqueta canvas en html
-            barGraph('academico-colaboradores', Nivel_academico, Colaboradores, 'Cantidad de titulos', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
-            
-        } else {
-            console.log(response);
-        }
-    })
-    .fail(function(jqXHR){
-        // Se muestran en consola los posibles errores de la solicitud AJAX
-        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-    });       
-
-}

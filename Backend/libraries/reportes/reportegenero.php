@@ -17,6 +17,8 @@ $pdf->Cell(40);
 
 $pdf->Cell(37,10,utf8_decode('Genero'),1,0,'C',true);
 $pdf->Cell(37,10,utf8_decode('Cantidad'),1,0,'C',true);
+$pdf->Cell(37,10,utf8_decode('Porcentaje %'),1,0,'C',true);
+
 
 $pdf->LN(10);
 
@@ -28,6 +30,7 @@ $pdf->LN(10);
     $pdf->Cell(40);
     $pdf->Cell(37,30,utf8_decode($prueba['Genero']),1,0,'C',true);
     $pdf->Cell(37,30,utf8_decode($prueba['Colaborador']),1,0,'C',true);
+    $pdf->Cell(37,30,utf8_decode($prueba['Porcentaje']),1,0,'C',true);
     $pdf->Ln();
 
 }
