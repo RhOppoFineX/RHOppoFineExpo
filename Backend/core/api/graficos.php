@@ -74,12 +74,14 @@ if(isset($_GET['action']))
             break;
 
             case 'municipio':
-            if($resultado['dataset'] = $graficos->municipioColaborador()){
-                $resultado['status'] = true;
-            } else {
-                $resultado['exception'] = 'No se encontraron datos';
-            }
-        break;
+                if($graficos->setId_departamento($_POST['Departamento'])){
+                    if($resultado['dataset'] = $graficos->municipioColaborador()){
+                        $resultado['status'] = true;
+                    } else {
+                        $resultado['exception'] = 'No se encontraron datos';
+                    }
+                }                
+            break;
                 
         }
 

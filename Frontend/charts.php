@@ -104,13 +104,26 @@
 
 								<div class="col-md-6"> <!--Inicio de grafica--> 
 									<div class="panel">
-										<div class="panel-heading">
-											<h3 class="panel-title"> Colaboradores por municipio </h3><!--Titulo de grafica-->									
+										<div class="panel-heading">									
+
+											<h3 class="panel-title"> Colaboradores por municipio </h3><!--Titulo de grafica-->					
+											
 										</div>
 										<div class="panel-body">
 											<canvas id='graficoMunicipio'></canvas> <!--Id de la grafica-->
-											<a href="../Backend/libraries/reportes/reportemunicipio.php" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reportemunicipio.php" class="btn btn-primary btn-block"> Reporte </a>												
 										</div>
+
+										<form method="post" id="parametro-municipio">
+												<div class="form-row">													
+													<div class="input-field col s12 m6">
+														<label for="Departamento">Departamento</label>
+														<select id="Departamento" name="Departamento" class="form-control">
+														</select>
+													</div>
+												</div>
+											<a onclick="graficoMunicipio()" class="btn btn-warning btn-block">Generar Grafico</a>
+										</form>
 									</div>
 								</div><!--Fin de grafica-->
 

@@ -2,6 +2,23 @@
 
 class graficos extends Validator
 {
+    private $Id_departamento = null;//Id de tabla padre
+
+    //Metodos set y get de llave foranea
+	public function setId_departamento($value)
+	{
+		if($this->validateId($value)){
+			$this->Id_departamento = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function getId_departamento()
+	{
+		return $this->Id_departamento;
+	}
 
     //Ejemplo nada más 
     public function usuarios()
@@ -56,8 +73,8 @@ class graficos extends Validator
 
     public function municipioColaborador()
     {
-        $sql = 'SELECT count(Id_colaborador) as Colaborador, m.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio GROUP BY m.municipio';
-		$params = array(null);
+        $sql = 'SELECT count(Id_colaborador) as Colaborador, M.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio INNER JOIN Departamento as D ON D.Id_departamento = M.Id_departamento WHERE M.Id_departamento = ? GROUP BY M.Id_municipio';
+		$params = array($this->Id_departamento);
 		return Database::getRows($sql, $params);
-    }
+    }    
 } 

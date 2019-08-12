@@ -4,12 +4,14 @@ $(document).ready(function(){
     graficoReligion();
     graficoAcademico();
     graficoServicio();
-    graficoDepartamento();
-    graficoMunicipio();
+    graficoDepartamento();        
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
+const tablaDepartamento = '../../RHOppoFineExpo/Backend/core/api/Departamento.php?action=read';//tabla padre que necesiten para hacer hacer el grafico con parametros
 
+//Para llenar el ComboBox   Id del combobox
+fillSelect(tablaDepartamento, 'Departamento', null);
 
 function graficoUsuarios()
 {
@@ -245,14 +247,19 @@ function graficoDepartamento()
     });       
 
 }
-
+//Reporte con parametros
 function graficoMunicipio()
 {
+    event.preventDefault();
+
 $.ajax({
     url: apiGraficos + 'municipio', //CASEEEE!!!!
     type: 'post',
-    data: null,
-    datatype: 'json'
+    data: new FormData($('#parametro-municipio')[0]),//Id del formulario
+    datatype: 'json',
+    cache: false,
+    contentType: false,
+    processData: false
 })
 .done(function(response){
     // Se verifica si la respuesta de la apiGraficos es una cadena JSON, sino se muestra el resultado en consola
