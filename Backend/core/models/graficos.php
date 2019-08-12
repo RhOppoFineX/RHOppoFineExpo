@@ -53,4 +53,11 @@ class graficos extends Validator
 		$params = array(null);
 		return Database::getRows($sql, $params);
     }
+
+    public function municipioColaborador()
+    {
+        $sql = 'SELECT count(Id_colaborador) as Colaborador, m.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio GROUP BY m.municipio';
+		$params = array(null);
+		return Database::getRows($sql, $params);
+    }
 } 

@@ -72,6 +72,14 @@ if(isset($_GET['action']))
                     $resultado['exception'] = 'No se encontraron datos';
                 }
             break;
+
+            case 'municipio':
+            if($resultado['dataset'] = $graficos->municipioColaborador()){
+                $resultado['status'] = true;
+            } else {
+                $resultado['exception'] = 'No se encontraron datos';
+            }
+        break;
                 
         }
 
