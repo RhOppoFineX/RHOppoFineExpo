@@ -71,7 +71,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='academico-colaboradores'></canvas> <!--Id de la grafica-->
-											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reportenivelacademico.php" target="_blank"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->

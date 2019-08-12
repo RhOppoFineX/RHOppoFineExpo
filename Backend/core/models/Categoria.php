@@ -80,7 +80,14 @@ class Categoria extends Validator
             $sql = "SELECT * FROM Categoria WHERE Id_categoria = ?";
             $parametros = array($this->Id);
             return Database::getRow($sql, $parametros);
-        }                       
+        }
+        
+        public function readCategoria()
+        {
+            $sql = 'SELECT count(C.Id_colaborador) as Colaborador, Ca.Categoria as Categoria FROM Educacion as E INNER JOIN Colaborador as C ON C.Id_colaborador = E.Id_colaborador INNER JOIN Categoria as Ca ON Ca.Id_categoria = E.Id_categoria GROUP BY Ca.Categoria';
+            $params = array(null);
+            return Database::getRows($sql, $params);
+        }
 
 }
 ?>
