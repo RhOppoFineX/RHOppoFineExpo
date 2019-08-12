@@ -153,7 +153,7 @@ function graficoServicio()
                 });
 
             //grafico1 es el ID de la etiqueta canvas en html
-            barGraph('graficoservicio', Area, Colaboradores, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+            barGraph('graficoservicio', Area, Colaboradores, 'Cantidad de Colaboradores', 'Grafico', 'pie');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
             
         } else {
             console.log(response);
