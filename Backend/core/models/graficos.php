@@ -18,6 +18,13 @@ class graficos extends Validator
 		return Database::getRows($sql, $params);
     }
 
+    public function colaboradorservicio()
+    {
+        $sql = 'SELECT count(Ad.Id_colaborador) as Colaborador, A.area as Area FROM Colaborador as C INNER JOIN area_detalle as Ad ON Ad.Id_colaborador = C.Id_colaborador INNER JOIN area_laboral as Al ON Al.Id_laboral = Ad.Id_laboral INNER JOIN Area as A ON A.Id_area = Al.Id_area GROUP BY A.Id_area';
+		$params = array(null);
+		return Database::getRows($sql, $params);
+    }
+
     public function religion()
     {
         $sql = 'SELECT count(Id_colaborador) as Colaborador, Religion FROM Colaborador as C INNER JOIN Religion as R ON C.Id_religion = R.Id_religion GROUP BY C.Id_religion';

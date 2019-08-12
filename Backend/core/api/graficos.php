@@ -38,6 +38,14 @@ if(isset($_GET['action']))
                     $resultado['exception'] = 'No se encontraron datos';
                 }
             break;
+            
+            case 'colaboradorservicio':
+                if($resultado['dataset'] = $graficos->colaboradorservicio()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
 
             case 'academico':
                 if($resultado['dataset'] = $graficos->academico()){
