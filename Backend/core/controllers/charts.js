@@ -4,6 +4,7 @@ $(document).ready(function(){
     graficoReligion();
     graficoAcademico();
     graficoServicio();
+    graficoDepartamento();
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
@@ -188,11 +189,11 @@ function graficoDepartamento()
                 
                 result.dataset.forEach(fila => {
                     Colaboradores.push(fila.Colaborador);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
-                    Area.push(fila.Departamento);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                    Departamento.push(fila.Departamento);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
                 });
 
             //grafico1 es el ID de la etiqueta canvas en html
-            barGraph('graficoDepatamento', Departamento, Colaboradores, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+            barGraph('graficoDepartamento', Departamento, Colaboradores, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
             
         } else {
             console.log(response);

@@ -100,7 +100,7 @@
 											<a href="../Backend/libraries/reportes/reportetipousuario.php" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
-								</div><!--Fin de grafica-->
+								</div><!--Fin de grafica--> 
 
 
 							</div>
