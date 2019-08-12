@@ -30,6 +30,22 @@ if(isset($_GET['action']))
                     $resultado['exception'] = 'No se encontraron datos';
                 }
             break;
+
+            case 'religion':
+                if($resultado['dataset'] = $graficos->religion()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
+
+            case 'academico':
+                if($resultado['dataset'] = $graficos->academico()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
                 
         }
 

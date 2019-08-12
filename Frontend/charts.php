@@ -52,6 +52,29 @@
 									</div>
 								</div><!--Fin de grafica-->
 
+								<div class="col-md-6"> <!--Inicio de grafica--> 
+									<div class="panel">
+										<div class="panel-heading">
+											<h3 class="panel-title"> Colaboradores por religion </h3><!--Titulo de grafica-->
+										</div>
+										<div class="panel-body">
+											<canvas id='religion-colaboradores'></canvas> <!--Id de la grafica-->
+											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+										</div>
+									</div>
+								</div><!--Fin de grafica-->
+
+								<div class="col-md-6"> <!--Inicio de grafica--> 
+									<div class="panel">
+										<div class="panel-heading">
+											<h3 class="panel-title"> Colaboradores por Nivel academico </h3><!--Titulo de grafica-->
+										</div>
+										<div class="panel-body">
+											<canvas id='academico-colaboradores'></canvas> <!--Id de la grafica-->
+											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+										</div>
+									</div>
+								</div><!--Fin de grafica-->
 
 							</div>
 							
