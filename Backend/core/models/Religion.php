@@ -80,7 +80,14 @@ class Religion extends Validator
             $sql = "SELECT * FROM Religion WHERE Id_religion = ?";
             $parametros = array($this->Id);
             return Database::getRow($sql, $parametros);
-        }                       
+        }
+        
+        public function readReligion()
+        {
+            $sql = 'SELECT count(Id_colaborador) as Colaborador, Religion FROM Colaborador as C INNER JOIN Religion as R ON C.Id_religion = R.Id_religion GROUP BY C.Id_religion';
+            $params = array(null);
+            return Database::getRows($sql, $params);
+        }
 
 }
 ?>

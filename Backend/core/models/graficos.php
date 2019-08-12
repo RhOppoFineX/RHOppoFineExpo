@@ -38,4 +38,11 @@ class graficos extends Validator
 		$params = array(null);
 		return Database::getRows($sql, $params);
     }
+
+    public function cristian()
+    {
+        $sql = 'SELECT FROM Colaborador as C';
+		$params = array(null);
+		return Database::getRows($sql, $params);
+    }
 } 
