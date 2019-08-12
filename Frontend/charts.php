@@ -84,7 +84,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='graficoservicio'></canvas> <!--Id de la grafica-->
-											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reporteservicio.php" target="_blank" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->
