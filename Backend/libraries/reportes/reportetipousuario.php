@@ -8,7 +8,6 @@ require_once("../../core/models/tipoUsuario.php");
 ini_set('date.timezone', 'America/El_Salvador');
 $pdf = new PDF();
 $tipoUsuario = new tipoUsuario();
-$ruta = '../../Frontend/assets/img/user5.png';
 $pdf->head('REPORTE DE TIPOS USUARIOS');
 $pdf->date();
 $pdf->SetFont('Arial','B', '10');

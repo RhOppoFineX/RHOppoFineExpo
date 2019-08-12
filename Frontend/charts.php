@@ -47,7 +47,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='genero-colaboradores'></canvas> <!--Id de la grafica-->
-											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reportegenero.php" target="_blank" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->
@@ -59,7 +59,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='religion-colaboradores'></canvas> <!--Id de la grafica-->
-											<a href="" class="btn btn-primary btn-block"> Reporte </a>
+											<a href="../Backend/libraries/reportes/reportereligion.php" target="_blank" class="btn btn-primary btn-block"> Reporte </a>
 										</div>
 									</div>
 								</div><!--Fin de grafica-->
