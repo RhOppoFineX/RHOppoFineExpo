@@ -47,6 +47,24 @@ if(isset($_GET['action']))
                 }
             break;
 
+            
+            case 'colaboradorservicio':
+                if($resultado['dataset'] = $graficos->colaboradorservicio()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
+
+            
+            case 'colaboradorDepartamento':
+                if($resultado['dataset'] = $graficos->colaboradorDepartamento()){
+                    $resultado['status'] = true;
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
+
             case 'academico':
                 if($resultado['dataset'] = $graficos->academico()){
                     $resultado['status'] = true;
