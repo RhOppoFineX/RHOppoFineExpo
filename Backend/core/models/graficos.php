@@ -73,7 +73,7 @@ class graficos extends Validator
 
     public function municipioColaborador()
     {
-        $sql = 'SELECT count(Id_colaborador) as Colaborador, M.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio INNER JOIN Departamento as D ON D.Id_departamento = M.Id_departamento WHERE M.Id_departamento = ? GROUP BY M.Id_municipio';
+        $sql = 'SELECT count(Id_colaborador) as Colaborador, M.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio INNER JOIN Departamento as D ON D.Id_departamento = M.Id_departamento WHERE M.Id_departamento = ? GROUP BY M.Id_departamento';
 		$params = array($this->Id_departamento);
 		return Database::getRows($sql, $params);
     }    

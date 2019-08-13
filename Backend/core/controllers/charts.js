@@ -291,3 +291,10 @@ $.ajax({
 });       
 
 }
+
+//.val() extrae el valor del input o select 
+//Mandamos por get el parametro
+function reporteMunicipio()
+{
+    window.open('../Backend/libraries/reportes/reportemunicipio.php?Id_departamento=' + $('#Departamento').val());
+}

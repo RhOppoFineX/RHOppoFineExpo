@@ -111,7 +111,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='graficoMunicipio'></canvas> <!--Id de la grafica-->
-											<a href="../Backend/libraries/reportes/reportemunicipio.php" class="btn btn-primary btn-block"> Reporte </a>												
+											<a onclick="reporteMunicipio()" class="btn btn-primary btn-block"> Reporte </a>												
 										</div>
 
 										<form method="post" id="parametro-municipio">
