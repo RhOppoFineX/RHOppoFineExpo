@@ -82,6 +82,16 @@ if(isset($_GET['action']))
                     }
                 }                
             break;
+
+            case 'genero':
+                if($graficos->setGenero($_POST['Genero'])){
+                    if($resultado['dataset'] = $graficos->generoGrafico()){
+                        $resultado['status'] = true;
+                    }
+                } else {
+                    $resultado['exception'] = 'No se encontraron datos';
+                }
+            break;
                 
         }
 

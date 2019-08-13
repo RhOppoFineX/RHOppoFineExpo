@@ -3,6 +3,17 @@
 class graficos extends Validator
 {
     private $Id_departamento = null;//Id de tabla padre
+    private $Genero = null;//Campo de Colaborador
+
+    public function setGenero($Genero)
+    {
+       $this->Genero = $Genero;
+    }
+
+    public function getGenero()
+    {
+        return $this->Genero;
+    }
 
     //Metodos set y get de llave foranea
 	public function setId_departamento($value)
@@ -76,5 +87,13 @@ class graficos extends Validator
         $sql = 'SELECT count(Id_colaborador) as Colaborador, M.municipio as municipio FROM Colaborador as C INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio INNER JOIN Departamento as D ON D.Id_departamento = M.Id_departamento WHERE M.Id_departamento = ? GROUP BY M.Id_departamento';
 		$params = array($this->Id_departamento);
 		return Database::getRows($sql, $params);
+    }
+
+    public function generoGrafico()
+    {
+        $sql = "SELECT sum(Al.Sueldo_plaza) as Sueldo, A.Area as Area FROM Colaborador as C INNER JOIN Area_detalle as Ad ON C.Id_colaborador = Ad.Id_colaborador INNER JOIN Area_laboral as Al ON Ad.Id_laboral = Al.Id_laboral INNER JOIN Area as A ON A.Id_area = Al.Id_area WHERE C.Genero = '?' GROUP BY A.Id_area";
+        $params = array($this->Genero);
+        return Database::getRows($sql, $params);
     }    
+    
 } 

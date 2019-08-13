@@ -298,3 +298,50 @@ function reporteMunicipio()
 {
     window.open('../Backend/libraries/reportes/reportemunicipio.php?Id_departamento=' + $('#Departamento').val());
 }
+
+
+
+function graficoAreaGenero()
+{
+    event.preventDefault();
+
+$.ajax({
+    url: apiGraficos + 'genero', //CASEEEE!!!!
+    type: 'post',
+    data: new FormData($('#parametro-genero-salario')[0]),//Id del formulario
+    datatype: 'json',
+    cache: false,
+    contentType: false,
+    processData: false
+})
+.done(function(response){
+    // Se verifica si la respuesta de la apiGraficos es una cadena JSON, sino se muestra el resultado en consola
+    if (isJSONString(response)) {
+        const result = JSON.parse(response);
+        // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+        if (!result.status) {
+            sweetAlert(4, result.exception, null);
+        }            
+
+                console.log($('#Genero').val());
+            let Area = [];
+            let Sueldo = [];
+            
+            result.dataset.forEach(fila => {
+                Area.push(fila.Area);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                Sueldo.push(fila.Sueldo);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+            });
+
+        //grafico1 es el ID de la etiqueta canvas en html
+        barGraph('grafico-genero-salario', Area, Sueldo, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+        
+    } else {
+        console.log(response);
+    }
+})
+.fail(function(jqXHR){
+    // Se muestran en consola los posibles errores de la solicitud AJAX
+    console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+});       
+
+}

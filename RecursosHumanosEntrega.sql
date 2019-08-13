@@ -147,7 +147,7 @@ Create Table Colaborador(
     Codigo_colaborador varchar(5) UNIQUE NOT NULL,
     Nombres varchar(50) NOT NULL,
     Apellidos varchar(50) NOT NULL,
-    Genero ENUM('M', 'F') NOT NULL,
+    Genero VARCHAR(10) NOT NULL,
     Fecha_nacimiento date NOT NULL,
     Edad Integer Unsigned NOT NULL,    
     Id_datos Integer Unsigned NOT NULL,

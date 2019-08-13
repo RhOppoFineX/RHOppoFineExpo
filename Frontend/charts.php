@@ -102,11 +102,11 @@
 									</div>
 								</div><!--Fin de grafica--> 
 
-								<div class="col-md-6"> <!--Inicio de grafica--> 
+								<div class="col-md-6"> <!--Inicio de grafica parametrizada--> 
 									<div class="panel">
 										<div class="panel-heading">									
 
-											<h3 class="panel-title"> Colaboradores por municipio </h3><!--Titulo de grafica-->					
+											<h3 class="panel-title"> Colaboradores por municipio </h3><!--Titulo de grafica parametrizada-->					
 											
 										</div>
 										<div class="panel-body">
@@ -125,7 +125,34 @@
 											<a onclick="graficoMunicipio()" class="btn btn-warning btn-block">Generar Grafico</a>
 										</form>
 									</div>
-								</div><!--Fin de grafica-->
+								</div><!--Fin de grafica parametrizada-->
+
+								<div class="col-md-6"> <!--Inicio de grafica parametrizada--> 
+									<div class="panel">
+										<div class="panel-heading">									
+
+											<h3 class="panel-title"> Salario de Colaboradores por Genero </h3><!--Titulo de grafica parametrizada-->				
+											
+										</div>
+										<div class="panel-body">
+											<canvas id='grafico-genero-salario'></canvas> <!--Id de la grafica-->
+											<a onclick="reporteMunicipio()" class="btn btn-primary btn-block"> Reporte </a>												
+										</div>
+
+										<form method="post" id="parametro-genero-salario">
+												<div class="form-row">													
+													<div class="input-field col s12 m6">
+														<label for="Genero">Genero</label>
+														<select id="Genero" name="Genero" class="form-control">
+															<option value="'M'"> Hombres </option>
+															<option value="'F'"> Mujeres </option>
+														</select>
+													</div>
+												</div>
+											<a onclick="graficoAreaGenero()" class="btn btn-warning btn-block">Generar Grafico</a>
+										</form>
+									</div>
+								</div><!--Fin de grafica parametrizada-->
 
 							</div>
 							
