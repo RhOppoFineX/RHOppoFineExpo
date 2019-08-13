@@ -18,7 +18,7 @@ function Header()
     $this->Cell(65, 13);
     $this->SetFont('Arial','B',15);
     $this->SetTextColor(255,255,255);
-    $this->SetFillColor(60, 131, 255) ;
+    $this->SetFillColor(60, 131, 255);
     $this->Cell(125,13, utf8_decode($this->title),0,0,'C', true);
     // Salto de líne
     $this->Ln(15);

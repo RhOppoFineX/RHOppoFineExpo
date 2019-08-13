@@ -299,6 +299,11 @@ function reporteMunicipio()
     window.open('../Backend/libraries/reportes/reportemunicipio.php?Id_departamento=' + $('#Departamento').val());
 }
 
+function reporteAreaGenero()
+{
+    window.open('../Backend/libraries/reportes/reporteAreaGenero.php?Genero=' + $('#Genero').val());
+}
+
 
 
 function graficoAreaGenero()
@@ -321,9 +326,7 @@ $.ajax({
         // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
         if (!result.status) {
             sweetAlert(4, result.exception, null);
-        }            
-
-                console.log($('#Genero').val());
+        }          
             let Area = [];
             let Sueldo = [];
             

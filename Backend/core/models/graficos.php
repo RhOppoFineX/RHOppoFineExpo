@@ -91,7 +91,7 @@ class graficos extends Validator
 
     public function generoGrafico()
     {
-        $sql = "SELECT sum(Al.Sueldo_plaza) as Sueldo, A.Area as Area FROM Colaborador as C INNER JOIN Area_detalle as Ad ON C.Id_colaborador = Ad.Id_colaborador INNER JOIN Area_laboral as Al ON Ad.Id_laboral = Al.Id_laboral INNER JOIN Area as A ON A.Id_area = Al.Id_area WHERE C.Genero = '?' GROUP BY A.Id_area";
+        $sql = "SELECT sum(Al.Sueldo_plaza) as Sueldo, A.Area as Area FROM Colaborador as C INNER JOIN Area_detalle as Ad ON C.Id_colaborador = Ad.Id_colaborador INNER JOIN Area_laboral as Al ON Ad.Id_laboral = Al.Id_laboral INNER JOIN Area as A ON A.Id_area = Al.Id_area WHERE C.Genero = ? GROUP BY A.Id_area";
         $params = array($this->Genero);
         return Database::getRows($sql, $params);
     }    

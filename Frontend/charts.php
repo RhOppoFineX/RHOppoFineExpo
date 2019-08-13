@@ -136,7 +136,7 @@
 										</div>
 										<div class="panel-body">
 											<canvas id='grafico-genero-salario'></canvas> <!--Id de la grafica-->
-											<a onclick="reporteMunicipio()" class="btn btn-primary btn-block"> Reporte </a>												
+											<a onclick="reporteAreaGenero()" target="_blank" class="btn btn-primary btn-block"> Reporte </a>												
 										</div>
 
 										<form method="post" id="parametro-genero-salario">
@@ -144,8 +144,8 @@
 													<div class="input-field col s12 m6">
 														<label for="Genero">Genero</label>
 														<select id="Genero" name="Genero" class="form-control">
-															<option value="'M'"> Hombres </option>
-															<option value="'F'"> Mujeres </option>
+															<option value="M"> Hombres </option>
+															<option value="F"> Mujeres </option>
 														</select>
 													</div>
 												</div>
