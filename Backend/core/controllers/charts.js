@@ -4,11 +4,14 @@ $(document).ready(function(){
     graficoReligion();
     graficoAcademico();
     graficoServicio();
-    graficoDepartamento();
+    graficoDepartamento();        
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
+const tablaDepartamento = '../../RHOppoFineExpo/Backend/core/api/Departamento.php?action=read';//tabla padre que necesiten para hacer hacer el grafico con parametros
 
+//Para llenar el ComboBox   Id del combobox
+fillSelect(tablaDepartamento, 'Departamento', null);
 
 function graficoUsuarios()
 {
@@ -244,4 +247,47 @@ function graficoDepartamento()
     });       
 
 }
+//Reporte con parametros
+function graficoMunicipio()
+{
+    event.preventDefault();
 
+$.ajax({
+    url: apiGraficos + 'municipio', //CASEEEE!!!!
+    type: 'post',
+    data: new FormData($('#parametro-municipio')[0]),//Id del formulario
+    datatype: 'json',
+    cache: false,
+    contentType: false,
+    processData: false
+})
+.done(function(response){
+    // Se verifica si la respuesta de la apiGraficos es una cadena JSON, sino se muestra el resultado en consola
+    if (isJSONString(response)) {
+        const result = JSON.parse(response);
+        // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+        if (!result.status) {
+            sweetAlert(4, result.exception, null);
+        }
+
+            let Colaborador = [];
+            let Municipio = [];
+            
+            result.dataset.forEach(fila => {
+                Colaborador.push(fila.Colaborador);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+                Municipio.push(fila.municipio);//fila.nombre_que_le pusieron_despues_del_AS_en_la_consulta
+            });
+
+        //grafico1 es el ID de la etiqueta canvas en html
+        barGraph('graficoMunicipio', Municipio, Colaborador, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+        
+    } else {
+        console.log(response);
+    }
+})
+.fail(function(jqXHR){
+    // Se muestran en consola los posibles errores de la solicitud AJAX
+    console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+});       
+
+}
