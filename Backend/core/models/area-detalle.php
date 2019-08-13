@@ -73,7 +73,14 @@ class Area_detalle extends Validator
         ORDER BY Id_area_detalle';
 		$params = array(null);	
 		return Database::getRows($sql, $params);
-    }
+	}
+	
+	public function updatearea_detalle()
+        {
+            $sql = "UPDATE area_detalle SET Id_laboral = ? WHERE Id_area_detalle = ?";
+            $parametros = array($this->Area, $this->Id);
+            return Database::executeRow($sql, $parametros);
+        }
     
 }
 ?>

@@ -35,6 +35,29 @@ if (isset($_GET['action'])) {
                 }
             break;
 
+            case 'update':            
+            $_POST = $area_detalle->validateForm($_POST);
+            
+            if($area_detalle->setId($_POST['Id_area_detalle'])){//es el id del input en el formulario que correponde, si hay mas campos mas if
+                if($area_detalle->getAreaModal()){
+                    if($area_detalle->setId_laboral($_POST['Area'])){
+                        if($area_detalle->updatearea_detalle()){
+                            $resultado['status'] = true;
+                            $resultado['message'] = 'Area modificada';
+                        }else{
+                            $resultado['exception'] = 'Operación fallida';
+                        }                                                
+                    }else{
+                        $resultado['exception'] = 'Longitud de caracteres invalida';                        
+                    }
+                }else{
+                    $resultado['exception'] = 'No existe este registro';
+                }
+            }else{
+                $resultado['exception'] = 'Id Inexistente';
+            }
+         break;
+
                 default:
                 exit('Acción no disponible log');
         }
