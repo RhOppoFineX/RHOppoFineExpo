@@ -36,7 +36,7 @@
 										<span>Recordar Contraseña</span>
 									</label>
 								</div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">Inciar sesión</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
 								<div class="submit">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">¿Olvidastes tu Contraseña?</a></span>
 								</div>

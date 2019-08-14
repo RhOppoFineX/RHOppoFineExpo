@@ -130,6 +130,15 @@ class Validator
         }
     }
 
+    public function validateInteger($value)
+    {
+        if(preg_match('/^[0-9]*$', $value)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function validateMoney($value)
     {
         if (preg_match('/^[0-9]+(?:\.[0-9]{1,2})?$/', $value)) {
