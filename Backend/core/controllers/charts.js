@@ -292,26 +292,12 @@ $.ajax({
 
 }
 
-//.val() extrae el valor del input o select 
-//Mandamos por get el parametro
-function reporteMunicipio()
-{
-    window.open('../Backend/libraries/reportes/reportemunicipio.php?Id_departamento=' + $('#Departamento').val());
-}
-
-function reporteAreaGenero()
-{
-    window.open('../Backend/libraries/reportes/reporteAreaGenero.php?Genero=' + $('#Genero').val());
-}
-
-
-
 function graficoAreaGenero()
 {
     event.preventDefault();
 
 $.ajax({
-    url: apiGraficos + 'genero', //CASEEEE!!!!
+    url: apiGraficos + 'areaGenero', //CASEEEE!!!!
     type: 'post',
     data: new FormData($('#parametro-genero-salario')[0]),//Id del formulario
     datatype: 'json',
@@ -336,7 +322,7 @@ $.ajax({
             });
 
         //grafico1 es el ID de la etiqueta canvas en html
-        barGraph('grafico-genero-salario', Area, Sueldo, 'Cantidad de Colaboradores', 'Grafico', 'bar');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
+        barGraph('grafico-genero-salario', Area, Sueldo, 'Cantidad de Colaboradores', 'Grafico', 'pie');//el ultimo parametro es el tipo de grafica bar para barras y pie para pastel y doughnut para circular
         
     } else {
         console.log(response);
@@ -347,4 +333,15 @@ $.ajax({
     console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
 });       
 
+}
+//.val() extrae el valor del input o select 
+//Mandamos por get el parametro
+function reporteMunicipio()
+{
+    window.open('../Backend/libraries/reportes/reportemunicipio.php?Id_departamento=' + $('#Departamento').val());
+}
+
+function reporteAreaGenero()
+{
+    window.open('../Backend/libraries/reportes/reporteAreaGenero.php?Genero=' + $('#Genero').val());
 }

@@ -144,6 +144,7 @@
 													<div class="input-field col s12 m6">
 														<label for="Genero">Genero</label>
 														<select id="Genero" name="Genero" class="form-control">
+															<option value disabled selected>Seleccione una opción</option>
 															<option value="M"> Hombres </option>
 															<option value="F"> Mujeres </option>
 														</select>

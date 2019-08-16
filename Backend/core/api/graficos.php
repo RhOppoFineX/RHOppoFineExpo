@@ -83,7 +83,7 @@ if(isset($_GET['action']))
                 }                
             break;
 
-            case 'genero':
+            case 'areaGenero':
                 if($graficos->setGenero($_POST['Genero'])){
                     if($resultado['dataset'] = $graficos->generoGrafico()){
                         $resultado['status'] = true;

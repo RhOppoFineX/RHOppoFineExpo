@@ -7,7 +7,12 @@ class graficos extends Validator
 
     public function setGenero($Genero)
     {
-       $this->Genero = $Genero;
+        if($this->validateAlphabetic($Genero, 1, 10)){
+            $this->Genero = $Genero;
+            return true;
+        } else {
+            return false;
+        }       
     }
 
     public function getGenero()
@@ -75,9 +80,9 @@ class graficos extends Validator
 		return Database::getRows($sql, $params);
     }
 
-    public function cristian()
+    public function selectGenero()
     {
-        $sql = 'SELECT FROM Colaborador as C';
+        $sql = 'SELECT C.Genero FROM Colaborador as C Limit 2';
 		$params = array(null);
 		return Database::getRows($sql, $params);
     }
