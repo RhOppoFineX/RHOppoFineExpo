@@ -278,12 +278,24 @@ if (isset($_GET['action'])) {
                     if ($usuario->checkEmail()) {
                         if ($usuario->setClave($_POST['signin-password'])) {
                             if ($usuario->checkPassword()) {
-                                $_SESSION['Id_usuario'] = $usuario->getId();
-                                $_SESSION['Correo_usuario'] = $usuario->getCorreo();
-                                $result['status'] = true;
-                                $result['message'] = 'Autenticación correcta';
+                                if($usuario->setIntentos(0)){
+                                    if($usuario->aumentarIntentos()){
+                                        $_SESSION['Id_usuario'] = $usuario->getId();
+                                        $_SESSION['Correo_usuario'] = $usuario->getCorreo();
+                                        $result['status'] = true;
+                                        $result['message'] = 'Autenticación correcta';                                        
+                                    } else {
+                                        $result['exception'] = 'Ha fallado';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Ha fallado';
+                                }
+                                
                             } else {
-                                $result['exception'] = 'Clave inexistente';
+                                if($usuario->getIntentos() < 5)
+                                    $result['exception'] = 'Clave inexistente ha realizado ' .$usuario->getIntentos() . ' Intentos';
+                                 else   
+                                    $result['exception'] = 'Cuenta Bloqueada';
                             }
                         } else {
                             $result['exception'] = 'Clave menor a 6 caracteres';

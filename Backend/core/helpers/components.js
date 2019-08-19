@@ -160,6 +160,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
     for (i = 0; i < xAxis.length; i++) {
         colors.push('#' + (Math.random().toString(16)).substring(2, 8));
     }
+    var categorias = tipo != 'bar' ? true : false;
     const context = $('#' + canvas);
     const chart = new Chart(context, {
         type: tipo,
@@ -175,7 +176,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
         },
         options: {
             legend: {
-                display: false
+                display: categorias
             },
             title: {
                 display: true,

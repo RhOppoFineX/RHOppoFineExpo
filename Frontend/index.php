@@ -10,6 +10,11 @@
 </head>
 
 <body>
+	<?php
+		//Control de Sesión
+		require_once '../backend/core/helpers/sesion.php';
+	?>
+
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<div class="vertical-align-wrap">

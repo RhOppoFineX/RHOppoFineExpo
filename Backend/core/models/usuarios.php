@@ -10,6 +10,8 @@ class Usuarios extends Validator
 	private $clave = null;
 	//LLAVE FORANEA
 	private $id_tipo_usuario = null;
+	private $Intentos = null;
+	private $Estado = null;
 
 	//Metodos set y get de llave foranea
 	public function setId_tipo_usuario($value)
@@ -118,11 +120,41 @@ class Usuarios extends Validator
 		return $this->clave;
 	}
 
+	public function setIntentos($value)
+	{
+		if($this->validateInteger($value)) {
+			$this->Intentos = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIntentos()
+	{
+		return $this->Intentos;
+	}
+	
+	public function setEstado($value)
+	{
+		if($this->validateInteger($value)) {
+			$this->Estado = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getEstado()
+	{
+		return $this->Estado;
+	}
+
 	// Métodos para manejar la sesión del usuario
 	//este metodo no
 	public function checkEmail()
 	{
-		$sql = 'SELECT Id_usuario FROM Usuario WHERE Correo_usuario = ?';
+		$sql = 'SELECT Id_usuario FROM Usuario WHERE Correo_usuario = ? and Estado = 1 and Intentos < 5';
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if ($data) {
@@ -135,12 +167,13 @@ class Usuarios extends Validator
 	//este metodo no
 	public function checkPassword()
 	{
-		$sql = 'SELECT Clave_usuario FROM Usuario WHERE Id_usuario = ?';
+		$sql = 'SELECT Clave_usuario FROM Usuario WHERE Id_usuario = ? and Estado = 1 and Intentos < 5';
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if (password_verify($this->clave, $data['Clave_usuario'])) {
 			return true;
 		} else {
+			$this->verIntentos();
 			return false;
 		}
 	}
@@ -148,7 +181,7 @@ class Usuarios extends Validator
 	public function changePassword()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = 'UPDATE Usuario SET Clave_usuario = ? WHERE Id_usuario = ?';
+		$sql = 'UPDATE Usuario SET Clave_usuario = ? WHERE Id_usuario = ? and Estado = 1';
 		$params = array($hash, $this->id);
 		return Database::executeRow($sql, $params);
 	}
@@ -202,6 +235,34 @@ class Usuarios extends Validator
 		$sql = 'DELETE FROM Usuario WHERE Id_usuario = ?';
 		$params = array($this->id);
 		return Database::executeRow($sql, $params);
+	}
+
+	public function verIntentos()
+	{
+		$sql = 'SELECT Intentos FROM Usuario WHERE Correo_usuario = ?';
+		$params = array($this->correo);
+		$data = Database::getRow($sql, $params);
+		
+		if($data){
+			$inten = $data['Intentos'];
+			$inten = $inten + 1; 			
+			$this->Intentos = $inten;
+			$this->aumentarIntentos();
+		}
+	}
+
+	public function aumentarIntentos()
+	{
+		$sql = 'UPDATE Usuario SET Intentos = ? WHERE Correo_usuario = ?';
+		$params = array($this->Intentos, $this->correo);
+		return Database::executeRow($sql, $params);
+	}	
+
+	public function disableUsuario()
+	{
+		$sql = 'UPDATE Usuario SET Estado = ? WHERE Correo_usuario = ?';
+		$params = array(0, $this->correo);
+		return Database::executeRow($sql, $params);		
 	}
 }
 ?>

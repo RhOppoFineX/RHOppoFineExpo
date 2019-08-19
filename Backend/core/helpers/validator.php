@@ -132,7 +132,7 @@ class Validator
 
     public function validateInteger($value)
     {
-        if(preg_match('/^[0-9]*$', $value)) {
+        if(preg_match('/^[0-9]*$/', $value)) {
             return true;
         } else {
             return false;
