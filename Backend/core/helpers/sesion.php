@@ -8,9 +8,13 @@ if(isset($_SESSION['Id_usuario'])){
 
     //var_dump($filename);
 
-    if($filename === 'index.php' || $filename === 'register.php'){
+    if($filename === 'index.php' || $filename === 'register.php')
         header('Location: charts.php');
-    }
+
+    
+    // if(!$_SESSION['Id_tipo_usuario'] <= $nivel_acceso){
+    //     header('Location: ');
+    // }   
 
 } else {
 

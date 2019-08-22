@@ -282,6 +282,7 @@ if (isset($_GET['action'])) {
                                     if($usuario->aumentarIntentos()){
                                         $_SESSION['Id_usuario'] = $usuario->getId();
                                         $_SESSION['Correo_usuario'] = $usuario->getCorreo();
+                                        $_SESSION['Id_tipo_usuario'] = $usuario->getId_tipo_usuario();
                                         $result['status'] = true;
                                         $result['message'] = 'Autenticación correcta';                                        
                                     } else {
@@ -293,7 +294,7 @@ if (isset($_GET['action'])) {
                                 
                             } else {
                                 if($usuario->getIntentos() < 5)
-                                    $result['exception'] = 'Clave inexistente ha realizado ' .$usuario->getIntentos() . ' Intentos';
+                                    $result['exception'] = 'Clave inexistente, ha realizado ' .$usuario->getIntentos() . ' Intentos';
                                  else   
                                     $result['exception'] = 'Cuenta Bloqueada';
                             }

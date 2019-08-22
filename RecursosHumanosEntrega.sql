@@ -149,9 +149,8 @@ Create Table Colaborador(
     Codigo_colaborador varchar(5) UNIQUE NOT NULL,
     Nombres varchar(50) NOT NULL,
     Apellidos varchar(50) NOT NULL,
-    Genero VARCHAR(10) NOT NULL,
-    Fecha_nacimiento date NOT NULL,
-    Edad Integer Unsigned NOT NULL,    
+    Genero ENUM('M', 'F') NOT NULL,
+    Fecha_nacimiento date NOT NULL,        
     Id_datos Integer Unsigned NOT NULL,
     Id_religion Integer Unsigned NOT NULL,
     Id_municipio Integer Unsigned NOT NULL,
@@ -195,7 +194,8 @@ Create Table datosFamiliares(
     Dependiente TINYINT (1) NOT NULL,
     Id_parentesco Integer Unsigned NOT NULL,
     Id_Colaborador Integer Unsigned NOT NULL,
-    Genero TINYINT (1) NOT NULL,
+    Genero ENUM('M', 'F') NOT NULL,
+    Numero_telefono VARCHAR(10) NULL,
     FOREIGN KEY (Id_parentesco) REFERENCES Parentesco (Id_parentesco),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)
 );
@@ -228,7 +228,7 @@ Create Table Salud(
     Descripcion_alergias Text NULL,
     Alergias_medicamentos TINYINT(1) NOT NULL,
     Descripcion_alergias_medicamentos Text NULL,
-    Notificacion_emergencia Integer Unsigned NOT NULL,    
+    Notificacion_emergencia INTEGER Unsigned NOT NULL,    
     FOREIGN KEY (Notificacion_emergencia) REFERENCES datosFamiliares(Id_datos_familiares)
 );
 --Cr7
@@ -409,9 +409,9 @@ insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_exp
  (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u'),
  (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541');
 
-insert into Colaborador values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1),
-                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','05-10-1999','20',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'13-05-2017',1),
-                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','05-04-2001','18',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'15-07-2015', 1);
+insert into Colaborador (Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, Id_datos, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_insitucional, Direccion_residencial, NIP, Nivel, Estudiando, Fecha_ingreso, Estado_colaborador) values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','2001-04-11',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'2017-10-17', 1),
+                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','1999-10-05',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'2017-05-13',1),
+                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','2001-04-05',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'2015-07-15', 1);
 
 insert into Detalle_idioma (Id_idioma, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);    --Agregada
 
@@ -426,16 +426,16 @@ insert into Educacion (Id_categoria, Especialidad, Descripcion, Id_Colaborador) 
                             (9,'Psicologo','permanece siempre centrado en su trabajo',3),
                             (10,'Pedagogo','bueno en conducta',1);
 
-insert into datosFamiliares values (1,'Maria','gonzales','10-05-1980',0,1,1,0),
-                                   (2,'Josue','reyes','13-10-1975',1,2,2,1),
-                                   (3,'Alejandro','perez','03-04-2000',0,3,3,0),
-                                   (4,'Luis','castro','04-04-2000',1,4,3,1),
-                                   (5,'Marcos','flores','05-04-2000',0,5,3,0),
-                                   (6,'Karla','hernandez','06-04-2000',1,6,3,1),
-                                   (7,'Fabiola','pacheco','07-04-2000',0,7,3,0),
-                                   (8,'Wanda','paramo','08-04-2000',1,8,3,1),
-                                   (9,'Nicki','enriquez','09-04-2000',0,8,3,0),
-                                   (10,'Fernando','luna','10-04-2000',1,8,3,1); 
+insert into datosFamiliares (Id_datos_familiares, Nombres, Apellidos, Fecha_nacimiento, Dependiente, Id_parentesco, Id_Colaborador, Genero, Numero_telefono) values (1,'Maria','gonzales','10-05-1980',0,1,1,'F','7979-7979'),
+                                   (2,'Josue','reyes','13-10-1975',1,2,2,'M','7979-7979'),
+                                   (3,'Alejandro','perez','03-04-2000',0,3,3,'M','7979-7979'),
+                                   (4,'Luis','castro','04-04-2000',1,4,3,'M','7979-7979'),
+                                   (5,'Marcos','flores','05-04-2000',0,5,3,'M','7979-7979'),
+                                   (6,'Karla','hernandez','06-04-2000',1,6,3,'F','7979-7979'),
+                                   (7,'Fabiola','pacheco','07-04-2000',0,7,3,'F','7979-7979'),
+                                   (8,'Wanda','paramo','08-04-2000',1,8,3,'F','7979-7979'),
+                                   (9,'Nicki','enriquez','09-04-2000',0,8,3,'M','7979-7979'),
+                                   (10,'Fernando','luna','10-04-2000',1,8,3,'M','7979-7979'); 
 
 insert into equipoTotal (Id_equipo, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);
 
@@ -451,19 +451,19 @@ insert into Experiencia_laboral (Empresa, Fecha_ingreso, Fecha_retiro, Puesto, I
  ('el diario de hoy','26-05-2017','30-12-2018','empresario',3),
  ('movistar','27-05-2017','30-12-2018','mantenimiento de computadoras',1);
 
-insert into Salud values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene', 0, 'No Perro', 1),
-                         (2,0,' tratamiento',0,' comunes',0,'no tiene',1, 'No maje' ,2),
-                         (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No necesita',3),
-                         (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario',1),
-                         (5,1,'bajo medicamento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal',2),
-                         (6,0,'en control',0,'son comunes',0,'no tiene',1,'Medicamento diario',3),
-                         (7,1,'tratamiento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal',1),
-                         (8,0,'bajo medicamento',0,'son comunes',0,'no tiene',1,'Aspirina',2),
-                         (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita',3),
-                         (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',1);
+insert into Salud (Id_Salud, Enfermedades_Tratamiento, Descripcion_enfermedades, Medicamentos, Descripcion_medicamentos, Alergias, Descripcion_alergias, Alergias_medicamentos, Descripcion_alergias_medicamentos, Notificacion_emergencia) values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene', 0, 'No Perro', 1),
+                         (2,0,' tratamiento',0,' comunes',0,'no tiene',1, 'No maje', 2),
+                         (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No necesita', 3),
+                         (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario', 4),
+                         (5,1,'bajo medicamento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 5),
+                         (6,0,'en control',0,'son comunes',0,'no tiene',1,'Medicamento diario', 6),
+                         (7,1,'tratamiento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 7),
+                         (8,0,'bajo medicamento',0,'son comunes',0,'no tiene',1,'Aspirina', 8),
+                         (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita', 9),
+                         (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',10);
 
-insert into Area_laboral values (1,1,1,800.90,'2017-10-20','2017-10-25','2018-10-25',8),
-                                (2,2,2,1800.90,'10-10-2017','15-10-2017','25-10-2018',10),
+insert into Area_laboral (Id_laboral, Id_area, Id_puesto, Sueldo_plaza, Fecha_ingreso, Inicio_contrato, Fin_contrato, Horas_al_dia) values (1,1,1,800.90,'2017-10-20','2017-10-25','2018-10-25',8),
+                                (2,2,2,1800.90,'2017-10-10','15-10-2017','25-10-2018',10),
                                 (3,3,3,750.90,'20-10-2016','25-10-2017','25-10-2018',8),
                                 (4,4,4,950.90,'21-10-2016','26-10-2017','25-10-2018',10),
                                 (5,5,5,600.90,'22-10-2016','27-10-2017','25-10-2018',8),
@@ -505,7 +505,7 @@ Select U.Nombres_usuario, U.Apellidos_usuario FROM Usuario as U INNER JOIN Tipo_
 
 
 CREATE PROCEDURE mostrarSegunParentesco (Parentesco varchar(30))
-    Select C.Nombres, C.Apellidos, C.Edad, count(Id_datos_familiares) as Hijos FROM Colaborador as C LEFT JOIN datosFamiliares as D ON C.Id_Colaborador = D.Id_Colaborador
+    Select C.Nombres, C.Apellidos, C.Fecha_nacimiento, count(Id_datos_familiares) as Hijos FROM Colaborador as C LEFT JOIN datosFamiliares as D ON C.Id_Colaborador = D.Id_Colaborador
     INNER JOIN Parentesco as P ON P.Id_parentesco = D.Id_parentesco WHERE P.Parentesco = Parentesco
     Group by D.Id_Colaborador;
 
@@ -557,7 +557,7 @@ SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religio
 SELECT R.Religion, count(R.Id_religion) FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion Group By R.Id_religion;
 
 
-insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001','18',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1);
+insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1);
 
 
 

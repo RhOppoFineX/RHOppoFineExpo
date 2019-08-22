@@ -14,7 +14,8 @@
 </head>
 <body>
 	<?php
-		//Control de Sesión
+		//Control de Sesión y privilegios de Usuario
+		$nivel_acceso = [1];
 		require_once '../backend/core/helpers/sesion.php';
 	?>
 

@@ -154,11 +154,12 @@ class Usuarios extends Validator
 	//este metodo no
 	public function checkEmail()
 	{
-		$sql = 'SELECT Id_usuario FROM Usuario WHERE Correo_usuario = ? and Estado = 1 and Intentos < 5';
+		$sql = 'SELECT Id_usuario, Id_tipo_usuario FROM Usuario WHERE Correo_usuario = ? and Estado = 1 and Intentos < 5';
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if ($data) {
 			$this->id = $data['Id_usuario'];
+			$this->id_tipo_usuario = $data['Id_tipo_usuario'];
 			return true;
 		} else {
 			return false;
