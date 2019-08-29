@@ -14,9 +14,11 @@
 </head>
 <body>
 	<?php
-		//Control de Sesión y privilegios de Usuario
-		$nivel_acceso = [1];
+		//Control de Sesión y privilegios de Usuario				
 		require_once '../backend/core/helpers/sesion.php';
+		Session::iniSession();
+		$_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
+		Session::verifcarPrivilegio();
 	?>
 
 	<div id="wrapper">

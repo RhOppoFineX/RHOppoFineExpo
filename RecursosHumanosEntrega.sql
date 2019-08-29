@@ -28,7 +28,7 @@ Create Table Usuario(
     Nombres_usuario varchar(40) NOT NULL,
     Apellidos_usuario varchar(40) NOT NULL,
     Correo_usuario varchar(50) UNIQUE NOT NULL,
-    Id_tipo_usuario Integer Unsigned NULL,
+    Id_tipo_usuario Integer Unsigned NOT NULL,
     Alias_usuario VARCHAR(25) NOT NULL,
     Clave_usuario VARCHAR(250) NOT NULL,
     Intentos TINYINT NOT NULL DEFAULT 0,

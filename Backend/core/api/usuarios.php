@@ -282,7 +282,7 @@ if (isset($_GET['action'])) {
                                     if($usuario->aumentarIntentos()){
                                         $_SESSION['Id_usuario'] = $usuario->getId();
                                         $_SESSION['Correo_usuario'] = $usuario->getCorreo();
-                                        $_SESSION['Id_tipo_usuario'] = $usuario->getId_tipo_usuario();
+                                        $_SESSION['Tipo_usuario'] = $usuario->getTipo_usuario();
                                         $result['status'] = true;
                                         $result['message'] = 'Autenticación correcta';                                        
                                     } else {

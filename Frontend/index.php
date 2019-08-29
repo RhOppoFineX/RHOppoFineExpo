@@ -13,6 +13,7 @@
 	<?php
 		//Control de Sesión
 		require_once '../backend/core/helpers/sesion.php';
+		Session::iniSession();
 	?>
 
 	<!-- WRAPPER -->

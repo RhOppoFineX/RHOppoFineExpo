@@ -12,6 +12,23 @@ class Usuarios extends Validator
 	private $id_tipo_usuario = null;
 	private $Intentos = null;
 	private $Estado = null;
+	private $Tipo_usuario = null;
+
+	public function setTipo_usuario($value)
+	{
+		if(validateAlphabetic($value, 1, 20)){
+			$this->Tipo_usuario = $value;
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public function getTipo_usuario()
+	{
+		return $this->Tipo_usuario;
+	}
 
 	//Metodos set y get de llave foranea
 	public function setId_tipo_usuario($value)
@@ -154,12 +171,12 @@ class Usuarios extends Validator
 	//este metodo no
 	public function checkEmail()
 	{
-		$sql = 'SELECT Id_usuario, Id_tipo_usuario FROM Usuario WHERE Correo_usuario = ? and Estado = 1 and Intentos < 5';
+		$sql = 'SELECT Id_usuario, T.Tipo_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario WHERE Correo_usuario = ? and U.Estado = 1 and Intentos < 5';
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if ($data) {
 			$this->id = $data['Id_usuario'];
-			$this->id_tipo_usuario = $data['Id_tipo_usuario'];
+			$this->Tipo_usuario = $data['Tipo_usuario'];
 			return true;
 		} else {
 			return false;

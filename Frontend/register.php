@@ -12,6 +12,14 @@
   
 </head>
 <body>
+	<?php
+		//Control de Sesión		
+		require_once '../backend/core/helpers/sesion.php';
+		Session::iniSession();
+		$_SESSION['Tipo_usuario_privilegios'] = ['Administrador', 'Colaborador', 'Enfermeria'];
+	?>
+
+	<!--Wrapper-->
 	<div id="wrapper">
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle">

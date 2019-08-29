@@ -1,25 +1,44 @@
 <?php
-
-session_start();
-
-if(isset($_SESSION['Id_usuario'])){
-
-    $filename = basename($_SERVER['PHP_SELF']);
-
-    //var_dump($filename);
-
-    if($filename === 'index.php' || $filename === 'register.php')
-        header('Location: charts.php');
-
+class Session {
     
-    // if(!$_SESSION['Id_tipo_usuario'] <= $nivel_acceso){
-    //     header('Location: ');
-    // }   
 
-} else {
+    public static function iniSession()
+    {
+        session_start();//Nos da acceso a todas las variables de Sesión
 
-    $filename = basename($_SERVER['PHP_SELF']);
+        if(isset($_SESSION['Id_usuario'])){
 
-    if($filename != 'index.php')
-        header('Location: index.php');          
+            $filename = basename($_SERVER['PHP_SELF']);          
+        
+            if($filename === 'index.php' || $filename === 'register.php')
+                header('Location: charts.php');      
+        
+        } else {
+        
+            $filename = basename($_SERVER['PHP_SELF']);
+        
+            if($filename != 'index.php')
+                header('Location: index.php');          
+        }
+
+    }
+
+    public static function verifcarPrivilegio()
+    {
+        $retorno = false;
+        $array = $_SESSION["Tipo_usuario_privilegios"];
+        foreach($array as $value)
+        {
+            if($value === $_SESSION['Tipo_usuario'])
+                $retorno = true;            
+                 
+        }       
+
+        if(!$retorno)
+            header('Location: cerrar.php');
+
+    }
+
 }
+
+
