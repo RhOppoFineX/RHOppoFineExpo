@@ -33,6 +33,7 @@ Create Table Usuario(
     Clave_usuario VARCHAR(250) NOT NULL,
     Intentos TINYINT NOT NULL DEFAULT 0,
     Estado TINYINT(1) NOT NULL DEFAULT 1,               
+    Activivo TINYINT(1) NOT NULL DEFAULT 0,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 --Petardo
@@ -127,7 +128,7 @@ Create Table Parentesco(
     Parentesco varchar(50) NOT NULL,
     Estado TINYINT(1) NOT NULL DEFAULT 1
 );
---Cr7
+--Cr7 Super Crud
 create table Datos_identificacion(
     Id_datos integer Unsigned PRIMARY KEY NOT NULL,    
     Num_documento varchar(10) NOT NULL,
@@ -143,7 +144,7 @@ create table Datos_identificacion(
     Tipo_documento TINYINT(1) NOT NULL,
     FOREIGN KEY (Id_estado_civil) REFERENCES Estado_civil (Id_estado_civil)
 );
---Cr7
+--Cr7 Super Crud
 Create Table Colaborador(
     Id_Colaborador Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Codigo_colaborador varchar(5) UNIQUE NOT NULL,
@@ -167,7 +168,7 @@ Create Table Colaborador(
     FOREIGN KEY (Id_datos) REFERENCES Datos_identificacion(Id_datos),
     FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
 );
---Joel
+--Cristian Super Crud
 Create Table Detalle_idioma (
     Id_detalle_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_idioma Integer Unsigned NOT NULL,
@@ -175,7 +176,7 @@ Create Table Detalle_idioma (
     FOREIGN KEY (Id_idioma) REFERENCES Idioma(Id_idioma),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador) 
 );
---Cristian
+--Cristian Super Crud
 Create Table Educacion (
     Id_educacion Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_categoria Integer Unsigned NOT NULL,
@@ -185,7 +186,7 @@ Create Table Educacion (
     FOREIGN KEY (Id_categoria) REFERENCES Categoria (Id_categoria),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador (Id_Colaborador)      
 );
---Cr7
+--Cristian Super Crud
 Create Table datosFamiliares(
     Id_datos_familiares Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Nombres varchar(50) NOT NULL,
@@ -199,7 +200,7 @@ Create Table datosFamiliares(
     FOREIGN KEY (Id_parentesco) REFERENCES Parentesco (Id_parentesco),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)
 );
---Cristian
+--Joel Super Crud
 Create Table equipoTotal(
     Id_equipo_total Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_equipo Integer Unsigned NOT NULL,
@@ -207,7 +208,7 @@ Create Table equipoTotal(
     FOREIGN KEY (Id_equipo) REFERENCES Equipo(Id_equipo),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)       
 );
---Cr7
+--Joel Super Crud
 Create table Experiencia_laboral(
     Id_experiencia_laboral Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Empresa varchar(25) NOT NULL,
@@ -217,7 +218,7 @@ Create table Experiencia_laboral(
     Id_Colaborador Integer Unsigned NOT NULL,
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)    
 );
---Cr7
+--Cr7 Super Crud
 Create Table Salud(
     Id_Salud Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Enfermedades_Tratamiento TINYINT(1) NOT NULL,
@@ -231,7 +232,7 @@ Create Table Salud(
     Notificacion_emergencia INTEGER Unsigned NOT NULL,    
     FOREIGN KEY (Notificacion_emergencia) REFERENCES datosFamiliares(Id_datos_familiares)
 );
---Cr7
+--Topo Super Crud
 Create Table Area_laboral(
     Id_laboral Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_area Integer Unsigned NOT NULL,
@@ -244,7 +245,7 @@ Create Table Area_laboral(
     FOREIGN KEY (Id_area) REFERENCES Area(Id_area),
     FOREIGN KEY (Id_puesto) REFERENCES Puesto(Id_puesto)
 );
---Topo
+--Topo Super Crud
 Create table Area_detalle(
     Id_area_detalle Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_laboral Integer Unsigned NOT NULL,
