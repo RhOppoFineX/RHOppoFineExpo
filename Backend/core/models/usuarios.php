@@ -207,7 +207,7 @@ class Usuarios extends Validator
 	// Metodos para manejar el SCRUD
 	public function readUsuarios()
 	{
-		$sql = 'SELECT Id_usuario, Nombres_usuario, Apellidos_usuario, Correo_usuario, Alias_usuario, T.Tipo_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario ORDER BY Apellidos_usuario';
+		$sql = 'SELECT Id_usuario, Nombres_usuario, Apellidos_usuario, Correo_usuario, Alias_usuario, T.Tipo_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario WHERE U.Estado = 1 ORDER BY Apellidos_usuario';
 		$params = array(null);	
 		return Database::getRows($sql, $params);
 	}
@@ -278,8 +278,8 @@ class Usuarios extends Validator
 
 	public function disableUsuario()
 	{
-		$sql = 'UPDATE Usuario SET Estado = ? WHERE Correo_usuario = ?';
-		$params = array(0, $this->correo);
+		$sql = 'UPDATE Usuario SET Estado = ? WHERE Id_usuario = ?';
+		$params = array($this->Estado, $this->id);
 		return Database::executeRow($sql, $params);		
 	}
 }

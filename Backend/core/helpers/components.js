@@ -104,11 +104,13 @@ function fillSelect(api, id, selected)
 *
 *   Returns: ninguno.
 */
-function confirmDelete(api, id, file)
+function confirmDelete(api, id, file, operacion)
 {
+    var opcion = operacion === 'delete' ? 'eliminar' : 'deshabilitar'; 
+  
     swal({
         title: 'Advertencia',
-        text: '¿Desea eliminar el registro?',
+        text: '¿Desea ' + opcion + ' el registro?',
         icon: 'warning',
         buttons: ['Cancelar', 'Aceptar'],
         closeOnClickOutside: false,
@@ -119,7 +121,7 @@ function confirmDelete(api, id, file)
             let params = new Object();
             (file) ? params = {identifier: id, filename: file} : params = {identifier: id};
             $.ajax({
-                url: api + 'delete',
+                url: api + operacion,//delete y disable según sea la operación
                 type: 'post',
                 data: params,
                 datatype: 'json'

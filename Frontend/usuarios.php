@@ -35,7 +35,7 @@
                                 <div class="panel">
 									<div class="panel-heading">
 										<!--Boton Agregar-->												
-										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>										
+										<a type="button" class="btn btn-success btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>										
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped" id="TablaUsuario">

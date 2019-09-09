@@ -222,6 +222,32 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No se puede eliminar a sí mismo';
                 }
                 break;
+            
+            case 'disable':
+                if($_POST['identifier'] != $_SESSION['Id_usuario']){
+                    if($usuario->setId($_POST['identifier'])){
+                        if($usuario->setEstado(0)){
+                            if($usuario->getUsuario()){
+                                if($usuario->disableUsuario()){
+                                    $result['status'] = true;
+                                    $result['message'] = 'Usuario deshabilitado correctamente';
+                                } else {
+                                    $result['exception'] = 'Operación fallida';
+                                }
+                            } else {
+                                $result['exception'] = 'Usuario inexistente';
+                            }
+                        } else {
+                            $result['exception'] = 'Estado incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Usuario Incorrecto';
+                    }
+                } else {
+                    $result['exception'] = 'No se puede deshabilitar a sí mismo';
+                }               
+            break;
+
             default:
                 exit('Acción no disponible login joder macho');
         }
