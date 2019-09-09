@@ -132,7 +132,7 @@ if (isset($_GET['action'])) {
                                                 $result['exception'] = 'Operación fallida';
                                             }
                                             } else {
-                                                $result['exception'] = 'Clave menor a 6 caracteres';
+                                                $result['exception'] = 'Clave menor a 8 caracteres';
                                             }
                                         } else {
                                             $result['exception'] = 'Claves diferentes';
@@ -251,7 +251,7 @@ if (isset($_GET['action'])) {
                                                 $result['exception'] = 'Operación fallida';
                                             }
                                         } else {
-                                            $result['exception'] = 'Clave menor a 6 caracteres';
+                                            $result['exception'] = 'Clave menor a 8 caracteres';
                                         }
                                     } else {
                                         $result['exception'] = 'Claves diferentes';
@@ -299,7 +299,7 @@ if (isset($_GET['action'])) {
                                     $result['exception'] = 'Cuenta Bloqueada';
                             }
                         } else {
-                            $result['exception'] = 'Clave menor a 6 caracteres';
+                            $result['exception'] = 'Clave menor a 8 caracteres';
                         }
                     } else {
                         $result['exception'] = 'Correo inexistente';

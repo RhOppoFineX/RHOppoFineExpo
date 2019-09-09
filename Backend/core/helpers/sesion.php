@@ -17,7 +17,7 @@ class Session {
         
             $filename = basename($_SERVER['PHP_SELF']);
         
-            if($filename != 'index.php')
+            if($filename != 'index.php' && $filename != 'register.php')//CAMBIAR 
                 header('Location: index.php');          
         }
 
