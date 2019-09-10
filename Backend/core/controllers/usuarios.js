@@ -22,7 +22,7 @@ function fillTable(rows)
                 <td>${row.Tipo_usuario}</td>
                 <td>${row.Alias_usuario}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_usuario})">Modificar</a></td>
-                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apiUsuario}', ${row.Id_usuario}, null, 'disable')">Deshabilitar</a></td> 
+                <td><a class="btn btn-info btn-sm" onclick="confirmDelete('${apiUsuario}', ${row.Id_usuario}, null, 'disable')">Deshabilitar</a></td> 
                 <td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiUsuario}', ${row.Id_usuario}, null, 'delete')">Eliminar</a></td> 
             </tr>
         `;

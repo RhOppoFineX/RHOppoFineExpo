@@ -29,29 +29,35 @@
 				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos de los usuarios</h3>
+							<h3 class="page-title">Datos de los usuarios</h3>							
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
 									<div class="panel-heading">
 										<!--Boton Agregar-->												
-										<a type="button" class="btn btn-success btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>										
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
+
+										<!--Switch-->
+																			
+
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped" id="TablaUsuario">
-											<thead>
-												<tr>													
-                                                    <th>Nombres</th>
-                                                    <th>Apellidos</th>
-                                                    <th>Correo</th>
-													<th>Tipo usuario</th>
-													<th>User Name</th>
-												</tr>
-											</thead>
-											<tbody id="tabla-usuario">
-												
-											</tbody>
-										</table>
+										<div class="table-responsive">
+											<table class="table table-striped" id="TablaUsuario">
+												<thead>
+													<tr>													
+														<th>Nombres</th>
+														<th>Apellidos</th>
+														<th>Correo</th>
+														<th>Tipo usuario</th>
+														<th>User Name</th>
+													</tr>
+												</thead>
+												<tbody id="tabla-usuario">
+													
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>                            
 								<!-- END TABLE STRIPED -->
