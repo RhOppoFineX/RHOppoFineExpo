@@ -81,7 +81,7 @@
 									<a href="#subPagesCruds" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Datos Colaborador</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 									<div id="subPagesCruds" class="collapse ">
 										<ul class="nav"><!--Colaborador-->
-											<li><a href="datos-colaborador.php" class=""><i class="lnr lnr-dice"></i> <span>Datos Personales</span></a></li>
+											<li><a href="colaborador.php" class=""><i class="lnr lnr-dice"></i> <span>Datos Personales</span></a></li>
 											<li><a href="datos-identificacion.php" class=""><i class="lnr lnr-dice"></i> <span>Identificación</span></a></li>
 											<li><a href="datos-familiares.php" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
 											<li><a href="datos-educacion.php" class=""><i class="lnr lnr-dice"></i> <span>Educación</span></a></li>
