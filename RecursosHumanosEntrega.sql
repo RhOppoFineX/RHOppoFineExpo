@@ -129,6 +129,28 @@ Create Table Parentesco(
     Estado TINYINT(1) NOT NULL DEFAULT 1
 );
 --Cr7 Super Crud
+Create Table Colaborador(
+    Id_Colaborador Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Codigo_colaborador varchar(5) UNIQUE NOT NULL,
+    Nombres varchar(50) NOT NULL,
+    Apellidos varchar(50) NOT NULL,
+    Genero ENUM('M', 'F') NOT NULL,
+    Fecha_nacimiento date NOT NULL,   
+    Id_religion Integer Unsigned NOT NULL,
+    Id_municipio Integer Unsigned NOT NULL,
+    Telefono_casa varchar(9) NOT NULL,
+    Telefono_celular varchar(9) NOT NULL,
+    Correo_institucional varchar(50) NOT NULL,
+    Direccion_residencial Text NOT NULL,
+    NIP varchar(15) NULL,
+    Nivel TINYINT(1) NULL,
+    Estudiando TINYINT(1) NULL,
+    Fecha_ingreso date NOT NULL,
+    Estado_colaborador TINYINT(1) NOT NULL DEFAULT 1,    
+    FOREIGN KEY (Id_religion) REFERENCES Religion(Id_religion),    
+    FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
+);
+--Cr7 Super Crud
 create table Datos_identificacion(
     Id_datos integer Unsigned PRIMARY KEY NOT NULL,    
     Num_documento varchar(10) NOT NULL,
@@ -142,31 +164,9 @@ create table Datos_identificacion(
     AFP varchar(20) NOT NULL UNIQUE,
     NUP varchar(20) NOT NULL,
     Tipo_documento TINYINT(1) NOT NULL,
+    Id_Colaborador INTEGER Unsigned NOT NULL,
+    FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador),
     FOREIGN KEY (Id_estado_civil) REFERENCES Estado_civil (Id_estado_civil)
-);
---Cr7 Super Crud
-Create Table Colaborador(
-    Id_Colaborador Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Codigo_colaborador varchar(5) UNIQUE NOT NULL,
-    Nombres varchar(50) NOT NULL,
-    Apellidos varchar(50) NOT NULL,
-    Genero ENUM('M', 'F') NOT NULL,
-    Fecha_nacimiento date NOT NULL,        
-    Id_datos Integer Unsigned NOT NULL,
-    Id_religion Integer Unsigned NOT NULL,
-    Id_municipio Integer Unsigned NOT NULL,
-    Telefono_casa varchar(9) NOT NULL,
-    Telefono_celular varchar(9) NOT NULL,
-    Correo_insitucional varchar(50) NOT NULL,
-    Direccion_residencial Text NOT NULL,
-    NIP varchar(15) NULL,
-    Nivel TINYINT(1) NULL,
-    Estudiando TINYINT(1) NULL,
-    Fecha_ingreso date NOT NULL,
-    Estado_colaborador TINYINT(1) NOT NULL DEFAULT 1,    
-    FOREIGN KEY (Id_religion) REFERENCES Religion(Id_religion),
-    FOREIGN KEY (Id_datos) REFERENCES Datos_identificacion(Id_datos),
-    FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)       
 );
 --Cristian Super Crud
 Create Table Detalle_idioma (
@@ -403,16 +403,16 @@ insert into Categoria (Id_categoria, Categoria) values (1,'Tecnico'),
                              (10,'Vendedores');
 
 insert into Parentesco (Parentesco) values('Papá'),('Mamá'),('Tio/a'),('Hijo/a'),('Abuelo/a'),('Cuñado/a'),('Primo/a'),('Novio/a');
+
+insert into Colaborador (Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando, Fecha_ingreso, Estado_colaborador) values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','2001-04-11',1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'2017-10-17', 1),
+                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','1999-10-05',1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'2017-05-13',1),
+                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','2001-04-05',2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'2015-07-15', 1);
         
 
-insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP)
- values (1,'01618181-4','avenida el colibri casa 61D','san salvador','20-08-2017','empresaria',1,'21-08-2022','20A08713','2020159','96374115'),
- (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u'),
- (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541');
-
-insert into Colaborador (Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, Id_datos, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_insitucional, Direccion_residencial, NIP, Nivel, Estudiando, Fecha_ingreso, Estado_colaborador) values (1,'NJ01', 'Jeffersson Joel','Novoa Lopez','M','2001-04-11',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'2017-10-17', 1),
-                             (2, 'RT01', 'tania eunice','Ramirez Martinez','F','1999-10-05',2,1,2,'22111079','75197129','20140353@ricaldone.edu.sv','Mejicanos','25475',1,0,'2017-05-13',1),
-                             (3, 'NP01', 'pedro Joel','Novoa Campos','M','2001-04-05',2,2,1,'25731127','78941235','20190524@ricaldone.edu.sv','San salvador','19478',0,1,'2015-07-15', 1);
+insert into Datos_identificacion (Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Id_Colaborador)
+ values (1,'01618181-4','avenida el colibri casa 61D','san salvador','20-08-2017','empresaria',1,'21-08-2022','20A08713','2020159','96374115',1),
+ (2,'06198408-9','colonia la gloria pasaje 3 casa 15E mejicanos','mejicanos','29-09-2017','motorista',2,'20-10-2021','4681351','168151','35431u',2),
+ (3,'15182545-3','Centro Urbano de Mejicanos Edificio F Apto 42','mejicans','10-10-2010','programador',1,'08-08-2018','15021521','316541351','646541', 3);
 
 insert into Detalle_idioma (Id_idioma, Id_Colaborador) values (1,1),(2,2),(3,3),(4,1),(5,2),(6,3),(7,1),(8,2),(9,3),(10,1);    --Agregada
 
@@ -558,7 +558,7 @@ SELECT R.Religion FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religio
 SELECT R.Religion, count(R.Id_religion) FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion Group By R.Id_religion;
 
 
-insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001',1,1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1);
+insert into Colaborador values (10, 'NJ02', 'Jeffersson Joel','Novoa Lopez','M','11-04-2001',1,1,'22731127','77497179','20170743@ricaldone.edu.sv','San salvador','11475',0,0,'20-10-2017', 1);
 
 
 

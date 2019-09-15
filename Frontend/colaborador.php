@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
 
-    <title>Tabla | Datos-Usuarios </title>
+    <title>Tabla | Colaborador </title>
 	
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
@@ -29,16 +29,14 @@
 				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos de los usuarios</h3>							
+							<h3 class="page-title">Datos de los Colaboradores</h3>							
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
 									<div class="panel-heading">
 										<!--Boton Agregar-->												
 										<a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
-
-										<!--Switch-->
-																			
+										<!--Switch-->																			
 
 									</div>
 									<div class="panel-body no-padding">
@@ -46,11 +44,21 @@
 											<table class="table table-striped" id="TablaUsuario">
 												<thead>
 													<tr>													
+                                                        <th>Codigo Colaborador</th>
 														<th>Nombres</th>
 														<th>Apellidos</th>
-														<th>Correo</th>
-														<th>Tipo usuario</th>
-														<th>User Name</th>
+														<th>Genero</th>
+														<th>Fecha de Nacimimento</th>
+														<th>Religion</th>
+														<th>Municipio</th>
+														<th>Teléfono Casa</th>
+														<th>Teléfono Celular</th>
+														<th>Correo Institucional</th>
+														<th> Dirección residencial</th>
+														<th>NIP</th>
+														<th>Nivel</th>
+														<th>Estudiando</th>
+														<th>Fecha Ingreso</th>	
 													</tr>
 												</thead>
 												<tbody id="tabla-usuario">
@@ -201,4 +209,3 @@
 	
 </body>
 </html>
-
