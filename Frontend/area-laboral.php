@@ -58,7 +58,7 @@
 			</div>	<!--Wrapper Fin-->
 
 <!-- Modal Modificar idioma-->
-<div class="modal fade bd-modificar-modal-xl" id="idiomaModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="arealaboralModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -69,26 +69,51 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificaridioma">
+					<form method="post" id="modificarArealaboral">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="idioma">idioma</label>
-                                <input type="Text" class="form-control" id="idioma" placeholder="idioma" name="idioma">
-                            </div>
-							<div class="form-group col-md-4">
-                                <label for="nivel">Tipo idioma</label>
-                                <select id="nivel" class="form-control" name="nivel">
-                                        
-                                </select>                               
-                            </div>
-				<!--Input invisible-->		<input type="hidden" id="Id_idioma" name="Id_idioma">
+								<div class="form-group col-md-4">
+									<label for="AreaB">Id area</label>
+									<select id="AreaB" name="AreaB" class="form-control">
+									</select>						
+								</div>
+								<div class="form-group col-md-4">
+									<label for="PuestoB">Id puesto</label>
+									<select id="PuestoB" name="PuestoB" class="form-control">
+									</select>						
+								</div>
+								<div class="form-group col-md-12">
+									<label for="SueldoB">Sueldo plaza</label>
+									<input type="text" class="form-control" id="SueldoB" aria-describedby="areaHelp" placeholder="Área" name="SueldoB">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="FechaB">Fecha ingreso</label>
+									<input type="text" class="form-control" id="FechaB" aria-describedby="areaHelp" placeholder="Área" name="FechaB">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="InicioB">Inicio contrato</label>
+									<input type="text" class="form-control" id="InicioB" aria-describedby="areaHelp" placeholder="Área" name="InicioB">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="FinB">Fin contrato</label>
+									<input type="text" class="form-control" id="FinB" aria-describedby="areaHelp" placeholder="Área" name="FinB">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="HorasB">Horas al dia</label>
+									<input type="text" class="form-control" id="HorasB" aria-describedby="areaHelp" placeholder="Área" name="HorasB">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+				<!--Input invisible-->		<input type="hidden" id="Id_laboral" name="Id_laboral">
                         </div>                            
 				</div>					
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Modficar</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button>
 			</form>	
 		</div>
 		</div>
@@ -96,7 +121,7 @@
 
 
 	<!-- Modal agregar idioma-->
-<div class="modal fade bd-modificar-modal-xl" id="idiomaAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="arealaboralAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -107,18 +132,43 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregaridioma">
+						<form method="post" id="agregarArealaboral">
 							<div class="form-row">
-								<div class="form-group col-md-6">
-									<label for="Idioma-A">Idioma</label>
-									<input type="Text" class="form-control" id="Idioma-A" placeholder="Idioma" name="Idioma-A">
+								<div class="form-group col-md-4">
+									<label for="AreaA">Id area</label>
+									<select id="AreaA" name="AreaA" class="form-control">
+									</select>						
 								</div>
 								<div class="form-group col-md-4">
-									<label for="Nivel-A">Tipo de Nivel</label>
-									<select id="Nivel-A" name="Nivel-A" class="form-control">
-									</select>									
-									
-								</div>						
+									<label for="PuestoA">Id puesto</label>
+									<select id="PuestoA" name="PuestoA" class="form-control">
+									</select>						
+								</div>
+								<div class="form-group col-md-12">
+									<label for="SueldoA">Sueldo plaza</label>
+									<input type="text" class="form-control" id="SueldoA" aria-describedby="areaHelp" placeholder="Área" name="SueldoA">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="FechaA">Fecha ingreso</label>
+									<input type="text" class="form-control" id="FechaA" aria-describedby="areaHelp" placeholder="Área" name="FechaA">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="InicioA">Inicio contrato</label>
+									<input type="text" class="form-control" id="InicioA" aria-describedby="areaHelp" placeholder="Área" name="InicioA">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="FinA">Fin contrato</label>
+									<input type="text" class="form-control" id="FinA" aria-describedby="areaHelp" placeholder="Área" name="FinA">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>
+								<div class="form-group col-md-12">
+									<label for="HorasA">Horas al dia</label>
+									<input type="text" class="form-control" id="HorasA" aria-describedby="areaHelp" placeholder="Área" name="HorasA">
+									<small id="areaHelp" class="form-text text-muted"></small>
+								</div>			
 							</div>
 						</div>                            					
 				</div>			  
@@ -142,7 +192,7 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/idioma.js"></script>	<!--Solo dejar el script del controlador-->
+	<script src="../Backend/core/controllers/area-laboral.js"></script>	<!--Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 	
 </body>

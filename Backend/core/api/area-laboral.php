@@ -6,14 +6,14 @@ require_once '../models/idioma.php';
 //Se comprueba si existe una acción a realizar, de lo contrario se muestra un mensaje de error
 if (isset($_GET['action'])) {
     session_start();
-    $idioma = new idioma;
+    $area_laboral = new Laboral;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     //$_SESSION['Id_usuario'] = 'Jopen';
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
             case 'read':
-                if ($result['dataset'] = $idioma->readidioma()) {
+                if ($result['dataset'] = $area_laboral->readLaboral()) {
                     $result['status'] = true;
                 } else {
                     $result['exception'] = 'No hay idiomas registrados';
@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
                 break;
 
             case 'create':
-                $_POST = $idioma->validateForm($_POST);
+                $_POST = $area_laboral->validateForm($_POST);
 
                     if($idioma->setidioma($_POST['Idioma-A'])){
                         if($idioma->setId_nivel_idioma($_POST['Nivel-A'])){
