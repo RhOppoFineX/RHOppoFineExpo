@@ -106,7 +106,7 @@ class Laboral extends Validator
 	
 
 	// Metodos para manejar el SCRUD
-	public function readidioma()
+	public function readLaboral()
 	{
 		$sql = 'SELECT Id_idioma, Idioma, N.Nivel as Nivel FROM idioma as I INNER JOIN nivel_idioma as N ON I.Id_nivel_idioma = N.Id_nivel_idioma ORDER BY Id_idioma';
 		$params = array(null);	

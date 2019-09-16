@@ -88,7 +88,7 @@
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
-											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
+											<li><a href="area-laboral.php" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Horarios</span></a></li>
 											<li><a href="area-detalle.php" class=""><i class="lnr lnr-dice"></i> <span>Area detalle</span></a></li>
 											</ul><!--Colaborador-->

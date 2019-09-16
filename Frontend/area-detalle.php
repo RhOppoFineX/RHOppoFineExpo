@@ -27,12 +27,12 @@
 
                                 <div class="panel">
 									<div class="panel-heading">
+									<a type="button" class="btn btn-success btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped" id="TablaArea">
 											<thead>
 												<tr>
-													<th>#</th>
 													<th>Codigo</th>
                                                     <th>Nombre</th>
                                                     <th>Apellido</th>
@@ -55,6 +55,82 @@
 					</div><!-- END MAIN CONTENT -->
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
+	
+<!-- Modal agregar usuarios-->
+<div class="modal fade bd-modificar-modal-xl" id="areadetalleAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ModalTitulo">Datos del areá detalle</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+			<div class="modal-body">
+					<div class="container-fluid">
+						<form method="post" id="agregarDetalleusuario">
+							<div class="form-row">
+								<div class="form-group col-md-4">
+									<label for="LaboralA">Id laboral</label>
+									<select id="LaboralA" name="LaboralA" class="form-control">
+									</select>						
+								</div>
+								<div class="form-group col-md-4">
+									<label for="ColaboradorA">Id colaborador</label>
+									<select id="ColaboradorA" name="ColaboradorA" class="form-control">
+									</select>						
+								</div>					
+							</div>
+						</div>                            					
+				</div>			  
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>			
+		</div>	
+	</div>
+</div>  <!--Fin del modal agregar usuarios-->
+
+<!-- Modal Modificar usuarios-->
+<div class="modal fade bd-modificar-modal-xl" id="detalleareaModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ModalTitulo">Datos del areá detalle</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+					<form method="post" id="modificarDetallearea">
+                        <div class="form-row">
+						<div class="form-group col-md-4">
+									<label for="LaboralB">Id laboral</label>
+									<select id="LaboralB" name="LaboralB" class="form-control">
+									</select>						
+								</div>
+								<div class="form-group col-md-4">
+									<label for="ColaboradorB">Id colaborador</label>
+									<select id="ColaboradorB" name="ColaboradorB" class="form-control">
+									</select>						
+								</div>	
+
+				<!--Input invisible--><input type="hidden" id="Id_area_detalle" name="Id_area_detalle">
+                        </div>                            
+				</div>					
+			</div>			  
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Modficar</button>
+			</form>	
+		</div>
+		</div>
+    </div>  <!--Fin del modal modificar usuarios-->
+
+
 
     <!--Scripts necesarios siempre-->
 <!--Modals para editar perfil-->

@@ -4,9 +4,7 @@ $(document).ready(function()
 })
 
 // Constante para establecer la ruta y parámetros de comunicación con la apiidioma
-const apiidioma = '../../RHOppoFineExpo/Backend/core/api/idioma.php?action=';
-
-const tablaPadre = '../../RHOppoFineExpo/Backend/core/api/nivel-idioma.php?action=read';
+const api = '../../RHOppoFineExpo/Backend/core/api/area-laboral.php?action=';
 
 // Función para llenar tabla con los datos de los registros
 function fillTable(rows)
@@ -16,27 +14,33 @@ function fillTable(rows)
     rows.forEach(function(row){
         content += `
             <tr>                
-                <td>${row.Idioma}</td>
-                <td>${row.Nivel}</td>
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_idioma})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiidioma}', ${row.Id_idioma}, null)">Deshabilitar</a></td> 
+                <td>${row.Id_area}</td>
+                <td>${row.Id_puesto}</td>
+                <td>${row.Sueldo_plaza}</td>
+                <td>${row.Fecha_ingreso}</td>
+                <td>${row.Inicio_contrato}</td>
+                <td>${row.Fin_contrato}</td>
+                <td>${row.Horas_al_dia}</td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_laboral})">Modificar</a></td>
+                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${api}', ${row.Id_laboral}, null, 'disable')">Deshabilitar</a></td> 
+                <td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${row.Id_laboral}, null, 'delete')">Eliminar</a></td> 
             </tr>
         `;
     });
-    $('#tabla-idioma').html(content);       
+    $('#tabla-laboral').html(content);       
 }
 
 // Función para obtener y mostrar los registros disponibles
 function showTable()
 {
     $.ajax({
-        url: apiidioma + 'read',
+        url: api + 'read',
         type: 'post',
         data: null,
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiidioma es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
@@ -54,73 +58,40 @@ function showTable()
     });
 }
 
-// Función para mostrar los resultados de una búsqueda
-$('#form-search').submit(function()
-{
-    event.preventDefault();
-    $.ajax({
-        url: apiidioma + 'search',
-        type: 'post',
-        data: $('#form-search').serialize(),
-        datatype: 'json'
-    })
-    .done(function(response){
-        // Se verifica si la respuesta de la apiidioma es una cadena JSON, sino se muestra el resultado en consola
-        if (isJSONString(response)) {
-            const result = JSON.parse(response);
-            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
-                fillTable(result.dataset);
-                sweetAlert(1, result.message, null);
-            } else {
-                sweetAlert(3, result.exception, null);
-            }
-        } else {
-            console.log(response);
-        }
-    })
-    .fail(function(jqXHR){
-        // Se muestran en consola los posibles errores de la solicitud AJAX
-        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-    });
-})
-
 // Función para mostrar formulario insertar en blanco
 function modalCreate()
 {
-    $('#agregaridioma')[0].reset();//Id del formulario
-    fillSelect(tablaPadre, 'Nivel-A', null);//llenar el combo
-    //Tipos-A es el Id del combobox
-    $('#idiomaAgregar').modal('show');//Id del modal
+    $('#agregarUsuario')[0].reset();//Id del formulario
+    $('#usuarioAgregar').modal('show');//Id del modal
 }
 
 // Función para crear un nuevo registro
-$('#agregaridioma').submit(function()
+$('#agregarUsuario').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiidioma + 'create',
+        url: api + 'create',
         type: 'post',
-        data: new FormData($('#agregaridioma')[0]),
+        data: new FormData($('#agregarUsuario')[0]),
         datatype: 'json',
         cache: false,
         contentType: false,
         processData: false
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiidioma es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {               
-                $('#idiomaAgregar').modal('hide');
+                $('#usuarioAgregar').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {
                 sweetAlert(2, result.exception, null);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, response, null);
         }
     })
     .fail(function(jqXHR){
@@ -133,23 +104,26 @@ $('#agregaridioma').submit(function()
 function actualizarModal(id)
 {
     $.ajax({
-        url: apiidioma + 'get',
+        url: apiUsuario + 'get',
         type: 'post',
         data:{
-            Id_idioma: id
+            Id_usuario: id
         },
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiidioma es una cadena JSON, sino se muestra el resultado consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_idioma').val(result.dataset.Id_idioma);
-                $('#idioma').val(result.dataset.Idioma);
-                fillSelect(tablaPadre, 'nivel', result.dataset.Id_nivel_idioma);           
-                $('#idiomaModificar').modal('show');   
+                $('#Id_usuario').val(result.dataset.Id_usuario);
+                $('#Nombres').val(result.dataset.Nombres_usuario);
+                $('#Apellidos').val(result.dataset.Apellidos_usuario);
+                $('#Correo').val(result.dataset.Correo_usuario);
+                $('#userName').val(result.dataset.Alias_usuario);
+                fillSelect(tablaPadre, 'Tipos', result.dataset.Id_tipo_usuario);           
+                $('#usuarioModificar').modal('show');   
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -165,33 +139,33 @@ function actualizarModal(id)
 
 // Función para modificar un registro seleccionado previamente
 //Id del formulario
-$('#modificaridioma').submit(function()
+$('#modificarUsuario').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiidioma + 'update',
+        url: apiUsuario + 'update',
         type: 'post',
-        data: new FormData($('#modificaridioma')[0]),
+        data: new FormData($('#modificarUsuario')[0]),
         datatype: 'json',
         cache: false,
         contentType: false,
         processData: false
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiidioma es una cadena JSON, sino se muestra el resultado en consola
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#idiomaModificar').modal('hide');
+                $('#usuarioModificar').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);         
                 
             } else {
-                sweetAlert(2, result.exception, null);                
+                sweetAlert(2, result.exception, null);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, response, null);
         }
     })
     .fail(function(jqXHR){
