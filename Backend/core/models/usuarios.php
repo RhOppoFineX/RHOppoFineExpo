@@ -13,6 +13,27 @@ class Usuarios extends Validator
 	private $Intentos = null;
 	private $Estado = null;
 	private $Tipo_usuario = null;
+	private $actividad = null;
+
+	/**
+	 * Get the value of Actividad
+	 */ 
+	public function getActividad()
+	{
+		return $this->Actividad;
+	}
+
+	/**
+	 * Set the value of Actividad
+	 *
+	 * @return  self
+	 */ 
+	public function setActividad($Actividad)
+	{
+		$this->Actividad = $Actividad;
+
+		return $this;
+	}
 
 	public function setTipo_usuario($value)
 	{
@@ -282,5 +303,52 @@ class Usuarios extends Validator
 		$params = array($this->Estado, $this->id);
 		return Database::executeRow($sql, $params);		
 	}
+
+	public function checkCorreo()
+	{
+		$sql = 'SELECT Clave_usuario FROM usuario as U WHERE U.Id_usuario = ?';
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+
+		if(!password_verify($this->correo, $data['Clave_usuario'])){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function checkPassForEmail()
+	{
+		$sql = 'SELECT Correo_usuario FROM usuario as U WHERE U.Id_usuario = ?';
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+
+		if($this->clave != $data['Correo_usuario']){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function checkActividad()
+	{
+		$sql = 'SELECT (Actividad < 1) as Actividad FROM Usuario WHERE Correo_usuario = ?';
+		$params = array($this->correo);
+		$data = Database::getRow($sql, $params);
+
+		return $data['Actividad'];
+
+	}
+
+	public function updateActividad()
+	{
+		$sql = 'UPDATE usuario as U set U.Actividad = ? WHERE U.Correo_usuario = ?';
+		$params = array($this->actividad, $this->correo);
+		
+
+	}
+
+
+	
 }
 ?>

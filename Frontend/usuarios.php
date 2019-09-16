@@ -15,10 +15,10 @@
 <body>
 	<?php
 		//Control de Sesión y privilegios de Usuario				
-		require_once '../backend/core/helpers/sesion.php';
-		Session::iniSession();
-		$_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
-		Session::verifcarPrivilegio();
+		// require_once '../backend/core/helpers/sesion.php';
+		// Session::iniSession();
+		// $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
+		// Session::verifcarPrivilegio();
 	?>
 
 	<div id="wrapper">
@@ -103,7 +103,7 @@
 							
 							<div class="form-group col-md-4">
                                 <label for="Tipos">Tipo usuario</label>
-                                <select id="Tipos" class="form-control" name="Tipos">
+                                <select id="Tipos" class="form-control" name="Tipos" required>
                                         
                                 </select>									
                                 
@@ -142,34 +142,34 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label for="Apellidos-A">Apellidos-A</label>
-									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A" name="Apellidos-A">
+									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A" name="Apellidos-A" required>
 								</div>
 								<div class="form-group col-md-8">
 									<label for="Correo-A">Correo electonico</label>
-									<input type="email" class="form-control" id="Correo-A" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo-A">
+									<input type="email" class="form-control" id="Correo-A" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo-A" required>
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
 									<label for="userName-A">User Name</label>
-									<input type="text" class="form-control" id="userName-A" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName-A">
+									<input type="text" class="form-control" id="userName-A" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName-A" required>
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
 									<label for="Contraseña-A">Contraseña</label>
-									<input type="password" class="form-control" id="Contraseña-A" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña-A">
+									<input type="password" class="form-control" id="Contraseña-A" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña-A" required>
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 	
 								<div class="form-group col-md-4">
 									<label for="ContraseñaDos-A">Repetir Contraseña</label>
-									<input type="password" class="form-control" id="ContraseñaDos-A" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos-A">
+									<input type="password" class="form-control" id="ContraseñaDos-A" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos-A" required>
 									<small id="emailHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-4">
 									<label for="Tipos-A">Tipo usuario</label>
-									<select id="Tipos-A" name="Tipos-A" class="form-control">
+									<select id="Tipos-A" name="Tipos-A" class="form-control" required>
 									
 									</select>									
 									

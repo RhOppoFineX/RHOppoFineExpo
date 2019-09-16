@@ -12,8 +12,8 @@
 <body>
 	<?php
 		//Control de Sesión
-		require_once '../backend/core/helpers/sesion.php';
-		Session::iniSession();
+		// require_once '../backend/core/helpers/sesion.php';
+		// Session::iniSession();
 	?>
 
 	<!-- WRAPPER -->
@@ -30,11 +30,11 @@
 							<form class="" method="post" id="form-login" autocomplete="on"> <!---action="index.php"--->
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" class="form-control" id="signin-email" placeholder="Email" name="signin-email">
+									<input type="email" class="form-control" id="signin-email" placeholder="Email" name="signin-email" required>
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" placeholder="Password" name="signin-password">
+									<input type="password" class="form-control" id="signin-password" placeholder="Password" name="signin-password" required>
 								</div>
 								<div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
