@@ -19,6 +19,11 @@ function signOff()
     });
 }
 
+function signOffIncative()
+{    
+    location.href = '../../../../RHOppoFineExpo/Frontend/cerrar.php';
+}
+
 // Función para mostrar formulario de perfil de usuario
 function modalProfile()
 {

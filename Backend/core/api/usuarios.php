@@ -11,6 +11,14 @@ if (isset($_GET['action'])) {
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
+
+            case 'logout':
+                if (session_destroy()) {
+                    header('location: ../../../Frontend/');
+                } else {
+                    header('location: ../../../Frontend/dashboard/main.php');
+                }
+            break;
            
             case 'readProfile':
                 if ($usuario->setId($_SESSION['Id_usuario'])) {

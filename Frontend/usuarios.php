@@ -79,7 +79,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarUsuario">
+					<form method="post" id="modificarUsuario" autocomplete="off">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Nombres">Nombres</label>
@@ -134,7 +134,7 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregarUsuario">
+						<form method="post" id="agregarUsuario" autocomplete="off">
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="Nombres-A">Nombres-A</label>

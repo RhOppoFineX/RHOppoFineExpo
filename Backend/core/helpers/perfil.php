@@ -11,7 +11,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="perfil-update">
+					<form method="post" id="perfil-update" autocomplete="off">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Nombres-P">Nombres</label>
