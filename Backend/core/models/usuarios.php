@@ -30,9 +30,12 @@ class Usuarios extends Validator
 	 */ 
 	public function setActividad($Actividad)
 	{
-		$this->Actividad = $Actividad;
-
-		return $this;
+		if($this->validateInteger($Actividad)){
+			$this->actividad = $Actividad;
+			return true;
+		} else {
+			return false;
+		}		
 	}
 
 	public function setTipo_usuario($value)
@@ -342,10 +345,9 @@ class Usuarios extends Validator
 
 	public function updateActividad()
 	{
-		$sql = 'UPDATE usuario as U set U.Actividad = ? WHERE U.Correo_usuario = ?';
+		$sql = 'UPDATE Usuario set Actividad = ? WHERE Correo_usuario = ?';
 		$params = array($this->actividad, $this->correo);
-		
-
+		return Database::executeRow($sql, $params);
 	}
 
 

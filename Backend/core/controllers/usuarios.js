@@ -5,7 +5,7 @@ $(document).ready(function()
     showTable();
 
     //Increment the idle time counter every minute.
-    var idleInterval = setInterval(timerIncrement, 6000); // 1 minute
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
 
     //Zero the idle timer on mouse movement.
     $(this).mousemove(function (e) {

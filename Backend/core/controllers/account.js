@@ -14,14 +14,14 @@ function signOff()
     })
     .then(function(value){
         if (value) {
-            location.href = '../../../../RHOppoFineExpo/Frontend/cerrar.php';
+            location.href = apiAccount + 'logout';
         }
     });
 }
 
 function signOffIncative()
 {    
-    location.href = '../../../../RHOppoFineExpo/Frontend/cerrar.php';
+    location.href = apiAccount + 'logout';    
 }
 
 // Función para mostrar formulario de perfil de usuario

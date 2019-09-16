@@ -13,10 +13,22 @@ if (isset($_GET['action'])) {
         switch ($_GET['action']) {
 
             case 'logout':
-                if (session_destroy()) {
-                    header('location: ../../../Frontend/');
+                if($usuario->setActividad(0)){
+                    if($usuario->setCorreo($_SESSION['Correo_usuario'])){
+                        if($usuario->updateActividad()){
+                            if (session_destroy()){
+                                header('location: ../../../Frontend/');
+                            } else {
+                                header('location: ../../../Frontend/cerrar.php');
+                            }
+                        } else {
+                            $result['exception'] = 'No se ha podido actulizar la actividad del usuario';
+                        }
+                    } else {
+                        $result['exception'] = 'Correo Invalido';
+                    }
                 } else {
-                    header('location: ../../../Frontend/dashboard/main.php');
+                    $result['exception'] = 'Dato de activida no valido';
                 }
             break;
            
@@ -338,19 +350,28 @@ if (isset($_GET['action'])) {
                         if ($usuario->setClave($_POST['signin-password'])) {
                             if ($usuario->checkPassword()) {
                                 if($usuario->checkActividad()){
-                                    if($usuario->setIntentos(0)){
-                                        if($usuario->aumentarIntentos()){
-                                            $_SESSION['Id_usuario'] = $usuario->getId();
-                                            $_SESSION['Correo_usuario'] = $usuario->getCorreo();
-                                            $_SESSION['Tipo_usuario'] = $usuario->getTipo_usuario();
-                                            $result['status'] = true;
-                                            $result['message'] = 'Autenticación correcta';                                                          
+                                    if($usuario->setActividad(1)){
+                                        if($usuario->updateActividad()){
+                                            if($usuario->setIntentos(0)){
+                                                if($usuario->aumentarIntentos()){
+                                                    $_SESSION['Id_usuario'] = $usuario->getId();
+                                                    $_SESSION['Correo_usuario'] = $usuario->getCorreo();
+                                                    $_SESSION['Tipo_usuario'] = $usuario->getTipo_usuario();
+                                                    $result['status'] = true;
+                                                    $result['message'] = 'Autenticación correcta';                                                 
+                                                } else {
+                                                    $result['exception'] = 'Ha fallado';
+                                                }
+                                            } else {
+                                                $result['exception'] = 'Ha fallado';
+                                            }
                                         } else {
-                                            $result['exception'] = 'Ha fallado';
+                                            $result['exception'] = 'No se ha podido cambiar la actividad';
                                         }
                                     } else {
-                                        $result['exception'] = 'Ha fallado';
+                                        $result['exception'] = 'Dato de actividad no valido';
                                     }
+
                                 } else {
                                     $result['exception'] = 'Ya hay una sesión activa de esta cuenta';
                                 }                                

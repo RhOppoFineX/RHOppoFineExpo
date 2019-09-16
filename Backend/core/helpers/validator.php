@@ -40,7 +40,7 @@ class Validator
     {
         foreach ($fields as $index => $value) {
             $value = trim($value);
-            $value = htmlentities($value);
+            $value = htmlentities($value);//Para ataques Xss Convierte javascript y html a texto plano
             $fields[$index] = $value;
         }
         return $fields;
@@ -177,11 +177,12 @@ class Validator
 
     public function validatePassword($value)
     {
-        $uppercase = preg_match('@[A-Z]@', $value);
-        $lowercase = preg_match('@[a-z]@', $value);
-        $number    = preg_match('@[0-9]@', $value);
+        $uppercase = preg_match('@[A-Z]@', $value);//Al menos una mayuscula
+        $lowercase = preg_match('@[a-z]@', $value);//Al menos una minuscula
+        $number    = preg_match('@[0-9]@', $value);//Al menos numero
+        $special   = preg_match("/\W/", $value);//Al menos un caracter especial 
 
-        if (strlen($value) > 7 && $uppercase && $lowercase && $number) {
+        if (strlen($value) > 7 && $uppercase && $lowercase && $number && $special) {
             return true;
         } else {
             return false;
