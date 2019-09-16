@@ -43,7 +43,7 @@ class Laboral extends Validator
     
     public function setFecha($value)
 	{
-		if ($this->validateAlphanumeric($value, 1, 50)) {
+		if ($this->validateDate($value, 1, 50)) {
 			$this->fecha = $value;
 			return true;
 		} else {
