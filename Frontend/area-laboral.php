@@ -69,7 +69,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarArealaboral">
+					<form method="post" id="modificarArealaboral" autocomplete="off">
                         <div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="AreaB">Id area</label>
@@ -132,7 +132,7 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregarArealaboral">
+						<form method="post" id="agregarArealaboral" autocomplete="off">
 							<div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="AreaA">Id area</label>

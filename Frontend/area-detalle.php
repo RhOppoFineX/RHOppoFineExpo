@@ -68,7 +68,7 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregarDetalleusuario">
+						<form method="post" id="agregarDetalleusuario" autocomplete="off">
 							<div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="LaboralA">Id laboral</label>
@@ -104,7 +104,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarDetallearea">
+					<form method="post" id="modificarDetallearea" autocomplete="off">
                         <div class="form-row">
 						<div class="form-group col-md-4">
 									<label for="LaboralB">Id laboral</label>

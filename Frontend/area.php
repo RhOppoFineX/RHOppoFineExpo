@@ -66,7 +66,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form method="post" id="actualizarArea">		
+						<form method="post" id="actualizarArea" autocomplete="off">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 											<!--nuevo input es invisible-->	<input type="hidden" id="Id_area" name="Id_area">
@@ -98,7 +98,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid">
-						<form method="post" id="insertarArea">		
+						<form method="post" id="insertarArea" autocomplete="off">		
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="Area">Área</label>
