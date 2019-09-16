@@ -71,7 +71,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="actualizar-estado">
+					<form method="POST" id="actualizar-estado" autocomplete="off">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 			<!--nuevo inpunt es invisible--><input type="hidden" id="Id_estado-civil" name="Id_estado-civil">
@@ -105,10 +105,10 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="estadoCivil-Insertar">
+					<form method="post" id="estadoCivil-Insertar" autocomplete="off">
 							<div class="form-group col-md-12">							
 									<label for="EstadoCivil">Estado Civil</label>
-									<input type="text" class="form-control" id="EstadoCivil" aria-describedby="estadoHelp" placeholder="Estado Civil" name="EstadoCivil">
+									<input type="text" class="form-control" id="EstadoCivil" aria-describedby="estadoHelp" placeholder="Estado Civil" name="EstadoCivil" required>
 									<small id="estadoHelp" class="form-text text-muted"></small>
 							</div>						
 					</div>											

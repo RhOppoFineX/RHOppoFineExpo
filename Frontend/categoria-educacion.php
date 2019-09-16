@@ -73,7 +73,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-categoria">
+					<form method="POST" id="modificar-categoria" autocomplete="off">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 					<!--Input invisible-->  <input type="hidden" id="Id_categoria" name="Id_categoria">
@@ -110,7 +110,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertarCategoria">
+					<form method="post" id="insertarCategoria" autocomplete="off">
 							<div class="form-group col-md-12">							
 									<label for="Categoria">Categoria</label>
 									<input type="text" class="form-control" id="Categoria" aria-describedby="categoriaHelp" placeholder="Categoria" name="Categoria" required>

@@ -72,7 +72,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-tipo">
+					<form method="POST" id="modificar-tipo" autocomplete="off">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 					<!--Input invisible-->	<input type="hidden" id="Id_tipo_equipo" name="Id_tipo_equipo">	
@@ -106,7 +106,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="Insertar-tipoEquipo">
+					<form method="post" id="Insertar-tipoEquipo" autocomplete="off">
 							<div class="form-group col-md-12">							
 									<label for="TipoEquipo">Tipo Equipo</label>
 									<input type="text" class="form-control" id="TipoEquipo" aria-describedby="tipoEquipoHelp" placeholder="TipoEquipo" name="TipoEquipo" required>
