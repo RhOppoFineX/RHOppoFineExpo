@@ -80,7 +80,7 @@
 							<div class="form-group col-md-12">
 								<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion" name="Id_religion">	
 									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion"><!--Agreguen los name="" mismo que el id-->
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion" required><!--Agreguen los name="" mismo que el id-->
 									<small id="religionHelp" class="form-text text-muted"></small>
 									
 							</div>
@@ -89,8 +89,8 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Modficar</button><!--Quitarle el data-dismiss-->
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar esta etiqueta de cierre form hasta aca-->
 		</div>
 		</div>
@@ -137,7 +137,7 @@
 					<form method="post" id="insertarReligion">
 							<div class="form-group col-md-12">							
 									<label for="Religion">Religión</label>
-									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion">
+									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion" required> 
 									<small id="religionHelp" class="form-text text-muted"></small>
 							</div>
 						
@@ -145,7 +145,7 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button><!--Quitarle el data-dismiss-->
 			</form><!--Bajar el etiqueta form hasta aca-->
 		</div>

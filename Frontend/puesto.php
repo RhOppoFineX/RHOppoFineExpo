@@ -69,14 +69,14 @@
 							<div class="form-group col-md-12">
 									<!--nuevo input es invisible-->	<input type="hidden" id="Id_puesto" name="Id_puesto">	
 									<label for="Puesto">Puesto</label>
-									<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto">
+									<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto" required>
 									<small id="puestoHelp" class="form-text text-muted"></small>
 							</div>
 					</div>
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Modificar</button>
 			</form>
 		</div>
@@ -98,14 +98,14 @@
 					<form method="post" id="insertarPuesto">
 									<div class="form-group col-md-12">	
 											<label for="exampleInputPuesto1">Puesto</label>
-											<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto">
+											<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto" required>
 											<small id="puestoHelp" class="form-text text-muted"></small>
 									</div>
 					</div>
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>
 		</div>

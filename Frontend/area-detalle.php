@@ -72,12 +72,12 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="LaboralA">Id laboral</label>
-									<select id="LaboralA" name="LaboralA" class="form-control">
+									<select id="LaboralA" name="LaboralA" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-4">
 									<label for="ColaboradorA">Id colaborador</label>
-									<select id="ColaboradorA" name="ColaboradorA" class="form-control">
+									<select id="ColaboradorA" name="ColaboradorA" class="form-control" required>
 									</select>						
 								</div>					
 							</div>
@@ -108,12 +108,12 @@
                         <div class="form-row">
 						<div class="form-group col-md-4">
 									<label for="LaboralB">Id laboral</label>
-									<select id="LaboralB" name="LaboralB" class="form-control">
+									<select id="LaboralB" name="LaboralB" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-4">
 									<label for="ColaboradorB">Id colaborador</label>
-									<select id="ColaboradorB" name="ColaboradorB" class="form-control">
+									<select id="ColaboradorB" name="ColaboradorB" class="form-control" required>
 									</select>						
 								</div>	
 
@@ -124,7 +124,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Modficar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button>
 			</form>	
 		</div>
 		</div>

@@ -71,7 +71,7 @@
 										<div class="form-group col-md-12">
 											<!--nuevo input es invisible-->	<input type="hidden" id="Id_area" name="Id_area">
 												<label for="Area">Área</label>
-												<input type="text" class="form-control" id="Area" aria-describedby="areaHelp" placeholder="Área" name="Area">
+												<input type="text" class="form-control" id="Area" aria-describedby="areaHelp" placeholder="Área" name="Area" required>
 												<small id="areaHelp" class="form-text text-muted"></small>
 										</div>
 								</div>
@@ -79,7 +79,7 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 				<button type="submit" class="btn btn-primary">Modificar</button>
 				</form>
 			</div>
@@ -102,7 +102,7 @@
 								<div class="form-row">
 										<div class="form-group col-md-12">
 												<label for="Area">Área</label>
-												<input type="text" class="form-control" id="AreaID" aria-describedby="areaHelp" placeholder="Área" name="AreaID">
+												<input type="text" class="form-control" id="AreaID" aria-describedby="areaHelp" placeholder="Área" name="AreaID" required>
 												<small id="areaHelp" class="form-text text-muted"></small>
 										</div>
 								</div>
@@ -110,7 +110,7 @@
 				</div>			  
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 				<button type="submit" class="btn btn-primary">Agregar</button>
 				</form>
 			</div>
