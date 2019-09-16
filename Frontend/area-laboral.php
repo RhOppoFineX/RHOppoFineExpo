@@ -73,37 +73,37 @@
                         <div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="AreaB">Id area</label>
-									<select id="AreaB" name="AreaB" class="form-control">
+									<select id="AreaB" name="AreaB" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-4">
 									<label for="PuestoB">Id puesto</label>
-									<select id="PuestoB" name="PuestoB" class="form-control">
+									<select id="PuestoB" name="PuestoB" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-12">
 									<label for="SueldoB">Sueldo plaza</label>
-									<input type="text" class="form-control" id="SueldoB" aria-describedby="areaHelp" placeholder="Área" name="SueldoB">
+									<input type="text" class="form-control" id="SueldoB" aria-describedby="areaHelp" placeholder="Área" name="SueldoB" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="FechaB">Fecha ingreso</label>
-									<input type="text" class="form-control" id="FechaB" aria-describedby="areaHelp" placeholder="Área" name="FechaB">
+									<input type="text" class="form-control" id="FechaB" aria-describedby="areaHelp" placeholder="Área" name="FechaB" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="InicioB">Inicio contrato</label>
-									<input type="text" class="form-control" id="InicioB" aria-describedby="areaHelp" placeholder="Área" name="InicioB">
+									<input type="text" class="form-control" id="InicioB" aria-describedby="areaHelp" placeholder="Área" name="InicioB" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="FinB">Fin contrato</label>
-									<input type="text" class="form-control" id="FinB" aria-describedby="areaHelp" placeholder="Área" name="FinB">
+									<input type="text" class="form-control" id="FinB" aria-describedby="areaHelp" placeholder="Área" name="FinB" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="HorasB">Horas al dia</label>
-									<input type="text" class="form-control" id="HorasB" aria-describedby="areaHelp" placeholder="Área" name="HorasB">
+									<input type="text" class="form-control" id="HorasB" aria-describedby="areaHelp" placeholder="Área" name="HorasB" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 				<!--Input invisible-->		<input type="hidden" id="Id_laboral" name="Id_laboral">
@@ -136,37 +136,37 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="AreaA">Id area</label>
-									<select id="AreaA" name="AreaA" class="form-control">
+									<select id="AreaA" name="AreaA" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-4">
 									<label for="PuestoA">Id puesto</label>
-									<select id="PuestoA" name="PuestoA" class="form-control">
+									<select id="PuestoA" name="PuestoA" class="form-control" required>
 									</select>						
 								</div>
 								<div class="form-group col-md-12">
 									<label for="SueldoA">Sueldo plaza</label>
-									<input type="text" class="form-control" id="SueldoA" aria-describedby="areaHelp" placeholder="Área" name="SueldoA">
+									<input type="text" class="form-control" id="SueldoA" aria-describedby="areaHelp" placeholder="Área" name="SueldoA" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="FechaA">Fecha ingreso</label>
-									<input type="text" class="form-control" id="FechaA" aria-describedby="areaHelp" placeholder="Área" name="FechaA">
+									<input type="text" class="form-control" id="FechaA" aria-describedby="areaHelp" placeholder="Área" name="FechaA" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="InicioA">Inicio contrato</label>
-									<input type="text" class="form-control" id="InicioA" aria-describedby="areaHelp" placeholder="Área" name="InicioA">
+									<input type="text" class="form-control" id="InicioA" aria-describedby="areaHelp" placeholder="Área" name="InicioA" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="FinA">Fin contrato</label>
-									<input type="text" class="form-control" id="FinA" aria-describedby="areaHelp" placeholder="Área" name="FinA">
+									<input type="text" class="form-control" id="FinA" aria-describedby="areaHelp" placeholder="Área" name="FinA" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group col-md-12">
 									<label for="HorasA">Horas al dia</label>
-									<input type="text" class="form-control" id="HorasA" aria-describedby="areaHelp" placeholder="Área" name="HorasA">
+									<input type="text" class="form-control" id="HorasA" aria-describedby="areaHelp" placeholder="Área" name="HorasA" required>
 									<small id="areaHelp" class="form-text text-muted"></small>
 								</div>			
 							</div>
