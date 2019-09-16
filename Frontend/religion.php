@@ -76,7 +76,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="actualizarReligion">
+					<form method="post" id="actualizarReligion" autocomplete="off">
 							<div class="form-group col-md-12">
 								<!--nuevo input es invisible-->	<input type="hidden" id="Id_religion" name="Id_religion">	
 									<label for="Religion">Religión</label>
@@ -134,7 +134,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertarReligion">
+					<form method="post" id="insertarReligion" autocomplete="off">
 							<div class="form-group col-md-12">							
 									<label for="Religion">Religión</label>
 									<input type="text" class="form-control" id="Religion" aria-describedby="religionHelp" placeholder="Religión" name="Religion" required> 
