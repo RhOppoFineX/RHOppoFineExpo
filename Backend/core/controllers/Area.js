@@ -16,9 +16,10 @@ function fillTable(filas)
         contenido+= `
             <tr>
                 <td>${fila.Id_area}</td>
-                <td>${fila.Area}</td>							
+                <td>${fila.Area}</td>						
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_area})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area}, null)">Deshabilitar</a></td>
+                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area}, null, 'disable')">Deshabilitar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla

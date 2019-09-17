@@ -40,7 +40,7 @@ class Area extends Validator
 
         public function setEstado($Estado)
         {
-            if($Estado === 0 || $Estado === 1){
+            if($this->validateInteger($Estado)){
                 $this->Estado = $Estado;
                 return true;
             }else{

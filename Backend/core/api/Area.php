@@ -15,7 +15,28 @@ if(isset($_GET['action']))
     //Se verifica si existe una sesión iniciada antes de proceder
     //El switch case evalua que opcion del crud va a ejecutar
     if(isset($_SESSION['Id_usuario'])) {
-     switch ($_GET['action']){           
+     switch ($_GET['action']){       
+         
+        case 'disable':                
+                    if($area->setId($_POST['identifier'])){
+                        if($area->setEstado(0)){
+                            if($area->getAreaModal()){
+                                if($area->disableArea()){
+                                    $result['status'] = true;
+                                    $result['message'] = 'Usuario deshabilitado correctamente';
+                                } else {
+                                    $result['exception'] = 'Operación fallida';
+                                }
+                            } else {
+                                $result['exception'] = 'Usuario inexistente';
+                            }
+                        } else {
+                            $result['exception'] = 'Estado incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Usuario Incorrecto';
+                    }                               
+         break;
 
          case 'read':                          //metodo del modelo 
             if($resultado['dataset'] = $area->selectArea()){
@@ -94,6 +115,8 @@ if(isset($_GET['action']))
                 $resultado['exception'] = 'Area Incorrecta';
             }
          break;
+
+         
 
          default:
             exit('Acción no disponible');
