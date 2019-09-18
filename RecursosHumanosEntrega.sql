@@ -34,8 +34,23 @@ Create Table Usuario(
     Intentos TINYINT NOT NULL DEFAULT 0,
     Estado TINYINT(1) NOT NULL DEFAULT 1,               
     Actividad TINYINT(1) NOT NULL DEFAULT 0,
+    Fecha date NOT NULL,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
+
+-- Create Table Vistas(
+--     Id_vistas INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     Nombre,
+--     ruta, 
+--     icono
+-- );
+
+-- Create Table Acciones(
+--     Id_acciones INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     Id_vista,
+--     Id_tipo_usuario,
+--     Estado,
+-- );
 --Petardo
 Create Table Permisos(
     Id_permiso Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,

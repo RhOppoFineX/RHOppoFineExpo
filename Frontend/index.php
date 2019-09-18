@@ -27,21 +27,21 @@
 								<div class="logo text-center"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" width="210" height="90" class="img-responsive"></div>
 								<p class="lead">Ingresa tu cuenta</p>
 							</div>
-							<form class="" method="post" id="form-login" autocomplete="on"> <!---action="index.php"--->
+							<form class="" method="post" id="form-login" autocomplete="off"> <!---action="index.php"--->
 								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" class="form-control" id="signin-email" placeholder="Email" name="signin-email" required>
+									<label for="signin-email" class="control-label sr-only">Correo</label>
+									<input type="email" class="form-control" id="signin-email" placeholder="Correo" name="signin-email" required>
 								</div>
 								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" placeholder="Password" name="signin-password" required>
+									<label for="signin-password" class="control-label sr-only">Contraseña</label>
+									<input type="password" class="form-control" id="signin-password" placeholder="Contraseña" name="signin-password" required>
 								</div>
-								<div class="form-group clearfix">
+								<!-- <div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
 										<input type="checkbox">
 										<span>Recordar Contraseña</span>
 									</label>
-								</div>
+								</div> -->
 								<button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
 								<div class="submit">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">¿Olvidastes tu Contraseña?</a></span>

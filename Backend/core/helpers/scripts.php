@@ -8,4 +8,5 @@
 	<script src="../Backend/core/helpers/validator.js"></script><!--Verfica si es un json-->
 	<script src="../Backend/core/helpers/components.js"></script><!--Metodos eliminar, llenar combobox-->
 	<script src="../Backend/core/controllers/account.js"></script><!--Para el manejo de sesiones-->
+	<script src="http://momentjs.com/downloads/moment.min.js"></script><!--para lo de los 90 dias-->
 	

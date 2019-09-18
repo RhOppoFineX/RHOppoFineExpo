@@ -19,8 +19,8 @@ class Database
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
         $database = 'recursoshumanos';
-        $username = 'root';
-        $password = 'root123';
+        $username = 'rhexpo';
+        $password = '12345678mn$';
         try {
             @self::$connection = new PDO('mysql:host='.$server.'; dbname='.$database.'; charset=utf8', $username, $password);
         } catch(PDOException $error) {

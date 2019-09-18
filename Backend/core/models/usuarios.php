@@ -14,6 +14,30 @@ class Usuarios extends Validator
 	private $Estado = null;
 	private $Tipo_usuario = null;
 	private $actividad = null;
+	private $Fecha = null;
+
+	/**
+	 * Get the value of Fecha
+	 */ 
+	public function getFecha()
+	{
+		return $this->Fecha;
+	}
+
+	/**
+	 * Set the value of Fecha
+	 *
+	 * @return  self
+	 */ 
+	public function setFecha($Fecha)
+	{
+		if($this->validateDate($Fecha)){
+			$this->Fecha = $Fecha;
+			return true;
+		} else {
+			return false;
+		}	
+	}
 
 	/**
 	 * Get the value of Actividad
@@ -246,7 +270,7 @@ class Usuarios extends Validator
 	public function createUsuario()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);//No poner esta linea
-		$sql = 'INSERT INTO Usuario(Nombres_usuario, Apellidos_usuario, Correo_usuario, Alias_usuario, Clave_usuario, Id_tipo_usuario) VALUES(?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO Usuario(Nombres_usuario, Apellidos_usuario, Correo_usuario, Alias_usuario, Clave_usuario, Id_tipo_usuario, Fecha) VALUES(?, ?, ?, ?, ?, ?, CURDATE())';
 		$params = array($this->nombres, $this->apellidos, $this->correo, $this->alias, $hash, $this->id_tipo_usuario);
 		return Database::executeRow($sql, $params);
 	}
@@ -349,8 +373,20 @@ class Usuarios extends Validator
 		$params = array($this->actividad, $this->correo);
 		return Database::executeRow($sql, $params);
 	}
+	
+	public function noventaDias()
+	{
+		$sql = 'SELECT Fecha FROM Usuario WHERE Id_usuario = ?';
+		$params = array($this->id);
+		return Database::getRow($sql, $params);
+	}
 
-
+	public function updateDate()
+	{
+		$sql = 'UPDATE Usuario SET Fecha = CURDATE() WHERE Id_usuario = ?';
+		$params = array($this->id);
+		return Database::executeRow($sql, $params);
+	}
 	
 }
 ?>

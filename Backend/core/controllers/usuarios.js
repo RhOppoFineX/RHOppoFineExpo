@@ -3,6 +3,7 @@ var idleTime = 0;
 $(document).ready(function()
 {
     showTable();
+    timeAccount();
 
     //Increment the idle time counter every minute.
     var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
@@ -228,3 +229,44 @@ $('#modificarUsuario').submit(function()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 })
+
+function timeAccount()
+{
+    $.ajax({
+        url: apiUsuario + 'timeAccount',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                var fecha_registro = moment(result.dataset.Fecha);
+                var fecha_actual =  moment(new Date().toString());
+
+                var diferencia = fecha_actual.diff(fecha_registro, 'days');
+                
+                if(diferencia >= 90){
+                    sweetAlert(4, 'Tiene que cambiar su contrasena', null);
+                    $('#perfil-pass').modal('show');
+                }  
+                
+                console.log(fecha_actual.diff(fecha_registro, 'days'));
+            } else {
+                sweetAlert(4, result.exception, null);
+            }
+                        
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
+
+

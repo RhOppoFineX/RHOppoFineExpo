@@ -12,9 +12,21 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
 
+            case 'timeAccount':
+                if($usuario->setId($_SESSION['Id_usuario'])){
+                    if($result['dataset'] = $usuario->noventaDias()){
+                        $result['status'] = true;
+                    } else {
+                        $result['exception'] = 'No se puede obtener la fecha';
+                    }
+                } else {
+                    $result['exception'] = 'Usuario Invalido';
+                }
+            break;
+
             case 'logout':
                 if($usuario->setActividad(0)){
-                    if($usuario->setCorreo($_SESSION['Correo_usuario'])){
+                    if($usuario->setCorreo($_SESSION['Correo_usuario'])){//cambiar
                         if($usuario->updateActividad()){
                             if (session_destroy()){
                                 header('location: ../../../Frontend/');
@@ -91,12 +103,17 @@ if (isset($_GET['action'])) {
                                     if ($usuario->setClave($_POST['clave_nueva_1'])) {
                                         if($_POST['clave_nueva_1'] != $_POST['clave_actual_1']){
                                             if($usuario->checkPassForEmail()){
-                                                if ($usuario->changePassword()) {
-                                                    $result['status'] = true;
-                                                    $result['message'] = 'Contraseña cambiada correctamente';
+                                                if($usuario->updateDate()){
+                                                    if ($usuario->changePassword()) {
+                                                        $result['status'] = true;
+                                                        $result['message'] = 'Contraseña cambiada correctamente';
+                                                    } else {
+                                                        $result['exception'] = 'Operación fallida';
+                                                    }
                                                 } else {
-                                                    $result['exception'] = 'Operación fallida';
-                                                }
+                                                    $result['exception'] = 'No se ha podido actualizar la fecha';
+                                                }        
+
                                             } else {
                                                 $result['exception'] = 'La clave no puede ser igual al correo';
                                             }

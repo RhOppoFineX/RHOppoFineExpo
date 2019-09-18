@@ -25,7 +25,7 @@
 			<div class="vertical-align-middle">
 				<div class="auth-box ">					
 					<div class="content">					
-							<form method="post" id="register-usuario">								
+							<form method="post" id="register-usuario" autocomplete="off">								
 										<div class="form-group col-md-4">
 											<label for="Nombres">Nombres</label>
 											<input type="Text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
