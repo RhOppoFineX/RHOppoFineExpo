@@ -65,7 +65,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="actualizarPuesto">
+					<form method="post" id="actualizarPuesto" autocomplete="off">
 							<div class="form-group col-md-12">
 									<!--nuevo input es invisible-->	<input type="hidden" id="Id_puesto" name="Id_puesto">	
 									<label for="Puesto">Puesto</label>
@@ -95,7 +95,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertarPuesto">
+					<form method="post" id="insertarPuesto" autocomplete="off">
 									<div class="form-group col-md-12">	
 											<label for="exampleInputPuesto1">Puesto</label>
 											<input type="text" class="form-control" id="Puesto" aria-describedby="puestoHelp" placeholder="Puesto" name="Puesto" required>

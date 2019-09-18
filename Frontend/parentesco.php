@@ -74,7 +74,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-parentesco">
+					<form method="POST" id="modificar-parentesco" autocomplete="off">
 							<div class="form-row">
 									<div class="form-group col-md-12">
 											<input type="hidden" id="Id_parentesco" name="Id_parentesco">	
@@ -106,7 +106,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="insertarParentesco">
+					<form method="post" id="insertarParentesco" autocomplete="off">
 							<div class="form-group col-md-12">							
 									<label for="Parentesco">Parentesco</label>
 									<input type="text" class="form-control" id="Parentesco" aria-describedby="parentescoHelp" placeholder="Parentesco" name="Parentesco" required> 

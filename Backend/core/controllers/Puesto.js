@@ -18,6 +18,7 @@ function fillTable(filas)
                 <td>${fila.Id_puesto}</td>
                 <td>${fila.Puesto}</td>							
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_puesto})">Modificar</a></td>
+                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area_detalle}, null, 'disable')">Deshabilitar</a></td>
 				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_puesto}, null)">Deshabilitar</a></td>
             </tr>       
         `;//invertidas
