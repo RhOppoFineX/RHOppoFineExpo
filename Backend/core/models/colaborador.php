@@ -428,9 +428,12 @@ class Colaborador extends Validator
      */ 
     public function setFecha_nacimiento($Fecha_nacimiento)
     {
-        $this->Fecha_nacimiento = $Fecha_nacimiento;
-
-        return $this;
+        if($this->validateDate($Fecha_nacimiento)){
+            $this->Fecha_nacimiento = $Fecha_nacimiento;
+            return true;
+        } else {
+            return false;
+        }        
     }    
 
     /**

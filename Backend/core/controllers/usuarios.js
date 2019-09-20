@@ -250,7 +250,7 @@ function timeAccount()
                 var diferencia = fecha_actual.diff(fecha_registro, 'days');
                 
                 if(diferencia >= 90){
-                    sweetAlert(4, 'Tiene que cambiar su contrasena', null);
+                    sweetAlert(4, 'Hace ' + diferencia + ' días que modifico por ultima vez su contraseña debe cambiarla', null);
                     $('#perfil-pass').modal('show');
                 }  
                 

@@ -74,7 +74,7 @@ $('#perfil-update').submit(function()
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#perfil').modal('hide');
-                sweetAlert(1, result.message, 'cerrar.php');//ver coffeeshop    
+                   
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -105,7 +105,7 @@ $('#pass-update').submit(function()
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#perfil-pass').modal('hide');
-                sweetAlert(1, result.message, 'cerrar.php');
+                
             } else {
                 sweetAlert(2, result.exception, null);
             }
