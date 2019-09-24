@@ -130,7 +130,7 @@ $('#form-colaborador-add').submit(function()
 function actualizarModal(id)
 {
     $.ajax({
-        url: apiUsuario + 'get',
+        url: apiColaborador + 'get',
         type: 'post',
         data:{
             Id_colaborador: id
@@ -138,28 +138,28 @@ function actualizarModal(id)
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado consola
+        // Se verifica si la respuesta de la apiColaborador es una cadena JSON, sino se muestra el resultado consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id-colaborador-up').val(result.dataset.Id_colaborador);
-                $('#Telefono_casa-up').val(result.dataset.Telefono_casa);
-                $('#Telefono_celular-up').val(result.dataset.Telefono_celular);
-                $('#Correo_institucional-up').val(result.dataset.Correo_institucional);
-                $('#Direccion_residencial-up').val(result.dataset.Direccion_residencial);
-                fillSelect(apiReligion, 'Religion-up', result.dataset.Id_religion); 
-                fillSelect(tablaPadre, 'Municipio-up', result.dataset.Id_municipio);       
-                $('#NIP-up').val(result.dataset.NIP);
-                $('#Nivel-up').val(result.dataset.Nivel);
-                $('#Estudiando-up').val(result.dataset.Estudiando);              
+                $('#Id_colaborador_up').val(result.dataset.Id_colaborador);
+                $('#Telefono_casa_up').val(result.dataset.Telefono_casa);
+                $('#Telefono_celular_up').val(result.dataset.Telefono_celular);
+                $('#Correo_up').val(result.dataset.Correo_institucional);
+                $('#Direccion_up').val(result.dataset.Direccion_residencial);
+                fillSelect(apiReligion, 'Religion_up', result.dataset.Id_religion); 
+                fillSelect(apiMunicipio, 'Municipio_up', result.dataset.Id_municipio);       
+                $('#NIP_up').val(result.dataset.NIP);
+                $('#Nivel_up').val(result.dataset.Nivel);
+                $('#Estudiando_up').val(result.dataset.Estudiando);              
                           
                 $('#modal-colaborador-up').modal('show');   
             } else {
-                sweetAlert(2, result.exception, null);
+                sweetAlert(2, isHtmlString(result.exception), null);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, isHtmlString(response), null);
         }
     })
     .fail(function(jqXHR){
@@ -168,15 +168,14 @@ function actualizarModal(id)
     });
 }
 
-// Función para modificar un registro seleccionado previamente
-//Id del formulario
-$('form-colaborador-up').submit(function()
+// Función para crear un nuevo registro
+$('#form-colaborador-up').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: apiColaborador + 'update',
         type: 'post',
-        data: new FormData($('form-colaborador-up')[0]),
+        data: new FormData($('#form-colaborador-up')[0]),
         datatype: 'json',
         cache: false,
         contentType: false,
@@ -187,16 +186,15 @@ $('form-colaborador-up').submit(function()
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
+            if (result.status) {               
                 $('#modal-colaborador-up').modal('hide');
                 showTable();
-                sweetAlert(1, result.message, null);         
-                
-            } else {
-                sweetAlert(2, result.exception, null);
+                sweetAlert(1, result.message, null);
+            } else {                
+                sweetAlert(2, isHtmlString(result.exception), null); 
             }
-        } else {
-            sweetAlert(2, response, null);
+        } else {            
+            sweetAlert(2, isHtmlString(response), null);            
         }
     })
     .fail(function(jqXHR){

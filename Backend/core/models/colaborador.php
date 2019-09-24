@@ -498,14 +498,14 @@ class Colaborador extends Validator
 
     public function getColaborador()
     {
-        $sql = 'SELECT Id_colaborador, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando FROM Colaborador WHERE Id_colaborador';
+        $sql = 'SELECT Id_colaborador, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando FROM Colaborador WHERE Id_colaborador = ?';
         $params = array($this->Id);
         return Database::getRow($sql, $params);
     }
 
     public function updateColaborador()
     {
-        $sql = 'UPDATE colaborador set Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando WHERE Id_Colaborador = ?';
+        $sql = 'UPDATE Colaborador set Id_religion = ?, Id_municipio = ?, Telefono_casa = ?, Telefono_celular = ?, Correo_institucional = ?, Direccion_residencial = ?, NIP = ?, Nivel = ?, Estudiando = ? WHERE Id_colaborador = ?';
         $params = array($this->Id_religion, $this->Id_municipio, $this->Telefono_casa, $this->Telefono_celular, $this->Correo_institucional, $this->Direccion, $this->NIP, $this->Nivel, $this->Estudiando, $this->Id);
         return Database::executeRow($sql, $params);
     }
