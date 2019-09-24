@@ -39,7 +39,8 @@ if(isset($_GET['action'])){
                                                                                 if($colaborador->setId_municipio($_POST['Municipio'])){
                                                                                     if($colaborador->createColaborador()){
                                                                                         $result['status'] = true;
-                                                                                        $result['message'] = 'Datos personales insertados continue...';
+                                                                                        $result['message'] = 'Datos personales insertados continue con los datos de identificacion';
+                                                                                        $_SESSION['Codigo_colaborador'] = $colaborador->getCodigo_colaborador();
                                                                                     } else {
                                                                                         $result['exception'] = 'Operación fallida';
                                                                                     }                                                               
@@ -108,7 +109,7 @@ if(isset($_GET['action'])){
 
             case 'disable':
                 if($colaborador->setId($_POST['identifier'])){
-                    if($colaborador->setEstado_colaborador()){
+                    if($colaborador->setEstado_colaborador(0)){
                         if($colaborador->getColaborador()){
                             if($colaborador->disableColaborador()){
                                 $result['status'] = true;

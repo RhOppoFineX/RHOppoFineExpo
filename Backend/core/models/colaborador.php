@@ -39,7 +39,7 @@ class Colaborador extends Validator
      */ 
     public function setId($Id)
     {
-        if($this>validateId($Id)){
+        if($this->validateId($Id)){
             $this->Id = $Id;
             return true;
         } else {
@@ -484,7 +484,7 @@ class Colaborador extends Validator
 
     public function readColaborador()
     {
-        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, R.Religion as Religion, M.Municipio as Municipio, Telefono_casa, Telefono_celular, Correo_institucional, NIP, Nivel, Estudiando, Fecha_ingreso FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio';
+        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, R.Religion as Religion, M.Municipio as Municipio, Telefono_casa, Telefono_celular, Correo_institucional, NIP, Nivel, Estudiando, Fecha_ingreso FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio WHERE Estado_colaborador = 1 ORDER BY Codigo_colaborador';
         $params = array(null);
         return Database::getRows($sql, $params);
     }
