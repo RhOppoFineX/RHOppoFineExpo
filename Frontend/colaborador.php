@@ -15,10 +15,10 @@
 <body>
 	<?php
 		//Control de Sesión y privilegios de Usuario				
-		require_once '../backend/core/helpers/sesion.php';
-		Session::iniSession();
-		$_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
-		Session::verifcarPrivilegio();
+		// require_once '../backend/core/helpers/sesion.php';
+		// Session::iniSession();
+		// $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
+		// Session::verifcarPrivilegio();
 	?>
 
 	<div id="wrapper">
@@ -41,7 +41,7 @@
 									</div>
 									<div class="panel-body no-padding">
 										<div class="table-responsive">
-											<table class="table table-striped" id="TablaUsuario">
+											<table class="table table-striped">
 												<thead>
 													<tr>													
                                                         <th>Codigo Colaborador</th>
@@ -53,15 +53,14 @@
 														<th>Municipio</th>
 														<th>Teléfono Casa</th>
 														<th>Teléfono Celular</th>
-														<th>Correo Institucional</th>
-														<th> Dirección residencial</th>
+														<th>Correo Institucional</th>														
 														<th>NIP</th>
 														<th>Nivel</th>
 														<th>Estudiando</th>
 														<th>Fecha Ingreso</th>	
 													</tr>
 												</thead>
-												<tbody id="tabla-usuario">
+												<tbody id="tabla-colaborador">
 													
 												</tbody>
 											</table>
@@ -75,31 +74,37 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-<!-- Modal Modificar usuarios-->
-<div class="modal fade bd-modificar-modal-xl" id="usuarioModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<!-- Modal Modificar Colaboradores-->
+<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Usuarios</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarUsuario">
+					<form method="post" id="form-colaborador-up">
                         <div class="form-row">
+
+							<div class="form-group col-md-6">
+                                <label for="Codigo_colaborador-up">Codigo del colaborador</label>
+                                <input type="Text" class="form-control" id="Codigo_colaborador-up" placeholder="Codigo_colaborador-up" name="Codigo_colaborador-up" required>
+                            </div>
+							
                             <div class="form-group col-md-6">
-                                <label for="Nombres">Nombres</label>
-                                <input type="Text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
+                                <label for="Nombres-up">Nombres</label>
+                                <input type="Text" class="form-control" id="Nombres-up" placeholder="Nombres-up" name="Nombres-up" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="Apellidos">Apellidos</label>
-                                <input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
+                                <label for="Apellidos-up">Apellidos</label>
+                                <input type="Text" class="form-control" id="Apellidos-up" placeholder="Apellidos-up" name="Apellidos-up" required>
                             </div>
                             <div class="form-group col-md-5">
-                                <label for="Correo">Correo electonico</label>
-                                <input type="email" class="form-control" id="Correo" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo" required>
+                                <label for="Correo-up">Correo-up electonico</label>
+                                <input type="email" class="form-control" id="Correo-up" aria-describedby="emailHelp" placeholder="Correo-up Institucional" name="Correo-up" required>
                                 <small id="emailHelp" class="form-text text-muted"></small>
 							</div>
 
@@ -127,61 +132,109 @@
 			</form>	
 		</div>
 		</div>
-    </div>  <!--Fin del modal modificar usuarios-->
+    </div>  <!--Fin del modal modificar Colaboradores-->
 
 
-	<!-- Modal agregar usuarios-->
-<div class="modal fade bd-modificar-modal-xl" id="usuarioAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<!-- Modal agregar Colaboradores-->
+<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Usuarios</h5>
+			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="agregarUsuario">
+						<form method="post" id="form-colaborador-add">
 							<div class="form-row">
+
 								<div class="form-group col-md-6">
-									<label for="Nombres-A">Nombres-A</label>
-									<input type="Text" class="form-control" id="Nombres-A" placeholder="Nombres-A" name="Nombres-A" required>
+									<label for="Codigo_colaborador">Codigo del colaborador</label>
+									<input type="Text" class="form-control" id="Codigo_colaborador" placeholder="Codigo_colaborador" name="Codigo_colaborador" required>
 								</div>
+
 								<div class="form-group col-md-6">
-									<label for="Apellidos-A">Apellidos-A</label>
-									<input type="Text" class="form-control" id="Apellidos-A" placeholder="Apellidos-A" name="Apellidos-A">
+									<label for="Nombres">Nombres</label>
+									<input type="Text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
 								</div>
-								<div class="form-group col-md-8">
-									<label for="Correo-A">Correo electonico</label>
-									<input type="email" class="form-control" id="Correo-A" aria-describedby="emailHelp" placeholder="Correo Institucional" name="Correo-A">
-									<small id="emailHelp" class="form-text text-muted"></small>
+
+								<div class="form-group col-md-6">
+									<label for="Apellidos">Apellidos</label>
+									<input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
 								</div>
-	
-								<div class="form-group col-md-4">
-									<label for="userName-A">User Name</label>
-									<input type="text" class="form-control" id="userName-A" aria-describedby="emailHelp" placeholder="userName Institucional" name="userName-A">
-									<small id="emailHelp" class="form-text text-muted"></small>
+
+								<div class="form-group col-md-5">
+									<label for="Genero">Genero</label>
+									<select id="Genero" name="Genero" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="M">Masculino</option>
+ 										<option value="F">Femenino</option>
+									</select>								
 								</div>
-	
-								<div class="form-group col-md-4">
-									<label for="Contraseña-A">Contraseña</label>
-									<input type="password" class="form-control" id="Contraseña-A" aria-describedby="emailHelp" placeholder="Contraseña Institucional" name="Contraseña-A">
-									<small id="emailHelp" class="form-text text-muted"></small>
+
+								<div class="form-group col-md-6">
+									<label for="Fecha_nacimiento">Fecha_nacimiento</label>
+									<input type="date" class="form-control" id="Fecha_nacimiento" placeholder="Fecha_nacimiento" name="Fecha_nacimiento" required>
 								</div>
-	
-								<div class="form-group col-md-4">
-									<label for="ContraseñaDos-A">Repetir Contraseña</label>
-									<input type="password" class="form-control" id="ContraseñaDos-A" aria-describedby="emailHelp" placeholder="ContraseñaDos Institucional" name="ContraseñaDos-A">
-									<small id="emailHelp" class="form-text text-muted"></small>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="Tipos-A">Tipo usuario</label>
-									<select id="Tipos-A" name="Tipos-A" class="form-control">
+
+								<div class="form-group col-md-5">
+									<label for="Religion">Religion</label>
+									<select id="Religion" name="Religion" class="form-control" required>
 									
-									</select>									
+									</select>								
+								</div>
+
+								<div class="form-group col-md-5">
+									<label for="Municipio">Municipio</label>
+									<select id="Municipio" name="Municipio" class="form-control" required>
 									
-								</div>						
+									</select>								
+								</div>
+
+								<div class="form-group col-md-7">
+									<label for="Correo">Correo electonico</label>
+									<input type="email" class="form-control" id="Correo" placeholder="Correo Institucional" name="Correo" required>
+									
+								</div>
+	
+								<div class="form-group col-md-4">
+									<label for="Telefono_casa">Telefono de casa</label>
+									<input type="text" class="form-control" id="Telefono_casa" placeholder="2222-2222" name="Telefono_casa" required>									
+								</div>
+
+								<div class="form-group col-md-4">
+									<label for="Telefono_celular">Telefono de celular</label>
+									<input type="text" class="form-control" id="Telefono_celular" placeholder="7777-7777" name="Telefono_celular" required>					
+								</div>
+
+								<div class="form-group col-md-4">
+									<label for="NIP">Número de NIP</label>
+									<input type="number" class="form-control" id="NIP" placeholder="numero de NIP" name="NIP" required>					
+								</div>
+								
+								<div class="form-group col-md-4">
+									<label for="Nivel">Número de Nivel</label>
+									<input type="number" class="form-control" id="Nivel" placeholder="numero de Nivel" name="Nivel" required>					
+								</div>
+
+								<div class="form-group col-md-5">
+									<label for="Estudiando"> Estado </label>
+									<select id="Estudiando" name="Estudiando" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="0">Trabajador</option>
+ 										<option value="1">Estudiante</option>
+									</select>								
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Direccion">Direccion Residencial</label>
+									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
+
+									</textarea>
+								</div>															
+													
 							</div>
 						</div>                            					
 				</div>			  
@@ -204,7 +257,7 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/usuarios.js"></script>	<!--Solo dejar el script del controlador-->
+	<script src="../Backend/core/controllers/colaborador.js"></script>	<!--Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 	
 </body>

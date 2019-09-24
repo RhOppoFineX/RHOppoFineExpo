@@ -62,7 +62,7 @@ class Colaborador extends Validator
      */ 
     public function setCodigo_colaborador($Codigo_colaborador)
     {
-        if($this->validateAlphanumeric(4, 6, $Codigo_colaborador)){
+        if($this->validateAlphanumeric($Codigo_colaborador, 3, 6)){
             $this->Codigo_colaborador = $Codigo_colaborador;
             return true;
         } else {
@@ -85,7 +85,7 @@ class Colaborador extends Validator
      */ 
     public function setNombres($Nombres)
     {
-        if($this->validateAlphabetic(4, 50, $Nombres)){
+        if($this->validateAlphabetic($Nombres, 4, 60)){
             $this->Nombres = $Nombres;
             return true;
         } else {
@@ -108,7 +108,7 @@ class Colaborador extends Validator
      */ 
     public function setApellidos($Apellidos)
     {
-        if($this->validateAlphabetic(4, 50, $Apellidos)){
+        if($this->validateAlphabetic($Apellidos, 4, 60)){
             $this->Apellidos = $Apellidos;
             return true;
         } else {
@@ -131,7 +131,7 @@ class Colaborador extends Validator
      */ 
     public function setGenero($Genero)
     {
-        if($this->validateAlphabetic(1,2,$Genero)){
+        if($this->validateAlphabetic($Genero,1,2)){
             $this->Genero = $Genero;
             return true;            
         } else {
@@ -288,7 +288,7 @@ class Colaborador extends Validator
      */ 
     public function setNIP($NIP)
     {
-        if($this->validateIntegerControl($NIP, 7, 7)){
+        if($this->validateIntegerControl($NIP, 5, 7)){
             $this->NIP = $NIP;
             return true;
         } else {
@@ -484,15 +484,15 @@ class Colaborador extends Validator
 
     public function readColaborador()
     {
-        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, c.Fecha_nacimiento, R.Religion, m.Municipio, c.Telefono_casa, c.Telefono_celular, c.Correo_insitucional FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio';
+        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, R.Religion as Religion, M.Municipio as Municipio, Telefono_casa, Telefono_celular, Correo_institucional, NIP, Nivel, Estudiando, Fecha_ingreso FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio';
         $params = array(null);
         return Database::getRows($sql, $params);
     }
 
     public function createColaborador()
     {
-        $sql = 'insert into Colaborador (Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando, Fecha_ingreso, Estado_colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ? ,?)';
-        $params = array($this->Codigo_colaborador, $this->Nombres, $this->Apellidos, $this->Genero, $this->Fecha_nacimiento, $this->Id_religion, $this->Id_municipio, $this->Telefono_casa, $this->Telefono_celular, $this->Correo_institucional, $this->Direccion, $this->NIP, $this->Nivel, $this->Estudiando, $this->Fecha_ingreso, $this->Estado_colaborador);
+        $sql = 'insert into Colaborador (Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando, Estado_colaborador, Fecha_ingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
+        $params = array($this->Codigo_colaborador, $this->Nombres, $this->Apellidos, $this->Genero, $this->Fecha_nacimiento, $this->Id_religion, $this->Id_municipio, $this->Telefono_casa, $this->Telefono_celular, $this->Correo_institucional, $this->Direccion, $this->NIP, $this->Nivel, $this->Estudiando, $this->Estado_colaborador);
         return Database::executeRow($sql, $params);        
     }
 

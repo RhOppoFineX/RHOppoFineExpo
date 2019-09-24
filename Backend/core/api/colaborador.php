@@ -1,7 +1,7 @@
 <?php 
 require_once '../helpers/database.php';
 require_once '../helpers/validator.php';
-require_once '../helpers/database.php';
+require_once '../models/colaborador.php';
 
 if(isset($_GET['action'])){
     session_start();
@@ -10,9 +10,9 @@ if(isset($_GET['action'])){
 
     if(isset($_SESSION['Id_usuario'])){
 
-        switch($_GET['acttion']){
+        switch($_GET['action']){
             case 'read':
-                if($colaborador->readColaborador()){
+                if($result['dataset'] = $colaborador->readColaborador()){
                     $result['status'] = true;                               
                 } else {
                     $result['exception'] = 'No hay colaboradores registrados';
@@ -21,72 +21,74 @@ if(isset($_GET['action'])){
 
             case 'create':
                 $_POST = $colaborador->validateForm($_POST);
-
-                if($colaborador->setCodigo_colaborador($_POST['Codigo_colaborador'])){
-                    if($colaborador->setNombres($_POST['Nombres'])){
-                        if($colaborador->setApellidos($_POST['Apellidos'])){
-                            if($colaborador->setGenero($_POST['Genero'])){
-                                if($colaborador->setId_religion($_POST['Religion'])){
-                                    if($colaborador->setTelefono_casa($_POST['Telefono-casa'])){
-                                        if($colaborador->setTelefono_celular($_POST['Telefono-celular'])){
-                                            if($colaborador->setCorreo_institucional($_POST['Correo'])){
-                                                if($colaborador->setDireccion($_POST['Direccion'])){
-                                                    if($colaborador->setNip($_POST['NIP'])){
-                                                        if($colaborador->setNivel($_POST['Nivel'])){
-                                                            if($colaborador->setEstudiando($_POST['Estudiando'])){
-                                                                if($colaborador->setFecha_ingreso($_POST['Fecha-ingreso'])){//ver
-                                                                    if($colaborador->setEstado_colaborador($_POST['Estado'])){//ver
-                                                                        if($colaborador->setFecha_nacimiento($_POST['Fecha-nacimiento'])){
-                                                                            if($colaborador->setId_municipio($_POST['Municipio'])){
-                                                                                
-                                                                            } else {    
-                                                                                $result['exception'] = 'Municipio incorrecto';
+                
+                    if($colaborador->setCodigo_colaborador($_POST['Codigo_colaborador'])){
+                        if($colaborador->setNombres($_POST['Nombres'])){
+                            if($colaborador->setApellidos($_POST['Apellidos'])){
+                                if($colaborador->setGenero($_POST['Genero'])){
+                                    if($colaborador->setId_religion($_POST['Religion'])){
+                                        if($colaborador->setTelefono_casa($_POST['Telefono_casa'])){
+                                            if($colaborador->setTelefono_celular($_POST['Telefono_celular'])){
+                                                if($colaborador->setCorreo_institucional($_POST['Correo'])){
+                                                    if($colaborador->setDireccion($_POST['Direccion'])){
+                                                        if($colaborador->setNip($_POST['NIP'])){
+                                                            if($colaborador->setNivel($_POST['Nivel'])){
+                                                                if($colaborador->setEstudiando($_POST['Estudiando'])){                      
+                                                                        if($colaborador->setEstado_colaborador(1)){//ver
+                                                                            if($colaborador->setFecha_nacimiento($_POST['Fecha_nacimiento'])){
+                                                                                if($colaborador->setId_municipio($_POST['Municipio'])){
+                                                                                    if($colaborador->createColaborador()){
+                                                                                        $result['status'] = true;
+                                                                                        $result['message'] = 'Datos personales insertados continue...';
+                                                                                    } else {
+                                                                                        $result['exception'] = 'Operación fallida';
+                                                                                    }                                                               
+                                                                                } else {    
+                                                                                    $result['exception'] = 'Municipio incorrecto';
+                                                                                }
+                                                                            } else {
+                                                                                $result['exception'] = 'Fecha invalida';
                                                                             }
                                                                         } else {
-                                                                            $result['exception'] = 'Fecha invalida';
-                                                                        }
-                                                                    } else {
-                                                                        $result['exception'] = 'valor invalido';
-                                                                    }
+                                                                            $result['exception'] = 'valor invalido';
+                                                                        }                                                                   
                                                                 } else {
-                                                                    $result['exception'] = 'Fecha invalida';
+                                                                    $result['exception'] = 'Valor invalido';
                                                                 }
                                                             } else {
-                                                                $result['exception'] = 'Valor invalido';
+                                                                $result['exception'] = 'Nivel incorrecto';
                                                             }
                                                         } else {
-                                                            $result['exception'] = 'Nivel incorrecto';
+                                                            $result['exception'] = 'NIP incorrecto';
                                                         }
                                                     } else {
-                                                        $result['exception'] = 'NIP incorrecto';
+                                                        $result['exception'] = 'Dirección incorrecta';
                                                     }
                                                 } else {
-                                                    $result['exception'] = 'Dirección incorrecta';
+                                                    $result['exception'] = 'Correo incorrecto';
                                                 }
                                             } else {
-                                                $result['exception'] = 'Correo incorrecto';
+                                                $result['exception'] = 'Telefono celular incorrecto';
                                             }
                                         } else {
-                                            $result['exception'] = 'Telefono celular incorrecto';
+                                            $result['exception'] = 'Telefono incorrecto';
                                         }
                                     } else {
-                                        $result['exception'] = 'Telefono incorrecto';
+                                        $result['exception'] = 'Religion incorrecta';
                                     }
                                 } else {
-                                    $result['exception'] = 'Religion incorrecta';
+                                    $result['exception'] = 'Genero incorrecto';
                                 }
                             } else {
-                                $result['exception'] = 'Genero incorrecto';
+                                $result['exception'] = 'Apellidos incorrectos';
                             }
                         } else {
-                            $result['exception'] = 'Apellidos incorrectos';
+                            $result['excpetion'] = 'Nombres incorrectos';
                         }
                     } else {
-                        $result['excpetion'] = 'Nombres incorrectos';
+                        $result['exception'] = 'Codigo Incorrecto'; 
                     }
-                } else {
-                    $result['exception'] = 'Codigo Incorrecto'; 
-                }
+               
 
             break;
 
@@ -101,6 +103,8 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Colaborador Incorrecto';
                 }
             break;
+
+            
 
             case 'disable':
                 if($colaborador->setId($_POST['identifier'])){

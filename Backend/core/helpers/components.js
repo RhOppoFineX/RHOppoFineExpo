@@ -196,6 +196,27 @@ function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
     });
 }
 
+//verifica si es un texto html o string 
+
+function isHtmlString(htmlText)
+{
+    var htmlArray = $.parseHTML(htmlText);
+
+    var isHtml = htmlArray.filter(function(e){ return e instanceof HTMLElement;}).length;
+
+    console.log(htmlText);
+    //console.log(htmlArray);
+
+    if (isHtml){
+        console.log(isHtml + " HTML Element(s) found.");
+        return 'Error Contacte con el administrador';
+    }
+    else{
+        console.log("No HTML Elements found!");
+        return htmlText;
+    }
+}
+
 
 
 /*
