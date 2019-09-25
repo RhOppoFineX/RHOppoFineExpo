@@ -217,6 +217,11 @@ function isHtmlString(htmlText)
     }
 }
 
+function verColaborador()
+{
+    
+}
+
 
 
 /*

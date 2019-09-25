@@ -180,6 +180,7 @@ create table Datos_identificacion(
     NUP varchar(20) NOT NULL,
     Tipo_documento TINYINT(1) NOT NULL,
     Id_Colaborador INTEGER Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador),
     FOREIGN KEY (Id_estado_civil) REFERENCES Estado_civil (Id_estado_civil)
 );
@@ -212,6 +213,7 @@ Create Table datosFamiliares(
     Id_Colaborador Integer Unsigned NOT NULL,
     Genero ENUM('M', 'F') NOT NULL,
     Numero_telefono VARCHAR(10) NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_parentesco) REFERENCES Parentesco (Id_parentesco),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)
 );
@@ -231,6 +233,7 @@ Create table Experiencia_laboral(
     Fecha_retiro date NOT NULL,
     Puesto varchar(25) NOT NULL,
     Id_Colaborador Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)    
 );
 --Cr7 Super Crud
