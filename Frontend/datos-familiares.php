@@ -41,58 +41,26 @@
 								<!-- TABLE STRIPED -->
 							<div class="panel">
 									<div class="panel-heading">
-										<h3 class="panel-title">Datos familiares</h3>
+										<a type="button" class="btn btn-primary btn-lg" onclick="modalcreate()">Agregar nuevo registro<span class="lnr lnr-file-add"></span></a>
+								<!--Switch-->		
 									</div>
 									<div class="panel-body no-padding">
 										<table class="table table-striped">
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Nombre padre.</th>
-													<th>Nombre madre.</th>
-													<th>Hermanos.</th>
-													<th>Cónyuge.</th>
-													<th>Hijos.</th>
-													<th>Personas que dependen.</th>
+													<th>Nombres</th>
+													<th>Apellidos</th>
+													<th>Fecha Nacimiento</th>
+													<th>Dependiente</th>
+													<th>Parentesco</th>
+													<th>Colaborador</th>
+													<th>Genero</th>
+													<th>Telefono</th>
+													<th>Estado</th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>José Luis Arguera Pérez</td>
-													<td>Margarita Elizabeth Urrutia de Pérez</td>
-													<td>0.</td>	
-													<td>Claudia María Peréz Hernandez</td>
-													<td>No.</td>		
-													<td>2.</td>										
-													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
-													
-												</tr>
-												<tr>
-													<td>2</td>	
-													<td>Carlos Miguel Guzman Hasbun.</td>
-													<td>Elena Saria Zepeda de Guzman.</td>
-													<td>1.</td>
-													<td>Hector Javier Ayala Aguilares</td>
-													<td>No.</td>
-													<td>0.</td>
-													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
-													
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Rodrigo Alejandro Castillo Monterrosa.</td>
-													<td>Isabella Estefania Hernandez de Castillo.</td>
-													<td>3.</td>
-													<td>No.</td>
-													<td>No.</td>
-													<td>0.</td>
-													<td><button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".bd-modificar-modal-xl">Modificar</button></td>
-													<td><button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Deshabilitar</button></td>
-													
-												</tr>
+											<tbody id="tabla-datosFamiliares">
 											</tbody>
 										</table>
 									</div>
@@ -104,126 +72,37 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-				<!-- Modal -->
-<div class="modal fade bd-modificar-modal-xl" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+				<!-- Modal modificar-->
+<div class="modal fade bd-modificar-modal-xl" id="modal-DatosFamiliares-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos Personales del Colaborador</h5>
+			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos familiares</h5>
 			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="POST" id="modificar-datosFamiliares">
+					<form method="POST" id="form-DatosFamiliares-up">
 							<div class="form-row">
-								<div class="form-group col-md-6"><!--Nombres y Apellidos-->
-									<label for="nombres-datosFamiliares">Nombres</label>
-									<input type="Text" class="form-control" id="nombres-datosFamiliares" placeholder="Nombres">
-								</div>
-								<div class="form-group col-md-6">
-									<label for="apellidos-datosFamiliares">Apellidos</label>
-									<input type="Text" class="form-control" id="apellidos-datosFamiliares" placeholder="Apellidos">
+								<div class="form-group col-md-6"><!-- Telefono -->
+									<label for="Telefono">Telefono</label>
+									<input type="Text" class="form-control" id="Telefono" placeholder="Telefono">
 								</div>
 							</div>
-							<div class="form-group col-md-4"><!--Genero-->
-									<label for="genero-datosFamiliares">Genero</label>
-									<select id="genero-datosFamiliares" class="form-control">											
-										<option>Masculino</option>
-										<option>Femenino</option>
-									</select>
-							</div>
-
-							<div class="form-group col-md-4"><!--Fecha-->
-								<label for="fecha-datosFamiliares">Fecha de Nacimiento</label>
-								<select id="fecha-datosFamiliares" class="form-control">											
-									<option>26-08-2002</option>
-									<option>30-10-2000</option>
-								</select>
-							</div>
-
-							<div class="form-group col-md-4">
-								<label for="edad-datosFamiliares">Edad</label>
-								<input type="text" class="form-control" id="edad-datosFamiliares" placeholder="16" disabled>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-											<label for="nacionalidad-datosFamiliares">Nacionalidad</label>
-									<select id="nacionalidad-datosFamiliares" class="form-control">											
-										<option>Salvadoreño/a</option>
-										<option>Guatmalteco/a</option>
-									</select>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="estadoCivil-datosFamiliares">Estado Civil</label>
-									<select id="estadoCivil-datosFamiliares" class="form-control">
-										<option>Soltero/a</option>
-										<option>Casado/a</option>
-										<option>Divorciado/a</option>
-									</select>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="religion-datosFamiliares">Religión</label>
-									<select id="religion-datosFamiliares" class="form-control">
-											<option>Catolico/a</option>
-											<option>Evangelico/a</option>
-											<option>Mormon/a</option>
-											<option>Testigo de Jehova</option>
-											<option>Amnostico</option>
-									</select>									
-									
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="celular-datosFamiliares">Celular</label>
-										<input type="Text" class="form-control" id="celular-datosFamiliares" placeholder="Número celular">
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="telefono-datosFamiliares">Teléfono de Casa</label>
-										<input type="Text" class="form-control" id="telefono-datosFamiliares" placeholder="Número Tel. Casa">
-								</div>
-
-								<div class="form-group col-md-4">
-										<label for="dui-datosFamiliares">DUI</label>
-										<input type="Text" class="form-control" id="dui-datosFamiliares" placeholder="DUI">
-								</div>
-							</div>
-
-							<div class="form-group col-md-12">
-									<label for="correo-datosFamiliares">Correo Institucional</label>
-									<input type="email" class="form-control" id="correo-datosFamiliares" aria-describedby="emailHelp" placeholder="Correo Institucional">
-									<small id="emailHelp" class="form-text text-muted"></small>
-							</div>
-							</div>
-
-							<!-- <div class="form-group">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="gridCheck">
-									<label class="form-check-label" for="gridCheck">
-										Check me out
-									</label>
-								</div>
-							</div>
-							<button type="submit" class="btn btn-primary">Sign in</button> -->
 						</form>
 			</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary" data-dismiss="modal">Modficar</button>
+			<button type="submit" class="btn btn-primary">Modficar</button>
 		</div>
 		</div>
-	</div>  <!--Fin del modal-->
+	</div>  <!--Fin del modal modificar-->
 	
-	
-		<!--Modal Deshabilitar-->
-
-	<!-- Button trigger modal -->
-
-	
-	<!-- Modal -->
+		
+	<!-- Modal deshabilitar -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -246,6 +125,96 @@
 
 	<!--Fin del modal Deshabilitar-->	 
 
+	<!-- Modal insertar-->
+<div class="modal fade bd-modificar-modal-xl" id="insertar-DatosFamiliares"	tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-tittle" id="ModalTitulo">Datos familiares</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>	
+			<div class="modal-body">
+				<div class="container-fluid">
+					<form method="post" id="agregar-DatosFamiliares">
+						<div class="form-row">
+
+							<div class="form-group col-md-6">
+								<label for="Nombres">Nombres</label>
+								<input type="text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
+							</div>	
+
+							<div class="form-group col-md-6">
+								<label for="Apellidos">Apellidos</label>
+								<input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Fecha-Nacimiento">Fecha Nacimiento</label>
+								<input type="text" class="form-control" id="Fecha-Nacimiento" placeholder="Fecha Nacimiento" name="Fecha-Nacimiento" required>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Dependiente">Dependiente</label>
+								<select id="Dependiente" name="Dependiente" class="form-control" required>
+									<option value="" disable selected>Seleccione una opción</option>
+									<option value="0">Independiente</option>
+									<option value="1">Dependiente</option>
+								</select>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Parentesco">Parentesco</label>
+								<select id="Parentesco" name="Parentesco" class="form-control" required>
+									<option value="" disable selected>Seleccione una opción</option>
+									<option value="1">Papá</option>
+									<option value="2">Mamá</option>
+									<option value="3">Tío/a</option>
+									<option value="4">Hijo/a</option>
+									<option value="5">Abuelo/a</option>
+									<option value="6">Cuñado/a</option>
+									<option value="7">Primo/a</option>
+									<option value="8">Novio/a</option>
+								</select>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Colaborador">Colaborador</label>
+								<select id="Colaborador" name="Colaborador" class="form-control" required></select>
+							<div>
+
+							<div class="form-group col-md-6">
+								<label for="Genero">Genero</label>	
+								<select id="Genero" name="Genero" class="Genero" class="form-control" required>
+									<option value="" disable selected>Seleccione una opcion</option>
+									<option value="F">Femenino</option>
+									<option value="M">Masculino</option>
+								</select>	
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Telefono">Telefono</label>
+								<input type="text" class="form-control" id="Telefono" placeholder="Telefono" name="Telefono" required>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label for="Estado">Estado</label>
+								<input type="text" class="form-control" id="Estado" placeholder="Estado" name="Estado" required>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="submit" class="btn btn-primary">Agregar</button>
+				</form>
+			</div>	
+		</div>
+	</div>		
+
+	<!-- Fin modal insertar-->
 
 
 <!--Modals para editar perfil-->
