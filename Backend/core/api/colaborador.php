@@ -11,6 +11,27 @@ if(isset($_GET['action'])){
     if(isset($_SESSION['Id_usuario'])){
 
         switch($_GET['action']){
+
+            case 'search':
+                $_POST = $colaborador->validateForm($_POST);
+
+                if ($_POST['buscar_colaborador'] != '') {
+                    if ($result['dataset'] = $colaborador->searchColaborador($_POST['buscar_colaborador'])) {
+                        $result['status'] = true;
+                        $rows = count($result['dataset']);
+						if ($rows > 1) {
+							$result['message'] = 'Se encontraron '.$rows.' coincidencias';
+						} else {
+							$result['message'] = 'Solo existe una coincidencia';
+						}
+                    } else {
+                        $result['exception'] = 'No hay coincidencias';
+                    }
+                } else {
+                    $result['exception'] = 'Ingrese un valor para buscar';
+                }
+            break;
+
             case 'read':
                 if($result['dataset'] = $colaborador->readColaborador()){
                     $result['status'] = true;                               
@@ -97,7 +118,7 @@ if(isset($_GET['action'])){
                     if($result['dataset'] = $colaborador->getColaborador()){
                         $result['status'] = true;
                     } else {
-                        $result['exceotion'] = 'Colaborador Inexistente';
+                        $result['exception'] = 'Colaborador Inexistente';
                     }
                 } else {
                     $result['exception'] = 'Colaborador Incorrecto';

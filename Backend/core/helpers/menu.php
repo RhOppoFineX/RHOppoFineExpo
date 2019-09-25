@@ -7,10 +7,10 @@
 						<div class="navbar-btn">
 							<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 						</div>
-						<form class="navbar-form navbar-left">
+						<form class="navbar-form navbar-left" method="post" id='form-buscar-colaborador'>
 							<div class="input-group">
-								<input type="text" value="" class="form-control" placeholder="Buscar Colaborador">
-								<span class="input-group-btn"><button type="button" class="btn btn-warning">Go</button></span>
+								<input type="text" value="" class="form-control" placeholder="Buscar Colaborador" id="buscar_colaborador" name="buscar_colaborador">
+								<span class="input-group-btn"><button type="submit" class="btn btn-warning">Go</button></span>
 							</div>
 						</form>
 						<!-- <div class="navbar-btn navbar-btn-right">

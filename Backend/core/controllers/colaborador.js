@@ -204,3 +204,34 @@ $('#form-colaborador-up').submit(function()
     });
 })
 
+// Función para mostrar los resultados de una búsqueda
+$('#form-buscar-colaborador').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apiColaborador + 'search',
+        type: 'post',
+        data: $('#form-buscar-colaborador').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                fillTable(result.dataset);
+                sweetAlert(1, result.message, null);
+            } else {
+                sweetAlert(3, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
