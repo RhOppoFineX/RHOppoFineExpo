@@ -422,7 +422,8 @@ if (isset($_GET['action'])) {
                                 if($usuario->updateToken()){
                                     $result['status'] = true;
                                     $result['message'] = 'Se ha enviado una clave de acceso a su correo';
-                                    $result['email'] = true;
+                                    //$result['email'] = true;
+                                    $result['dataset'] = $usuario->getCorreo();
                                 } else {
                                     $result['exception'] = 'No se puedo actualizar el Token';
                                 }
@@ -439,7 +440,59 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Correo Incorrecto';
                 }
 
-            break;            
+            break;
+            
+            case 'token':
+                $_POST = $usuario->validateForm($_POST);
+
+                if($usuario->setCorreo($_POST['Correo_token'])){
+                    if($usuario->setToken($_POST['Token'])){
+                        if($result['dataset'] = $usuario->checkToken()){
+                            $result['status'] = true;
+                            $result['message'] = 'Token Correcto'; 
+                        } else {
+                            $result['exception'] = 'Token Incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Token Invalido';
+                    }
+                } else {    
+                    $result['exception'] = 'Correo Invalido';
+                }
+            break;
+
+            case 'pass_token':
+                $_POST = $usuario->validateForm($_POST);
+
+                if($usuario->setCorreo($_POST['Correo_verificado'])){
+                    if($usuario->checkEmail()){
+                        if($usuario->setId($usuario->getId())){
+                            if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
+                                if ($usuario->setClave($_POST['clave_nueva_1'])) {
+                                    if($usuario->changePassword()){
+                                        $result['status'] = true;
+                                        $result['message'] = 'Contraseña Reestablecida';
+                                    } else {
+                                        $result['exception'] = 'Operación fallida';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Clave menor a 8 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.';
+                                }
+                            } else {
+                                $result['exception'] = 'claves diferentes';
+                            }
+                        } else {
+                            $result['exception'] = 'Id incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Correo incorrecto';
+                    }
+                } else {
+                    $result['exception'] = 'Correo no valido';
+                }
+
+
+            break;
 
             default:
                 exit('Acción no disponible');

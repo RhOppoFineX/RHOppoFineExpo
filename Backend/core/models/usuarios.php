@@ -421,6 +421,13 @@ class Usuarios extends Validator
 		$params = array($this->Token, $this->correo);
 		return Database::executeRow($sql, $params);
 	}
+
+	public function checkToken()
+	{
+		$sql = 'SELECT Correo_usuario FROM Usuario WHERE Correo_usuario = ? and Token = ?';
+		$params = array($this->correo, $this->Token);
+		return Database::getRow($sql, $params);
+	}
 	
 
 }
