@@ -1,6 +1,6 @@
 <?php
 
-class Colaborador extends Validator
+class Datos extends Validator
 {
     private $Id = null;
     private $Num_documento = null;
@@ -14,8 +14,10 @@ class Colaborador extends Validator
     private $Numero_ISSS = null;
     private $AFP = null;
     private $NUP = null;
+    private $DUI = null;
     private $Id_colaborador = null;
     private $Colaborador = null;
+    private $Estado = null;
 
 
 
@@ -80,7 +82,7 @@ class Colaborador extends Validator
      */ 
     public function setResidencia($Residencia)
     {
-        if($this->validateAlphabetic($Residencia, 4, 70)){
+        if($this->validateAlphanumeric($Residencia, 4, 250)){
             $this->Residencia = $Residencia;
             return true;
         } else {
@@ -127,7 +129,7 @@ class Colaborador extends Validator
      */ 
     public function setEstado_civil($Estado_civil)
     {
-        if($this->validateAlphabetic(4, 25)){
+        if($this->validateAlphabetic($Estado_civil, 4, 25)){
             $this->Estado_civil = $Estado_civil;
             return true;
         } else {
@@ -238,7 +240,7 @@ class Colaborador extends Validator
      */ 
     public function setProfesion($Profesion)
     {
-        if($this->validateAlphanumeric($Profesion, 10, 500)){
+        if($this->validateAlphanumeric($Profesion, 4, 30)){
             $this->Profesion = $Profesion;
             return true;
         } else {
@@ -269,24 +271,24 @@ class Colaborador extends Validator
         }        
     }
 
-    /**
-     * Get the value of Nivel
+ /**
+     * Get the value of DUI
      */ 
-    public function getNivel()
-    {        
-        return $this->Nivel;
+    public function getDUI()
+    {
+        return $this->DUI;
     }
 
     /**
-     * Set the value of Nivel
+     * Set the value of DUI
      *
      * @return  self
      */ 
-    public function setNivel($Nivel)
+    public function setDUI($DUI)
     {
-        if($this->validateInteger($Nivel)){
-            $this->Nivel = $Nivel;
-            return true;
+        if($this->validateInteger($DUI)){
+            $this->DUI = $DUI;
+            return true;                        
         } else {
             return false;
         }
@@ -318,22 +320,22 @@ class Colaborador extends Validator
     }
 
     /**
-     * Get the value of Estado_colaborador
+     * Get the value of Estado
      */ 
-    public function getEstado_colaborador()
+    public function getEstado()
     {
-        return $this->Estado_colaborador;
+        return $this->Estado;
     }
 
     /**
-     * Set the value of Estado_colaborador
+     * Set the value of Estado
      *
      * @return  self
      */ 
-    public function setEstado_colaborador($Estado_colaborador)
+    public function setEstado($Estado)
     {
-        if($this->validateInteger($Estado_colaborador)){
-            $this->Estado_colaborador = $Estado_colaborador;
+        if($this->validateInteger($Estado)){
+            $this->Estado = $Estado;
             return true;
         } else {
             return false;
@@ -434,21 +436,21 @@ class Colaborador extends Validator
 
     public function readDatos()
     {
-        $sql = 'SELECT Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, E.Estado_civil as Estado, C.Codigo_colaborador as Colaborador, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento FROM datos_identificacion as D INNER JOIN Estado_civil as E on E.Id_estado_civil = D.Id_estado_civil INNER JOIN colaborador as C on C.Id_Colaborador = D.Id_Colaborador';
+        $sql = 'SELECT Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, E.Estado_civil as Estado, C.Codigo_colaborador as Colaborador, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento FROM datos_identificacion as D INNER JOIN Estado_civil as E on E.Id_estado_civil = D.Id_estado_civil INNER JOIN colaborador as C on C.Id_Colaborador = D.Id_Colaborador WHERE D.Estado = 1';
         $params = array(null);
         return Database::getRows($sql, $params);
     }
 
     public function createDatos()
     {
-        $sql = 'insert into datos_identificacion (Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
-        $params = array($this->Codigo_colaborador, $this->Nombres, $this->Apellidos, $this->Genero, $this->Fecha_nacimiento, $this->Id_religion, $this->Id_municipio, $this->Telefono_casa, $this->Telefono_celular, $this->Correo_institucional, $this->Direccion, $this->NIP, $this->Nivel, $this->Estudiando, $this->Estado_colaborador);
+        $sql = 'insert into datos_identificacion (Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->Num_documento, $this->Residencia, $this->Lugar_expedicion, $this->Fecha_expedicion, $this->Profesion, $this->Id_estado_civil, $this->Fecha_expiracion, $this->Numero_ISSS, $this->AFP, $this->NUP, $this->DUI, $this->Id_colaborador);
         return Database::executeRow($sql, $params);        
     }
 
     public function getDatos()
     {
-        $sql = 'SELECT Id_colaborador, Id_religion, Id_municipio, Telefono_casa, Telefono_celular, Correo_institucional, Direccion_residencial, NIP, Nivel, Estudiando FROM Colaborador WHERE Id_colaborador = ?';
+        $sql = 'SELECT Id_datos, Id_estado_civil, Id_Colaborador, residencia, Lugar_expedicion, Profesion_oficio, Fecha_expiracion, Num_ISSS,AFP, NUP, Tipo_documento FROM datos_identificacion WHERE Id_colaborador = ?';
         $params = array($this->Id);
         return Database::getRow($sql, $params);
     }
@@ -462,8 +464,8 @@ class Colaborador extends Validator
 
     public function disableDatos()
     {
-        $sql = 'UPDATE Colaborador SET Estado_colaborador = ? WHERE Id_Colaborador = ?';
-        $params = array($this->Estado_colaborador, $this->Id);
+        $sql = 'UPDATE datos_identificacion SET Estado = ? WHERE Id_datos = ?';
+        $params = array($this->Estado, $this->Id);
         return Database::executeRow($sql, $params);
     }   
     

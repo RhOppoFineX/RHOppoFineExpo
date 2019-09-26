@@ -3,8 +3,8 @@ $(document).ready(function()
     showTable();
 });
 
-const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=';
-const apidatosIdentificacion = '../../RHOppoFineExpo/Backend/core/api/datos-identificacion.php?action=read';
+const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=read';
+const apidatosIdentificacion = '../../RHOppoFineExpo/Backend/core/api/datos-identificacion.php?action=';
 const apiEstadocivil = '../../RHOppoFineExpo/Backend/core/api/Estado-civil.php?action=read';
 
 function fillTable(filas)
@@ -21,14 +21,13 @@ function fillTable(filas)
                 <td>${fila.Lugar_expedicion}</td>							
                 <td>${fila.Fecha_expedicion}</td>							
                 <td>${fila.Profesion_oficio}</td>	
-                <td>${fila.Id_estado_civil}</td>						
+                <td>${fila.Estado}</td>						
                 <td>${fila.Fecha_expiracion}</td>							
                 <td>${fila.Num_ISSS}</td>							
                 <td>${fila.AFP}</td>							
                 <td>${fila.NUP}</td>							
                 <td>${fila.Tipo_documento==1 ? 'DUI' : 'Carnet de residente'}</td>   
-                <td>${fila.Id_colaborador}</td>           
-                <td><a class="btn btn-warning btn-sm" onclick="verColaborador(${fila.Id_datos})">Modificar</a></td>
+                <td>${fila.Colaborador}</td>             
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_datos})">Modificar</a></td>
                 <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apidatosIdentificacion}', ${fila.Id_datos}, null, 'disable')">Deshabilitar</a></td>				
             </tr>       
@@ -46,7 +45,7 @@ function fillTable(filas)
 function showTable()
 {
     $.ajax({
-        url: apiColaborador + 'read',
+        url: apidatosIdentificacion + 'read',
         type: 'post',
         data: null,
         datatype: 'json'
@@ -85,7 +84,7 @@ function modalCreate()
 {
     $('#form-colaborador-add')[0].reset();//Id del formulario
     fillSelect(apiColaborador, 'Colaborador', null);//llenar el combo
-    fillSelect(apiEstadocivil, 'Estado Civil', null);//llenar el combo
+    fillSelect(apiEstadocivil, 'Estado', null);//llenar el combo
     //Tipos-A es el Id del combobox
     $('#modal-colaborador-add').modal('show');//Id del modal
 }
@@ -95,7 +94,7 @@ $('#form-colaborador-add').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiColaborador + 'create',
+        url: apidatosIdentificacion + 'create',
         type: 'post',
         data: new FormData($('#form-colaborador-add')[0]),
         datatype: 'json',
@@ -132,7 +131,7 @@ function actualizarModal(id)
         url: apiColaborador + 'get',
         type: 'post',
         data:{
-            Id_colaborador: id
+            Id_Datos: id
         },
         datatype: 'json'
     })
