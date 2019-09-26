@@ -15,6 +15,31 @@ class Usuarios extends Validator
 	private $Tipo_usuario = null;
 	private $actividad = null;
 	private $Fecha = null;
+	private $Token = null;
+
+	
+	/**
+	 * Get the value of Token
+	 */ 
+	public function getToken()
+	{
+		return $this->Token;
+	}
+
+	/**
+	 * Set the value of Token
+	 *
+	 * @return  self
+	 */ 
+	public function setToken($Token)
+	{
+		if($this->validateAlphanumeric($Token, 4, 50)){
+			$this->Token = $Token;
+			return true;
+		} else {
+			return false;
+		}		
+	}
 
 	/**
 	 * Get the value of Fecha
@@ -219,12 +244,14 @@ class Usuarios extends Validator
 	//este metodo no
 	public function checkEmail()
 	{
-		$sql = 'SELECT Id_usuario, T.Tipo_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario WHERE Correo_usuario = ? and U.Estado = 1 and Intentos < 5';
+		$sql = 'SELECT Id_usuario, T.Tipo_usuario, Nombres_usuario, Apellidos_usuario FROM Usuario as U INNER JOIN Tipo_usuario as T ON U.Id_tipo_usuario = T.Id_tipo_usuario WHERE Correo_usuario = ? and U.Estado = 1 and Intentos < 5';
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if ($data) {
 			$this->id = $data['Id_usuario'];
 			$this->Tipo_usuario = $data['Tipo_usuario'];
+			$this->nombres = $data['Nombres_usuario'];
+			$this->apellidos = $data['Apellidos_usuario'];
 			return true;
 		} else {
 			return false;
@@ -387,6 +414,14 @@ class Usuarios extends Validator
 		$params = array($this->id);
 		return Database::executeRow($sql, $params);
 	}
+
+	public function updateToken()
+	{
+		$sql = 'UPDATE Usuario SET Token = ? WHERE Correo_usuario = ?';
+		$params = array($this->Token, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
 	
+
 }
 ?>

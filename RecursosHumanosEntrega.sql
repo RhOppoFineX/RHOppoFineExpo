@@ -35,6 +35,7 @@ Create Table Usuario(
     Estado TINYINT(1) NOT NULL DEFAULT 1,               
     Actividad TINYINT(1) NOT NULL DEFAULT 0,
     Fecha date NOT NULL,
+    Token VARCHAR(250) null,
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 

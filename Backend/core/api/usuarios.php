@@ -2,12 +2,14 @@
 require_once '../helpers/database.php';
 require_once '../helpers/validator.php';
 require_once '../models/usuarios.php';
+require_once '../../libraries/enviar.php';
 
 //Se comprueba si existe una acción a realizar, de lo contrario se muestra un mensaje de error
 if (isset($_GET['action'])) {
     session_start();
     $usuario = new Usuarios;    
-    $result = array('status' => false, 'message' => null, 'exception' => null);    
+    $email = new Email;                       
+    $result = array('status' => false, 'message' => null, 'exception' => null, 'email' => false);    
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
@@ -306,7 +308,7 @@ if (isset($_GET['action'])) {
             break;
 
             default:                
-                exit('Acción no disponible login joder macho');
+                exit('Acción no disponible');
             break;    
         }
     } else {
@@ -408,11 +410,43 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Correo incorrecto';
                 }
                 break;
+
+            case 'reset':
+                $_POST = $usuario->validateForm($_POST);
+                $token = null;
+
+                if($usuario->setCorreo($_POST['Correo'])){
+                    if($usuario->checkEmail()){
+                        if($token = $email->Enviar(7, $usuario->getCorreo(), $usuario->getNombres(), $usuario->getApellidos())){//longitud del token
+                            if($usuario->setToken($token)){
+                                if($usuario->updateToken()){
+                                    $result['status'] = true;
+                                    $result['message'] = 'Se ha enviado una clave de acceso a su correo';
+                                    $result['email'] = true;
+                                } else {
+                                    $result['exception'] = 'No se puedo actualizar el Token';
+                                }
+                            } else {
+                                $result['exception'] = 'Token Invalido';
+                            }
+                        } else {
+                            $result['exception'] = 'No se pudo enviar el correo';
+                        }
+                    } else {
+                        $result['exception'] = 'Correo Inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'Correo Incorrecto';
+                }
+
+            break;            
+
             default:
                 exit('Acción no disponible');
         }
     }
-	print(json_encode($result));
+    print(json_encode($result));  
+
 } else {
 	exit('Recurso denegado');
 }

@@ -44,7 +44,7 @@
 								</div> -->
 								<button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
 								<div class="submit">
-									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">¿Olvidastes tu Contraseña?</a></span>
+									<span class="helper-text"><i class="fa fa-lock"></i> <a href="reestablecer.php">¿Olvidastes tu Contraseña?</a></span>
 								</div>
 							</form>
 						</div>

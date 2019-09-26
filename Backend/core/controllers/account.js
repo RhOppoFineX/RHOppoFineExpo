@@ -74,6 +74,7 @@ $('#perfil-update').submit(function()
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#perfil').modal('hide');
+                sweetAlert(1, result.message, null);
                    
             } else {
                 sweetAlert(2, result.exception, null);
@@ -106,6 +107,69 @@ $('#pass-update').submit(function()
             if (result.status) {
                 $('#perfil-pass').modal('hide');
                 
+            } else {
+                sweetAlert(2, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+// Función para cambiar la contraseña del usuario si la ha olivdado
+$('#reset-usuario').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apiAccount + 'reset',
+        type: 'post',
+        data: $('#reset-usuario').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                sweetAlert(1, result.message, null);
+                $('#modal-reset-password').modal('show');
+                //enviarCorreo(result.email);
+            } else {
+                sweetAlert(2, result.exception, null);
+            }
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+// Función para Validar el Token
+$('#form-reset-password').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apiAccount + 'token',
+        type: 'post',
+        data: $('#form-reset-password').serialize(),
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {
+                sweetAlert(1, result.message, null);
+                $('#modal-reset-password').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
             }
