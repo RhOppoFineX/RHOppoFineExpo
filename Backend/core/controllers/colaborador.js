@@ -29,8 +29,7 @@ function fillTable(filas)
                 <td>${fila.NIP}</td>                
                 <td>${fila.Nivel}</td>                
                 <td>${fila.Estudiando==1 ? 'Estudiante' : 'Trabajador'}</td>
-                <td>${fila.Fecha_ingreso}</td>
-                <td><a class="btn btn-warning btn-sm" onclick="verColaborador(${fila.Id_Colaborador})">Modificar</a></td>
+                <td>${fila.Fecha_ingreso}</td>                
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_Colaborador})">Modificar</a></td>
                 <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apiColaborador}', ${fila.Id_Colaborador}, null, 'disable')">Deshabilitar</a></td>				
             </tr>       

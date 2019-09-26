@@ -149,7 +149,7 @@
 				</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Modificar</button>
 			</form>			
 		</div>	
@@ -201,7 +201,7 @@
 								<div class="form-group col-md-6">
 									<label for="Fecha_nacimiento">Fecha_nacimiento</label>
 									<input type="date" class="form-control" id="Fecha_nacimiento" placeholder="Fecha_nacimiento" name="Fecha_nacimiento" required>
-								</div>
+								</div>	
 
 								<div class="form-group col-md-5">
 									<label for="Religion">Religion</label>
@@ -264,7 +264,7 @@
 				</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>			
 		</div>	

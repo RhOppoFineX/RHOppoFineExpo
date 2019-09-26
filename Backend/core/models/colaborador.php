@@ -519,7 +519,7 @@ class Colaborador extends Validator
 
     public function searchColaborador($value)
     {
-        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, R.Religion as Religion, M.Municipio as Municipio, Telefono_casa, Telefono_celular, Correo_institucional, NIP, Nivel, Estudiando, Fecha_ingreso FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio WHERE Estado_colaborador = 1 AND Nombres LIKE ? OR Apellidos LIKE ? OR Codigo_colaborador = ? OR Correo_institucional LIKE ? ORDER BY Codigo_colaborador';
+        $sql = 'SELECT Id_Colaborador, Codigo_colaborador, Nombres, Apellidos, Genero, Fecha_nacimiento, R.Religion as Religion, M.Municipio as Municipio, Telefono_casa, Telefono_celular, Correo_institucional, NIP, Nivel, Estudiando, Fecha_ingreso FROM Colaborador as C INNER JOIN Religion as R ON R.Id_religion = C.Id_religion INNER JOIN Municipio as M ON M.Id_municipio = C.Id_municipio WHERE Estado_colaborador = 1 AND Nombres LIKE ? OR Apellidos LIKE ? OR Codigo_colaborador LIKE ? OR Correo_institucional LIKE ? ORDER BY Codigo_colaborador';
         $params = array("%$value%", "%$value%", "%$value%", "%$value%");
         return Database::getRows($sql, $params);
 
