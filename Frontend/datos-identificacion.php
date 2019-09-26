@@ -55,7 +55,7 @@
 														<th>AFP</th>														
 														<th>NUP</th>
 														<th>Tipo de Documento</th>
-														<th>Colaborador
+														<th>Colaborador</th>
 													</tr>
 												</thead>
 												<tbody id="tabla-datos-identificacion">
@@ -162,7 +162,7 @@
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
+			<h3 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h3>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -173,96 +173,83 @@
 							<div class="form-row">
 
 								<div class="form-group col-md-6">
-									<label for="Codigo_colaborador">Codigo del colaborador</label>
-									<input type="Text" class="form-control" id="Codigo_colaborador" placeholder="Codigo_colaborador" name="Codigo_colaborador" required>
+									<label for="NumeroDocumento">Numero de Documento</label>
+									<input type="Text" class="form-control" id="NumeroDocumento" placeholder="Numero Documento" name="NumeroDocumento" required>
 								</div>
 
-								<div class="form-group col-md-6">
-									<label for="Nombres">Nombres</label>
-									<input type="Text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="Apellidos">Apellidos</label>
-									<input type="Text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
-								</div>
-
-								<div class="form-group col-md-5">
-									<label for="Genero">Genero</label>
-									<select id="Genero" name="Genero" class="form-control" required>
-										<option value="" disabled selected>Seleccione una opción</option>
-										<option value="M">Masculino</option>
- 										<option value="F">Femenino</option>
-									</select>								
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="Fecha_nacimiento">Fecha_nacimiento</label>
-									<input type="date" class="form-control" id="Fecha_nacimiento" placeholder="Fecha_nacimiento" name="Fecha_nacimiento" required>
-								</div>
-
-								<div class="form-group col-md-5">
-									<label for="Religion">Religion</label>
-									<select id="Religion" name="Religion" class="form-control" required>
-									
-									</select>								
-								</div>
-
-								<div class="form-group col-md-5">
-									<label for="Municipio">Municipio</label>
-									<select id="Municipio" name="Municipio" class="form-control" required>
-									
-									</select>								
-								</div>
-
-								<div class="form-group col-md-7">
-									<label for="Correo">Correo electonico</label>
-									<input type="email" class="form-control" id="Correo" placeholder="Correo Institucional" name="Correo" required>
-									
-								</div>
-	
-								<div class="form-group col-md-4">
-									<label for="Telefono_casa">Telefono de casa</label>
-									<input type="text" class="form-control" id="Telefono_casa" placeholder="2222-2222" name="Telefono_casa" required>									
-								</div>
-
-								<div class="form-group col-md-4">
-									<label for="Telefono_celular">Telefono de celular</label>
-									<input type="text" class="form-control" id="Telefono_celular" placeholder="7777-7777" name="Telefono_celular" required>					
-								</div>
-
-								<div class="form-group col-md-4">
-									<label for="NIP">Número de NIP</label>
-									<input type="number" class="form-control" id="NIP" placeholder="numero de NIP" name="NIP" required>					
-								</div>
-								
-								<div class="form-group col-md-4">
-									<label for="Nivel">Número de Nivel</label>
-									<input type="number" class="form-control" id="Nivel" placeholder="numero de Nivel" name="Nivel" required>					
-								</div>
-
-								<div class="form-group col-md-5">
-									<label for="Estudiando"> Estado </label>
-									<select id="Estudiando" name="Estudiando" class="form-control" required>
-										<option value="" disabled selected>Seleccione una opción</option>
-										<option value="0">Trabajador</option>
- 										<option value="1">Estudiante</option>
-									</select>								
-								</div>
-
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-12">
 									<label for="Direccion">Direccion Residencial</label>
 									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
 
 									</textarea>
-								</div>															
+								</div>	
+
+								<div class="form-group col-md-6">
+									<label for="LugarExpedicion">LugarExpedicion</label>
+									<input type="Text" class="form-control" id="LugarExpedicion" placeholder="LugarExpedicion" name="LugarExpedicion" required>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="FechaExpedicion">FechaExpedicion</label>
+									<input type="date" class="form-control" id="FechaExpedicion" placeholder="FechaExpedicion" name="FechaExpedicion" required>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Profesion">Profesion</label>
+									<input id="Profesion" name="Profesion" placeholder="Profesion" class="form-control" required>
+																
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Estado">Estado</label>
+									<select id="Estado" name="Estado" class="form-control" required>
+									
+									</select>								
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="FechaExpepiracion">FechaExpiracion</label>
+									<input type="date" class="form-control" id="FechaExpiracion" placeholder="FechaExpiracion" name="FechaExpiracion" required>
+								</div>
+	
+								<div class="form-group col-md-6">
+									<label for="NumeroISSS">Numero de ISSS</label>
+									<input type="text" class="form-control" id="NumeroISSS" placeholder="Numero de ISSS" name="NumeroISSS" required>									
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="AFP">AFP</label>
+									<input type="text" class="form-control" id="AFP" placeholder="numero de AFP" name="AFP" required>					
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="NUP">Número de NUP</label>
+									<input type="number" class="form-control" id="NUP" placeholder="numero de NUP" name="NUP" required>					
+								</div>
+								
+
+								<div class="form-group col-md-6">
+									<label for="DUI"> Tipo Documento </label>
+									<select id="DUI" name="DUI" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="0">Carnet de Residente</option>
+ 										<option value="1">DUI</option>
+									</select>								
+								</div>		
+								
+								<div class="form-group col-md-6">
+									<label for="Colaborador">Colaborador</label>
+									<select id="Colaborador" name="Colaborador" class="form-control" required>
+									
+									</select>								
+								</div>												
 													
 							</div>
 						</div>                            					
 				</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>			
 		</div>	

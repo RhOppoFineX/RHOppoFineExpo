@@ -20,33 +20,23 @@ if(isset($_GET['action'])){
             break;
 
             case 'create':
-                $_POST = $colaborador->validateForm($_POST);
+                $_POST = $Datos->validateForm($_POST);
                 
-                    if($colaborador->setCodigo_colaborador($_POST['Codigo_colaborador'])){
-                        if($colaborador->setNombres($_POST['Nombres'])){
-                            if($colaborador->setApellidos($_POST['Apellidos'])){
-                                if($colaborador->setGenero($_POST['Genero'])){
-                                    if($colaborador->setId_religion($_POST['Religion'])){
-                                        if($colaborador->setTelefono_casa($_POST['Telefono_casa'])){
-                                            if($colaborador->setTelefono_celular($_POST['Telefono_celular'])){
-                                                if($colaborador->setCorreo_institucional($_POST['Correo'])){
-                                                    if($colaborador->setDireccion($_POST['Direccion'])){
-                                                        if($colaborador->setNip($_POST['NIP'])){
-                                                            if($colaborador->setNivel($_POST['Nivel'])){
-                                                                if($colaborador->setEstudiando($_POST['Estudiando'])){                      
-                                                                        if($colaborador->setEstado_colaborador(1)){//ver
-                                                                            if($colaborador->setFecha_nacimiento($_POST['Fecha_nacimiento'])){
-                                                                                if($colaborador->setId_municipio($_POST['Municipio'])){
-                                                                                    if($colaborador->createColaborador()){
-                                                                                        $result['status'] = true;
-                                                                                        $result['message'] = 'Datos personales insertados continue con los datos de identificacion';
-                                                                                        $_SESSION['Codigo_colaborador'] = $colaborador->getCodigo_colaborador();
-                                                                                    } else {
-                                                                                        $result['exception'] = 'Operación fallida';
-                                                                                    }                                                               
-                                                                                } else {    
-                                                                                    $result['exception'] = 'Municipio incorrecto';
-                                                                                }
+                    if($Datos->setNum_documento($_POST['NumeroDocumento'])){
+                        if($Datos->setResidencia($_POST['Direccion'])){
+                            if($Datos->setLugar_expedicion($_POST['LugarExpedicion'])){
+                                if($Datos->setFecha_expedicion($_POST['FechaExpedicion'])){
+                                    if($Datos->setProfesion($_POST['Profesion'])){
+                                        if($Datos->setId_estado_civil($_POST['Estado'])){
+                                            if($Datos->setFecha_expiracion($_POST['FechaExpiracion'])){
+                                                if($Datos->setNumero_ISSS($_POST['NumeroISSS'])){
+                                                    if($Datos->setAFP($_POST['AFP'])){
+                                                        if($Datos->setNUP($_POST['NUP'])){            
+                                                            if($Datos->setDUI(1)){//ver
+                                                                if($Datos->setId_colaborador($_POST['Colaborador'])){
+                                                                    if($Datos->createDatos()){
+                                                                            $result['status'] = true;
+                                                                            $result['message'] = 'Datos personales insertados continue con los datos de identificacion';
                                                                             } else {
                                                                                 $result['exception'] = 'Fecha invalida';
                                                                             }
@@ -54,41 +44,38 @@ if(isset($_GET['action'])){
                                                                             $result['exception'] = 'valor invalido';
                                                                         }                                                                   
                                                                 } else {
-                                                                    $result['exception'] = 'Valor invalido';
+                                                                    $result['exception'] = 'Tipo invalido';
                                                                 }
                                                             } else {
-                                                                $result['exception'] = 'Nivel incorrecto';
+                                                                $result['exception'] = 'NUP incorrecto';
                                                             }
                                                         } else {
-                                                            $result['exception'] = 'NIP incorrecto';
+                                                            $result['exception'] = 'AFP incorrecto';
                                                         }
                                                     } else {
-                                                        $result['exception'] = 'Dirección incorrecta';
+                                                        $result['exception'] = 'ISSS incorrecta';
                                                     }
                                                 } else {
-                                                    $result['exception'] = 'Correo incorrecto';
+                                                    $result['exception'] = 'Fecha de Expiracion incorrecto';
                                                 }
                                             } else {
-                                                $result['exception'] = 'Telefono celular incorrecto';
+                                                $result['exception'] = 'Estado incorrecto';
                                             }
                                         } else {
-                                            $result['exception'] = 'Telefono incorrecto';
+                                            $result['exception'] = 'Profesion incorrecto';
                                         }
                                     } else {
-                                        $result['exception'] = 'Religion incorrecta';
+                                        $result['exception'] = 'fecha de expedicion incorrecta';
                                     }
                                 } else {
-                                    $result['exception'] = 'Genero incorrecto';
+                                    $result['exception'] = 'Lugar de expedicion incorrecto';
                                 }
                             } else {
-                                $result['exception'] = 'Apellidos incorrectos';
+                                $result['exception'] = 'Direccion incorrectos';
                             }
                         } else {
-                            $result['excpetion'] = 'Nombres incorrectos';
-                        }
-                    } else {
-                        $result['exception'] = 'Codigo Incorrecto'; 
-                    }               
+                            $result['excpetion'] = 'Numero de documento inconrrecto';
+                        }             
 
             break;
 
@@ -105,7 +92,7 @@ if(isset($_GET['action'])){
             break;
 
             case 'update':
-                $_POST = $colaborador->validateForm($_POST);   
+                $_POST = $Datos->validateForm($_POST);   
 
                 if($colaborador->setId($_POST['Id_colaborador_up'])){
                     if($colaborador->getColaborador()){
@@ -160,12 +147,12 @@ if(isset($_GET['action'])){
             break;            
 
             case 'disable':
-                if($colaborador->setId($_POST['identifier'])){
-                    if($colaborador->setEstado_colaborador(0)){
-                        if($colaborador->getColaborador()){
-                            if($colaborador->disableColaborador()){
+                if($Datos->setId($_POST['identifier'])){
+                    if($Datos->setEstado(0)){
+                        if($Datos->getDatos()){
+                            if($Datos->disableDatos()){
                                 $result['status'] = true;
-                                $result['message'] = 'Colaborador Deshablitado';
+                                $result['message'] = 'Datos de colabirador Deshablitado';
                             } else {
                                 $result['exception'] = 'Operación fallida';
                             }
