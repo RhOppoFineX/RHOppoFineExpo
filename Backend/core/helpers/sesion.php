@@ -10,14 +10,14 @@ class Session {
 
             $filename = basename($_SERVER['PHP_SELF']);          
         
-            if($filename === 'index.php' || $filename === 'register.php')
+            if($filename === 'index.php' || $filename === 'register.php' || $filename === 'reestablecer.php')
                 header('Location: charts.php');      
         
         } else {
         
             $filename = basename($_SERVER['PHP_SELF']);
         
-            if($filename != 'index.php' && $filename != 'register.php')//CAMBIAR 
+            if($filename != 'index.php' && $filename != 'register.php' && $filename != 'reestablecer.php')//CAMBIAR 
                 header('Location: index.php');          
         }
 
@@ -34,8 +34,13 @@ class Session {
                  
         }       
 
-        if(!$retorno)
-            header('Location: cerrar.php');
+        if(!$retorno){
+            if(isset($_SERVER['HTTP_REFERER'])){
+                $previous = $_SERVER['HTTP_REFERER'];
+                header('Location: '.$previous);
+                exit('UHHHH');
+            }
+        }       
 
     }
 

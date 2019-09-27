@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
 					<div class="brand">
-						<a href="index.php"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" class="img-responsive logo" width="100px" height="100px"></a>
+						<a href="#"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" class="img-responsive logo" width="100px" height="100px"></a>
 					</div>
 					<div class="container-fluid">
 						<div class="navbar-btn">
@@ -118,7 +118,7 @@
 									</div>
 								</li>									
 								<!-- <li><a href="elements.php" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li> -->
-								<li><a href="charts.php" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+								<li><a href="charts.php" class=""><i class="lnr lnr-chart-bars"></i> <span>Gráficos</span></a></li>
 								<!-- <li><a href="panels.php" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 								<li><a href="notifications.php" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>					 -->
 								<!-- <li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>

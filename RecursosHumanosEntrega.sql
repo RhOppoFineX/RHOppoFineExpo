@@ -14,7 +14,7 @@ Create Table Puesto(
     Id_puesto Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Puesto varchar(25) UNIQUE NOT NULL,
     Estado TINYINT(1) NOT NULL DEFAULT 1
-);
+); 
 
 --Topo
 create table Tipo_usuario(
@@ -39,12 +39,11 @@ Create Table Usuario(
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 
--- Create Table Vistas(
---     Id_vistas INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
---     Nombre,
---     ruta, 
---     icono
--- );
+Create Table Vistas(
+    Id_vistas INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Nombre varchar(25) UNIQUE NOT NULL,
+    Id_tipo_usuario INTEGER Unsigned NOT NULL
+ );
 
 -- Create Table Acciones(
 --     Id_acciones INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
