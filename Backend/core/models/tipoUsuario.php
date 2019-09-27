@@ -26,7 +26,7 @@
 
         public function setTipo($Tipo)
         {
-            if($this->validateAlphanumeric($Tipo, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($Tipo, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->Tipo = $Tipo;
                 return true;
             }else{

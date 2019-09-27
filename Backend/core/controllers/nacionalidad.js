@@ -18,7 +18,7 @@ function fillTable(filas)
                 <td>${fila.Id_nacionalidad}</td>
                 <td>${fila.Nacionalidad}</td>							
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_nacionalidad})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_nacionalidad}, null)">Deshabilitar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_nacionalidad}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_idioma o idioma sin excatamente iguales a los campos de la base de datos en esa tabla

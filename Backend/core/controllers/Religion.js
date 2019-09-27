@@ -17,8 +17,7 @@ function fillTable(filas)
             <tr>
                 <td>${fila.Id_religion}</td>
                 <td>${fila.Religion}</td>							
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_religion})">Modificar</a></td>
-                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${api}', ${fila.Id_religion}, null, 'disable')">Deshabilitar</a></td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_religion})">Modificar</a></td>                
 				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_religion}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas

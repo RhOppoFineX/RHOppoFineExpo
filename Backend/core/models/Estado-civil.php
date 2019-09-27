@@ -24,7 +24,7 @@ class Estado extends Validator
 
         public function setEstado($Estado_civil)
         {
-            if($this->validateAlphanumeric($Estado_civil, 1, 25)){ 
+            if($this->validateAlphabetic($Estado_civil, 1, 25)){ 
                 $this->Estado_civil = $Estado_civil;
                 return true;
             }else{

@@ -25,7 +25,7 @@ class nacionalidad extends Validator
 
         public function setnacionalidad($nacionalidad)
         {
-            if($this->validateAlphanumeric($nacionalidad, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($nacionalidad, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->nacionalidad = $nacionalidad;
                 return true;
             }else{

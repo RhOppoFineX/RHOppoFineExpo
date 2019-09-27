@@ -25,7 +25,7 @@ class nivelIdioma extends Validator
 
         public function setnivelIdioma($idioma)
         {
-            if($this->validateAlphanumeric($idioma, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($idioma, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->idioma = $idioma;
                 return true;
             }else{

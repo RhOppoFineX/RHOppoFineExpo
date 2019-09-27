@@ -19,7 +19,7 @@ function fillTable(rows)
                 <td>${row.Departamento}</td>
                 <td>${row.Nacionalidad}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_departamento})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apidepartamento}', ${row.Id_departamento}, null)">Deshabilitar</a></td> 
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apidepartamento}', ${row.Id_departamento}, null, 'delete')">Eliminar</a></td> 
             </tr>
         `;
     });

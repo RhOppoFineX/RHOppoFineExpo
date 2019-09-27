@@ -17,8 +17,7 @@ function fillTable(filas)
             <tr>
                 <td>${fila.Id_area}</td>
                 <td>${fila.Area}</td>						
-                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_area})">Modificar</a></td>
-                <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area}, null, 'disable')">Deshabilitar</a></td>
+                <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_area})">Modificar</a></td>                
 				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_area}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas
@@ -136,11 +135,11 @@ $('#actualizarArea').submit(function()
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
-                sweetAlert(2, resultado.exception, null);
+                sweetAlert(2, isHtmlString(resultado.exception), null);                
                 console.log(response);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, isHtmlString(response), null);
         }
     })
     .fail(function(jqXHR){
@@ -173,11 +172,11 @@ $('#insertarArea').submit(function()
                 showTable();
                 sweetAlert(1, resultado.message, null);
             } else {
-                sweetAlert(2, resultado.exception, null);
+                sweetAlert(2, isHtmlString(resultado.exception), null);
                 console.log(response);
             }
         } else {
-            console.log(response);
+            sweetAlert(2, isHtmlString(response), null);            
         }
     })
     .fail(function(jqXHR){

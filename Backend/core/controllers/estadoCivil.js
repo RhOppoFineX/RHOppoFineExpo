@@ -18,7 +18,7 @@ function fillTable(filas)
                 <td>${fila.Id_estado_civil}</td>
                 <td>${fila.Estado_civil}</td>							
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_estado_civil})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_estado_civil}, null)">Deshabilitar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${api}', ${fila.Id_estado_civil}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla

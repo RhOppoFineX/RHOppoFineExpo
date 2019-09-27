@@ -18,7 +18,7 @@ function fillTable(rows)
                 <td>${row.Nombre_equipo}</td>            
                 <td>${row.Tipo_equipo}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_equipo})">Modificar<a><td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipo}', ${row.Id_equipo}, null)">Deshabilitar</a></td> 
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipo}', ${row.Id_equipo}, null, 'delete')">Eliminar</a></td> 
             </tr>
         `;
     });

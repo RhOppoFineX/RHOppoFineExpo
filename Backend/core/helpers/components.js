@@ -48,6 +48,27 @@ function sweetAlert(type, text, url)
     }
 }
 
+//verifica si es un texto html o string 
+
+function isHtmlString(htmlText)
+{
+    var htmlArray = $.parseHTML(htmlText);
+
+    var isHtml = htmlArray.filter(function(e){ return e instanceof HTMLElement;}).length;
+
+    console.log(htmlText);
+    //console.log(htmlArray);
+
+    if (isHtml){
+        console.log(isHtml + " HTML Element(s) found.");
+        return 'Error Contacte con el administrador';
+    }
+    else{
+        console.log("No HTML Elements found!");
+        return htmlText;
+    }
+}
+
 /*
 *   Función para cargar las opciones en un select de formulario.
 *
@@ -135,10 +156,10 @@ function confirmDelete(api, id, file, operacion)
                         showTable();
                         sweetAlert(1, result.message, null);
                     } else {
-                        sweetAlert(2, result.exception, null);
+                        sweetAlert(2, isHtmlString(result.exception), null);
                     }
                 } else {
-                    console.log(response);
+                    sweetAlert(2, isHtmlString(response), null);
                 }
             })
             .fail(function(jqXHR){
@@ -196,26 +217,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
     });
 }
 
-//verifica si es un texto html o string 
 
-function isHtmlString(htmlText)
-{
-    var htmlArray = $.parseHTML(htmlText);
-
-    var isHtml = htmlArray.filter(function(e){ return e instanceof HTMLElement;}).length;
-
-    console.log(htmlText);
-    //console.log(htmlArray);
-
-    if (isHtml){
-        console.log(isHtml + " HTML Element(s) found.");
-        return 'Error Contacte con el administrador';
-    }
-    else{
-        console.log("No HTML Elements found!");
-        return htmlText;
-    }
-}
 
 function verColaborador()
 {

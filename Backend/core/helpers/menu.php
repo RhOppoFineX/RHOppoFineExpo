@@ -18,7 +18,7 @@
 						</div> -->
 						<div id="navbar-menu">
 							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown">
+							<!--	<li class="dropdown">
 									<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 										 Notificaciones
 										<i class="lnr lnr-alarm"></i>
@@ -32,16 +32,16 @@
 										<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
 										<li><a href="#" class="more">Ver más Notificaiones</a></li>
 									</ul>
-								</li>
-								<li class="dropdown">
+								</li>-->
+							<!--	<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Estado del Colaborador</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 									<ul class="dropdown-menu">
 										<li><a href="#">Activo</a></li>
 										<li><a href="#">Inactivo</a></li>	
 										<li><a href="#">Permanente</a></li>									
 									</ul>
-								</li>
-								<li class="dropdown">
+								</li>-->
+							<!--	<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-graduation-hat"></i> <span>Servicios Profesionales(Colegio)</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 									<ul class="dropdown-menu">
 										<li><a href="#"><i class="lnr"></i> <span>Pilet</span></a></li>
@@ -50,7 +50,7 @@
 										<li><a href="#"><i class="lnr"></i> <span>Interinatos</span></a></li>
 										<li><a href="#"><i class="lnr"></i> <span>Otros Servicios</span></a></li>
 									</ul>
-								</li>
+								</li>-->
 								<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-license"></i> <span>Tu Perfil</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 										<ul class="dropdown-menu">
@@ -75,7 +75,7 @@
 					<div class="sidebar-scroll">
 						<nav><!--Principal-->
 							<ul class="nav">
-								<li><a href="index.php" class="active"><i class="lnr lnr-home"></i> <span>Principal</span></a></li>
+								<li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>Principal</span></a></li>
 							<!--Cruds-->
 							<li>
 									<a href="#subPagesCruds" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Datos Colaborador</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>

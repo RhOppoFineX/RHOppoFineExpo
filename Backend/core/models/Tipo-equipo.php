@@ -24,7 +24,7 @@ class TipoEquipo extends Validator    //Nombre que se le coloca al inicio de la 
 
         public function setTipo($Tipo_equipo)
         {
-            if($this->validateAlphanumeric($Tipo_equipo, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
+            if($this->validateAlphabetic($Tipo_equipo, 1, 25)){ //controla la longitud de los datos primer numero el minimo segundo el maximo
                 $this->Tipo_equipo = $Tipo_equipo;
                 return true;
             }else{

@@ -20,7 +20,7 @@ function fillTable(rows)
                 <td>${row.Municipio}</td>	
                 <td>${row.Departamento}</td>					
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_municipio})">Modificar</a></td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiMunicipio}', ${row.Id_municipio}, null)">Deshabilitar</a></td>
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiMunicipio}', ${row.Id_municipio}, null, 'delete')">Eliminar</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla

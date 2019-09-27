@@ -108,13 +108,13 @@
 						<form method="post" id="agregarEquipo" autocomplete="off">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-									<label for="Nombre-equipo">Nombre equipo</label>
-									<input type="Text" class="form-control" id="Nombre-equipo" placeholder="Nombre-equipo" name="Nombre-equipo" required>
+									<label for="Nombre-equipo-A">Nombre equipo</label>
+									<input type="Text" class="form-control" id="Nombre-equipo-A" placeholder="Nombre-equipo-A" name="Nombre-equipo-A" required>
 								</div>
 								
 								<div class="form-group col-md-6">
-									<label for="Tipo-equipo">Tipo equipo</label>
-									<select id="Tipo-equipo" name="Tipo-equipo" class="form-control" required>
+									<label for="Tipo-equipo-A">Tipo equipo</label>
+									<select id="Tipo-equipo-A" name="Tipo-equipo-A" class="form-control" required>
 									
 									</select>									
 									
