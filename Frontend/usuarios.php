@@ -15,10 +15,24 @@
 <body>
 	<?php
 		//Control de Sesión y privilegios de Usuario				
-		// require_once '../backend/core/helpers/sesion.php';
-		// Session::iniSession();
-		// $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
-		// Session::verifcarPrivilegio();
+		//  require_once '../backend/core/helpers/sesion.php';
+		//  Session::iniSession();
+		//  $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
+		//  Session::verifcarPrivilegio();
+
+		// $verificar = null;
+
+		//  Switch ($_SESION['Tipo_usuario']){
+
+		// 	case 'Admin':
+		// 		   $verificar = 
+		// 	break;
+
+		// 	case 'Colaborador':
+
+		// 	break;
+
+		//  }
 	?>
 
 	<div id="wrapper">
@@ -114,7 +128,7 @@
 			</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Modficar</button>
 			</form>	
 		</div>
@@ -179,7 +193,7 @@
 				</div>			  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 			</form>			
 		</div>	

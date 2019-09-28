@@ -41,6 +41,7 @@ class Validator
         foreach ($fields as $index => $value) {
             $value = trim($value);
             $value = htmlentities($value);//Para ataques Xss Convierte javascript y html a texto plano
+            $value = strip_tags($value);
             $fields[$index] = $value;
         }
         return $fields;
