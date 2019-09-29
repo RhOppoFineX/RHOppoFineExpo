@@ -167,7 +167,7 @@ Create Table Colaborador(
 );
 --Cr7 Super Crud
 create table Datos_identificacion(
-    Id_datos integer Unsigned PRIMARY KEY NOT NULL,    
+    Id_datos integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,    
     Num_documento varchar(10) NOT NULL,
     Residencia varchar(30) NOT NULL,
     Lugar_expedicion varchar(30) NOT NULL,

@@ -200,6 +200,9 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Colaborador Incorrecto';
                 }
             break;
+
+            default:
+                exit('Acción no disponible');
             
         }
 

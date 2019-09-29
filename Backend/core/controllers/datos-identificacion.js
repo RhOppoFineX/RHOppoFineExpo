@@ -84,7 +84,7 @@ function modalCreate()
 {
     $('#form-colaborador-add')[0].reset();//Id del formulario
     fillSelect(apiColaborador, 'Colaborador', null);//llenar el combo
-    fillSelect(apiEstadocivil, 'Estado', null);//llenar el combo
+    fillSelect(apiEstadocivil, 'Estado_civil', null);//llenar el combo
     //Tipos-A es el Id del combobox
     $('#modal-colaborador-add').modal('show');//Id del modal
 }
@@ -107,6 +107,7 @@ $('#form-colaborador-add').submit(function()
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            console.log(response + 'No');
             if (result.status) {               
                 $('#modal-colaborador-add').modal('hide');
                 showTable();
@@ -128,7 +129,7 @@ $('#form-colaborador-add').submit(function()
 function actualizarModal(id)
 {
     $.ajax({
-        url: apiColaborador + 'get',
+        url: apidatosIdentificacion + 'get',
         type: 'post',
         data:{
             Id_Datos: id
@@ -141,20 +142,20 @@ function actualizarModal(id)
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_colaborador_up').val(result.dataset.Id_colaborador);
+                $('#Id_colaborador_up').val(result.dataset.Id_Datos);
                 $('#Telefono_casa_up').val(result.dataset.Telefono_casa);
                 $('#Telefono_celular_up').val(result.dataset.Telefono_celular);
                 $('#Correo_up').val(result.dataset.Correo_institucional);
                 $('#Direccion_up').val(result.dataset.Direccion_residencial);
-                fillSelect(apiReligion, 'Religion_up', result.dataset.Id_religion); 
-                fillSelect(apiMunicipio, 'Municipio_up', result.dataset.Id_municipio);       
+                fillSelect(apiEstadocivil, 'Religion_up', result.dataset.Id_estado_civil); 
+                fillSelect(apiColaborador, 'Municipio_up', result.dataset.Id_Colaborador);       
                 $('#NIP_up').val(result.dataset.NIP);
                 $('#Nivel_up').val(result.dataset.Nivel);
                 $('#Estudiando_up').val(result.dataset.Estudiando);              
                           
-                $('#modal-colaborador-up').modal('show');   
+                $('#modal-colaborador-up-iden').modal('show');   
             } else {
-                sweetAlert(2, isHtmlString(result.exception), null);
+                sweetAlert(2, result.exception, null);
             }
         } else {
             sweetAlert(2, isHtmlString(response), null);

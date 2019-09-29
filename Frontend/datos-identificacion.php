@@ -73,7 +73,7 @@
 			</div>	<!--Wrapper Fin-->
 
 		<!-- Modal modificar Colaboradores-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up-iden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -201,8 +201,8 @@
 								</div>
 
 								<div class="form-group col-md-6">
-									<label for="Estado">Estado</label>
-									<select id="Estado" name="Estado" class="form-control" required>
+									<label for="Estado_civil">Estado civil</label>
+									<select id="Estado_civil" name="Estado_civil" class="form-control" required>
 									
 									</select>								
 								</div>

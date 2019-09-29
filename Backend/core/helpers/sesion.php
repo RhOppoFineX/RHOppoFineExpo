@@ -36,6 +36,7 @@ class Session {
 
         if(!$retorno){
             if(isset($_SERVER['HTTP_REFERER'])){
+                session_destroy();
                 $previous = $_SERVER['HTTP_REFERER'];
                 header('Location: '.$previous);
                 exit('UHHHH');

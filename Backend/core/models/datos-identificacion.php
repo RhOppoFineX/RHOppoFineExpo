@@ -59,7 +59,7 @@ class Datos extends Validator
      */ 
     public function setNum_documento($Num_documento)
     {
-        if($this->validateAlphanumeric($Num_documento, 3, 12)){
+        if($this->validateIntegerControl($Num_documento, 3, 12)){
             $this->Num_documento = $Num_documento;
             return true;
         } else {
@@ -436,14 +436,15 @@ class Datos extends Validator
 
     public function readDatos()
     {
-        $sql = 'SELECT Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, E.Estado_civil as Estado, C.Codigo_colaborador as Colaborador, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento FROM datos_identificacion as D INNER JOIN Estado_civil as E on E.Id_estado_civil = D.Id_estado_civil INNER JOIN colaborador as C on C.Id_Colaborador = D.Id_Colaborador WHERE D.Estado = 1';
+        $sql = 'SELECT Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, E.Estado_civil as Estado,
+        E.Id_estado_civil as Id_civil , C.Codigo_colaborador as Colaborador, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento FROM datos_identificacion as D INNER JOIN Estado_civil as E on E.Id_estado_civil = D.Id_estado_civil INNER JOIN colaborador as C on C.Id_Colaborador = D.Id_Colaborador WHERE D.Estado = 1';
         $params = array(null);
         return Database::getRows($sql, $params);
     }
 
     public function createDatos()
     {
-        $sql = 'insert into datos_identificacion (Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO datos_identificacion (Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->Num_documento, $this->Residencia, $this->Lugar_expedicion, $this->Fecha_expedicion, $this->Profesion, $this->Id_estado_civil, $this->Fecha_expiracion, $this->Numero_ISSS, $this->AFP, $this->NUP, $this->DUI, $this->Id_colaborador);
         return Database::executeRow($sql, $params);        
     }

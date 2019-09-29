@@ -15,7 +15,7 @@ if(isset($_GET['action'])){
                 if($result['dataset'] = $Datos->readDatos()){
                     $result['status'] = true;                               
                 } else {
-                    $result['exception'] = 'No hay Datoses registrados';
+                    $result['exception'] = 'No hay Datos registrados';
                 }                
             break;
 
@@ -27,12 +27,12 @@ if(isset($_GET['action'])){
                             if($Datos->setLugar_expedicion($_POST['LugarExpedicion'])){
                                 if($Datos->setFecha_expedicion($_POST['FechaExpedicion'])){
                                     if($Datos->setProfesion($_POST['Profesion'])){
-                                        if($Datos->setId_estado_civil($_POST['Estado'])){
+                                        if($Datos->setId_estado_civil($_POST['Estado_civil'])){
                                             if($Datos->setFecha_expiracion($_POST['FechaExpiracion'])){
                                                 if($Datos->setNumero_ISSS($_POST['NumeroISSS'])){
                                                     if($Datos->setAFP($_POST['AFP'])){
                                                         if($Datos->setNUP($_POST['NUP'])){            
-                                                            if($Datos->setDUI(1)){//ver
+                                                            if($Datos->setDUI($_POST['DUI'])){//ver
                                                                 if($Datos->setId_colaborador($_POST['Colaborador'])){
                                                                     if($Datos->createDatos()){
                                                                             $result['status'] = true;
@@ -74,7 +74,7 @@ if(isset($_GET['action'])){
                                 $result['exception'] = 'Direccion incorrectos';
                             }
                         } else {
-                            $result['excpetion'] = 'Numero de documento inconrrecto';
+                            $result['exception'] = 'Numero de documento inconrrecto';
                         }             
 
             break;
@@ -166,6 +166,9 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Colaborador Incorrecto';
                 }
             break;
+            
+            default:
+                exit('Acción no disponible');            
             
         }
 

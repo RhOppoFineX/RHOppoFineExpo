@@ -15,10 +15,10 @@
 <body>
 	<?php
 		//Control de Sesión y privilegios de Usuario				
-		//  require_once '../backend/core/helpers/sesion.php';
-		//  Session::iniSession();
-		//  $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
-		//  Session::verifcarPrivilegio();
+		  require_once '../backend/core/helpers/sesion.php';
+		 Session::iniSession();
+		 $_SESSION['Tipo_usuario_privilegios'] = ['Admin'];
+		 Session::verifcarPrivilegio();
 
 		// $verificar = null;
 
