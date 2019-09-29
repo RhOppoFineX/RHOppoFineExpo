@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     showTable();
+    validateInputDate();
 });
 
 const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=';
@@ -233,4 +234,26 @@ $('#form-buscar-colaborador').submit(function()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 })
+
+function validateInputDate(){
+
+    // const mayoriaEdad = moment(18);
+    // var fecha_actual = moment(new Date().toString());
+
+    // var diferencia = fecha_actual.diff(mayoriaEdad, 'years');
+    var fecha_actual = (moment().format('YYYY-MM-DD'));
+    var fecha_maxima = moment().subtract(18, 'years').calendar();
+    var fecha_total = moment(fecha_maxima).format('YYYY-MM-DD'); 
+
+    console.log(fecha_actual);
+    console.log(fecha_maxima);
+    console.log(fecha_total);
+
+
+    $("#Fecha_nacimiento").attr({
+        "max" : fecha_total                         
+     });
+
+
+}
 
