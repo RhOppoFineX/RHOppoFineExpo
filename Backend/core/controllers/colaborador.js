@@ -33,6 +33,7 @@ function fillTable(filas)
                 <td>${fila.Fecha_ingreso}</td>                
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_Colaborador})">Modificar</a></td>
                 <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apiColaborador}', ${fila.Id_Colaborador}, null, 'disable')">Deshabilitar</a></td>				
+                <td><a class="btn btn-success btn-sm" onclick="verDatos(${fila.Id_Colaborador})">Ver Datos</a></td>
             </tr>       
         `;//invertidas
         //Los nombres de Id_religion o Religion sin excatamente iguales a los campos de la base de datos en esa tabla
@@ -253,7 +254,38 @@ function validateInputDate(){
     $("#Fecha_nacimiento").attr({
         "max" : fecha_total                         
      });
-
-
 }
+
+// Función para mostrar formulario con registro a modificar
+function verDatos(id)
+{
+    $.ajax({
+        url: apiColaborador + 'visualize',
+        type: 'post',
+        data:{
+            Id_colaborador: id
+        },
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiColaborador es una cadena JSON, sino se muestra el resultado consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
+            if (result.status) {
+               sweetAlert(1, isHtmlString(result.message), null);   
+               console.log(result.dataset);
+            } else {
+                sweetAlert(2, isHtmlString(result.exception), null);
+            }
+        } else {
+            sweetAlert(2, isHtmlString(response), null);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
+
 

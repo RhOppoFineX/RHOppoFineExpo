@@ -142,7 +142,7 @@ function actualizarModal(id)
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_colaborador_up').val(result.dataset.Id_Datos);
+                $('#Id_colaborador_up').val(result.dataset.Id_datos);
                 $('#Telefono_casa_up').val(result.dataset.Telefono_casa);
                 $('#Telefono_celular_up').val(result.dataset.Telefono_celular);
                 $('#Correo_up').val(result.dataset.Correo_institucional);

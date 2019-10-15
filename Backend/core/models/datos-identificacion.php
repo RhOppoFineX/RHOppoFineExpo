@@ -442,6 +442,14 @@ class Datos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function readDatosFiltrados($Id_colaborador)
+    {
+        $sql = 'SELECT Id_datos, Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, E.Estado_civil as Estado,
+        E.Id_estado_civil as Id_civil , C.Codigo_colaborador as Colaborador, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento FROM datos_identificacion as D INNER JOIN Estado_civil as E on E.Id_estado_civil = D.Id_estado_civil INNER JOIN colaborador as C on C.Id_Colaborador = D.Id_Colaborador WHERE D.Estado = 1 AND C.Id_colaborador = ?';
+        $params = array($Id_colaborador);
+        return Database::getRows($sql, $params);
+    }
+
     public function createDatos()
     {
         $sql = 'INSERT INTO datos_identificacion (Num_documento, Residencia, Lugar_expedicion, Fecha_expedicion, Profesion_oficio, Id_estado_civil, Fecha_expiracion, Num_ISSS, AFP, NUP, Tipo_documento, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
@@ -451,7 +459,7 @@ class Datos extends Validator
 
     public function getDatos()
     {
-        $sql = 'SELECT Id_datos, Id_estado_civil, Id_Colaborador, residencia, Lugar_expedicion, Profesion_oficio, Fecha_expiracion, Num_ISSS,AFP, NUP, Tipo_documento FROM datos_identificacion WHERE Id_colaborador = ?';
+        $sql = 'SELECT Id_datos, Id_estado_civil, Id_Colaborador, residencia, Lugar_expedicion, Profesion_oficio, Fecha_expiracion, Num_ISSS,AFP, NUP, Tipo_documento FROM datos_identificacion WHERE Id_datos = ?';
         $params = array($this->Id);
         return Database::getRow($sql, $params);
     }

@@ -12,13 +12,21 @@ if(isset($_GET['action'])){
 
         switch($_GET['action']){
             case 'read':
-                if($result['dataset'] = $Datos->readDatos()){
-                    $result['status'] = true;                               
-                } else {
-                    $result['exception'] = 'No hay Datos registrados';
-                }                
-            break;
-
+                if(isset($_SESSION['Id_colaborador'])){
+                    if($result['dataset'] = $Datos->readDatosFiltrados($_SESSION['Id_colaborador'])){
+                        $result['status'] = true;                               
+                    } else {
+                        $result['exception'] = 'No hay Datos registrados';
+                    }
+                } else {                    
+                    if($result['dataset'] = $Datos->readDatos()){
+                        $result['status'] = true;                               
+                    } else {
+                        $result['exception'] = 'No hay Datos registrados';
+                    }
+                } 
+                break;
+                
             case 'create':
                 $_POST = $Datos->validateForm($_POST);
                 
@@ -152,7 +160,7 @@ if(isset($_GET['action'])){
                         if($Datos->getDatos()){
                             if($Datos->disableDatos()){
                                 $result['status'] = true;
-                                $result['message'] = 'Datos de colabirador Deshablitado';
+                                $result['message'] = 'Datos de colaborador Deshablitados';
                             } else {
                                 $result['exception'] = 'Operación fallida';
                             }

@@ -201,6 +201,21 @@ if(isset($_GET['action'])){
                 }
             break;
 
+            case 'visualize':
+                if($colaborador->setId($_POST['Id_colaborador'])){
+                    if($colaborador->getColaborador()){
+                        $result['status'] = true;                       
+                        $_SESSION['Id_colaborador'] = $colaborador->getId();
+                        $result['dataset'] = $colaborador->getId();
+                        $result['message'] = 'Colaborador Seleccionado';                        
+                    } else {
+                        $result['exception'] = 'Colaborador Inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'Colaborador Incorrecto';
+                }
+            break;
+
             default:
                 exit('Acción no disponible');
             
