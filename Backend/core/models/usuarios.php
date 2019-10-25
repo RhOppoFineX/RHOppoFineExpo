@@ -428,7 +428,13 @@ class Usuarios extends Validator
 		$params = array($this->correo, $this->Token);
 		return Database::getRow($sql, $params);
 	}
-	
+
+	public function birthdayMonth()
+	{
+		$sql = 'SELECT Nombres, Apellidos, Fecha_nacimiento FROM colaborador WHERE month(NOW()) = month(Fecha_nacimiento)';
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}	
 
 }
 ?>

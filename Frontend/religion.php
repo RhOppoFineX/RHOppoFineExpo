@@ -152,6 +152,11 @@
 		</div>
 	</div>  <!--Fin del modal Insertar-->
 
+	<!--Modals para editar perfil-->
+<?php
+	require_once '../Backend/core/helpers/perfil.php';
+?>
+
 	<!--Scripts necesarios siempre-->
 	<?php
 		require_once '../Backend/core/helpers/scripts.php';

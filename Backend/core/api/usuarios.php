@@ -14,6 +14,14 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['Id_usuario'])) {
         switch ($_GET['action']) {
 
+            case 'happyBirthday':
+                if($result['dataset'] = $usuario->birthdayMonth()){
+                    $result['status'] = true;                    
+                } else{
+                    $result['exception'] = 'No se encontraron cumpleañeros para este mes';
+                }
+            break;
+
             case 'timeAccount':
                 if($usuario->setId($_SESSION['Id_usuario'])){
                     if($result['dataset'] = $usuario->noventaDias()){

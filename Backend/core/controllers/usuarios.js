@@ -4,6 +4,7 @@ $(document).ready(function()
 {
     showTable();
     timeAccount();
+    happyBirthday();
 
     //Increment the idle time counter every minute.
     var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
@@ -258,6 +259,46 @@ function timeAccount()
             } else {
                 sweetAlert(4, result.exception, null);
             }
+                        
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
+
+function fillHappyBirthday(rows)
+{
+    let content = '';
+    // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para escapar los caracteres especiales
+    rows.forEach(function(row){
+        content += `
+        <li> <a href="#" class="notification-item"><span class="dot bg-warning"></span> ${row.Nombres + ' ' + row.Apellidos + ' cumpleaños el día: ' + moment(row.Fecha_nacimiento).format('YYYY/MM/DD')}  </a></li>
+        `;
+    });
+    $('#notificaciones').html(content);  
+}
+
+function happyBirthday()
+{
+    $.ajax({
+        url: apiUsuario + 'happyBirthday',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (!result.status) {
+                sweetAlert(4, result.exception, null);
+            }
+            fillHappyBirthday(result.dataset);
                         
         } else {
             console.log(response);
