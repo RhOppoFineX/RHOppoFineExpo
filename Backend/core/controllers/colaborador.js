@@ -2,6 +2,7 @@ $(document).ready(function()
 {
     showTable();
     validateInputDate();
+    happyBirthday();
 });
 
 const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=';

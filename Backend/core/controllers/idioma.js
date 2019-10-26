@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     showTable();
+    happyBirthday();
 })
 
 // Constante para establecer la ruta y parámetros de comunicación con la apiidioma

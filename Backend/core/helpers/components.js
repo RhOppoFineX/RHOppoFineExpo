@@ -5,6 +5,9 @@
 *
 *   Returns: ninguno.
 */
+const 
+apiUsuarioComponents = '../../RHOppoFineExpo/Backend/core/api/usuarios.php?action=';
+
 function sweetAlert(type, text, url)
 {
     switch (type) {
@@ -217,14 +220,46 @@ function barGraph(canvas, xAxis, yAxis, legend, title, tipo)
     });
 }
 
-
-
-function verColaborador()
+function fillHappyBirthday(rows)
 {
-    
+    let content = '';
+    // Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para escapar los caracteres especiales
+    rows.forEach(function(row){
+        content += `
+        <li> <a href="#" class="notification-item"><span class="dot bg-warning"></span> ${row.Nombres + ' ' + row.Apellidos + ' cumpleaños el día: ' + row.Fecha_nacimiento}  </a></li>
+        `;
+    });
+    $('#notificaciones').html(content);  
 }
 
-
+function happyBirthday()
+{
+    $.ajax({
+        url: 
+        apiUsuarioComponents + 'happyBirthday',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (!result.status) {
+                sweetAlert(4, result.exception, null);
+            }
+            fillHappyBirthday(result.dataset);
+                        
+        } else {
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
 
 /*
 *   Función para generar un gráfico de barras

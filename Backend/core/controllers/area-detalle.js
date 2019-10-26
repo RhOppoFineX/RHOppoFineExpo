@@ -1,6 +1,8 @@
 $(document).ready(function()
 {
     showTable();//al instante para cargar la tabla con la información
+    happyBirthday();
+
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API

@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     showTable();
+    happyBirthday();
 });
 
 const apiParentesco = '../../RHOppoFineExpo/Backend/core/api/Parentesco.php?action=read';

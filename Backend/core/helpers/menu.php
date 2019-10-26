@@ -83,15 +83,16 @@
 										<ul class="nav"><!--Colaborador-->
 											<li><a href="colaborador.php" class=""><i class="lnr lnr-dice"></i> <span>Datos Personales</span></a></li>
 											<li><a href="datos-identificacion.php" class=""><i class="lnr lnr-dice"></i> <span>Identificación</span></a></li>
-											<!--<li><a href="datos-familiares.php" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
+											<li><a href="datos-familiares.php" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
+											<li><a href="area-detalle.php" class=""><i class="lnr lnr-dice"></i> <span>Area detalle</span></a></li>
 											<li><a href="datos-educacion.php" class=""><i class="lnr lnr-dice"></i> <span>Educación</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
 											<li><a href="area-laboral.php" class=""><i class="lnr lnr-dice"></i> <span>Area Laboral</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Horarios</span></a></li>
-											<li><a href="area-detalle.php" class=""><i class="lnr lnr-dice"></i> <span>Area detalle</span></a></li>
-											</ul>--> <!--Colaborador-->
+											
+											</ul> <!--Colaborador-->
 										</div>
 								</li><!--/Cruds-->
 								<li>

@@ -4,7 +4,8 @@ $(document).ready(function(){
     graficoReligion();
     graficoAcademico();
     graficoServicio();
-    graficoDepartamento();        
+    graficoDepartamento(); 
+    happyBirthday();       
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';

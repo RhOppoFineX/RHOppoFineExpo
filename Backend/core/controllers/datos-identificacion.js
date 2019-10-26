@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     showTable();
+    happyBirthday();
 });
 
 const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=read';
