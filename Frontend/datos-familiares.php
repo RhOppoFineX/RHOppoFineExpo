@@ -72,141 +72,119 @@
 				</div><!-- END MAIN --><!--Fin de la Table-->
 			</div>	<!--Wrapper Fin-->
 
-				<!-- Modal modificar-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-DatosFamiliares-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<!-- Modal modificar Colaboradores-->
+<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalScrollableTitle">Datos familiares</h5>
-			<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-					<form method="POST" id="form-DatosFamiliares-up">
+			<div class="modal-body">
+					<div class="container-fluid">
+						<form method="post" id="form-colaborador-up">
 							<div class="form-row">
-								<div class="form-group col-md-6"><!-- Telefono -->
-									<label for="Telefono-mo">Telefono</label>
-									<input type="Text" class="form-control" id="Telefono-mo" placeholder="Telefono">
-								</div>
+																
 							</div>
-						</form>
-			</div>			  
+						</div>                            					
+				</div>			  
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Modficar</button>
-		</div>
-		</div>
-	</div>  <!--Fin del modal modificar-->
-	
-		
-	<!-- Modal deshabilitar -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Deshabilitación</h5>
-					<button type="submit" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				 <h2>¿Desea Deshabilitar al Colaborador?</h2>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Deshabilitar</button>
-				</div>
-			</div>
-		</div>
+			<button type="submit" class="btn btn-primary">Modificar</button>
+			</form>			
+		</div>	
 	</div>
+</div>  <!--Fin del modal modificar colaboradores-->		
 
-	<!--Fin del modal Deshabilitar-->	 
 
-	<!-- Modal insertar-->
-<div class="modal fade bd-modificar-modal-xl" id="insertar-DatosFamiliares"	tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+
+
+	<!-- Modal agregar Colaboradores-->
+<div class="modal fade bd-modificar-modal-xl" id="modal-familiares-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-tittle" id="ModalTitulo">Datos familiares</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
-		</div>	
+		</div>
 			<div class="modal-body">
-				<div class="container-fluid">
-					<form method="post" id="agregar-DatosFamiliares">
-						<div class="form-row">
+					<div class="container-fluid">
+						<form method="post" id="form-familiares-add">
+							<div class="form-row">
 
-							<div class="form-group col-md-6">
-								<label for="Nombres">Nombres</label>
-								<input type="text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
-							</div>	
+								<div class="form-group col-md-6">
+									<label for="Nombres">Nombres</label>
+									<input type="text" class="form-control" id="Nombres" placeholder="Nombres" name="Nombres" required>
+								</div>	
 
-							<div class="form-group col-md-6">
-								<label for="Apellidos">Apellidos</label>
-								<input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
+								<div class="form-group col-md-6">
+									<label for="Apellidos">Apellidos</label>
+									<input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" name="Apellidos" required>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Fecha-Nacimiento">Fecha Nacimiento</label>
+									<input type="text" class="form-control" id="Fecha-Nacimiento" placeholder="Fecha Nacimiento" name="Fecha-Nacimiento" required>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Dependiente">Dependiente</label>
+									<select id="Dependiente" name="Dependiente" class="form-control" required>
+										<option value="" disable selected>Seleccione una opción</option>
+										<option value="0">Independiente</option>
+										<option value="1">Dependiente</option>
+									</select>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Parentesco">Parentesco</label>
+									<select id="Parentesco" name="Parentesco" class="form-control" required>
+
+									</select>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Colaborador">Colaborador</label>
+									<select id="Colaborador" name="Colaborador" class="form-control" required>
+										
+									</select>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Genero">Genero</label>	
+									<select id="Genero" name="Genero" class="form-control" required>
+										<option value="" disable selected>Seleccione una opcion</option>
+										<option value="F">Femenino</option>
+										<option value="M">Masculino</option>
+									</select>	
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Telefono">Telefono</label>
+									<input type="text" class="form-control" id="Telefono" placeholder="Telefono" name="Telefono" required>
+								</div>								
+													
 							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Fecha-Nacimiento">Fecha Nacimiento</label>
-								<input type="text" class="form-control" id="Fecha-Nacimiento" placeholder="Fecha Nacimiento" name="Fecha-Nacimiento" required>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Dependiente">Dependiente</label>
-								<select id="Dependiente" name="Dependiente" class="form-control" required>
-									<option value="" disable selected>Seleccione una opción</option>
-									<option value="0">Independiente</option>
-									<option value="1">Dependiente</option>
-								</select>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Parentesco">Parentesco</label>
-								<select id="Parentesco" name="Parentesco" class="form-control" required>
-
-								</select>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Colaborador">Colaborador</label>
-								<select id="Colaborador" name="Colaborador" class="form-control" required></select>
-							<div>
-
-							<div class="form-group col-md-6">
-								<label for="Genero">Genero</label>	
-								<select id="Genero" name="Genero" class="Genero" class="form-control" required>
-									<option value="" disable selected>Seleccione una opcion</option>
-									<option value="F">Femenino</option>
-									<option value="M">Masculino</option>
-								</select>	
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Telefono">Telefono</label>
-								<input type="text" class="form-control" id="Telefono" placeholder="Telefono" name="Telefono" required>
-							</div>
-
-							<div class="form-group col-md-6">
-								<label for="Estado">Estado</label>
-								<input type="text" class="form-control" id="Estado" placeholder="Estado" name="Estado" required>
-							</div>
-						</div>
-					</div>
-				</div>
+						</div>                            					
+				</div>			  
 		</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Agregar</button>
-				</form>
-			</div>	
-		</div>
-	</div>		
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>			
+		</div>	
+	</div>
+</div>  <!--Fin del modal agregar colaboradores-->
 
-	<!-- Fin modal insertar-->
+		
+	 
+
+
 
 
 <!--Modals para editar perfil-->

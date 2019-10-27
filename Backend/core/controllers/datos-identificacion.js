@@ -154,7 +154,7 @@ function actualizarModal(id)
                 $('#Nivel_up').val(result.dataset.Nivel);
                 $('#Estudiando_up').val(result.dataset.Estudiando);              
                           
-                $('#modal-colaborador-up-iden').modal('show');   
+                $('#modal-colaborador-up').modal('show');   
             } else {
                 sweetAlert(2, result.exception, null);
             }

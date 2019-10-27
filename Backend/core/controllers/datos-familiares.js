@@ -80,21 +80,21 @@ function showTable()
 // Función para mostrar formulario insertar en blanco
 function modalCreate()
 {
-    $('#agregar-DatosFamiliares')[0].reset();//Id del formulario
+    $('#form-familiares-add')[0].reset();//Id del formulario
     fillSelect(apiParentesco, 'Parentesco', null);//llenar el combo
     fillSelect(apiColaborador, 'Colaborador', null);//llenar el combo
     //Tipos-A es el Id del combobox
-    $('insertar-DatosFamiliares').modal('show');//Id del modal
+    $('#modal-familiares-add').modal('show');//Id del modal
 }
 
 // Función para crear un nuevo registro
-$('#agregar-DatosFamiliares').submit(function()
+$('#form-familiares-add').submit(function()
 {
     event.preventDefault();
     $.ajax({
         url: apidatosFamiliares + 'create',
         type: 'post',
-        data: new FormData($('#agregar-DatosFamiliares')[0]),
+        data: new FormData($('#form-familiares-add')[0]),
         datatype: 'json',
         cache: false,
         contentType: false,

@@ -93,12 +93,12 @@
 							<div class="form-row">
 
 								<div class="form-group col-md-6">
-									<label for="NumeroDocumento">Numero de Documento</label>
-									<input type="Text" class="form-control" id="NumeroDocumento" placeholder="Numero Documento" name="NumeroDocumento" required>
+									<label for="NumeroDocumento">Numero de DUI</label>
+									<input type="Text" class="form-control" id="NumeroDocumento" placeholder="Numero de DUI" name="NumeroDocumento" required>
 								</div>
 
 								<div class="form-group col-md-12">
-									<label for="Direccion">Direccion Residencial</label>
+									<label for="Direccion">Direccion Residencial (DUI)</label>
 									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
 
 									</textarea>
@@ -178,7 +178,7 @@
 
 
 <!-- Modal Modificar datos_identificacion Colaboradores-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -189,49 +189,44 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="form-colaborador-add">
+						<form method="post" id="form-colaborador-up">
 							<div class="form-row">								
 
 								<div class="form-group col-md-12">
-									<label for="Direccion">Direccion Residencial</label>
-									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
+									<label for="Direccion_up">Direccion Residencial (DUI)</label>
+									<textarea rows="4" cols="50" id="Direccion_up" name="Direccion_up" required>
 
 									</textarea>
 								</div>							
 
 								<div class="form-group col-md-6">
-									<label for="Estado_civil">Estado civil</label>
-									<select id="Estado_civil" name="Estado_civil" class="form-control" required>
+									<label for="Estado_civil_up">Estado civil</label>
+									<select id="Estado_civil_up" name="Estado_civil_up" class="form-control" required>
 									
 									</select>								
 								</div>								
 	
 								<div class="form-group col-md-6">
-									<label for="NumeroISSS">Numero de ISSS</label>
-									<input type="text" class="form-control" id="NumeroISSS" placeholder="Numero de ISSS" name="NumeroISSS" required>									
+									<label for="NumeroISSS_up">Numero de ISSS</label>
+									<input type="text" class="form-control" id="NumeroISSS_up" placeholder="Numero de ISSS" name="NumeroISSS_up" required>									
 								</div>
 
 								<div class="form-group col-md-6">
-									<label for="AFP">AFP</label>
-									<input type="text" class="form-control" id="AFP" placeholder="numero de AFP" name="AFP" required>					
+									<label for="AFP_up">AFP</label>
+									<input type="text" class="form-control" id="AFP_up" placeholder="numero de AFP_up" name="AFP_up" required>					
 								</div>						
 								
 
 								<div class="form-group col-md-6">
-									<label for="DUI"> Tipo Documento </label>
-									<select id="DUI" name="DUI" class="form-control" required>
+									<label for="DUI_up"> Tipo Documento </label>
+									<select id="DUI_up" name="DUI_up" class="form-control" required>
 										<option value="" disabled selected>Seleccione una opción</option>
 										<option value="0">Carnet de Residente</option>
  										<option value="1">DUI</option>
 									</select>								
-								</div>		
+								</div>
 								
-								<div class="form-group col-md-6">
-									<label for="Colaborador">Colaborador</label>
-									<select id="Colaborador" name="Colaborador" class="form-control" required>
-									
-									</select>								
-								</div>												
+																				
 													
 							</div>
 						</div>                            					
