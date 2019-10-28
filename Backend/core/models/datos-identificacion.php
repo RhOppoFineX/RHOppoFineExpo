@@ -263,7 +263,7 @@ class Datos extends Validator
      */ 
     public function setNUP($NUP)
     {
-        if($this->validateIntegerControl($NUP, 5, 7)){
+        if($this->validateInteger($NUP)){
             $this->NUP = $NUP;
             return true;
         } else {
@@ -466,8 +466,8 @@ class Datos extends Validator
 
     public function updateDatos()
     {
-        $sql = 'UPDATE Colaborador set Id_religion = ?, Id_municipio = ?, Telefono_casa = ?, Telefono_celular = ?, Correo_institucional = ?, Direccion_residencial = ?, NIP = ?, Nivel = ?, Estudiando = ? WHERE Id_colaborador = ?';
-        $params = array($this->Id_religion, $this->Id_municipio, $this->Telefono_casa, $this->Telefono_celular, $this->Correo_institucional, $this->Direccion, $this->NIP, $this->Nivel, $this->Estudiando, $this->Id);
+        $sql = 'UPDATE datos_identificacion set Residencia = ?, Fecha_expiracion = ?, Id_estado_civil = ?  WHERE Id_datos = ?';
+        $params = array($this->Residencia, $this->Fecha_expiracion, $this->Id_estado_civil, $this->Id);
         return Database::executeRow($sql, $params);
     }
 

@@ -204,27 +204,14 @@
 									<select id="Estado_civil_up" name="Estado_civil_up" class="form-control" required>
 									
 									</select>								
-								</div>								
-	
-								<div class="form-group col-md-6">
-									<label for="NumeroISSS_up">Numero de ISSS</label>
-									<input type="text" class="form-control" id="NumeroISSS_up" placeholder="Numero de ISSS" name="NumeroISSS_up" required>									
 								</div>
 
 								<div class="form-group col-md-6">
-									<label for="AFP_up">AFP</label>
-									<input type="text" class="form-control" id="AFP_up" placeholder="numero de AFP_up" name="AFP_up" required>					
-								</div>						
-								
+									<label for="FechaExpiracion-up">Fecha Expiracion</label>
+									<input type="date" class="form-control" id="FechaExpiracion-up" placeholder="FechaExpiracion-up" name="FechaExpiracion-up" required>
+								</div>				
 
-								<div class="form-group col-md-6">
-									<label for="DUI_up"> Tipo Documento </label>
-									<select id="DUI_up" name="DUI_up" class="form-control" required>
-										<option value="" disabled selected>Seleccione una opción</option>
-										<option value="0">Carnet de Residente</option>
- 										<option value="1">DUI</option>
-									</select>								
-								</div>
+								<!--Input invisible--><input type="hidden" id="Id_datos_identificacion" name="Id_datos_identificacion">
 								
 																				
 													
@@ -234,7 +221,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary">Agregar</button>
+			<button type="submit" class="btn btn-primary">Modificar</button>
 			</form>			
 		</div>	
 	</div>

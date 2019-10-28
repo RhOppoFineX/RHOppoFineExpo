@@ -143,16 +143,10 @@ function actualizarModal(id)
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_colaborador_up').val(result.dataset.Id_datos);
-                $('#Telefono_casa_up').val(result.dataset.Telefono_casa);
-                $('#Telefono_celular_up').val(result.dataset.Telefono_celular);
-                $('#Correo_up').val(result.dataset.Correo_institucional);
-                $('#Direccion_up').val(result.dataset.Direccion_residencial);
-                fillSelect(apiEstadocivil, 'Religion_up', result.dataset.Id_estado_civil); 
-                fillSelect(apiColaborador, 'Municipio_up', result.dataset.Id_Colaborador);       
-                $('#NIP_up').val(result.dataset.NIP);
-                $('#Nivel_up').val(result.dataset.Nivel);
-                $('#Estudiando_up').val(result.dataset.Estudiando);              
+                $('#Id_datos_identificacion').val(result.dataset.Id_datos);
+                $('#Direccion_up').val(result.dataset.residencia);
+                $('#FechaExpiracion-up').val(result.dataset.Fecha_expiracion);                            
+                fillSelect(apiEstadocivil, 'Estado_civil_up', result.dataset.Id_estado_civil);                           
                           
                 $('#modal-colaborador-up').modal('show');   
             } else {
@@ -173,7 +167,7 @@ $('#form-colaborador-up').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiColaborador + 'update',
+        url: apidatosIdentificacion + 'update',
         type: 'post',
         data: new FormData($('#form-colaborador-up')[0]),
         datatype: 'json',

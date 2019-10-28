@@ -13,6 +13,7 @@ class DatosFamiliares extends Validator
     private $Genero = null;
     private $Telefono = null;
     private $Estado = null;
+    private $Dependiente = null;
 
     /**
      * Get the value of Id
@@ -29,9 +30,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setId($Id)
     {
-        $this->Id = $Id;
-
-        return $this;
+        if($this->validateId($Id)){
+            $this->Id = $Id;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -49,9 +53,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setNombres($Nombres)
     {
-        $this->Nombres = $Nombres;
-
-        return $this;
+        if($this->validateAlphabetic($Nombres, 3, 50)){
+            $this->Nombres = $Nombres;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -69,9 +76,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setApellidos($Apellidos)
     {
-        $this->Apellidos = $Apellidos;
-
-        return $this;
+        if($this->validateAlphabetic($Apellidos, 3, 50)){
+            $this->Apellidos = $Apellidos;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -89,12 +99,13 @@ class DatosFamiliares extends Validator
      */ 
     public function setFecha($Fecha)
     {
-        $this->Fecha = $Fecha;
-
-        return $this;
+        if($this->validateDate($Fecha)){
+            $this->Fecha = $Fecha;
+            return true;
+        } else {
+            return false;
+        }        
     }
-
-
 
     /**
      * Get the value of Id_parentesco
@@ -111,9 +122,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setId_parentesco($Id_parentesco)
     {
-        $this->Id_parentesco = $Id_parentesco;
-
-        return $this;
+        if($this->validateId($Id_parentesco)){
+            $this->Id_parentesco = $Id_parentesco;
+            return true;
+        } else {
+            return false;
+        }       
     }
 
     /**
@@ -131,9 +145,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setParentesco($Parentesco)
     {
-        $this->Parentesco = $Parentesco;
-
-        return $this;
+        if($this->validateAlphabetic($Parentesco, 3, 25)){
+            $this->Parentesco = $Parentesco;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -151,9 +168,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setId_colaborador($Id_colaborador)
     {
-        $this->Id_colaborador = $Id_colaborador;
-
-        return $this;
+        if($this->validateId($Id_colaborador)){
+            $this->Id_colaborador = $Id_colaborador;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -171,9 +191,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setColaborador($Colaborador)
     {
-        $this->Colaborador = $Colaborador;
-
-        return $this;
+        if($this->validateAlphabetic($Colaborador, 3, 50)){
+            $this->Colaborador = $Colaborador;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -191,9 +214,12 @@ class DatosFamiliares extends Validator
      */ 
     public function setGenero($Genero)
     {
-        $this->Genero = $Genero;
-
-        return $this;
+        if($this->validateAlphabetic($Genero, 1, 2)){
+            $this->Genero = $Genero;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -210,10 +236,32 @@ class DatosFamiliares extends Validator
      * @return  self
      */ 
     public function setTelefono($Telefono)
-    {
-        $this->Telefono = $Telefono;
+    {       
+            $this->Telefono = $Telefono;
+            return true;                
+    }
 
-        return $this;
+    /**
+     * Get the value of Dependiente
+     */ 
+    public function getDependiente()
+    {
+        return $this->Dependiente;
+    }
+
+    /**
+     * Set the value of Dependiente
+     *
+     * @return  self
+     */ 
+    public function setDependiente($Dependiente)
+    {
+        if($this->validateCeroOrOne($Dependiente)){
+            $this->Dependiente = $Dependiente;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     /**
@@ -231,28 +279,65 @@ class DatosFamiliares extends Validator
      */ 
     public function setEstado($Estado)
     {
-        $this->Estado = $Estado;
-
-        return $this;
+        if($this->validateCeroOrOne($Estado)){
+            $this->Estado = $Estado;
+            return true;
+        } else {
+            return false;
+        }        
     }
 
     public function readDatosFamiliares()
     {
-        $sql = 'SELECT d.Nombres, d.Apellidos, d.Fecha_nacimiento, d.Dependiente, p.Parentesco, c.Nombres as colaborador, d.Genero, d.Numero_telefono, d.Estado
+        $sql = 'SELECT d.Id_datos_familiares, d.Nombres, d.Apellidos, d.Fecha_nacimiento, d.Dependiente, p.Parentesco, c.Nombres as colaborador, d.Genero, d.Numero_telefono, d.Estado
         FROM datosfamiliares as d
         INNER JOIN parentesco as p on d.Id_parentesco = p.Id_parentesco
-        INNER JOIN colaborador as c on d.Id_Colaborador = c.Id_Colaborador
+        INNER JOIN colaborador as c on d.Id_Colaborador = c.Id_Colaborador WHERE d.Estado = 1
         ORDER BY d.Nombres';
         $params = array(null);
+        return Database::getRows($sql, $params);
+    } 
+
+    public function readDatosFamiliaresF($Id_colaborador)
+    {
+        $sql = 'SELECT d.Id_datos_familiares, d.Nombres, d.Apellidos, d.Fecha_nacimiento, d.Dependiente, p.Parentesco, c.Nombres as colaborador, d.Genero, d.Numero_telefono, d.Estado
+        FROM datosfamiliares as d
+        INNER JOIN parentesco as p on d.Id_parentesco = p.Id_parentesco
+        INNER JOIN colaborador as c on d.Id_Colaborador = c.Id_Colaborador WHERE d.Estado = 1 and c.Id_colaborador = ?
+        ORDER BY d.Nombres';
+        $params = array($Id_colaborador);
         return Database::getRows($sql, $params);
     }
 
     public function createDatosFamiliares()
     {
-        $sql = 'insert into datos_familiares (Nombres, Apellidos, Fecha_nacimiento, Dependiente, Id_parentesco, Id_colaborador, Genero, Numero_telefono, Estado) VALUES (?,?,?,?,?,?,?,?,?)';
-        $params = array($this->Nombres, $this->Apellidos, $this->Fecha_nacimiento, $this->Dependiente, $this->Id_parentesco, $this->Id_colaborador, $this->Genero, $this->Numero_telefono, $this->Estado);
+        $sql = 'INSERT INTO datosfamiliares (Nombres, Apellidos, Fecha_nacimiento, Dependiente, Id_parentesco, Id_colaborador, Genero, Numero_telefono, Estado) VALUES (?,?,?,?,?,?,?,?,?)';
+        $params = array($this->Nombres, $this->Apellidos, $this->Fecha, $this->Dependiente, $this->Id_parentesco, $this->Id_colaborador, $this->Genero, $this->Telefono, $this->Estado);
         return Database::executeRow($sql, $params);
     }
+
+    public function getDatosFamiliares()
+    {
+        $sql = 'SELECT * FROM datosfamiliares WHERE Id_datos_familiares = ?';
+        $params = array($this->Id);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateDatosFamiliares()
+    {
+        $sql = 'UPDATE datosfamiliares set Dependiente = ?, Numero_telefono = ? WHERE Id_datos_familiares = ?';
+        $params = array($this->Dependiente, $this->Telefono, $this->Id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function disableDatos()
+    {
+        $sql = 'UPDATE datosfamiliares set Estado = ? WHERE Id_datos_familiares = ?';
+        $params = array($this->Estado, $this->Id);
+        return Database::executeRow($sql, $params);
+    }
+
+    
 }
 
 ?>

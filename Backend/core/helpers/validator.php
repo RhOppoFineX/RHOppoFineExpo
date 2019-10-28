@@ -215,5 +215,22 @@ class Validator
             return false;
         }
     }
+
+    public function validateCeroOrOne($value)
+    {
+        if($value == '0' || $value == '1'){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function validatePhoneNumber($value){
+        if(preg_match("^[0-9]{3,4}(-[0-9]{3,4})?$")){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>

@@ -73,20 +73,36 @@
 			</div>	<!--Wrapper Fin-->
 
 			<!-- Modal modificar Colaboradores-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="modal-familiares-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
+			<h5 class="modal-title" id="ModalTitulo">Familiares de los Colaboradores</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="form-colaborador-up">
+						<form method="post" id="form-familiares-up">
 							<div class="form-row">
-																
+
+								<div class="form-group col-md-6">
+									<label for="Dependiente-up">Dependiente</label>
+									<select id="Dependiente-up" name="Dependiente-up" class="form-control" required>
+										<option value="" disable selected>Seleccione una opción</option>
+										<option value="0">Independiente</option>
+										<option value="1">Dependiente</option>
+									</select>
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="Telefono-up">Telefono</label>
+									<input type="text" class="form-control" id="Telefono-up" placeholder="Telefono" name="Telefono-up" required>
+								</div>
+
+								<!--Input invisible--><input type="hidden" id="Id-familiar-up" name="Id-familiar-up">
+
 							</div>
 						</div>                            					
 				</div>			  
@@ -107,7 +123,7 @@
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="ModalTitulo">Datos de los Colaboradores</h5>
+			<h5 class="modal-title" id="ModalTitulo">Familiares de los Colaboradores</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -129,7 +145,7 @@
 
 								<div class="form-group col-md-6">
 									<label for="Fecha-Nacimiento">Fecha Nacimiento</label>
-									<input type="text" class="form-control" id="Fecha-Nacimiento" placeholder="Fecha Nacimiento" name="Fecha-Nacimiento" required>
+									<input type="date" class="form-control" id="Fecha-Nacimiento" placeholder="Fecha Nacimiento" name="Fecha-Nacimiento" required>
 								</div>
 
 								<div class="form-group col-md-6">

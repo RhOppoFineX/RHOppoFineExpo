@@ -12,76 +12,74 @@ if(isset($_GET['action'])){
 
         switch($_GET['action']){
             case 'read':
-                if($result['dataset'] = $Datos->readDatosFamiliares()){
-                    $result['status'] = true;                               
+                if(isset($_SESSION['Id_colaborador'])){
+                    if($result['dataset'] = $Datos->readDatosFamiliaresF($_SESSION['Id_colaborador'])){
+                        $result['status'] = true;                               
+                    } else {
+                        $result['exception'] = 'No hay Datos registrados';
+                    }
                 } else {
-                    $result['exception'] = 'No hay Datos registrados';
-                }                
+                    if($result['dataset'] = $Datos->readDatosFamiliares()){
+                        $result['status'] = true;                               
+                    } else {
+                        $result['exception'] = 'No hay Datos registrados';
+                    }
+                }
+
             break;
 
             case 'create':
                 $_POST = $Datos->validateForm($_POST);
-                
-                    if($Datos->setNum_documento($_POST['NumeroDocumento'])){
-                        if($Datos->setResidencia($_POST['Direccion'])){
-                            if($Datos->setLugar_expedicion($_POST['LugarExpedicion'])){
-                                if($Datos->setFecha_expedicion($_POST['FechaExpedicion'])){
-                                    if($Datos->setProfesion($_POST['Profesion'])){
-                                        if($Datos->setId_estado_civil($_POST['Estado'])){
-                                            if($Datos->setFecha_expiracion($_POST['FechaExpiracion'])){
-                                                if($Datos->setNumero_ISSS($_POST['NumeroISSS'])){
-                                                    if($Datos->setAFP($_POST['AFP'])){
-                                                        if($Datos->setNUP($_POST['NUP'])){            
-                                                            if($Datos->setDUI(1)){//ver
-                                                                if($Datos->setId_colaborador($_POST['Colaborador'])){
-                                                                    if($Datos->createDatos()){
-                                                                            $result['status'] = true;
-                                                                            $result['message'] = 'Datos personales insertados continue con los datos de identificacion';
-                                                                            } else {
-                                                                                $result['exception'] = 'Fecha invalida';
-                                                                            }
-                                                                        } else {
-                                                                            $result['exception'] = 'valor invalido';
-                                                                        }                                                                   
-                                                                } else {
-                                                                    $result['exception'] = 'Tipo invalido';
-                                                                }
-                                                            } else {
-                                                                $result['exception'] = 'NUP incorrecto';
-                                                            }
-                                                        } else {
-                                                            $result['exception'] = 'AFP incorrecto';
-                                                        }
+
+                if($Datos->setNombres($_POST['Nombres'])){
+                    if($Datos->setApellidos($_POST['Apellidos'])){
+                        if($Datos->setFecha($_POST['Fecha-Nacimiento'])){
+                            if($Datos->setDependiente($_POST['Dependiente'])){
+                                if($Datos->setId_parentesco($_POST['Parentesco'])){
+                                    if($Datos->setId_colaborador($_POST['Colaborador'])){
+                                        if($Datos->setGenero($_POST['Genero'])){
+                                            if($Datos->setTelefono($_POST['Telefono'])){
+                                                if($Datos->setEstado(1)){
+                                                    if($Datos->createDatosFamiliares()){
+                                                        $result['status'] = true;
+                                                        $result['message'] = 'Familiar Insertado';
                                                     } else {
-                                                        $result['exception'] = 'ISSS incorrecta';
+                                                        $result['exception'] = 'No se pudo insertar';
                                                     }
                                                 } else {
-                                                    $result['exception'] = 'Fecha de Expiracion incorrecto';
+                                                    $result['exception'] = 'Estado incorrecto';
                                                 }
                                             } else {
-                                                $result['exception'] = 'Estado incorrecto';
+                                                $result['exception'] = 'Telefono no valido';
                                             }
                                         } else {
-                                            $result['exception'] = 'Profesion incorrecto';
+                                            $result['exception'] = 'Genero Invalido';
                                         }
                                     } else {
-                                        $result['exception'] = 'fecha de expedicion incorrecta';
+                                        $result['exception'] = 'Colaborador invalido';
                                     }
                                 } else {
-                                    $result['exception'] = 'Lugar de expedicion incorrecto';
+                                    $result['exception'] = 'Parentesco incorrecto';
                                 }
                             } else {
-                                $result['exception'] = 'Direccion incorrectos';
+                                $result['exception'] = 'Estado de dependencia incorrecto';
                             }
                         } else {
-                            $result['excpetion'] = 'Numero de documento inconrrecto';
-                        }             
+                            $result['exception'] = 'Fecha de nacimiento Invalida';
+                        }
+                    } else {
+                        $result['exception'] = 'Apellidos incorrectos';
+                    }                    
+                } else {
+                    $result['exception'] = 'Nombres Incorrectos';
+                }                                       
+                                
 
             break;
 
             case 'get':
-                if($Datos->setId($_POST['Id_Datos'])){
-                    if($result['dataset'] = $Datos->getDatos()){
+                if($Datos->setId($_POST['Id_datos_familiares'])){
+                    if($result['dataset'] = $Datos->getDatosFamiliares()){
                         $result['status'] = true;
                     } else {
                         $result['exception'] = 'Datos Inexistente';
@@ -94,65 +92,38 @@ if(isset($_GET['action'])){
             case 'update':
                 $_POST = $Datos->validateForm($_POST);   
 
-                if($colaborador->setId($_POST['Id_colaborador_up'])){
-                    if($colaborador->getColaborador()){
-                        if($colaborador->setTelefono_casa($_POST['Telefono_casa_up'])){
-                            if($colaborador->setTelefono_celular($_POST['Telefono_celular_up'])){
-                                if($colaborador->setCorreo_institucional($_POST['Correo_up'])){
-                                    if($colaborador->setDireccion($_POST['Direccion_up'])){
-                                        if($colaborador->setId_religion($_POST['Religion_up'])){
-                                            if($colaborador->setId_municipio($_POST['Municipio_up'])){
-                                                if($colaborador->setNIP($_POST['NIP_up'])){
-                                                    if($colaborador->setNivel($_POST['Nivel_up'])){
-                                                        if($colaborador->setEstudiando($_POST['Estudiando_up'])){
-                                                            if($colaborador->updateColaborador()){
-                                                                $result['status'] = true;
-                                                                $result['message'] = 'Datos personales actualizados';
-                                                            } else {
-                                                                $result['exception'] = 'Operación fallida';
-                                                            }
-                                                        } else {
-                                                            $result['exception'] = 'Valor incorrecto';
-                                                        }
-                                                    } else {
-                                                        $result['exception'] = 'Nivel invalido';
-                                                    }
-                                                } else {
-                                                    $result['exception'] = 'NIP incorrecto';
-                                                }
-                                            } else {
-                                                $result['exception'] = 'Municipio Incorrecto';
-                                            }
-                                        } else {
-                                            $result['exception'] = 'Religion no valida';
-                                        }
-                                    } else {
-                                        $result['exception'] = 'Direccion no valida';
-                                    }
+                if($Datos->setId($_POST['Id-familiar-up'])){
+                    if($Datos->getDatosFamiliares()){
+                        if($Datos->setDependiente($_POST['Dependiente-up'])){
+                            if($Datos->setTelefono($_POST['Telefono-up'])){
+                                if($Datos->updateDatosFamiliares()){
+                                    $result['status'] = true;
+                                    $result['message'] = 'Datos actualizados';
                                 } else {
-                                    $result['exception'] = 'Correo no valido';
+                                    $result['exception'] = 'Operación fallida';
                                 }
                             } else {
-                                $result['exception'] = 'Número invalido';
+                                $result['exception'] = 'Telefono incorrecto';
                             }
-                        }  else {
-                            $result['exception'] = 'Número invalido';
-                        }                      
+                        } else {
+                            $result['exception'] = 'Valor de dependencia no valido';
+                        }
                     } else {
-                        $result['exception'] = 'Colaborador inexistente';
+                        $result['exception'] = 'Datos Inexistentes';
                     }
                 } else {
-                    $result['exception'] = 'Colaborador incorrecto';
+                    $result['exception'] = 'Id incorrecto';
                 }
+                
             break;            
 
             case 'disable':
                 if($Datos->setId($_POST['identifier'])){
                     if($Datos->setEstado(0)){
-                        if($Datos->getDatos()){
+                        if($Datos->getDatosFamilliares()){
                             if($Datos->disableDatos()){
                                 $result['status'] = true;
-                                $result['message'] = 'Datos de colabirador Deshablitado';
+                                $result['message'] = 'Datos de colaborador Deshablitado';
                             } else {
                                 $result['exception'] = 'Operación fallida';
                             }
