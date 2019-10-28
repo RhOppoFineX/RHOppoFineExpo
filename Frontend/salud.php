@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
 
-    <title>Tabla | Datos Identificacion </title>
+    <title>Tabla | Datos de salud </title>
 	
 	<?php
 		require_once '../backend/core/helpers/css.php';	//Hojas de estilos CSS
@@ -29,7 +29,7 @@
 				<div class="main">
 					<div class="main-content">
 						<div class="container-fluid">
-							<h3 class="page-title">Datos Identificacion</h3>							
+							<h3 class="page-title">Datos salud</h3>							
 							<div class="col-md-12">
                                 <!-- TABLE STRIPED -->
                                 <div class="panel">
@@ -44,21 +44,15 @@
 											<table class="table table-striped">
 												<thead>
 													<tr>													
-                                                        <th>Numero Documento</th>
-														<th>Residencia</th>
-														<th>Lugar de expedicion</th>
-														<th>Fecha de expedicion</th>
-														<th>Profesion</th>
-														<th>Estado Civil</th>
-														<th>Fecha de expiracion</th>
-														<th>Numero ISSS</th>
-														<th>AFP</th>														
-														<th>NUP</th>
-														<th>Tipo de Documento</th>
-														<th>Colaborador</th>
+                                                        <th>Enfermedades en Tratamiento</th>
+														<th>Medicamentos</th>
+														<th>Alergias</th>
+														<th>Alergias_medicamentos</th>
+														
+
 													</tr>
 												</thead>
-												<tbody id="tabla-datos-identificacion">
+												<tbody id="tabla-datos-salud">
 													
 												</tbody>
 											</table>
@@ -78,7 +72,7 @@
 
 
 	<!-- Modal agregar datos_identificacion Colaboradores-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="modal-salud-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -89,63 +83,17 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="form-colaborador-add">
+						<form method="post" id="form-salud-add">
 							<div class="form-row">
 
-								<div class="form-group col-md-6">
-									<label for="NumeroDocumento">Numero de DUI</label>
-									<input type="Text" class="form-control" id="NumeroDocumento" placeholder="Numero de DUI" name="NumeroDocumento" required>
-								</div>
+								
 
 								<div class="form-group col-md-12">
 									<label for="Direccion">Direccion Residencial (DUI)</label>
 									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
 
 									</textarea>
-								</div>	
-
-								<div class="form-group col-md-6">
-									<label for="LugarExpedicion">LugarExpedicion</label>
-									<input type="Text" class="form-control" id="LugarExpedicion" placeholder="LugarExpedicion" name="LugarExpedicion" required>
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="FechaExpedicion">FechaExpedicion</label>
-									<input type="date" class="form-control" id="FechaExpedicion" placeholder="FechaExpedicion" name="FechaExpedicion" required>
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="Profesion">Profesion</label>
-									<input id="Profesion" name="Profesion" placeholder="Profesion" class="form-control" required>
-																
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="Estado_civil">Estado civil</label>
-									<select id="Estado_civil" name="Estado_civil" class="form-control" required>
-									
-									</select>								
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="FechaExpepiracion">FechaExpiracion</label>
-									<input type="date" class="form-control" id="FechaExpiracion" placeholder="FechaExpiracion" name="FechaExpiracion" required>
-								</div>
-	
-								<div class="form-group col-md-6">
-									<label for="NumeroISSS">Numero de ISSS</label>
-									<input type="text" class="form-control" id="NumeroISSS" placeholder="Numero de ISSS" name="NumeroISSS" required>									
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="AFP">AFP</label>
-									<input type="text" class="form-control" id="AFP" placeholder="numero de AFP" name="AFP" required>					
-								</div>
-
-								<div class="form-group col-md-6">
-									<label for="NUP">Número de NUP</label>
-									<input type="number" class="form-control" id="NUP" placeholder="numero de NUP" name="NUP" required>					
-								</div>
+								</div>								
 								
 
 								<div class="form-group col-md-6">
@@ -178,7 +126,7 @@
 
 
 <!-- Modal Modificar datos_identificacion Colaboradores-->
-<div class="modal fade bd-modificar-modal-xl" id="modal-colaborador-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade bd-modificar-modal-xl" id="modal-salud-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -189,7 +137,7 @@
 		</div>
 			<div class="modal-body">
 					<div class="container-fluid">
-						<form method="post" id="form-colaborador-up">
+						<form method="post" id="form-salud-up">
 							<div class="form-row">								
 
 								<div class="form-group col-md-12">
@@ -237,10 +185,8 @@
 		require_once '../Backend/core/helpers/scripts.php';
 	?>
 	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/datos-identificacion.js"></script>	<!--Solo dejar el script del controlador-->
+	<script src="../Backend/core/controllers/salud.js"></script>	<!--Solo dejar el script del controlador-->
 	<!--Los primeros scripts siempre son los mismos el que cambia es el controlador-->
 	
 </body>
 </html>
-
-

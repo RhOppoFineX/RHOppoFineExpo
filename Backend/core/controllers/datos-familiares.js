@@ -106,7 +106,7 @@ $('#form-familiares-add').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {               
-                $('#insertar-DatosFamiliares').modal('hide');
+                $('#modal-familiares-add').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {                
@@ -126,7 +126,7 @@ $('#form-familiares-add').submit(function()
 function actualizarModal(id)
 {
     $.ajax({
-        url: apiColaborador + 'get',
+        url: apidatosFamiliares + 'get',
         type: 'post',
         data:{
             Id_datos_familiares: id
@@ -134,23 +134,16 @@ function actualizarModal(id)
         datatype: 'json'
     })
     .done(function(response){
-        // Se verifica si la respuesta de la apiColaborador es una cadena JSON, sino se muestra el resultado consola
+        // Se verifica si la respuesta de la apidatosFamiliares es una cadena JSON, sino se muestra el resultado consola
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_colaborador_up').val(result.dataset.Id_colaborador);
-                $('#Telefono_casa_up').val(result.dataset.Telefono_casa);
-                $('#Telefono_celular_up').val(result.dataset.Telefono_celular);
-                $('#Correo_up').val(result.dataset.Correo_institucional);
-                $('#Direccion_up').val(result.dataset.Direccion_residencial);
-                fillSelect(apiReligion, 'Religion_up', result.dataset.Id_religion); 
-                fillSelect(apiMunicipio, 'Municipio_up', result.dataset.Id_municipio);       
-                $('#NIP_up').val(result.dataset.NIP);
-                $('#Nivel_up').val(result.dataset.Nivel);
-                $('#Estudiando_up').val(result.dataset.Estudiando);              
-                          
-                $('#modal-colaborador-up').modal('show');   
+                $('#Dependiente-up').val(result.dataset.Dependiente);
+                $('#Telefono-up').val(result.dataset.Numero_telefono);
+                $('#Id-familiar-up').val(result.dataset.Id_datos_familiares);
+
+                $('#modal-familiares-up').modal('show');   
             } else {
                 sweetAlert(2, isHtmlString(result.exception), null);
             }
@@ -165,13 +158,13 @@ function actualizarModal(id)
 }
 
 // Función para crear un nuevo registro
-$('#form-colaborador-up').submit(function()
+$('#form-familiares-up').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiColaborador + 'update',
+        url: apidatosFamiliares + 'update',
         type: 'post',
-        data: new FormData($('#form-colaborador-up')[0]),
+        data: new FormData($('#form-familiares-up')[0]),
         datatype: 'json',
         cache: false,
         contentType: false,
@@ -183,7 +176,7 @@ $('#form-colaborador-up').submit(function()
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {               
-                $('#modal-colaborador-up').modal('hide');
+                $('#modal-familiares-up').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {                

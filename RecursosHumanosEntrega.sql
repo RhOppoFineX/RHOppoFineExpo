@@ -288,16 +288,7 @@ insert into Tipo_usuario (Id_tipo_usuario, Tipo_usuario) values (1, 'Admin'),
                                                                 (5, 'Asistente');
 
 
--- insert into Usuario values (1,'Joel','Novoa', 'Eltanio69@gmail.com', 2, 'elPuto', 'Joel vale vergasino'),
---                            (2,'Diego','Arias', 'd.arias@gmail.com', 1, 'el Resio', 'Puto Crack'),
---                            (3,'Cristian','Ayala', 'ca@gmail.com', 3, 'Jopen Five', 'Cerote de Cardif'),
---                            (4,'Rodrigo','Barillas', 'rb@gmail.com', 4, 'Rodri', 'Dificil123'),
---                            (5,'Jennifer','Santos', 'js@gmail.com', 5, 'Jenni', 'Jenn89'),
---                            (6,'Mariela','Cordova', 'mc@gmail.com', 1, 'Mar Cor', 'I like music'),
---                            (7,'Roberto','Sanchez', 'rs@gmail.com', 2, 'Robert', 'LoveItRH'),
---                            (8,'Marcos','Lopez', 'ml@gmail.com', 3, 'Lopez', 'I want ya'),
---                            (9,'Nancy','Aguilar', 'na@gmail.com', 4, 'Nancy A', 'NancAgui'),
---                            (10,'Gabriel','Reyes', 'gr@gmail.com', 5, 'G Reyes', '17Reyes');--Excelente--
+
 
 -- insert into Usuario (Id_usuario, Nombres, Apellidos, Correo, Id_tipo_usuario) values
 --                                  (4, 'Crack', 'Champions', 'd.@gmail.com', (Select Id_tipo_usuario from Usuario where Tipo_usuario = 'Admin'));                           

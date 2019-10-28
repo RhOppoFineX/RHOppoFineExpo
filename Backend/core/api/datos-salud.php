@@ -1,30 +1,22 @@
 <?php 
 require_once '../helpers/database.php';
 require_once '../helpers/validator.php';
-require_once '../models/datos-familiares.php';
+require_once '../models/salud.php';
 
 if(isset($_GET['action'])){
     session_start();
-    $Datos = new DatosFamiliares();
+    $Salud = new Salud();
     $result = array('status' => false, 'message' => null, 'exception' => null);
 
     if(isset($_SESSION['Id_usuario'])){
 
         switch($_GET['action']){
-            case 'read':
-                if(isset($_SESSION['Id_colaborador'])){
-                    if($result['dataset'] = $Datos->readDatosFamiliaresF($_SESSION['Id_colaborador'])){
+            case 'read':               
+                    if($result['dataset'] = $Salud->readSalud()){
                         $result['status'] = true;                               
                     } else {
                         $result['exception'] = 'No hay Datos registrados';
-                    }
-                } else {
-                    if($result['dataset'] = $Datos->readDatosFamiliares()){
-                        $result['status'] = true;                               
-                    } else {
-                        $result['exception'] = 'No hay Datos registrados';
-                    }
-                }
+                    }              
 
             break;
 

@@ -311,7 +311,7 @@ class Colaborador extends Validator
      */ 
     public function setNivel($Nivel)
     {
-        if($this->validateInteger($Nivel)){
+        if($this->validateCeroOrOne($Nivel)){
             $this->Nivel = $Nivel;
             return true;
         } else {
@@ -382,7 +382,7 @@ class Colaborador extends Validator
      */ 
     public function setEstado_colaborador($Estado_colaborador)
     {
-        if($this->validateInteger($Estado_colaborador)){
+        if($this->validateCeroOrOne($Estado_colaborador)){
             $this->Estado_colaborador = $Estado_colaborador;
             return true;
         } else {

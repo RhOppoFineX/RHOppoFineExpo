@@ -93,7 +93,7 @@ if(isset($_GET['action'])){
                                                 $result['exception'] = 'Telefono celular incorrecto';
                                             }
                                         } else {
-                                            $result['exception'] = 'Telefono incorrecto';
+                                            $result['exception'] = 'Telefono de casa incorrecto';
                                         }
                                     } else {
                                         $result['exception'] = 'Religion incorrecta';
@@ -167,10 +167,10 @@ if(isset($_GET['action'])){
                                     $result['exception'] = 'Correo no valido';
                                 }
                             } else {
-                                $result['exception'] = 'Número invalido';
+                                $result['exception'] = 'Número de celular invalido';
                             }
                         }  else {
-                            $result['exception'] = 'Número invalido';
+                            $result['exception'] = 'Número de casa invalido';
                         }                      
                     } else {
                         $result['exception'] = 'Colaborador inexistente';
