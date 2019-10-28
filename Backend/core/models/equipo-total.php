@@ -47,6 +47,13 @@ class Equipo extends Validator
 		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador ORDER BY Nombre_equipo';
 		$params = array(null);	
 		return Database::getRows($sql, $params);
+	}
+	
+	public function readEquipoTotalFiltrado($Id_colaborador)
+	{
+		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador WHERE C.Id_colaborador = ? ORDER BY Nombre_equipo';
+		$params = array($Id_colaborador);	
+		return Database::getRows($sql, $params);
     }
     
     public function createEquipo()

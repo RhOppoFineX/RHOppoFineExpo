@@ -14,10 +14,18 @@ if (isset($_GET['action'])) {
         switch ($_GET['action']) {
 
             case 'read':
-                if ($result['dataset'] = $Equipo->readEquipoTotal()) {
-                    $result['status'] = true;
+                if(isset($_SESSION['Id_colaborador'])){
+                    if ($result['dataset'] = $Equipo->readEquipoTotalFiltrado($_SESSION['Id_colaborador'])) {
+                        $result['status'] = true;
+                    } else {
+                        $result['exception'] = 'No hay equipo registrado';
+                    }
                 } else {
-                    $result['exception'] = 'No hay equipo registrado';
+                    if ($result['dataset'] = $Equipo->readEquipoTotal()) {
+                        $result['status'] = true;
+                    } else {
+                        $result['exception'] = 'No hay equipo registrado';
+                    }
                 }
             break;
 
@@ -55,7 +63,7 @@ if (isset($_GET['action'])) {
             case 'update':
                 $_POST = $Equipo->validateForm($_POST);
 
-                if ($Equipo->setId($_POST['Id_equipo_total'])){
+                if ($Equipo->setId($_POST['Id_equipo'])){
                     if ($Equipo->getEquipo()){
                         if ($Equipo->setId_equipo($_POST['equipo'])) {
                             if ($Equipo->setId_colaborador($_POST['nombrecol'])){

@@ -27,7 +27,7 @@
 								<div class="logo text-center"><img src="assets/img/logo-ricaldone.png" alt="Klorofil Logo" width="210" height="90" class="img-responsive"></div>
 								<p class="lead">Ingresa tu cuenta</p>
 							</div>
-							<form class="" method="post" id="form-login" autocomplete="on"> <!---action="index.php"--->
+							<form class="" method="post" id="form-login" autocomplete="off"> <!---action="index.php"--->
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Correo</label>
 									<input type="email" class="form-control" id="signin-email" placeholder="Correo" name="signin-email" required>

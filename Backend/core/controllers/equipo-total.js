@@ -22,7 +22,7 @@ function fillTable(rows)
                 <td>${row.Nombres}</td>
                 <td>${row.Apellidos}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_equipo_total})">Modificar<a><td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipoTotal}', ${row.Id_equipo_total}, null, 'disable')">Deshabilitar</a></td> 
+				<td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apiEquipoTotal}', ${row.Id_equipo_total}, null, 'disable')">Deshabilitar</a></td> 
             </tr>
         `;
     });
@@ -178,7 +178,7 @@ $('#modificarEquipo').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiEquipo + 'update',
+        url: apiEquipoTotal + 'update',
         type: 'post',
         data: new FormData($('#modificarEquipo')[0]),
         datatype: 'json',
@@ -192,13 +192,14 @@ $('#modificarEquipo').submit(function()
         if (isJSONString(response)) {
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
-            if (result.status) {
+            if (result.status) {                
                 $('#equipoModificar').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);         
                 
             } else {
                 sweetAlert(2, result.exception, null);
+                console.log(response);
             }
         } else {
             console.log(response);

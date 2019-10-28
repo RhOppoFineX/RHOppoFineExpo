@@ -69,7 +69,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
-					<form method="post" id="modificarEquipo" autocomplete="off" re>
+					<form method="post" id="modificarEquipo" autocomplete="off">
                         <div class="form-row">
                         
 						<div class="form-group col-md-6">
@@ -79,7 +79,7 @@
                             </div>
 
 							<div class="form-group col-md-6">
-                                <label for="nombrecol">Tipo equipo</label>
+                                <label for="nombrecol">colaborador</label>
                                 <select id="nombrecol" class="form-control" name="nombrecol" required>
                                 </select>									 
                             </div>
