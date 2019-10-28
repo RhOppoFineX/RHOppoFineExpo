@@ -5,8 +5,8 @@ $(document).ready(function()
 })
 
 // Constante para establecer la ruta y parámetros de comunicación con la apiUsuario
-const apiEquipoTotal = '../../RHOppoFineExpo/Backend/core/api/equipo_total.php?action=';
-const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=';
+const apiEquipoTotal = '../../RHOppoFineExpo/Backend/core/api/equipo-total.php?action=';
+const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=read';
 const apiEquipo = '../../RHOppoFineExpo/Backend/core/api/Equipo.php?action=read';
 
 // Función para llenar tabla con los datos de los registros
@@ -22,7 +22,7 @@ function fillTable(rows)
                 <td>${row.Nombres}</td>
                 <td>${row.Apellidos}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${row.Id_equipo_total})">Modificar<a><td>
-				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipo}', ${row.Id_equipo_total}, null, 'delete')">Eliminar</a></td> 
+				<td><a class="btn btn-danger btn-sm" onclick="confirmDelete('${apiEquipoTotal}', ${row.Id_equipo_total}, null, 'disable')">Deshabilitar</a></td> 
             </tr>
         `;
     });
@@ -33,7 +33,7 @@ function fillTable(rows)
 function showTable()
 {
     $.ajax({
-        url: apiEquipo + 'read',
+        url: apiEquipoTotal + 'read',
         type: 'post',
         data: null,
         datatype: 'json'
@@ -93,7 +93,8 @@ $('#form-search').submit(function()
 function modalCreate()
 {
     $('#agregarEquipo')[0].reset();//Id del formulario
-    fillSelect(tablaPadre, 'Tipo-equipo-A', null);//llenar el combo
+    fillSelect(apiEquipo, 'nombre', null);//llenar el combo
+    fillSelect(apiColaborador, 'Tipo-equipo-A', null);//llenar el combo
     //Tipos-A es el Id del combobox
     $('#equipoAgregar').modal('show');//Id del modal
 }
@@ -103,7 +104,7 @@ $('#agregarEquipo').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiEquipo + 'create',
+        url: apiEquipoTotal + 'create',
         type: 'post',
         data: new FormData($('#agregarEquipo')[0]),
         datatype: 'json',
@@ -139,10 +140,10 @@ $('#agregarEquipo').submit(function()
 function actualizarModal(id)
 {
     $.ajax({
-        url: apiEquipo + 'get',
+        url: apiEquipoTotal + 'get',
         type: 'post',
         data:{
-            Id_equipo : id
+            Id_equipo_total : id
         },
         datatype: 'json'
     })
@@ -153,9 +154,9 @@ function actualizarModal(id)
             const result = JSON.parse(response);
             // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
-                $('#Id_equipo').val(result.dataset.Id_equipo);
-                $('#Nombre-equipo').val(result.dataset.Nombre_equipo);
-                fillSelect(tablaPadre, 'Tipo-equipo', result.dataset.Id_tipo_equipo);           
+                $('#Id_equipo').val(result.dataset.Id_equipo_total);
+                fillSelect(apiEquipo, 'equipo', result.dataset.Id_equipo);
+                fillSelect(apiColaborador, 'nombrecol', result.dataset.Id_colaborador);
                 $('#equipoModificar').modal('show');
                 console.log();   
             } else {

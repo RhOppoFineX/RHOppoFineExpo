@@ -38,7 +38,9 @@
 											<thead>
 												<tr>
                                                     <th>Nombre equipo</th>
-                                                    <th>Tipo equipo</th>
+                                                    <th>Codigo</th>
+													<th>Nombre</th>
+													<th>Apellido</th>
 												</tr>
 											</thead>
 											<tbody id="tbody-read">
@@ -69,14 +71,16 @@
 			<div class="container-fluid">
 					<form method="post" id="modificarEquipo" autocomplete="off" re>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Nombre-equipo">Nombre equipo</label>
-                                <input type="Text" class="form-control" id="Nombre-equipo" placeholder="Nombres" name="Nombre-equipo" required>
+                        
+						<div class="form-group col-md-6">
+                                <label for="equipo">Tipo equipo</label>
+                                <select id="equipo" class="form-control" name="equipo" required>
+                                </select>									 
                             </div>
-							
+
 							<div class="form-group col-md-6">
-                                <label for="Tipo-equipo">Tipo equipo</label>
-                                <select id="Tipo-equipo" class="form-control" name="Tipo-equipo" required>
+                                <label for="nombrecol">Tipo equipo</label>
+                                <select id="nombrecol" class="form-control" name="nombrecol" required>
                                 </select>									 
                             </div>
 				<!--Input invisible--><input type="hidden" id="Id_equipo" name="Id_equipo">
@@ -107,13 +111,17 @@
 					<div class="container-fluid">
 						<form method="post" id="agregarEquipo" autocomplete="off">
 							<div class="form-row">
+															
 								<div class="form-group col-md-6">
-									<label for="Nombre-equipo-A">Nombre equipo</label>
-									<input type="Text" class="form-control" id="Nombre-equipo-A" placeholder="Nombre-equipo-A" name="Nombre-equipo-A" required>
+									<label for="nombre">Equipo</label>
+									<select id="nombre" name="nombre" class="form-control" required>
+									
+									</select>									
+									
 								</div>
 								
 								<div class="form-group col-md-6">
-									<label for="Tipo-equipo-A">Tipo equipo</label>
+									<label for="Tipo-equipo-A">colaborador</label>
 									<select id="Tipo-equipo-A" name="Tipo-equipo-A" class="form-control" required>
 									
 									</select>									
@@ -143,7 +151,7 @@
 	?>
 
 	<!--Scripts para los cruds-->	
-	<script src="../Backend/core/controllers/equipo.js"></script>
+	<script src="../Backend/core/controllers/equipo-total.js"></script>
 		
 	</body>
 </html>

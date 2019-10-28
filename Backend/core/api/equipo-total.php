@@ -24,8 +24,8 @@ if (isset($_GET['action'])) {
             case 'create':
                 $_POST = $Equipo->validateForm($_POST);
                 
-                if ($Equipo->setNombre_equipo($_POST['Nombre-equipo-A'])) {
-                    if ($Equipo->setId_tipo_equipo($_POST['Tipo-equipo-A'])) {
+                if ($Equipo->setId_equipo($_POST['nombre'])) {
+                    if ($Equipo->setId_colaborador($_POST['Tipo-equipo-A'])) {
                         if ($Equipo->createEquipo()) {
                             $result['status'] = true;
                             $result['message'] = 'Equipo agregado correctamente';
@@ -41,7 +41,7 @@ if (isset($_GET['action'])) {
             break;
 
             case 'get':
-                if ($Equipo->setId($_POST['Id_equipo'])) {
+                if ($Equipo->setId($_POST['Id_equipo_total'])) {
                     if ($result['dataset'] = $Equipo->getEquipo()) {
                         $result['status'] = true;
                     } else {
@@ -55,10 +55,10 @@ if (isset($_GET['action'])) {
             case 'update':
                 $_POST = $Equipo->validateForm($_POST);
 
-                if ($Equipo->setId($_POST['Id_equipo'])){
+                if ($Equipo->setId($_POST['Id_equipo_total'])){
                     if ($Equipo->getEquipo()){
-                        if ($Equipo->setNombre_equipo($_POST['Nombre-equipo'])) {
-                            if ($Equipo->setId_tipo_equipo($_POST['Tipo-equipo'])){
+                        if ($Equipo->setId_equipo($_POST['equipo'])) {
+                            if ($Equipo->setId_colaborador($_POST['nombrecol'])){
                                 if ($Equipo->updateEquipo()) {
                                 $result['status'] = true;
                                 $result['message'] = 'Equipo modificado correctamente';

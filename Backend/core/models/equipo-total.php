@@ -2,57 +2,45 @@
 class Equipo extends Validator
 {
 	// Declaración de propiedades
+	private $Id = null;
 	private $Id_equipo = null;
-	private $Nombre_equipo = null;
-    private $Id_tipo_equipo = null; //llave foranea
+	private $Id_colaborador = null;
+	
     
 	//Metodos set y get de llave foranea
-	public function setId_tipo_equipo($value)
-	{
-		if($this->validateId($value)){
-			$this->Id_tipo_equipo = $value;
-			return true;
-		}else{
-			return false;
-		}
+		
+	public function setId($Id)
+    {
+        if($this->validateId($Id)){
+            $this->Id = $Id;
+            return true;
+        } else {
+            return false;
+        }        
     }
-    
-    public function getId_tipo_equipo()
-	{
-		return $this->Id_tipo_equipo;
+
+	public function setId_equipo($Id)
+    {
+        if($this->validateId($Id)){
+            $this->Id_equipo = $Id;
+            return true;
+        } else {
+            return false;
+        }        
+	}
+	
+	public function setId_colaborador($Id)
+    {
+        if($this->validateId($Id)){
+            $this->Id_colaborador = $Id;
+            return true;
+        } else {
+            return false;
+        }        
     }
-    
-    // Métodos para sobrecarga de propiedades
-	public function setId($value)
-	{
-		if ($this->validateId($value)) {
-			$this->Id_equipo = $value;
-			return true;
-		} else {
-			return false;
-		}
-    }
-    
-    public function getId()
-	{
-		return $this->Id_equipo;
-    }
-    
-    public function setNombre_equipo($value)
-	{
-		if ($this->validateAlphabetic($value, 1, 50)) {
-			$this->Nombre_equipo = $value;
-			return true;
-		} else {
-			return false;
-		}
-    }
-    
-    public function getNombre_equipo()
-	{
-		return $this->Nombre_equipo;
-    }
-    
+
+
+
     // Metodos para manejar el SCRUD
 	public function readEquipoTotal()
 	{
@@ -63,23 +51,23 @@ class Equipo extends Validator
     
     public function createEquipo()
 	{
-		$sql = 'INSERT INTO Equipo(Nombre_equipo, Id_tipo_equipo) VALUES(?, ?)';
-		$params = array($this->Nombre_equipo, $this->Id_tipo_equipo);
+		$sql = 'INSERT INTO equipototal (Id_equipo, Id_Colaborador) VALUES(?, ?)';
+		$params = array($this->Id_equipo, $this->Id_colaborador);
 		return Database::executeRow($sql, $params);
 	}
 
     //para el modal modificar recuerden
 	public function getEquipo()
 	{
-		$sql = 'SELECT Id_equipo, Nombre_equipo, Id_tipo_equipo FROM Equipo WHERE Id_equipo = ?';
-		$params = array($this->Id_equipo);
+		$sql = 'SELECT Id_equipo_total, Id_equipo, Id_colaborador FROM equipototal WHERE Id_equipo_total = ?';
+		$params = array($this->Id);
 		return Database::getRow($sql, $params);
     }
     
     public function updateEquipo()
 	{
-		$sql = 'UPDATE Equipo SET Nombre_equipo = ?, Id_tipo_equipo = ? WHERE Id_equipo = ?';
-		$params = array($this->Nombre_equipo, $this->Id_tipo_equipo, $this->Id_equipo);
+		$sql = 'UPDATE equipototal SET Id_equipo = ?, Id_Colaborador = ? WHERE Id_equipo_total = ?';
+		$params = array($this->Id_equipo, $this->Id_colaborador, $this->Id);
 		return Database::executeRow($sql, $params);
     }
     
