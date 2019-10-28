@@ -86,6 +86,7 @@
 											<li><a href="datos-familiares.php" class=""><i class="lnr lnr-dice"></i> <span>Familiares</span></a></li>
 											<li><a href="area-detalle.php" class=""><i class="lnr lnr-dice"></i> <span>Area detalle</span></a></li>
 											<li><a href="datos-educacion.php" class=""><i class="lnr lnr-dice"></i> <span>Educación</span></a></li>
+											<li><a href="equipo-total.php" class=""><i class="lnr lnr-dice"></i> <span>Equipo Total</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Más Conocimientos</span></a></li>	
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Experiencia Laboral</span></a></li>
 											<li><a href="tables.php" class=""><i class="lnr lnr-dice"></i> <span>Salud</span></a></li>
