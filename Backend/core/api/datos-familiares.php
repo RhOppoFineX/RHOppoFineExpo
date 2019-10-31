@@ -120,7 +120,7 @@ if(isset($_GET['action'])){
             case 'disable':
                 if($Datos->setId($_POST['identifier'])){
                     if($Datos->setEstado(0)){
-                        if($Datos->getDatosFamilliares()){
+                        if($Datos->getDatosFamiliares()){
                             if($Datos->disableDatos()){
                                 $result['status'] = true;
                                 $result['message'] = 'Datos de colaborador Deshablitado';

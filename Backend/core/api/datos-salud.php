@@ -21,50 +21,50 @@ if(isset($_GET['action'])){
             break;
 
             case 'create':
-                $_POST = $Datos->validateForm($_POST);
+                $_POST = $Salud->validateForm($_POST);
 
-                if($Datos->setNombres($_POST['Nombres'])){
-                    if($Datos->setApellidos($_POST['Apellidos'])){
-                        if($Datos->setFecha($_POST['Fecha-Nacimiento'])){
-                            if($Datos->setDependiente($_POST['Dependiente'])){
-                                if($Datos->setId_parentesco($_POST['Parentesco'])){
-                                    if($Datos->setId_colaborador($_POST['Colaborador'])){
-                                        if($Datos->setGenero($_POST['Genero'])){
-                                            if($Datos->setTelefono($_POST['Telefono'])){
-                                                if($Datos->setEstado(1)){
-                                                    if($Datos->createDatosFamiliares()){
+                if($Salud->setEnfermedades_Tratamiento($_POST['Enfermedad-Tratamiento'])){
+                    if($Salud->setDescripcion_enfermedades($_POST['Descripcion-Enfermedad'])){
+                        if($Salud->setMedicamentos($_POST['Medicamentos'])){
+                            if($Salud->setDescripcion_medicamentos($_POST['Descripcion-Medicamentos'])){
+                                if($Salud->setAlergias($_POST['Alergias'])){
+                                    if($Salud->setDescripcion_alergias($_POST['Descripcion-Alergias'])){
+                                        if($Salud->setAlergias_medicamentos($_POST['Alergias-Medicamentos'])){
+                                            if($Salud->setDescripcion_alergias_medicamentos($_POST['Descripcion-Alergias-Medicamentos'])){
+                                                if($Salud->setId_colaborador($_POST['Colaborador'])){
+                                                    if($Salud->createSalud()){
                                                         $result['status'] = true;
-                                                        $result['message'] = 'Familiar Insertado';
+                                                        $result['message'] = 'Datos de salud insertados';
                                                     } else {
-                                                        $result['exception'] = 'No se pudo insertar';
+                                                        $result['exception'] = 'Operación fallida';
                                                     }
                                                 } else {
-                                                    $result['exception'] = 'Estado incorrecto';
+                                                    $result['exception'] = 'Colaborador Inexistente';
                                                 }
                                             } else {
-                                                $result['exception'] = 'Telefono no valido';
+                                                $result['exception'] = 'Descripción de Alergias a Medicamentos Invalida';
                                             }
                                         } else {
-                                            $result['exception'] = 'Genero Invalido';
+                                            $result['exception'] = 'Defina SI o NO en Alergias a Medicamentos';
                                         }
                                     } else {
-                                        $result['exception'] = 'Colaborador invalido';
+                                        $result['exception'] = 'Descripción de Alergias no valida';
                                     }
                                 } else {
-                                    $result['exception'] = 'Parentesco incorrecto';
+                                    $result['exception'] = 'Defina SI o NO en Alergias';
                                 }
                             } else {
-                                $result['exception'] = 'Estado de dependencia incorrecto';
+                                $result['exception'] = 'Descripción de Medicamentos Invalida';
                             }
                         } else {
-                            $result['exception'] = 'Fecha de nacimiento Invalida';
+                            $result['exception'] = 'Defina SI o NO en Medicamentos';
                         }
                     } else {
-                        $result['exception'] = 'Apellidos incorrectos';
-                    }                    
+                        $result['exception'] = 'Descripción de Enfermedades Invalida';
+                    }
                 } else {
-                    $result['exception'] = 'Nombres Incorrectos';
-                }                                       
+                    $result['exception'] = 'Defina SI o NO en Enfermedad Tratamiento';
+                }                                      
                                 
 
             break;

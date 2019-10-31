@@ -86,24 +86,76 @@
 						<form method="post" id="form-salud-add">
 							<div class="form-row">
 
+								<div class="form-group col-md-6">
+									<label for="Enfermedad-Tratamiento"> Enfermedad en Tratamiento</label>
+									<select id="Enfermedad-Tratamiento" name="Enfermedad-Tratamiento" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="0">NO</option>
+ 										<option value="1">SI</option>
+									</select>								
+								</div>
 								
 
 								<div class="form-group col-md-12">
-									<label for="Direccion">Direccion Residencial (DUI)</label>
-									<textarea rows="4" cols="50" id="Direccion" name="Direccion" required>
+									<label for="Descripcion-Enfermedad">Descripcion de Enfermedad</label>
+									<textarea rows="4" cols="50" id="Descripcion-Enfermedad" name="Descripcion-Enfermedad" required>
 
 									</textarea>
-								</div>								
-								
+								</div>
 
 								<div class="form-group col-md-6">
-									<label for="DUI"> Tipo Documento </label>
-									<select id="DUI" name="DUI" class="form-control" required>
+									<label for="Medicamentos">Medicamentos</label>
+									<select id="Medicamentos" name="Medicamentos" class="form-control" required>
 										<option value="" disabled selected>Seleccione una opción</option>
-										<option value="0">Carnet de Residente</option>
- 										<option value="1">DUI</option>
+										<option value="0">NO</option>
+ 										<option value="1">SI</option>
 									</select>								
-								</div>		
+								</div>
+								
+
+								<div class="form-group col-md-12">
+									<label for="Descripcion-Medicamentos">Descripcion de Medicamentos</label>
+									<textarea rows="4" cols="50" id="Descripcion-Medicamentos" name="Descripcion-Medicamentos" required>
+
+									</textarea>
+								</div>			
+
+								<div class="form-group col-md-6">
+									<label for="Alergias"> Alergias en Tratamiento</label>
+									<select id="Alergias" name="Alergias" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="0">NO</option>
+ 										<option value="1">SI</option>
+									</select>								
+								</div>
+								
+
+								<div class="form-group col-md-12">
+									<label for="Descripcion-Alergias">Descripcion de Alergias</label>
+									<textarea rows="4" cols="50" id="Descripcion-Alergias" name="Descripcion-Alergias" required>
+
+									</textarea>
+								</div>			
+
+
+								<div class="form-group col-md-6">
+									<label for="Alergias-Medicamentos"> Alergias a Medicamentos </label>
+									<select id="Alergias-Medicamentos" name="Alergias-Medicamentos" class="form-control" required>
+										<option value="" disabled selected>Seleccione una opción</option>
+										<option value="0">NO</option>
+ 										<option value="1">SI</option>
+									</select>								
+								</div>
+								
+
+								<div class="form-group col-md-12">
+									<label for="Descripcion-Alergias-Medicamentos">Descripcion de Alergias a Medicamentos</label>
+									<textarea rows="4" cols="50" id="Descripcion-Alergias-Medicamentos" name="Descripcion-Alergias-Medicamentos" required>
+
+									</textarea>
+								</div>				
+
+										
 								
 								<div class="form-group col-md-6">
 									<label for="Colaborador">Colaborador</label>

@@ -100,6 +100,8 @@ if (isset($_GET['action'])) {
 
         }
         print(json_encode($result));
+    } else {
+        exit('Debe Iniciar Sesión Antes');
     }
 
 } else {

@@ -69,5 +69,48 @@ function showTable()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 
-
 }
+
+// Función para mostrar formulario insertar en blanco
+function modalCreate()
+{
+    $('#form-salud-add')[0].reset();//Id del formulario    
+    fillSelect(apiColaborador, 'Colaborador', null);//llenar el combo
+    //Tipos-A es el Id del combobox
+    $('#modal-salud-add').modal('show');//Id del modal
+}
+
+// Función para crear un nuevo registro
+$('#form-salud-add').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apidatosSalud + 'create',
+        type: 'post',
+        data: new FormData($('#form-salud-add')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {               
+                $('#modal-salud-add').modal('hide');
+                showTable();
+                sweetAlert(1, result.message, null);
+            } else {                
+                sweetAlert(2, isHtmlString(result.exception), null); 
+            }
+        } else {            
+            sweetAlert(2, isHtmlString(response), null);            
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})

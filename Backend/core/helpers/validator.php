@@ -166,15 +166,7 @@ class Validator
             return false;
         }
     }
-
-    // public function validatePasswordSecurity($value)
-    // {
-    //     if (preg_match('/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/', $value)) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+   
 
     public function validatePassword($value)
     {

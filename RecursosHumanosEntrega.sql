@@ -45,24 +45,6 @@ Create Table Vistas(
     Id_tipo_usuario INTEGER Unsigned NOT NULL
  );
 
--- Create Table Acciones(
---     Id_acciones INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
---     Id_vista,
---     Id_tipo_usuario,
---     Estado,
--- );
---Petardo
-Create Table Permisos(
-    Id_permiso Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Titulo varchar(25) NOT NULL,
-    Descripcion varchar(150) NOT NULL,
-    Hora_inicio TIME NOT NULL,
-    Hora_fin TIME NOT NULL,
-    Fecha DATE NOT NULL,
-    Estado TINYINT(1) NOT NULL DEFAULT 1,
-    Id_usuario Integer Unsigned NOT NULL,
-    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario)    
-);
 
 -- create table Identidad(
 --     Id_identidad integer Unsigned PRIMARY KEY NOT NULL,
@@ -189,6 +171,7 @@ Create Table Detalle_idioma (
     Id_detalle_idioma Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_idioma Integer Unsigned NOT NULL,
     Id_Colaborador Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_idioma) REFERENCES Idioma(Id_idioma),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador) 
 );
@@ -199,6 +182,7 @@ Create Table Educacion (
     Especialidad varchar (40) NOT NULL,
     Descripcion Text NULL,
     Id_Colaborador Integer Unsigned NOT NULL,    
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_categoria) REFERENCES Categoria (Id_categoria),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador (Id_Colaborador)      
 );
@@ -222,6 +206,7 @@ Create Table equipoTotal(
     Id_equipo_total Integer Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Id_equipo Integer Unsigned NOT NULL,
     Id_Colaborador Integer Unsigned NOT NULL,
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (Id_equipo) REFERENCES Equipo(Id_equipo),
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)       
 );
@@ -247,8 +232,9 @@ Create Table Salud(
     Descripcion_alergias Text NULL,
     Alergias_medicamentos TINYINT(1) NOT NULL,
     Descripcion_alergias_medicamentos Text NULL,
-    Notificacion_emergencia INTEGER Unsigned NOT NULL,    
-    FOREIGN KEY (Notificacion_emergencia) REFERENCES datosFamiliares(Id_datos_familiares)
+    Id_Colaborador INTEGER Unsigned NOT NULL,    
+    Estado TINYINT(1) NOT NULL DEFAULT 1,
+    FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)
 );
 --Topo Super Crud
 Create Table Area_laboral(
@@ -461,16 +447,16 @@ insert into Experiencia_laboral (Empresa, Fecha_ingreso, Fecha_retiro, Puesto, I
  ('el diario de hoy','26-05-2017','30-12-2018','empresario',3),
  ('movistar','27-05-2017','30-12-2018','mantenimiento de computadoras',1);
 
-insert into Salud (Id_Salud, Enfermedades_Tratamiento, Descripcion_enfermedades, Medicamentos, Descripcion_medicamentos, Alergias, Descripcion_alergias, Alergias_medicamentos, Descripcion_alergias_medicamentos, Notificacion_emergencia) values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene', 0, 'No Perro', 1),
+insert into Salud (Id_Salud, Enfermedades_Tratamiento, Descripcion_enfermedades, Medicamentos, Descripcion_medicamentos, Alergias, Descripcion_alergias, Alergias_medicamentos, Descripcion_alergias_medicamentos, Id_Colaborador) values (1,1,'Necesita tratamiento',1,'son comunes',0,'no tiene', 0, 'No Perro', 1),
                          (2,0,' tratamiento',0,' comunes',0,'no tiene',1, 'No maje', 2),
                          (3,1,'no tratamiento',1,'no tan comunes',0,'no tiene',1,'No necesita', 3),
-                         (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario', 4),
-                         (5,1,'bajo medicamento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 5),
-                         (6,0,'en control',0,'son comunes',0,'no tiene',1,'Medicamento diario', 6),
-                         (7,1,'tratamiento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 7),
-                         (8,0,'bajo medicamento',0,'son comunes',0,'no tiene',1,'Aspirina', 8),
-                         (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita', 9),
-                         (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',10);
+                         (4,0,'en control',0,'comunes',0,'no tiene',1,'Medicamento diario', 1),
+                         (5,1,'bajo medicamento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 2),
+                         (6,0,'en control',0,'son comunes',0,'no tiene',1,'Medicamento diario', 3),
+                         (7,1,'tratamiento',1,'no tan comunes',0,'no tiene',1,'Pastilla semanal', 1),
+                         (8,0,'bajo medicamento',0,'son comunes',0,'no tiene',1,'Aspirina', 2),
+                         (9,1,'no tratamiento',1,'comunes',0,'no tiene',1,'No necesita', 3),
+                         (10,0,'necesita tratamiento',0,'no tan comunes',0,'no tiene',1,'Aspina',1);
 
 insert into Area_laboral (Id_laboral, Id_area, Id_puesto, Sueldo_plaza, Fecha_ingreso, Inicio_contrato, Fin_contrato, Horas_al_dia) values (1,1,1,800.90,'2017-10-20','2017-10-25','2018-10-25',8),
                                 (2,2,2,1800.90,'2017-10-10','15-10-2017','25-10-2018',10),

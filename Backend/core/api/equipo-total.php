@@ -87,14 +87,18 @@ if (isset($_GET['action'])) {
                 }    
             break;
                     
-                case 'delete':
+                case 'disable':
                     if ($Equipo->setId($_POST['identifier'])) {
                         if ($Equipo->getEquipo()) {
-                            if ($Equipo->deleteEquipo()) {
-                                $result['status'] = true;
-                                $result['message'] = 'Equipo eliminado correctamente';
+                            if($Equipo->setEstado(0)){
+                                if ($Equipo->disableEquipo()){
+                                    $result['status'] = true;
+                                    $result['message'] = 'Equipo deshabilitado correctamente';
+                                } else {
+                                    $result['exception'] = 'Operación fallida';
+                                }
                             } else {
-                                $result['exception'] = 'Operación fallida';
+                                $result['exception'] = 'Estado Invalido';
                             }
                         } else {
                             $result['exception'] = 'Equipo inexistente';
@@ -108,6 +112,8 @@ if (isset($_GET['action'])) {
 
         }
         print(json_encode($result));
+    } else {
+        exit('Debe Iniciar Sesión Antes');
     }
 
 } else {

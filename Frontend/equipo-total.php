@@ -34,19 +34,21 @@
 								<!--Boton insertar--><a type="button" class="btn btn-primary btn-lg" onclick="modalCreate()">Agregar nuevo registro <span class="lnr lnr-file-add"></span></a>
 									</div>
 									<div class="panel-body no-padding">
-										<table class="table table-striped" id="tabla-equipo">
-											<thead>
-												<tr>
-                                                    <th>Nombre equipo</th>
-                                                    <th>Codigo</th>
-													<th>Nombre</th>
-													<th>Apellido</th>
-												</tr>
-											</thead>
-											<tbody id="tbody-read">
-											
- 											</tbody>
-										</table>
+										<div class="table-responsive">
+											<table class="table table-striped" id="tabla-equipo">
+												<thead>
+													<tr>
+														<th>Nombre equipo</th>
+														<th>Codigo</th>
+														<th>Nombre</th>
+														<th>Apellido</th>
+													</tr>
+												</thead>
+												<tbody id="tbody-read">
+												
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 

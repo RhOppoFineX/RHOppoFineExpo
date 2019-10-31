@@ -44,7 +44,7 @@ if(isset($_GET['action'])){
                                                                 if($Datos->setId_colaborador($_POST['Colaborador'])){
                                                                     if($Datos->createDatos()){
                                                                             $result['status'] = true;
-                                                                            $result['message'] = 'Datos personales insertados continue con los datos de identificacion';
+                                                                            $result['message'] = 'Datos de identificación insertados';
                                                                             } else {
                                                                                 $result['exception'] = 'Fecha invalida';
                                                                             }
@@ -52,7 +52,7 @@ if(isset($_GET['action'])){
                                                                             $result['exception'] = 'valor invalido';
                                                                         }                                                                   
                                                                 } else {
-                                                                    $result['exception'] = 'Tipo invalido';
+                                                                    $result['exception'] = 'Tipo de documento no valido';
                                                                 }
                                                             } else {
                                                                 $result['exception'] = 'NUP incorrecto';
@@ -79,7 +79,7 @@ if(isset($_GET['action'])){
                                     $result['exception'] = 'Lugar de expedicion incorrecto';
                                 }
                             } else {
-                                $result['exception'] = 'Direccion incorrectos';
+                                $result['exception'] = 'Dirección incorrecta';
                             }
                         } else {
                             $result['exception'] = 'Numero de documento inconrrecto';

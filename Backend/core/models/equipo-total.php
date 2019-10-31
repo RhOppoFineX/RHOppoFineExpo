@@ -5,6 +5,7 @@ class Equipo extends Validator
 	private $Id = null;
 	private $Id_equipo = null;
 	private $Id_colaborador = null;
+	private $Estado = null;
 	
     
 	//Metodos set y get de llave foranea
@@ -37,21 +38,44 @@ class Equipo extends Validator
         } else {
             return false;
         }        
-    }
+	}
+	/**
+	 * Get the value of Estado
+	 */ 
+	public function getEstado()
+	{
+		return $this->Estado;
+	}
+
+	/**
+	 * Set the value of Estado
+	 *
+	 * @return  self
+	 */ 
+	public function setEstado($Estado)
+	{
+		if($this->validateCeroOrOne($Estado)){
+			$this->Estado = $Estado;
+			return true;
+		} else {
+			return false;
+		}		
+	}
+	
 
 
 
     // Metodos para manejar el SCRUD
 	public function readEquipoTotal()
 	{
-		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador ORDER BY Nombre_equipo';
+		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador WHERE E.Estado = 1 ORDER BY Nombre_equipo';
 		$params = array(null);	
 		return Database::getRows($sql, $params);
 	}
 	
 	public function readEquipoTotalFiltrado($Id_colaborador)
 	{
-		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador WHERE C.Id_colaborador = ? ORDER BY Nombre_equipo';
+		$sql = 'SELECT E.Id_equipo_total, T.Nombre_equipo, Codigo_colaborador, Nombres, Apellidos FROM equipototal  as E INNER JOIN equipo as T ON E.Id_equipo = T.Id_equipo INNER JOIN colaborador as C ON E.Id_Colaborador = C.Id_Colaborador WHERE C.Id_colaborador = ? and E.Estado = 1 ORDER BY Nombre_equipo';
 		$params = array($Id_colaborador);	
 		return Database::getRows($sql, $params);
     }
@@ -78,11 +102,12 @@ class Equipo extends Validator
 		return Database::executeRow($sql, $params);
     }
     
-    public function deleteEquipo()
+    public function disableEquipo()
 	{
-		$sql = 'DELETE FROM Equipo WHERE Id_equipo = ?';
-		$params = array($this->Id_equipo);
+		$sql = 'UPDATE EquipoTotal SET Estado = ? WHERE Id_equipo_total = ?';
+		$params = array($this->Estado, $this->Id);
 		return Database::executeRow($sql, $params);
 	}
+	
 }
 ?>
