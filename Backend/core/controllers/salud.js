@@ -20,7 +20,10 @@ function fillTable(filas)
                 <td>${fila.Enfermedades_Tratamiento==1 ? 'SI' : 'NO'}</td>							
                 <td>${fila.Medicamentos==1 ? 'SI' : 'NO'}</td>
                 <td>${fila.Alergias==1 ? 'SI' : 'NO'}</td>							
-                <td>${fila.Alergias_medicamentos==1 ? 'SI' : 'NO'}</td>                        
+                <td>${fila.Alergias_medicamentos==1 ? 'SI' : 'NO'}</td>   
+                <td>${fila.Codigo_colaborador}</td>
+                <td>${fila.Nombres}</td>                     
+                <td>${fila.Apellidos}</td>
                 <td><a class="btn btn-warning btn-sm" onclick="actualizarModal(${fila.Id_Salud})">Modificar</a></td>
                 <td><a class="btn btn-primary btn-sm" onclick="confirmDelete('${apidatosSalud}', ${fila.Id_Salud}, null, 'disable')">Deshabilitar</a></td>				
             </tr>       
@@ -100,6 +103,82 @@ $('#form-salud-add').submit(function()
             // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {               
                 $('#modal-salud-add').modal('hide');
+                showTable();
+                sweetAlert(1, result.message, null);
+            } else {                
+                sweetAlert(2, isHtmlString(result.exception), null); 
+            }
+        } else {            
+            sweetAlert(2, isHtmlString(response), null);            
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+// Función para mostrar formulario con registro a modificar
+function actualizarModal(id)
+{
+    $.ajax({
+        url: apidatosSalud + 'get',
+        type: 'post',
+        data:{
+            Id_Salud: id
+        },
+        datatype: 'json'
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apidatosSalud es una cadena JSON, sino se muestra el resultado consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
+            if (result.status) {
+                $('#Id_salud').val(result.dataset.Id_Salud);
+                $('#Enfermedad-Tratamiento-up').val(result.dataset.Enfermedades_Tratamiento);
+                $('#Descripcion-Enfermedad-up').val(result.dataset.Descripcion_enfermedades);
+                $('#Medicamentos-up').val(result.dataset.Medicamentos);
+                $('#Descripcion-Medicamentos-up').val(result.dataset.Descripcion_medicamentos);
+                $('#Alergias-up').val(result.dataset.Alergias);
+                $('#Descripcion-Alergias-up').val(result.dataset.Descripcion_alergias);
+                $('#Alergias-Medicamentos-up').val(result.dataset.Alergias_medicamentos);
+                $('#Descripcion-Alergias-Medicamentos-up').val(result.dataset.Descripcion_alergias_medicamentos);                
+
+                $('#modal-salud-up').modal('show');   
+            } else {
+                sweetAlert(2, isHtmlString(result.exception), null);
+            }
+        } else {
+            sweetAlert(2, isHtmlString(response), null);
+        }
+    })
+    .fail(function(jqXHR){
+        // Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+}
+
+// Función para crear un nuevo registro
+$('#form-salud-up').submit(function()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apidatosSalud + 'update',
+        type: 'post',
+        data: new FormData($('#form-salud-up')[0]),
+        datatype: 'json',
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(response){
+        // Se verifica si la respuesta de la apiUsuario es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const result = JSON.parse(response);
+            // Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
+            if (result.status) {               
+                $('#modal-salud-up').modal('hide');
                 showTable();
                 sweetAlert(1, result.message, null);
             } else {                

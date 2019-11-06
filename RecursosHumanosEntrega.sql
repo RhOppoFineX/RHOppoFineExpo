@@ -39,11 +39,11 @@ Create Table Usuario(
     FOREIGN KEY (Id_tipo_usuario) REFERENCES Tipo_usuario(Id_tipo_usuario)
 );
 
-Create Table Vistas(
-    Id_vistas INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nombre varchar(25) UNIQUE NOT NULL,
-    Id_tipo_usuario INTEGER Unsigned NOT NULL
- );
+-- Create Table Vistas(
+--     Id_vistas INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     Nombre varchar(25) UNIQUE NOT NULL,
+--     Id_tipo_usuario INTEGER Unsigned NOT NULL
+--  );
 
 
 -- create table Identidad(

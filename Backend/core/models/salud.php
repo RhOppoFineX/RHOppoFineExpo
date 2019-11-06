@@ -271,7 +271,7 @@ class Salud extends Validator
 
         public function readSalud()
         {
-            $sql = "SELECT Id_Salud, Enfermedades_Tratamiento, Medicamentos, Alergias, Alergias_medicamentos FROM Salud WHERE Estado = 1";
+            $sql = "SELECT Id_Salud, Enfermedades_Tratamiento, Medicamentos, Alergias, Alergias_medicamentos, C.Codigo_colaborador, Nombres, Apellidos FROM Salud as S INNER JOIN Colaborador as C ON C.Id_Colaborador = S.Id_Colaborador WHERE S.Estado = 1";
             $params = array(null);
             return Database::getRows($sql, $params);
         }
@@ -292,8 +292,8 @@ class Salud extends Validator
 
         public function updateSalud()
         {
-            $sql = 'UPDATE Salud set Enfermedades_Tratamiento = ?, Descripcion_enfermedades = ?, Medicamentos = ?, Descripcion_medicamentos = ?, Alergias = ?, Descripcion_alergias = ?, Alergias_medicamentos = ?, Descripcion_alergias_medicamentos = ?, Id_Colaborador = ? WHERE Id_salud = ?';
-            $params = array($this->Enfermedades_Tratamiento, $this->Descripcion_enfermedades, $this->Medicamentos, $this->Descripcion_medicamentos, $this->Alergias, $this->Descripcion_alergias, $this->Alergias_medicamentos, $this->Descripcion_alergias_medicamentos, $this->Id_colaborador, $this->Id_salud);
+            $sql = 'UPDATE Salud set Enfermedades_Tratamiento = ?, Descripcion_enfermedades = ?, Medicamentos = ?, Descripcion_medicamentos = ?, Alergias = ?, Descripcion_alergias = ?, Alergias_medicamentos = ?, Descripcion_alergias_medicamentos = ? WHERE Id_salud = ?';
+            $params = array($this->Enfermedades_Tratamiento, $this->Descripcion_enfermedades, $this->Medicamentos, $this->Descripcion_medicamentos, $this->Alergias, $this->Descripcion_alergias, $this->Alergias_medicamentos, $this->Descripcion_alergias_medicamentos, $this->Id_salud);
             return Database::executeRow($sql, $params);
         }
 

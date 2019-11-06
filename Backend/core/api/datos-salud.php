@@ -70,50 +70,71 @@ if(isset($_GET['action'])){
             break;
 
             case 'get':
-                if($Datos->setId($_POST['Id_datos_familiares'])){
-                    if($result['dataset'] = $Datos->getDatosFamiliares()){
+                if($Salud->setId_salud($_POST['Id_Salud'])){
+                    if($result['dataset'] = $Salud->getSalud()){
                         $result['status'] = true;
                     } else {
                         $result['exception'] = 'Datos Inexistente';
                     }
                 } else {
-                    $result['exception'] = 'Datos Incorrecto';
+                    $result['exception'] = 'Datos Incorrectos';
                 }
             break;
 
             case 'update':
-                $_POST = $Datos->validateForm($_POST);   
+                $_POST = $Salud->validateForm($_POST);
 
-                if($Datos->setId($_POST['Id-familiar-up'])){
-                    if($Datos->getDatosFamiliares()){
-                        if($Datos->setDependiente($_POST['Dependiente-up'])){
-                            if($Datos->setTelefono($_POST['Telefono-up'])){
-                                if($Datos->updateDatosFamiliares()){
-                                    $result['status'] = true;
-                                    $result['message'] = 'Datos actualizados';
+                if($Salud->setId_salud($_POST['Id_salud'])){
+                    if($Salud->setEnfermedades_Tratamiento($_POST['Enfermedad-Tratamiento-up'])){
+                        if($Salud->setDescripcion_enfermedades($_POST['Descripcion-Enfermedad-up'])){
+                            if($Salud->setMedicamentos($_POST['Medicamentos-up'])){
+                                if($Salud->setDescripcion_medicamentos($_POST['Descripcion-Medicamentos-up'])){
+                                    if($Salud->setAlergias($_POST['Alergias-up'])){
+                                        if($Salud->setDescripcion_alergias($_POST['Descripcion-Alergias-up'])){
+                                            if($Salud->setAlergias_medicamentos($_POST['Alergias-Medicamentos-up'])){
+                                                if($Salud->setDescripcion_alergias_medicamentos($_POST['Descripcion-Alergias-Medicamentos-up'])){
+                                                    if($Salud->updateSalud()){
+                                                        $result['status'] = true;
+                                                        $result['message'] = 'Datos de salud Actualizados';
+                                                    } else {
+                                                        $result['exception'] = 'Operación Fallida';
+                                                    }                                               
+                                                } else {
+                                                    $result['exception'] = 'Descripción de Alergias a Medicamentos Invalida';
+                                                }
+                                            } else {
+                                                $result['exception'] = 'Defina SI o NO en Alergias a Medicamentos';
+                                            }
+                                        } else {
+                                            $result['exception'] = 'Descripción de Alergias no valida';
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Defina SI o NO en Alergias';
+                                    }
                                 } else {
-                                    $result['exception'] = 'Operación fallida';
+                                    $result['exception'] = 'Descripción de Medicamentos Invalida';
                                 }
                             } else {
-                                $result['exception'] = 'Telefono incorrecto';
+                                $result['exception'] = 'Defina SI o NO en Medicamentos';
                             }
                         } else {
-                            $result['exception'] = 'Valor de dependencia no valido';
+                            $result['exception'] = 'Descripción de Enfermedades Invalida';
                         }
                     } else {
-                        $result['exception'] = 'Datos Inexistentes';
-                    }
+                        $result['exception'] = 'Defina SI o NO en Enfermedad Tratamiento';
+                    }              
+
                 } else {
-                    $result['exception'] = 'Id incorrecto';
-                }
+                    $result['exception'] = 'Id Incorrecto';
+                }                              
                 
             break;            
 
             case 'disable':
-                if($Datos->setId($_POST['identifier'])){
-                    if($Datos->setEstado(0)){
-                        if($Datos->getDatosFamilliares()){
-                            if($Datos->disableDatos()){
+                if($Salud->setId_salud($_POST['identifier'])){
+                    if($Salud->setEstado(0)){
+                        if($Salud->getSalud()){
+                            if($Salud->disable()){
                                 $result['status'] = true;
                                 $result['message'] = 'Datos de colaborador Deshablitado';
                             } else {
