@@ -2,6 +2,7 @@ $(document).ready(function()
 {
     showTable();
     happyBirthday();
+    blockingTime();
 });
 
 const apiParentesco = '../../RHOppoFineExpo/Backend/core/api/Parentesco.php?action=read';

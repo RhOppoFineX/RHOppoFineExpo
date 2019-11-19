@@ -231,7 +231,7 @@ function fillHappyBirthday(rows)
     });
     $('#notificaciones').html(content);  
 }
-
+//La consulta de esta función es de la Tabla Colboradores y no de usuario
 function happyBirthday()
 {
     $.ajax({
@@ -259,6 +259,31 @@ function happyBirthday()
         // Se muestran en consola los posibles errores de la solicitud AJAX
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
+}
+
+var idleTime = 0;
+
+function blockingTime()
+{
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+}
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime >= 5) { // 20 minutes         
+        signOffIncative();
+        // sweetAlert(1, "Su sesión ha sido cerrada por inactividad", null);
+        //window.location.reload();
+    }
 }
 
 /*

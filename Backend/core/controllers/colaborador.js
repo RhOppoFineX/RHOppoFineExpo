@@ -3,6 +3,7 @@ $(document).ready(function()
     showTable();
     validateInputDate();
     happyBirthday();
+    blockingTime();
 });
 
 const apiColaborador = '../../RHOppoFineExpo/Backend/core/api/colaborador.php?action=';

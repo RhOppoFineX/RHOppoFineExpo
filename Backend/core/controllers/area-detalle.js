@@ -2,6 +2,7 @@ $(document).ready(function()
 {
     showTable();//al instante para cargar la tabla con la información
     happyBirthday();
+    blockingTime();
 
 });
 

@@ -6,6 +6,7 @@ $(document).ready(function(){
     graficoServicio();
     graficoDepartamento(); 
     happyBirthday();       
+    blockingTime();
 })
 
 const apiGraficos = '../../RHOppoFineExpo/Backend/core/api/graficos.php?action=';
