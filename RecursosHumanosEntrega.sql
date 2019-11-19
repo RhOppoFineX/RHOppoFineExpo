@@ -258,12 +258,12 @@ Create table Area_detalle(
     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)
 );
 --Las notificaciones las haremos después
-CREATE TABLE Notificaciones(
-    Id_notificacion INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Descripcion varchar(30) NOT NULL,
-    Id_Colaborador Integer Unsigned NOT NULL,
-    FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)    
-);
+-- CREATE TABLE Notificaciones(
+--     Id_notificacion INTEGER Unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     Descripcion varchar(30) NOT NULL,
+--     Id_Colaborador Integer Unsigned NOT NULL,
+--     FOREIGN KEY (Id_Colaborador) REFERENCES Colaborador(Id_Colaborador)    
+-- );
 
 
 --Inserts--
@@ -520,18 +520,18 @@ CREATE PROCEDURE personasDependientesDos (Colaborador Integer, Dependecia TINYIN
  CALL personasDependientesDos(2, 0);  
 
 
-CREATE TRIGGER LLENAR_NOTICACION AFTER INSERT ON Colaborador
-    FOR EACH ROW
-   INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Se agregó un nuevo Colaborador', 1);
+-- CREATE TRIGGER LLENAR_NOTICACION AFTER INSERT ON Colaborador
+--     FOR EACH ROW
+--    INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Se agregó un nuevo Colaborador', 1);
 
-CREATE TRIGGER selectNotificaion AFTER UPDATE ON  Usuario
-    FOR EACH ROW
-   INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Se Inicio Sesión', 1);
+-- CREATE TRIGGER selectNotificaion AFTER UPDATE ON  Usuario
+--     FOR EACH ROW
+--    INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Se Inicio Sesión', 1);
     
     
-CREATE TRIGGER notificacionSalud AFTER INSERT ON Salud
-    FOR EACH ROW
-   INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Añadido Registro de Salud', 2);
+-- CREATE TRIGGER notificacionSalud AFTER INSERT ON Salud
+--     FOR EACH ROW
+--    INSERT INTO Notificaciones (Descripcion, Id_Colaborador) VALUES ('Añadido Registro de Salud', 2);
 
 
 SELECT Sum(A.Sueldo_plaza) FROM Area_laboral as A INNER JOIN Puesto as P ON P.Id_puesto = A.Id_puesto INNER JOIN Area as AR ON AR.Id_area = A.Id_area;

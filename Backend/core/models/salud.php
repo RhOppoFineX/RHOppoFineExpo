@@ -276,6 +276,13 @@ class Salud extends Validator
             return Database::getRows($sql, $params);
         }
 
+        public function readSaludF($Id_Colaborador)
+        {
+            $sql = "SELECT Id_Salud, Enfermedades_Tratamiento, Medicamentos, Alergias, Alergias_medicamentos, C.Codigo_colaborador, Nombres, Apellidos FROM Salud as S INNER JOIN Colaborador as C ON C.Id_Colaborador = S.Id_Colaborador WHERE S.Estado = 1 and C.Id_Colaborador = ?";
+            $params = array($Id_Colaborador);
+            return Database::getRows($sql, $params);
+        }
+
         public function createSalud()
         {
             $sql = 'INSERT INTO Salud (Enfermedades_Tratamiento, Descripcion_enfermedades, Medicamentos, Descripcion_medicamentos, Alergias, Descripcion_alergias, Alergias_medicamentos, Descripcion_alergias_medicamentos, Id_Colaborador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';

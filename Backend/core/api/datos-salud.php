@@ -11,12 +11,20 @@ if(isset($_GET['action'])){
     if(isset($_SESSION['Id_usuario'])){
 
         switch($_GET['action']){
-            case 'read':               
+            case 'read':  
+                if(isset($_SESSION['Id_colaborador'])){
+                    if($result['dataset'] = $Salud->readSaludF($_SESSION['Id_colaborador'])){
+                        $result['status'] = true;                               
+                    } else {
+                        $result['exception'] = 'No hay Datos registrados';
+                    }
+                } else {
                     if($result['dataset'] = $Salud->readSalud()){
                         $result['status'] = true;                               
                     } else {
                         $result['exception'] = 'No hay Datos registrados';
-                    }              
+                    }
+                }         
 
             break;
 
